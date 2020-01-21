@@ -1,0 +1,23 @@
+﻿
+namespace MobilityMatters.Northwind {
+    export interface CitiesRow {
+        CityId?: number;
+        Name?: string;
+    }
+
+    export namespace CitiesRow {
+        export const idProperty = 'CityId';
+        export const nameProperty = 'Name';
+        export const localTextPrefix = 'Northwind.Cities';
+
+        export namespace Fields {
+            export declare const CityId;
+            export declare const Name;
+        }
+
+        [
+            'CityId',
+            'Name'
+        ].forEach(x => (<any>Fields)[x] = x);
+    }
+}
