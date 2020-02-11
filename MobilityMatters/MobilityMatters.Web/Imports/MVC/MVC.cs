@@ -83,6 +83,26 @@ namespace MVC
 
         public static class Northwind
         {
+            public static class AvailabilityAm
+            {
+                public const string AvailabilityAmIndex = "~/Modules/Northwind/AvailabilityAm/AvailabilityAmIndex.cshtml";
+            }
+
+            public static class AvailabilityAmMultiple
+            {
+                public const string AvailabilityAmMultipleIndex = "~/Modules/Northwind/AvailabilityAmMultiple/AvailabilityAmMultipleIndex.cshtml";
+            }
+
+            public static class AvailabilityPm
+            {
+                public const string AvailabilityPmIndex = "~/Modules/Northwind/AvailabilityPm/AvailabilityPmIndex.cshtml";
+            }
+
+            public static class AvailabilityPmMultiple
+            {
+                public const string AvailabilityPmMultipleIndex = "~/Modules/Northwind/AvailabilityPmMultiple/AvailabilityPmMultipleIndex.cshtml";
+            }
+
             public static class Category
             {
                 public const string CategoryIndex = "~/Modules/Northwind/Category/CategoryIndex.cshtml";
@@ -93,6 +113,11 @@ namespace MVC
                 public const string CitiesIndex = "~/Modules/Northwind/Cities/CitiesIndex.cshtml";
             }
 
+            public static class CitiesMulti
+            {
+                public const string CitiesMultiIndex = "~/Modules/Northwind/CitiesMulti/CitiesMultiIndex.cshtml";
+            }
+
             public static class Customer
             {
                 public const string CustomerIndex = "~/Modules/Northwind/Customer/CustomerIndex.cshtml";
@@ -101,6 +126,16 @@ namespace MVC
             public static class Employees
             {
                 public const string EmployeesIndex = "~/Modules/Northwind/Employees/EmployeesIndex.cshtml";
+            }
+
+            public static class Mail
+            {
+                public const string MailIndex = "~/Modules/Northwind/Mail/MailIndex.cshtml";
+            }
+
+            public static class MailAttachments
+            {
+                public const string MailAttachmentsIndex = "~/Modules/Northwind/MailAttachments/MailAttachmentsIndex.cshtml";
             }
 
             public static class Order
@@ -132,6 +167,11 @@ namespace MVC
             public static class SpecialNeeds
             {
                 public const string SpecialNeedsIndex = "~/Modules/Northwind/SpecialNeeds/SpecialNeedsIndex.cshtml";
+            }
+
+            public static class SpecialNeedsMultipleVolunteer
+            {
+                public const string SpecialNeedsMultipleVolunteerIndex = "~/Modules/Northwind/SpecialNeedsMultipleVolunteer/SpecialNeedsMultipleVolunteerIndex.cshtml";
             }
 
             public static class Supplier

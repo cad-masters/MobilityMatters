@@ -13,7 +13,14 @@
         ShipCity?: string;
         ShipRegion?: string;
         ShipPostalCode?: string;
+        DestinationAddress?: string;
+        DestinationCity?: string;
+        DestinationZip?: string;
         ShipCountry?: string;
+        DistanceText?: string;
+        DistanceValue?: number;
+        DurationText?: string;
+        DurationValue?: number;
         CustomerCompanyName?: string;
         CustomerContactName?: string;
         CustomerCity?: string;
@@ -21,6 +28,7 @@
         CustomerCountry?: string;
         CustomerPhone?: string;
         EmployeeFullName?: string;
+        RiderFullName?: string;
         EmployeeGender?: Gender;
         EmployeeReportsToFullName?: string;
         ShipViaCompanyName?: string;
@@ -33,6 +41,10 @@
         export const idProperty = 'OrderID';
         export const nameProperty = 'CustomerID';
         export const localTextPrefix = 'Northwind.Order';
+        export const deletePermission = 'Northwind:General';
+        export const insertPermission = 'Northwind:General';
+        export const readPermission = 'Northwind:General';
+        export const updatePermission = 'Northwind:General';
 
         export declare const enum Fields {
             OrderID = "OrderID",
@@ -48,7 +60,14 @@
             ShipCity = "ShipCity",
             ShipRegion = "ShipRegion",
             ShipPostalCode = "ShipPostalCode",
+            DestinationAddress = "DestinationAddress",
+            DestinationCity = "DestinationCity",
+            DestinationZip = "DestinationZip",
             ShipCountry = "ShipCountry",
+            DistanceText = "DistanceText",
+            DistanceValue = "DistanceValue",
+            DurationText = "DurationText",
+            DurationValue = "DurationValue",
             CustomerCompanyName = "CustomerCompanyName",
             CustomerContactName = "CustomerContactName",
             CustomerCity = "CustomerCity",
@@ -56,6 +75,7 @@
             CustomerCountry = "CustomerCountry",
             CustomerPhone = "CustomerPhone",
             EmployeeFullName = "EmployeeFullName",
+            RiderFullName = "RiderFullName",
             EmployeeGender = "EmployeeGender",
             EmployeeReportsToFullName = "EmployeeReportsToFullName",
             ShipViaCompanyName = "ShipViaCompanyName",

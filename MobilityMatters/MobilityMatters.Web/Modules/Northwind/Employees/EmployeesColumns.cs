@@ -31,6 +31,8 @@ namespace MobilityMatters.Northwind.Columns
         public String City { get; set; }
         /*public String Region { get; set; }*/
         public String PostalCode { get; set; }
+        public String Email { get; set; }
+        
         /*public String Country { get; set; }
         
         public String Extension { get; set; }

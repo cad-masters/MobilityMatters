@@ -6,6 +6,8 @@ namespace MobilityMatters.Common.Pages
     using Serenity;
     using Serenity.Data;
     using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Web.Mvc;
 
     [RoutePrefix("Dashboard"), Route("{action=index}")]
@@ -31,6 +33,9 @@ namespace MobilityMatters.Common.Pages
                         model.ProductCount = connection.Count<ProductRow>();
                         model.EmployeeCount = connection.Count<EmployeeRow>();
                         model.OrderCount = connection.Count<OrderRow>();
+
+                        model.ClientsByCity = ClientsByCity(connection);
+                        model.ClientsByAge = ClientsByAge(connection);
                     }
 
                     using (var connection = SqlConnections.NewFor<CustomerRow>())
@@ -41,6 +46,34 @@ namespace MobilityMatters.Common.Pages
                     return model;
                 });
             return View(MVC.Views.Common.Dashboard.DashboardIndex, cachedModel);
+        }
+
+        private List<ClientReportModel> ClientsByCity(System.Data.IDbConnection connection)
+        {
+            var fld = CustomerRow.Fields;
+            var query = new SqlQuery()
+                .From(fld)
+                .Where(fld.City.IsNotNull())
+                .Select(fld.City, nameof(ClientReportModel.Name))
+                .Select(Sql.Count(), nameof(ClientReportModel.Count))
+                .GroupBy(fld.City)
+                .OrderBy(fld.City);
+
+            return connection.Query<ClientReportModel>(query).ToList();
+        }
+
+        private List<ClientReportModel> ClientsByAge(System.Data.IDbConnection connection)
+        {
+            var fld = CustomerRow.Fields;
+            var query = new SqlQuery()
+                .From(fld)
+                .Where(fld.AgeCalc.IsNotNull())
+                .Select(fld.AgeCalc, nameof(ClientReportModel.Name))
+                .Select(Sql.Count(), nameof(ClientReportModel.Count))
+                .GroupBy(fld.AgeCalc)
+                .OrderBy(fld.AgeCalc);
+
+            return connection.Query<ClientReportModel>(query).ToList();
         }
     }
 }

@@ -4,6 +4,7 @@
         CustomerID?: string;
         CompanyName?: string;
         ContactName?: string;
+        RiderFullName?: string;
         PLanguage?: string;
         Address?: string;
         City?: string;
@@ -12,6 +13,7 @@
         DNR?: string;
         Radio?: boolean;
         Country?: string;
+        County?: RiderByCounty;
         Phone?: string;
         PreferredHospital?: string;
         Medical?: string;
@@ -53,12 +55,17 @@
         export function getLookup(): Q.Lookup<CustomerRow> {
             return Q.getLookup<CustomerRow>('Northwind.Customer');
         }
+        export const deletePermission = 'Northwind:Customer:Delete';
+        export const insertPermission = 'Northwind:Customer:Modify';
+        export const readPermission = 'Northwind:Customer:View';
+        export const updatePermission = 'Northwind:Customer:Modify';
 
         export declare const enum Fields {
             ID = "ID",
             CustomerID = "CustomerID",
             CompanyName = "CompanyName",
             ContactName = "ContactName",
+            RiderFullName = "RiderFullName",
             PLanguage = "PLanguage",
             Address = "Address",
             City = "City",
@@ -67,6 +74,7 @@
             DNR = "DNR",
             Radio = "Radio",
             Country = "Country",
+            County = "County",
             Phone = "Phone",
             PreferredHospital = "PreferredHospital",
             Medical = "Medical",

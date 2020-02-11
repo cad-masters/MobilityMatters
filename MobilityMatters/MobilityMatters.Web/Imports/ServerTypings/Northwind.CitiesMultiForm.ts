@@ -1,22 +1,28 @@
-﻿
-namespace MobilityMatters.Northwind {
-    export class CitiesMultiForm extends Serenity.PrefixedContext {
-        static formKey = 'Northwind.CitiesMulti';
-    }
-
+﻿namespace MobilityMatters.Northwind {
     export interface CitiesMultiForm {
         CityId: Serenity.IntegerEditor;
         EmployeeId: Serenity.IntegerEditor;
     }
 
-    [,
-        ['CityId', () => Serenity.IntegerEditor],
-        ['EmployeeId', () => Serenity.IntegerEditor]
-    ].forEach(x => Object.defineProperty(CitiesMultiForm.prototype, <string>x[0], {
-        get: function () {
-            return this.w(x[0], (x[1] as any)());
-        },
-        enumerable: true,
-        configurable: true
-    }));
+    export class CitiesMultiForm extends Serenity.PrefixedContext {
+        static formKey = 'Northwind.CitiesMulti';
+        private static init: boolean;
+
+        constructor(prefix: string) {
+            super(prefix);
+
+            if (!CitiesMultiForm.init)  {
+                CitiesMultiForm.init = true;
+
+                var s = Serenity;
+                var w0 = s.IntegerEditor;
+
+                Q.initFormType(CitiesMultiForm, [
+                    'CityId', w0,
+                    'EmployeeId', w0
+                ]);
+            }
+        }
+    }
 }
+

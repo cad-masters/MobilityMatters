@@ -1,5 +1,4 @@
-﻿
-namespace MobilityMatters.Northwind {
+﻿namespace MobilityMatters.Northwind {
     export interface AvailabilityAmMultipleRow {
         AvailabilityAmMultipleId?: number;
         AvailabilityAmid?: number;
@@ -9,17 +8,16 @@ namespace MobilityMatters.Northwind {
     export namespace AvailabilityAmMultipleRow {
         export const idProperty = 'AvailabilityAmMultipleId';
         export const localTextPrefix = 'Northwind.AvailabilityAmMultiple';
+        export const deletePermission = 'Administration:General';
+        export const insertPermission = 'Administration:General';
+        export const readPermission = 'Administration:General';
+        export const updatePermission = 'Administration:General';
 
-        export namespace Fields {
-            export declare const AvailabilityAmMultipleId;
-            export declare const AvailabilityAmid;
-            export declare const EmployeeId;
+        export declare const enum Fields {
+            AvailabilityAmMultipleId = "AvailabilityAmMultipleId",
+            AvailabilityAmid = "AvailabilityAmid",
+            EmployeeId = "EmployeeId"
         }
-
-        [
-            'AvailabilityAmMultipleId',
-            'AvailabilityAmid',
-            'EmployeeId'
-        ].forEach(x => (<any>Fields)[x] = x);
     }
 }
+

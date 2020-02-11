@@ -8,9 +8,15 @@ namespace MobilityMatters.Northwind {
         protected getIdProperty() { return EmployeesRow.idProperty; }
         protected getLocalTextPrefix() { return EmployeesRow.localTextPrefix; }
         protected getService() { return EmployeesService.baseUrl; }
+        private rowSelection: Serenity.GridRowSelectionMixin;
 
         constructor(container: JQuery) {
             super(container);
+        }
+
+        protected createToolbarExtensions() {
+            super.createToolbarExtensions();
+            this.rowSelection = new Serenity.GridRowSelectionMixin(this);
         }
 
         getButtons() {
@@ -28,7 +34,36 @@ namespace MobilityMatters.Northwind {
                 onViewSubmit: () => this.onViewSubmit()
             }));
 
+            buttons.push({
+                title: 'Send Email',
+                icon: "fa-envelope text-green",
+                separator: false,
+                onClick: () => {
+
+                    if (!this.onViewSubmit())
+                        return;
+
+                    var checkedIDs = this.rowSelection.getSelectedAsInt32();
+                    if (checkedIDs.length == 0) {
+                        Q.alert("You must select at least one Volunteer to send email!");
+                        return;
+                    }
+
+                    new Northwind.MailComposeDialog({
+                        toVoluntueer: checkedIDs
+                    }).dialogOpen();
+                }
+            });
+
             return buttons;
+        }
+
+        protected getColumns() {
+            var columns = super.getColumns();
+
+            columns.splice(0, 0, Serenity.GridRowSelectionMixin.createSelectColumn(() => this.rowSelection));
+
+            return columns;
         }
     }
 }

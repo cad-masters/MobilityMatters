@@ -1,5 +1,4 @@
-﻿
-namespace MobilityMatters.Northwind {
+﻿namespace MobilityMatters.Northwind {
     export interface SpecialNeedsMultipleVolunteerRow {
         SpecialNeedsMultipleVolunteerId?: number;
         SpecialNeedsId?: number;
@@ -9,17 +8,16 @@ namespace MobilityMatters.Northwind {
     export namespace SpecialNeedsMultipleVolunteerRow {
         export const idProperty = 'SpecialNeedsMultipleVolunteerId';
         export const localTextPrefix = 'Northwind.SpecialNeedsMultipleVolunteer';
+        export const deletePermission = 'Administration:General';
+        export const insertPermission = 'Administration:General';
+        export const readPermission = 'Administration:General';
+        export const updatePermission = 'Administration:General';
 
-        export namespace Fields {
-            export declare const SpecialNeedsMultipleVolunteerId;
-            export declare const SpecialNeedsId;
-            export declare const EmployeeId;
+        export declare const enum Fields {
+            SpecialNeedsMultipleVolunteerId = "SpecialNeedsMultipleVolunteerId",
+            SpecialNeedsId = "SpecialNeedsId",
+            EmployeeId = "EmployeeId"
         }
-
-        [
-            'SpecialNeedsMultipleVolunteerId',
-            'SpecialNeedsId',
-            'EmployeeId'
-        ].forEach(x => (<any>Fields)[x] = x);
     }
 }
+

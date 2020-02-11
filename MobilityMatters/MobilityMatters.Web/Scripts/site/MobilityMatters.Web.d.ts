@@ -25,6 +25,10 @@ declare namespace MobilityMatters.Administration {
         const localTextPrefix = "Administration.Language";
         const lookupKey = "Administration.Language";
         function getLookup(): Q.Lookup<LanguageRow>;
+        const deletePermission = "Administration:Translation";
+        const insertPermission = "Administration:Translation";
+        const readPermission = "Administration:Translation";
+        const updatePermission = "Administration:Translation";
         const enum Fields {
             Id = "Id",
             LanguageId = "LanguageId",
@@ -48,6 +52,8 @@ declare namespace MobilityMatters.Administration {
             List = "Administration/Language/List"
         }
     }
+}
+declare namespace MobilityMatters.Administration {
 }
 declare namespace MobilityMatters.Administration {
 }
@@ -83,6 +89,10 @@ declare namespace MobilityMatters.Administration {
         const idProperty = "RolePermissionId";
         const nameProperty = "PermissionKey";
         const localTextPrefix = "Administration.RolePermission";
+        const deletePermission = "Administration:Security";
+        const insertPermission = "Administration:Security";
+        const readPermission = "Administration:Security";
+        const updatePermission = "Administration:Security";
         const enum Fields {
             RolePermissionId = "RolePermissionId",
             RoleId = "RoleId",
@@ -121,6 +131,10 @@ declare namespace MobilityMatters.Administration {
         const localTextPrefix = "Administration.Role";
         const lookupKey = "Administration.Role";
         function getLookup(): Q.Lookup<RoleRow>;
+        const deletePermission = "Administration:Security";
+        const insertPermission = "Administration:Security";
+        const readPermission = "Administration:Security";
+        const updatePermission = "Administration:Security";
         const enum Fields {
             RoleId = "RoleId",
             RoleName = "RoleName"
@@ -215,6 +229,10 @@ declare namespace MobilityMatters.Administration {
         const idProperty = "UserPermissionId";
         const nameProperty = "PermissionKey";
         const localTextPrefix = "Administration.UserPermission";
+        const deletePermission = "Administration:Security";
+        const insertPermission = "Administration:Security";
+        const readPermission = "Administration:Security";
+        const updatePermission = "Administration:Security";
         const enum Fields {
             UserPermissionId = "UserPermissionId",
             UserId = "UserId",
@@ -268,6 +286,10 @@ declare namespace MobilityMatters.Administration {
     namespace UserRoleRow {
         const idProperty = "UserRoleId";
         const localTextPrefix = "Administration.UserRole";
+        const deletePermission = "Administration:Security";
+        const insertPermission = "Administration:Security";
+        const readPermission = "Administration:Security";
+        const updatePermission = "Administration:Security";
         const enum Fields {
             UserRoleId = "UserRoleId",
             UserId = "UserId",
@@ -320,6 +342,10 @@ declare namespace MobilityMatters.Administration {
         const localTextPrefix = "Administration.User";
         const lookupKey = "Administration.User";
         function getLookup(): Q.Lookup<UserRow>;
+        const deletePermission = "Administration:Security";
+        const insertPermission = "Administration:Security";
+        const readPermission = "Administration:Security";
+        const updatePermission = "Administration:Security";
         const enum Fields {
             UserId = "UserId",
             Username = "Username",
@@ -382,6 +408,10 @@ declare namespace MobilityMatters.Common {
         const idProperty = "UserPreferenceId";
         const nameProperty = "Name";
         const localTextPrefix = "Common.UserPreference";
+        const deletePermission = "";
+        const insertPermission = "";
+        const readPermission = "";
+        const updatePermission = "";
         const enum Fields {
             UserPreferenceId = "UserPreferenceId",
             UserId = "UserId",
@@ -524,20 +554,28 @@ declare namespace MobilityMatters.Membership {
     }
 }
 declare namespace MobilityMatters.Northwind {
-    class AvailabilityAmForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
+}
+declare namespace MobilityMatters.Northwind {
     interface AvailabilityAmForm {
         Day: Serenity.StringEditor;
     }
+    class AvailabilityAmForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
 }
 declare namespace MobilityMatters.Northwind {
-    class AvailabilityAmMultipleForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
+}
+declare namespace MobilityMatters.Northwind {
     interface AvailabilityAmMultipleForm {
         AvailabilityAmid: Serenity.IntegerEditor;
         EmployeeId: Serenity.IntegerEditor;
+    }
+    class AvailabilityAmMultipleForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
     }
 }
 declare namespace MobilityMatters.Northwind {
@@ -549,10 +587,14 @@ declare namespace MobilityMatters.Northwind {
     namespace AvailabilityAmMultipleRow {
         const idProperty = "AvailabilityAmMultipleId";
         const localTextPrefix = "Northwind.AvailabilityAmMultiple";
-        namespace Fields {
-            const AvailabilityAmMultipleId: any;
-            const AvailabilityAmid: any;
-            const EmployeeId: any;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            AvailabilityAmMultipleId = "AvailabilityAmMultipleId",
+            AvailabilityAmid = "AvailabilityAmid",
+            EmployeeId = "EmployeeId"
         }
     }
 }
@@ -564,12 +606,12 @@ declare namespace MobilityMatters.Northwind {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AvailabilityAmMultipleRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AvailabilityAmMultipleRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
+        const enum Methods {
+            Create = "Northwind/AvailabilityAmMultiple/Create",
+            Update = "Northwind/AvailabilityAmMultiple/Update",
+            Delete = "Northwind/AvailabilityAmMultiple/Delete",
+            Retrieve = "Northwind/AvailabilityAmMultiple/Retrieve",
+            List = "Northwind/AvailabilityAmMultiple/List"
         }
     }
 }
@@ -582,9 +624,15 @@ declare namespace MobilityMatters.Northwind {
         const idProperty = "AvailabilityAmid";
         const nameProperty = "Day";
         const localTextPrefix = "Northwind.AvailabilityAm";
-        namespace Fields {
-            const AvailabilityAmid: any;
-            const Day: any;
+        const lookupKey = "Northwind.AvailabilityAM";
+        function getLookup(): Q.Lookup<AvailabilityAmRow>;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            AvailabilityAmid = "AvailabilityAmid",
+            Day = "Day"
         }
     }
 }
@@ -596,30 +644,38 @@ declare namespace MobilityMatters.Northwind {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AvailabilityAmRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AvailabilityAmRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
+        const enum Methods {
+            Create = "Northwind/AvailabilityAm/Create",
+            Update = "Northwind/AvailabilityAm/Update",
+            Delete = "Northwind/AvailabilityAm/Delete",
+            Retrieve = "Northwind/AvailabilityAm/Retrieve",
+            List = "Northwind/AvailabilityAm/List"
         }
     }
 }
 declare namespace MobilityMatters.Northwind {
-    class AvailabilityPmForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
+}
+declare namespace MobilityMatters.Northwind {
     interface AvailabilityPmForm {
         Day: Serenity.StringEditor;
     }
+    class AvailabilityPmForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
 }
 declare namespace MobilityMatters.Northwind {
-    class AvailabilityPmMultipleForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
+}
+declare namespace MobilityMatters.Northwind {
     interface AvailabilityPmMultipleForm {
         AvailabilityPmid: Serenity.IntegerEditor;
         EmployeeId: Serenity.IntegerEditor;
+    }
+    class AvailabilityPmMultipleForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
     }
 }
 declare namespace MobilityMatters.Northwind {
@@ -631,10 +687,14 @@ declare namespace MobilityMatters.Northwind {
     namespace AvailabilityPmMultipleRow {
         const idProperty = "AvailabilityPmMultipleId";
         const localTextPrefix = "Northwind.AvailabilityPmMultiple";
-        namespace Fields {
-            const AvailabilityPmMultipleId: any;
-            const AvailabilityPmid: any;
-            const EmployeeId: any;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            AvailabilityPmMultipleId = "AvailabilityPmMultipleId",
+            AvailabilityPmid = "AvailabilityPmid",
+            EmployeeId = "EmployeeId"
         }
     }
 }
@@ -646,12 +706,12 @@ declare namespace MobilityMatters.Northwind {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AvailabilityPmMultipleRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AvailabilityPmMultipleRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
+        const enum Methods {
+            Create = "Northwind/AvailabilityPmMultiple/Create",
+            Update = "Northwind/AvailabilityPmMultiple/Update",
+            Delete = "Northwind/AvailabilityPmMultiple/Delete",
+            Retrieve = "Northwind/AvailabilityPmMultiple/Retrieve",
+            List = "Northwind/AvailabilityPmMultiple/List"
         }
     }
 }
@@ -664,9 +724,15 @@ declare namespace MobilityMatters.Northwind {
         const idProperty = "AvailabilityPmid";
         const nameProperty = "Day";
         const localTextPrefix = "Northwind.AvailabilityPm";
-        namespace Fields {
-            const AvailabilityPmid: any;
-            const Day: any;
+        const lookupKey = "Northwind.AvailabilityPM";
+        function getLookup(): Q.Lookup<AvailabilityPmRow>;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            AvailabilityPmid = "AvailabilityPmid",
+            Day = "Day"
         }
     }
 }
@@ -678,12 +744,12 @@ declare namespace MobilityMatters.Northwind {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AvailabilityPmRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AvailabilityPmRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
+        const enum Methods {
+            Create = "Northwind/AvailabilityPm/Create",
+            Update = "Northwind/AvailabilityPm/Update",
+            Delete = "Northwind/AvailabilityPm/Delete",
+            Retrieve = "Northwind/AvailabilityPm/Retrieve",
+            List = "Northwind/AvailabilityPm/List"
         }
     }
 }
@@ -712,6 +778,10 @@ declare namespace MobilityMatters.Northwind {
         const idProperty = "Id";
         const nameProperty = "CategoryName";
         const localTextPrefix = "Northwind.CategoryLang";
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             Id = "Id",
             CategoryId = "CategoryId",
@@ -751,6 +821,10 @@ declare namespace MobilityMatters.Northwind {
         const localTextPrefix = "Northwind.Category";
         const lookupKey = "Northwind.Category";
         function getLookup(): Q.Lookup<CategoryRow>;
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             CategoryID = "CategoryID",
             CategoryName = "CategoryName",
@@ -789,12 +863,16 @@ declare namespace MobilityMatters.Northwind {
     }
 }
 declare namespace MobilityMatters.Northwind {
-    class CitiesMultiForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
+}
+declare namespace MobilityMatters.Northwind {
     interface CitiesMultiForm {
         CityId: Serenity.IntegerEditor;
         EmployeeId: Serenity.IntegerEditor;
+    }
+    class CitiesMultiForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
     }
 }
 declare namespace MobilityMatters.Northwind {
@@ -837,41 +915,45 @@ declare namespace MobilityMatters.Northwind {
     namespace CitiesMultiRow {
         const idProperty = "CitiesMultiId";
         const localTextPrefix = "Northwind.CitiesMulti";
-        namespace Fields {
-            const CitiesMultiId: any;
-            const CityId: any;
-            const EmployeeId: any;
-            const CityName: any;
-            const EmployeeLastName: any;
-            const EmployeeFirstName: any;
-            const EmployeeTitle: any;
-            const EmployeeTitleOfCourtesy: any;
-            const EmployeeBirthDate: any;
-            const EmployeeHireDate: any;
-            const EmployeeAddress: any;
-            const EmployeeCity: any;
-            const EmployeeRegion: any;
-            const EmployeePostalCode: any;
-            const EmployeeCountry: any;
-            const EmployeeHomePhone: any;
-            const EmployeeExtension: any;
-            const EmployeePhoto: any;
-            const EmployeeNotes: any;
-            const EmployeeReportsTo: any;
-            const EmployeePhotoPath: any;
-            const EmployeeOnVacation: any;
-            const EmployeeEmail: any;
-            const EmployeeDriversLicense: any;
-            const EmployeeDriversLicenseExp: any;
-            const EmployeeInsurance: any;
-            const EmployeeInsuranceExp: any;
-            const EmployeeLicensePlate: any;
-            const EmployeeLicensePlateExp: any;
-            const EmployeeVehicleMake: any;
-            const EmployeeVehicleModel: any;
-            const EmployeeSpecialNeedsId: any;
-            const EmployeeGender: any;
-            const EmployeeSmoker: any;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            CitiesMultiId = "CitiesMultiId",
+            CityId = "CityId",
+            EmployeeId = "EmployeeId",
+            CityName = "CityName",
+            EmployeeLastName = "EmployeeLastName",
+            EmployeeFirstName = "EmployeeFirstName",
+            EmployeeTitle = "EmployeeTitle",
+            EmployeeTitleOfCourtesy = "EmployeeTitleOfCourtesy",
+            EmployeeBirthDate = "EmployeeBirthDate",
+            EmployeeHireDate = "EmployeeHireDate",
+            EmployeeAddress = "EmployeeAddress",
+            EmployeeCity = "EmployeeCity",
+            EmployeeRegion = "EmployeeRegion",
+            EmployeePostalCode = "EmployeePostalCode",
+            EmployeeCountry = "EmployeeCountry",
+            EmployeeHomePhone = "EmployeeHomePhone",
+            EmployeeExtension = "EmployeeExtension",
+            EmployeePhoto = "EmployeePhoto",
+            EmployeeNotes = "EmployeeNotes",
+            EmployeeReportsTo = "EmployeeReportsTo",
+            EmployeePhotoPath = "EmployeePhotoPath",
+            EmployeeOnVacation = "EmployeeOnVacation",
+            EmployeeEmail = "EmployeeEmail",
+            EmployeeDriversLicense = "EmployeeDriversLicense",
+            EmployeeDriversLicenseExp = "EmployeeDriversLicenseExp",
+            EmployeeInsurance = "EmployeeInsurance",
+            EmployeeInsuranceExp = "EmployeeInsuranceExp",
+            EmployeeLicensePlate = "EmployeeLicensePlate",
+            EmployeeLicensePlateExp = "EmployeeLicensePlateExp",
+            EmployeeVehicleMake = "EmployeeVehicleMake",
+            EmployeeVehicleModel = "EmployeeVehicleModel",
+            EmployeeSpecialNeedsId = "EmployeeSpecialNeedsId",
+            EmployeeGender = "EmployeeGender",
+            EmployeeSmoker = "EmployeeSmoker"
         }
     }
 }
@@ -883,12 +965,12 @@ declare namespace MobilityMatters.Northwind {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<CitiesMultiRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<CitiesMultiRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
+        const enum Methods {
+            Create = "Northwind/CitiesMulti/Create",
+            Update = "Northwind/CitiesMulti/Update",
+            Delete = "Northwind/CitiesMulti/Delete",
+            Retrieve = "Northwind/CitiesMulti/Retrieve",
+            List = "Northwind/CitiesMulti/List"
         }
     }
 }
@@ -901,6 +983,12 @@ declare namespace MobilityMatters.Northwind {
         const idProperty = "CityId";
         const nameProperty = "Name";
         const localTextPrefix = "Northwind.Cities";
+        const lookupKey = "Northwind.Cities";
+        function getLookup(): Q.Lookup<CitiesRow>;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
         const enum Fields {
             CityId = "CityId",
             Name = "Name"
@@ -947,6 +1035,10 @@ declare namespace MobilityMatters.Northwind {
         const idProperty = "ID";
         const nameProperty = "CustomerID";
         const localTextPrefix = "Northwind.CustomerCustomerDemo";
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             ID = "ID",
             CustomerID = "CustomerID",
@@ -975,6 +1067,10 @@ declare namespace MobilityMatters.Northwind {
         const idProperty = "ID";
         const nameProperty = "CustomerTypeID";
         const localTextPrefix = "Northwind.CustomerDemographic";
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             ID = "ID",
             CustomerTypeID = "CustomerTypeID",
@@ -1029,6 +1125,10 @@ declare namespace MobilityMatters.Northwind {
         const localTextPrefix = "Northwind.CustomerDetails";
         const lookupKey = "Northwind.CustomerDetails";
         function getLookup(): Q.Lookup<CustomerDetailsRow>;
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             Id = "Id",
             LastContactDate = "LastContactDate",
@@ -1128,6 +1228,10 @@ declare namespace MobilityMatters.Northwind {
     namespace CustomerGrossSalesRow {
         const nameProperty = "ContactName";
         const localTextPrefix = "Northwind.CustomerGrossSales";
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             CustomerId = "CustomerId",
             ContactName = "ContactName",
@@ -1146,6 +1250,10 @@ declare namespace MobilityMatters.Northwind {
     namespace CustomerRepresentativesRow {
         const idProperty = "RepresentativeId";
         const localTextPrefix = "Northwind.CustomerRepresentatives";
+        const deletePermission = "Northwind:Customer:View";
+        const insertPermission = "Northwind:Customer:View";
+        const readPermission = "Northwind:Customer:View";
+        const updatePermission = "Northwind:Customer:View";
         const enum Fields {
             RepresentativeId = "RepresentativeId",
             CustomerId = "CustomerId",
@@ -1159,6 +1267,7 @@ declare namespace MobilityMatters.Northwind {
         CustomerID?: string;
         CompanyName?: string;
         ContactName?: string;
+        RiderFullName?: string;
         PLanguage?: string;
         Address?: string;
         City?: string;
@@ -1167,6 +1276,7 @@ declare namespace MobilityMatters.Northwind {
         DNR?: string;
         Radio?: boolean;
         Country?: string;
+        County?: RiderByCounty;
         Phone?: string;
         PreferredHospital?: string;
         Medical?: string;
@@ -1204,11 +1314,16 @@ declare namespace MobilityMatters.Northwind {
         const localTextPrefix = "Northwind.Customer";
         const lookupKey = "Northwind.Customer";
         function getLookup(): Q.Lookup<CustomerRow>;
+        const deletePermission = "Northwind:Customer:Delete";
+        const insertPermission = "Northwind:Customer:Modify";
+        const readPermission = "Northwind:Customer:View";
+        const updatePermission = "Northwind:Customer:Modify";
         const enum Fields {
             ID = "ID",
             CustomerID = "CustomerID",
             CompanyName = "CompanyName",
             ContactName = "ContactName",
+            RiderFullName = "RiderFullName",
             PLanguage = "PLanguage",
             Address = "Address",
             City = "City",
@@ -1217,6 +1332,7 @@ declare namespace MobilityMatters.Northwind {
             DNR = "DNR",
             Radio = "Radio",
             Country = "Country",
+            County = "County",
             Phone = "Phone",
             PreferredHospital = "PreferredHospital",
             Medical = "Medical",
@@ -1316,6 +1432,10 @@ declare namespace MobilityMatters.Northwind {
         const localTextPrefix = "Northwind.Employee";
         const lookupKey = "Northwind.Employee";
         function getLookup(): Q.Lookup<EmployeeRow>;
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             EmployeeID = "EmployeeID",
             LastName = "LastName",
@@ -1386,6 +1506,10 @@ declare namespace MobilityMatters.Northwind {
         const idProperty = "EmployeeID";
         const nameProperty = "TerritoryID";
         const localTextPrefix = "Northwind.EmployeeTerritory";
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             EmployeeID = "EmployeeID",
             TerritoryID = "TerritoryID",
@@ -1429,6 +1553,7 @@ declare namespace MobilityMatters.Northwind {
         BirthDate: Serenity.DateEditor;
         Gender: Serenity.LookupEditor;
         Smoker: Serenity.BooleanEditor;
+        Language: Serenity.StringEditor;
         DriversLicense: Serenity.StringEditor;
         DriversLicenseExp: Serenity.DateEditor;
         LicensePlate: Serenity.StringEditor;
@@ -1437,8 +1562,19 @@ declare namespace MobilityMatters.Northwind {
         InsuranceExp: Serenity.DateEditor;
         VehicleMake: Serenity.StringEditor;
         VehicleModel: Serenity.StringEditor;
+        VehicleMake2: Serenity.StringEditor;
+        VehicleModel2: Serenity.StringEditor;
+        DMVClearance: Serenity.BooleanEditor;
+        PoliceClearance: Serenity.BooleanEditor;
+        ReferralSource: Serenity.LookupEditor;
+        TrainingDate: Serenity.DateEditor;
         HireDate: Serenity.DateEditor;
+        EndDate: Serenity.DateEditor;
+        WhyEnding: Serenity.StringEditor;
         SpecialNeedsList: Serenity.LookupEditor;
+        CitiesList: Serenity.LookupEditor;
+        AvailabilityAMList: Serenity.LookupEditor;
+        AvailabilityPMList: Serenity.LookupEditor;
     }
     class EmployeesForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -1456,6 +1592,9 @@ declare namespace MobilityMatters.Northwind {
         TitleOfCourtesy?: string;
         BirthDate?: string;
         HireDate?: string;
+        EndDate?: string;
+        WhyEnding?: string;
+        TrainingDate?: string;
         Address?: string;
         City?: string;
         Region?: string;
@@ -1476,9 +1615,18 @@ declare namespace MobilityMatters.Northwind {
         InsuranceExp?: string;
         VehicleMake?: string;
         VehicleModel?: string;
+        VehicleMake2?: string;
+        VehicleModel2?: string;
         SpecialNeedsList?: number[];
+        CitiesList?: number[];
+        AvailabilityAMList?: number[];
+        AvailabilityPMList?: number[];
         Gender?: string;
         Smoker?: boolean;
+        DMVClearance?: boolean;
+        PoliceClearance?: boolean;
+        ReferralSource?: string;
+        Language?: string;
         ReportsToLastName?: string;
         ReportsToFirstName?: string;
         ReportsToTitle?: string;
@@ -1501,6 +1649,10 @@ declare namespace MobilityMatters.Northwind {
         const idProperty = "EmployeeId";
         const nameProperty = "LastName";
         const localTextPrefix = "Northwind.Employees";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
         const enum Fields {
             EmployeeId = "EmployeeId",
             LastName = "LastName",
@@ -1510,6 +1662,9 @@ declare namespace MobilityMatters.Northwind {
             TitleOfCourtesy = "TitleOfCourtesy",
             BirthDate = "BirthDate",
             HireDate = "HireDate",
+            EndDate = "EndDate",
+            WhyEnding = "WhyEnding",
+            TrainingDate = "TrainingDate",
             Address = "Address",
             City = "City",
             Region = "Region",
@@ -1530,9 +1685,18 @@ declare namespace MobilityMatters.Northwind {
             InsuranceExp = "InsuranceExp",
             VehicleMake = "VehicleMake",
             VehicleModel = "VehicleModel",
+            VehicleMake2 = "VehicleMake2",
+            VehicleModel2 = "VehicleModel2",
             SpecialNeedsList = "SpecialNeedsList",
+            CitiesList = "CitiesList",
+            AvailabilityAMList = "AvailabilityAMList",
+            AvailabilityPMList = "AvailabilityPMList",
             Gender = "Gender",
             Smoker = "Smoker",
+            DMVClearance = "DMVClearance",
+            PoliceClearance = "PoliceClearance",
+            ReferralSource = "ReferralSource",
+            Language = "Language",
             ReportsToLastName = "ReportsToLastName",
             ReportsToFirstName = "ReportsToFirstName",
             ReportsToTitle = "ReportsToTitle",
@@ -1590,6 +1754,10 @@ declare namespace MobilityMatters.Northwind {
         const idProperty = "NoteId";
         const nameProperty = "EntityType";
         const localTextPrefix = "Northwind.Note";
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             NoteId = "NoteId",
             EntityType = "EntityType",
@@ -1643,6 +1811,10 @@ declare namespace MobilityMatters.Northwind {
     namespace OrderDetailRow {
         const idProperty = "DetailID";
         const localTextPrefix = "Northwind.OrderDetail";
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             DetailID = "DetailID",
             OrderID = "OrderID",
@@ -1681,18 +1853,19 @@ declare namespace MobilityMatters.Northwind {
     interface OrderForm {
         CustomerID: CustomerEditor;
         OrderDate: Serenity.DateEditor;
-        RequiredDate: Serenity.DateEditor;
+        RequiredDate: Serenity.StringEditor;
         EmployeeID: Serenity.LookupEditor;
-        DetailList: OrderDetailsEditor;
         ShippedDate: Serenity.DateEditor;
         ShipVia: Serenity.LookupEditor;
         Freight: Serenity.DecimalEditor;
-        ShipName: Serenity.StringEditor;
         ShipAddress: Serenity.StringEditor;
         ShipCity: Serenity.StringEditor;
-        ShipRegion: Serenity.StringEditor;
         ShipPostalCode: Serenity.StringEditor;
-        ShipCountry: Serenity.StringEditor;
+        DestinationAddress: Serenity.StringEditor;
+        DestinationCity: Serenity.StringEditor;
+        DestinationZip: Serenity.StringEditor;
+        DistanceText: Serenity.StringEditor;
+        DurationText: Serenity.StringEditor;
     }
     class OrderForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -1720,7 +1893,14 @@ declare namespace MobilityMatters.Northwind {
         ShipCity?: string;
         ShipRegion?: string;
         ShipPostalCode?: string;
+        DestinationAddress?: string;
+        DestinationCity?: string;
+        DestinationZip?: string;
         ShipCountry?: string;
+        DistanceText?: string;
+        DistanceValue?: number;
+        DurationText?: string;
+        DurationValue?: number;
         CustomerCompanyName?: string;
         CustomerContactName?: string;
         CustomerCity?: string;
@@ -1728,6 +1908,7 @@ declare namespace MobilityMatters.Northwind {
         CustomerCountry?: string;
         CustomerPhone?: string;
         EmployeeFullName?: string;
+        RiderFullName?: string;
         EmployeeGender?: Gender;
         EmployeeReportsToFullName?: string;
         ShipViaCompanyName?: string;
@@ -1739,6 +1920,10 @@ declare namespace MobilityMatters.Northwind {
         const idProperty = "OrderID";
         const nameProperty = "CustomerID";
         const localTextPrefix = "Northwind.Order";
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             OrderID = "OrderID",
             CustomerID = "CustomerID",
@@ -1753,7 +1938,14 @@ declare namespace MobilityMatters.Northwind {
             ShipCity = "ShipCity",
             ShipRegion = "ShipRegion",
             ShipPostalCode = "ShipPostalCode",
+            DestinationAddress = "DestinationAddress",
+            DestinationCity = "DestinationCity",
+            DestinationZip = "DestinationZip",
             ShipCountry = "ShipCountry",
+            DistanceText = "DistanceText",
+            DistanceValue = "DistanceValue",
+            DurationText = "DurationText",
+            DurationValue = "DurationValue",
             CustomerCompanyName = "CustomerCompanyName",
             CustomerContactName = "CustomerContactName",
             CustomerCity = "CustomerCity",
@@ -1761,6 +1953,7 @@ declare namespace MobilityMatters.Northwind {
             CustomerCountry = "CustomerCountry",
             CustomerPhone = "CustomerPhone",
             EmployeeFullName = "EmployeeFullName",
+            RiderFullName = "RiderFullName",
             EmployeeGender = "EmployeeGender",
             EmployeeReportsToFullName = "EmployeeReportsToFullName",
             ShipViaCompanyName = "ShipViaCompanyName",
@@ -1796,6 +1989,8 @@ declare namespace MobilityMatters.Northwind {
 declare namespace MobilityMatters.Northwind {
 }
 declare namespace MobilityMatters.Northwind {
+}
+declare namespace MobilityMatters.Northwind {
     interface ProductForm {
         ProductName: Serenity.StringEditor;
         ProductImage: Serenity.ImageUploadEditor;
@@ -1825,6 +2020,10 @@ declare namespace MobilityMatters.Northwind {
         const idProperty = "Id";
         const nameProperty = "ProductName";
         const localTextPrefix = "Northwind.ProductLang";
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             Id = "Id",
             ProductId = "ProductId",
@@ -1872,6 +2071,10 @@ declare namespace MobilityMatters.Northwind {
     namespace ProductLogRow {
         const idProperty = "ProductLogID";
         const localTextPrefix = "Northwind.ProductLog";
+        const deletePermission: any;
+        const insertPermission: any;
+        const readPermission = "";
+        const updatePermission: any;
         const enum Fields {
             ProductLogID = "ProductLogID",
             OperationType = "OperationType",
@@ -1926,6 +2129,10 @@ declare namespace MobilityMatters.Northwind {
         const localTextPrefix = "Northwind.Product";
         const lookupKey = "Northwind.Product";
         function getLookup(): Q.Lookup<ProductRow>;
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             ProductID = "ProductID",
             ProductName = "ProductName",
@@ -1996,6 +2203,10 @@ declare namespace MobilityMatters.Northwind {
         const localTextPrefix = "Northwind.Region";
         const lookupKey = "Northwind.Region";
         function getLookup(): Q.Lookup<RegionRow>;
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             RegionID = "RegionID",
             RegionDescription = "RegionDescription"
@@ -2020,6 +2231,12 @@ declare namespace MobilityMatters.Northwind {
     }
 }
 declare namespace MobilityMatters.Northwind {
+    enum RiderByCounty {
+        Alameda = 0,
+        ContraCosta = 1
+    }
+}
+declare namespace MobilityMatters.Northwind {
 }
 declare namespace MobilityMatters.Northwind {
     interface SalesByCategoryRow {
@@ -2031,6 +2248,10 @@ declare namespace MobilityMatters.Northwind {
     namespace SalesByCategoryRow {
         const nameProperty = "CategoryName";
         const localTextPrefix = "Northwind.SalesByCategory";
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             CategoryId = "CategoryId",
             CategoryName = "CategoryName",
@@ -2073,6 +2294,10 @@ declare namespace MobilityMatters.Northwind {
         const localTextPrefix = "Northwind.Shipper";
         const lookupKey = "Northwind.Shipper";
         function getLookup(): Q.Lookup<ShipperRow>;
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             ShipperID = "ShipperID",
             CompanyName = "CompanyName",
@@ -2114,26 +2339,32 @@ declare namespace MobilityMatters.Northwind {
         SpecialNeedsMultipleId?: number;
         SpecialNeedsId?: number;
         CustomerId?: number;
-        EmployeeId?: number;
     }
     namespace SpecialNeedsMultipleRow {
         const idProperty = "SpecialNeedsMultipleId";
         const localTextPrefix = "Northwind.SpecialNeedsMultiple";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
         const enum Fields {
             SpecialNeedsMultipleId = "SpecialNeedsMultipleId",
             SpecialNeedsId = "SpecialNeedsId",
-            CustomerId = "CustomerId",
-            EmployeeId = "EmployeeId"
+            CustomerId = "CustomerId"
         }
     }
 }
 declare namespace MobilityMatters.Northwind {
-    class SpecialNeedsMultipleVolunteerForm extends Serenity.PrefixedContext {
-        static formKey: string;
-    }
+}
+declare namespace MobilityMatters.Northwind {
     interface SpecialNeedsMultipleVolunteerForm {
         SpecialNeedsId: Serenity.IntegerEditor;
         EmployeeId: Serenity.IntegerEditor;
+    }
+    class SpecialNeedsMultipleVolunteerForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
     }
 }
 declare namespace MobilityMatters.Northwind {
@@ -2145,10 +2376,14 @@ declare namespace MobilityMatters.Northwind {
     namespace SpecialNeedsMultipleVolunteerRow {
         const idProperty = "SpecialNeedsMultipleVolunteerId";
         const localTextPrefix = "Northwind.SpecialNeedsMultipleVolunteer";
-        namespace Fields {
-            const SpecialNeedsMultipleVolunteerId: any;
-            const SpecialNeedsId: any;
-            const EmployeeId: any;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            SpecialNeedsMultipleVolunteerId = "SpecialNeedsMultipleVolunteerId",
+            SpecialNeedsId = "SpecialNeedsId",
+            EmployeeId = "EmployeeId"
         }
     }
 }
@@ -2160,12 +2395,12 @@ declare namespace MobilityMatters.Northwind {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SpecialNeedsMultipleVolunteerRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SpecialNeedsMultipleVolunteerRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        namespace Methods {
-            const Create: string;
-            const Update: string;
-            const Delete: string;
-            const Retrieve: string;
-            const List: string;
+        const enum Methods {
+            Create = "Northwind/SpecialNeedsMultipleVolunteer/Create",
+            Update = "Northwind/SpecialNeedsMultipleVolunteer/Update",
+            Delete = "Northwind/SpecialNeedsMultipleVolunteer/Delete",
+            Retrieve = "Northwind/SpecialNeedsMultipleVolunteer/Retrieve",
+            List = "Northwind/SpecialNeedsMultipleVolunteer/List"
         }
     }
 }
@@ -2180,6 +2415,10 @@ declare namespace MobilityMatters.Northwind {
         const localTextPrefix = "Northwind.SpecialNeeds";
         const lookupKey = "Northwind.SpecialNeeds";
         function getLookup(): Q.Lookup<SpecialNeedsRow>;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
         const enum Fields {
             SpecialNeedsID = "SpecialNeedsID",
             Name = "Name"
@@ -2246,6 +2485,10 @@ declare namespace MobilityMatters.Northwind {
         const localTextPrefix = "Northwind.Supplier";
         const lookupKey = "Northwind.Supplier";
         function getLookup(): Q.Lookup<SupplierRow>;
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             SupplierID = "SupplierID",
             CompanyName = "CompanyName",
@@ -2307,6 +2550,10 @@ declare namespace MobilityMatters.Northwind {
         const localTextPrefix = "Northwind.Territory";
         const lookupKey = "Northwind.Territory";
         function getLookup(): Q.Lookup<TerritoryRow>;
+        const deletePermission = "Northwind:General";
+        const insertPermission = "Northwind:General";
+        const readPermission = "Northwind:General";
+        const updatePermission = "Northwind:General";
         const enum Fields {
             ID = "ID",
             TerritoryID = "TerritoryID",
@@ -3050,8 +3297,11 @@ declare namespace MobilityMatters.Northwind {
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
+        private rowSelection;
         constructor(container: JQuery);
+        protected createToolbarExtensions(): void;
         getButtons(): Serenity.ToolButton[];
+        protected getColumns(): Slick.Column[];
     }
 }
 declare namespace MobilityMatters.Northwind {

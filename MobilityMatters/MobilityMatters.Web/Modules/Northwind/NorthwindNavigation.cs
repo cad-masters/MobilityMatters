@@ -22,3 +22,5 @@ using Northwind = MobilityMatters.Northwind.Pages;
 [assembly: NavigationLink(int.MaxValue, "Northwind/Availability Am Multiple", typeof(MyPages.AvailabilityAmMultipleController), icon: null)]
 [assembly: NavigationLink(int.MaxValue, "Northwind/Availability Pm", typeof(MyPages.AvailabilityPmController), icon: null)]
 [assembly: NavigationLink(int.MaxValue, "Northwind/Availability Pm Multiple", typeof(MyPages.AvailabilityPmMultipleController), icon: null)]*/
+[assembly: NavigationLink(int.MaxValue, "Northwind/Mail", typeof(MyPages.MailController), icon: null)]
+[assembly: NavigationLink(int.MaxValue, "Northwind/Mail Attachments", typeof(MyPages.MailAttachmentsController), icon: null)]

@@ -1,20 +1,26 @@
-﻿
-namespace MobilityMatters.Northwind {
-    export class AvailabilityAmForm extends Serenity.PrefixedContext {
-        static formKey = 'Northwind.AvailabilityAm';
-    }
-
+﻿namespace MobilityMatters.Northwind {
     export interface AvailabilityAmForm {
         Day: Serenity.StringEditor;
     }
 
-    [,
-        ['Day', () => Serenity.StringEditor]
-    ].forEach(x => Object.defineProperty(AvailabilityAmForm.prototype, <string>x[0], {
-        get: function () {
-            return this.w(x[0], (x[1] as any)());
-        },
-        enumerable: true,
-        configurable: true
-    }));
+    export class AvailabilityAmForm extends Serenity.PrefixedContext {
+        static formKey = 'Northwind.AvailabilityAm';
+        private static init: boolean;
+
+        constructor(prefix: string) {
+            super(prefix);
+
+            if (!AvailabilityAmForm.init)  {
+                AvailabilityAmForm.init = true;
+
+                var s = Serenity;
+                var w0 = s.StringEditor;
+
+                Q.initFormType(AvailabilityAmForm, [
+                    'Day', w0
+                ]);
+            }
+        }
+    }
 }
+

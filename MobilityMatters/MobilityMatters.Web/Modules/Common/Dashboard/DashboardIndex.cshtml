@@ -5,13 +5,36 @@
 }
 
 @section Head {
-@Html.StyleBundle("Pages/Dashboard")
-@Html.ScriptBundle("Pages/Dashboard")
+    @Html.StyleBundle("Pages/Dashboard")
+    @Html.ScriptBundle("Pages/Dashboard")
 }
 
 @section ContentHeader {
     <h1>@LocalText.Get("Navigation.Dashboard")<small>@Html.Raw(Texts.Site.Dashboard.ContentDescription)</small></h1>
 }
+
+<script type="text/javascript">
+    $(function () {
+        var cCity = [
+            { id: "Name", name: "City", field: "Name", width: 250 },
+            { id: "Count", name: "Client Count", field: "Count", width: 150 },
+        ];
+
+        var cAge = [
+            { id: "Name", name: "Age", field: "Name", width: 250 },
+            { id: "Count", name: "Age Count", field: "Count", width: 150 },
+        ];
+
+        var options = {
+            enableCellNavigation: true,
+            enableColumnReorder: false,
+            sortable: true
+        };
+
+        new Slick.Grid("#clientsByCityGrid", @Html.Raw(Model.ClientsByCity.OrderByDescending(x => x.Count).ToJson()), cCity, options);
+        new Slick.Grid("#clientsByAgeGrid", @Html.Raw(Model.ClientsByAge.OrderByDescending(x => x.Count).ToJson()), cAge, options);
+    });
+</script>
 
 <!-- Small boxes (Stat box) -->
 <div class="row">
@@ -163,6 +186,20 @@
                 </div>
             </div>
         </div><!-- /.box (chat box) -->
+        <div class="box box-success">
+            <div class="box-header">
+                <i class="fa fa-list"></i>
+                <h3 class="box-title">Clients By City</h3>
+                <div id="clientsByCityGrid" style="width:450px;height:300px;"></div>
+            </div>
+        </div>
+        <div class="box box-success">
+            <div class="box-header">
+                <i class="fa fa-list"></i>
+                <h3 class="box-title">Clients By Age</h3>
+                <div id="clientsByAgeGrid" style="width:450px;height:300px;"></div>
+            </div>
+        </div>
         <!-- TO DO List -->
         <div class="box box-primary">
             <div class="box-header">

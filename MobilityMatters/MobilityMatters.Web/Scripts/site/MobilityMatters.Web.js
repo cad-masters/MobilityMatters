@@ -37,6 +37,10 @@ var MobilityMatters;
                 return Q.getLookup('Administration.Language');
             }
             LanguageRow.getLookup = getLookup;
+            LanguageRow.deletePermission = 'Administration:Translation';
+            LanguageRow.insertPermission = 'Administration:Translation';
+            LanguageRow.readPermission = 'Administration:Translation';
+            LanguageRow.updatePermission = 'Administration:Translation';
         })(LanguageRow = Administration.LanguageRow || (Administration.LanguageRow = {}));
     })(Administration = MobilityMatters.Administration || (MobilityMatters.Administration = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -59,6 +63,12 @@ var MobilityMatters;
                 };
             });
         })(LanguageService = Administration.LanguageService || (Administration.LanguageService = {}));
+    })(Administration = MobilityMatters.Administration || (MobilityMatters.Administration = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Administration;
+    (function (Administration) {
     })(Administration = MobilityMatters.Administration || (MobilityMatters.Administration = {}));
 })(MobilityMatters || (MobilityMatters = {}));
 var MobilityMatters;
@@ -94,6 +104,10 @@ var MobilityMatters;
             RolePermissionRow.idProperty = 'RolePermissionId';
             RolePermissionRow.nameProperty = 'PermissionKey';
             RolePermissionRow.localTextPrefix = 'Administration.RolePermission';
+            RolePermissionRow.deletePermission = 'Administration:Security';
+            RolePermissionRow.insertPermission = 'Administration:Security';
+            RolePermissionRow.readPermission = 'Administration:Security';
+            RolePermissionRow.updatePermission = 'Administration:Security';
         })(RolePermissionRow = Administration.RolePermissionRow || (Administration.RolePermissionRow = {}));
     })(Administration = MobilityMatters.Administration || (MobilityMatters.Administration = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -129,6 +143,10 @@ var MobilityMatters;
                 return Q.getLookup('Administration.Role');
             }
             RoleRow.getLookup = getLookup;
+            RoleRow.deletePermission = 'Administration:Security';
+            RoleRow.insertPermission = 'Administration:Security';
+            RoleRow.readPermission = 'Administration:Security';
+            RoleRow.updatePermission = 'Administration:Security';
         })(RoleRow = Administration.RoleRow || (Administration.RoleRow = {}));
     })(Administration = MobilityMatters.Administration || (MobilityMatters.Administration = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -213,6 +231,10 @@ var MobilityMatters;
             UserPermissionRow.idProperty = 'UserPermissionId';
             UserPermissionRow.nameProperty = 'PermissionKey';
             UserPermissionRow.localTextPrefix = 'Administration.UserPermission';
+            UserPermissionRow.deletePermission = 'Administration:Security';
+            UserPermissionRow.insertPermission = 'Administration:Security';
+            UserPermissionRow.readPermission = 'Administration:Security';
+            UserPermissionRow.updatePermission = 'Administration:Security';
         })(UserPermissionRow = Administration.UserPermissionRow || (Administration.UserPermissionRow = {}));
     })(Administration = MobilityMatters.Administration || (MobilityMatters.Administration = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -244,6 +266,10 @@ var MobilityMatters;
         (function (UserRoleRow) {
             UserRoleRow.idProperty = 'UserRoleId';
             UserRoleRow.localTextPrefix = 'Administration.UserRole';
+            UserRoleRow.deletePermission = 'Administration:Security';
+            UserRoleRow.insertPermission = 'Administration:Security';
+            UserRoleRow.readPermission = 'Administration:Security';
+            UserRoleRow.updatePermission = 'Administration:Security';
         })(UserRoleRow = Administration.UserRoleRow || (Administration.UserRoleRow = {}));
     })(Administration = MobilityMatters.Administration || (MobilityMatters.Administration = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -280,6 +306,10 @@ var MobilityMatters;
                 return Q.getLookup('Administration.User');
             }
             UserRow.getLookup = getLookup;
+            UserRow.deletePermission = 'Administration:Security';
+            UserRow.insertPermission = 'Administration:Security';
+            UserRow.readPermission = 'Administration:Security';
+            UserRow.updatePermission = 'Administration:Security';
         })(UserRow = Administration.UserRow || (Administration.UserRow = {}));
     })(Administration = MobilityMatters.Administration || (MobilityMatters.Administration = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -314,6 +344,10 @@ var MobilityMatters;
             UserPreferenceRow.idProperty = 'UserPreferenceId';
             UserPreferenceRow.nameProperty = 'Name';
             UserPreferenceRow.localTextPrefix = 'Common.UserPreference';
+            UserPreferenceRow.deletePermission = '';
+            UserPreferenceRow.insertPermission = '';
+            UserPreferenceRow.readPermission = '';
+            UserPreferenceRow.updatePermission = '';
         })(UserPreferenceRow = Common.UserPreferenceRow || (Common.UserPreferenceRow = {}));
     })(Common = MobilityMatters.Common || (MobilityMatters.Common = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -472,22 +506,22 @@ var MobilityMatters;
     (function (Northwind) {
         var AvailabilityAmForm = /** @class */ (function (_super) {
             __extends(AvailabilityAmForm, _super);
-            function AvailabilityAmForm() {
-                return _super !== null && _super.apply(this, arguments) || this;
+            function AvailabilityAmForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!AvailabilityAmForm.init) {
+                    AvailabilityAmForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    Q.initFormType(AvailabilityAmForm, [
+                        'Day', w0
+                    ]);
+                }
+                return _this;
             }
             AvailabilityAmForm.formKey = 'Northwind.AvailabilityAm';
             return AvailabilityAmForm;
         }(Serenity.PrefixedContext));
         Northwind.AvailabilityAmForm = AvailabilityAmForm;
-        [,
-            ['Day', function () { return Serenity.StringEditor; }]
-        ].forEach(function (x) { return Object.defineProperty(AvailabilityAmForm.prototype, x[0], {
-            get: function () {
-                return this.w(x[0], x[1]());
-            },
-            enumerable: true,
-            configurable: true
-        }); });
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
 var MobilityMatters;
@@ -496,23 +530,23 @@ var MobilityMatters;
     (function (Northwind) {
         var AvailabilityAmMultipleForm = /** @class */ (function (_super) {
             __extends(AvailabilityAmMultipleForm, _super);
-            function AvailabilityAmMultipleForm() {
-                return _super !== null && _super.apply(this, arguments) || this;
+            function AvailabilityAmMultipleForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!AvailabilityAmMultipleForm.init) {
+                    AvailabilityAmMultipleForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.IntegerEditor;
+                    Q.initFormType(AvailabilityAmMultipleForm, [
+                        'AvailabilityAmid', w0,
+                        'EmployeeId', w0
+                    ]);
+                }
+                return _this;
             }
             AvailabilityAmMultipleForm.formKey = 'Northwind.AvailabilityAmMultiple';
             return AvailabilityAmMultipleForm;
         }(Serenity.PrefixedContext));
         Northwind.AvailabilityAmMultipleForm = AvailabilityAmMultipleForm;
-        [,
-            ['AvailabilityAmid', function () { return Serenity.IntegerEditor; }],
-            ['EmployeeId', function () { return Serenity.IntegerEditor; }]
-        ].forEach(function (x) { return Object.defineProperty(AvailabilityAmMultipleForm.prototype, x[0], {
-            get: function () {
-                return this.w(x[0], x[1]());
-            },
-            enumerable: true,
-            configurable: true
-        }); });
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
 var MobilityMatters;
@@ -523,14 +557,10 @@ var MobilityMatters;
         (function (AvailabilityAmMultipleRow) {
             AvailabilityAmMultipleRow.idProperty = 'AvailabilityAmMultipleId';
             AvailabilityAmMultipleRow.localTextPrefix = 'Northwind.AvailabilityAmMultiple';
-            var Fields;
-            (function (Fields) {
-            })(Fields = AvailabilityAmMultipleRow.Fields || (AvailabilityAmMultipleRow.Fields = {}));
-            [
-                'AvailabilityAmMultipleId',
-                'AvailabilityAmid',
-                'EmployeeId'
-            ].forEach(function (x) { return Fields[x] = x; });
+            AvailabilityAmMultipleRow.deletePermission = 'Administration:General';
+            AvailabilityAmMultipleRow.insertPermission = 'Administration:General';
+            AvailabilityAmMultipleRow.readPermission = 'Administration:General';
+            AvailabilityAmMultipleRow.updatePermission = 'Administration:General';
         })(AvailabilityAmMultipleRow = Northwind.AvailabilityAmMultipleRow || (Northwind.AvailabilityAmMultipleRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -541,9 +571,6 @@ var MobilityMatters;
         var AvailabilityAmMultipleService;
         (function (AvailabilityAmMultipleService) {
             AvailabilityAmMultipleService.baseUrl = 'Northwind/AvailabilityAmMultiple';
-            var Methods;
-            (function (Methods) {
-            })(Methods = AvailabilityAmMultipleService.Methods || (AvailabilityAmMultipleService.Methods = {}));
             [
                 'Create',
                 'Update',
@@ -554,7 +581,6 @@ var MobilityMatters;
                 AvailabilityAmMultipleService[x] = function (r, s, o) {
                     return Q.serviceRequest(AvailabilityAmMultipleService.baseUrl + '/' + x, r, s, o);
                 };
-                Methods[x] = AvailabilityAmMultipleService.baseUrl + '/' + x;
             });
         })(AvailabilityAmMultipleService = Northwind.AvailabilityAmMultipleService || (Northwind.AvailabilityAmMultipleService = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
@@ -568,13 +594,15 @@ var MobilityMatters;
             AvailabilityAmRow.idProperty = 'AvailabilityAmid';
             AvailabilityAmRow.nameProperty = 'Day';
             AvailabilityAmRow.localTextPrefix = 'Northwind.AvailabilityAm';
-            var Fields;
-            (function (Fields) {
-            })(Fields = AvailabilityAmRow.Fields || (AvailabilityAmRow.Fields = {}));
-            [
-                'AvailabilityAmid',
-                'Day'
-            ].forEach(function (x) { return Fields[x] = x; });
+            AvailabilityAmRow.lookupKey = 'Northwind.AvailabilityAM';
+            function getLookup() {
+                return Q.getLookup('Northwind.AvailabilityAM');
+            }
+            AvailabilityAmRow.getLookup = getLookup;
+            AvailabilityAmRow.deletePermission = 'Administration:General';
+            AvailabilityAmRow.insertPermission = 'Administration:General';
+            AvailabilityAmRow.readPermission = 'Administration:General';
+            AvailabilityAmRow.updatePermission = 'Administration:General';
         })(AvailabilityAmRow = Northwind.AvailabilityAmRow || (Northwind.AvailabilityAmRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -585,9 +613,6 @@ var MobilityMatters;
         var AvailabilityAmService;
         (function (AvailabilityAmService) {
             AvailabilityAmService.baseUrl = 'Northwind/AvailabilityAm';
-            var Methods;
-            (function (Methods) {
-            })(Methods = AvailabilityAmService.Methods || (AvailabilityAmService.Methods = {}));
             [
                 'Create',
                 'Update',
@@ -598,7 +623,6 @@ var MobilityMatters;
                 AvailabilityAmService[x] = function (r, s, o) {
                     return Q.serviceRequest(AvailabilityAmService.baseUrl + '/' + x, r, s, o);
                 };
-                Methods[x] = AvailabilityAmService.baseUrl + '/' + x;
             });
         })(AvailabilityAmService = Northwind.AvailabilityAmService || (Northwind.AvailabilityAmService = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
@@ -609,22 +633,22 @@ var MobilityMatters;
     (function (Northwind) {
         var AvailabilityPmForm = /** @class */ (function (_super) {
             __extends(AvailabilityPmForm, _super);
-            function AvailabilityPmForm() {
-                return _super !== null && _super.apply(this, arguments) || this;
+            function AvailabilityPmForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!AvailabilityPmForm.init) {
+                    AvailabilityPmForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    Q.initFormType(AvailabilityPmForm, [
+                        'Day', w0
+                    ]);
+                }
+                return _this;
             }
             AvailabilityPmForm.formKey = 'Northwind.AvailabilityPm';
             return AvailabilityPmForm;
         }(Serenity.PrefixedContext));
         Northwind.AvailabilityPmForm = AvailabilityPmForm;
-        [,
-            ['Day', function () { return Serenity.StringEditor; }]
-        ].forEach(function (x) { return Object.defineProperty(AvailabilityPmForm.prototype, x[0], {
-            get: function () {
-                return this.w(x[0], x[1]());
-            },
-            enumerable: true,
-            configurable: true
-        }); });
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
 var MobilityMatters;
@@ -633,23 +657,23 @@ var MobilityMatters;
     (function (Northwind) {
         var AvailabilityPmMultipleForm = /** @class */ (function (_super) {
             __extends(AvailabilityPmMultipleForm, _super);
-            function AvailabilityPmMultipleForm() {
-                return _super !== null && _super.apply(this, arguments) || this;
+            function AvailabilityPmMultipleForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!AvailabilityPmMultipleForm.init) {
+                    AvailabilityPmMultipleForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.IntegerEditor;
+                    Q.initFormType(AvailabilityPmMultipleForm, [
+                        'AvailabilityPmid', w0,
+                        'EmployeeId', w0
+                    ]);
+                }
+                return _this;
             }
             AvailabilityPmMultipleForm.formKey = 'Northwind.AvailabilityPmMultiple';
             return AvailabilityPmMultipleForm;
         }(Serenity.PrefixedContext));
         Northwind.AvailabilityPmMultipleForm = AvailabilityPmMultipleForm;
-        [,
-            ['AvailabilityPmid', function () { return Serenity.IntegerEditor; }],
-            ['EmployeeId', function () { return Serenity.IntegerEditor; }]
-        ].forEach(function (x) { return Object.defineProperty(AvailabilityPmMultipleForm.prototype, x[0], {
-            get: function () {
-                return this.w(x[0], x[1]());
-            },
-            enumerable: true,
-            configurable: true
-        }); });
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
 var MobilityMatters;
@@ -660,14 +684,10 @@ var MobilityMatters;
         (function (AvailabilityPmMultipleRow) {
             AvailabilityPmMultipleRow.idProperty = 'AvailabilityPmMultipleId';
             AvailabilityPmMultipleRow.localTextPrefix = 'Northwind.AvailabilityPmMultiple';
-            var Fields;
-            (function (Fields) {
-            })(Fields = AvailabilityPmMultipleRow.Fields || (AvailabilityPmMultipleRow.Fields = {}));
-            [
-                'AvailabilityPmMultipleId',
-                'AvailabilityPmid',
-                'EmployeeId'
-            ].forEach(function (x) { return Fields[x] = x; });
+            AvailabilityPmMultipleRow.deletePermission = 'Administration:General';
+            AvailabilityPmMultipleRow.insertPermission = 'Administration:General';
+            AvailabilityPmMultipleRow.readPermission = 'Administration:General';
+            AvailabilityPmMultipleRow.updatePermission = 'Administration:General';
         })(AvailabilityPmMultipleRow = Northwind.AvailabilityPmMultipleRow || (Northwind.AvailabilityPmMultipleRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -678,9 +698,6 @@ var MobilityMatters;
         var AvailabilityPmMultipleService;
         (function (AvailabilityPmMultipleService) {
             AvailabilityPmMultipleService.baseUrl = 'Northwind/AvailabilityPmMultiple';
-            var Methods;
-            (function (Methods) {
-            })(Methods = AvailabilityPmMultipleService.Methods || (AvailabilityPmMultipleService.Methods = {}));
             [
                 'Create',
                 'Update',
@@ -691,7 +708,6 @@ var MobilityMatters;
                 AvailabilityPmMultipleService[x] = function (r, s, o) {
                     return Q.serviceRequest(AvailabilityPmMultipleService.baseUrl + '/' + x, r, s, o);
                 };
-                Methods[x] = AvailabilityPmMultipleService.baseUrl + '/' + x;
             });
         })(AvailabilityPmMultipleService = Northwind.AvailabilityPmMultipleService || (Northwind.AvailabilityPmMultipleService = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
@@ -705,13 +721,15 @@ var MobilityMatters;
             AvailabilityPmRow.idProperty = 'AvailabilityPmid';
             AvailabilityPmRow.nameProperty = 'Day';
             AvailabilityPmRow.localTextPrefix = 'Northwind.AvailabilityPm';
-            var Fields;
-            (function (Fields) {
-            })(Fields = AvailabilityPmRow.Fields || (AvailabilityPmRow.Fields = {}));
-            [
-                'AvailabilityPmid',
-                'Day'
-            ].forEach(function (x) { return Fields[x] = x; });
+            AvailabilityPmRow.lookupKey = 'Northwind.AvailabilityPM';
+            function getLookup() {
+                return Q.getLookup('Northwind.AvailabilityPM');
+            }
+            AvailabilityPmRow.getLookup = getLookup;
+            AvailabilityPmRow.deletePermission = 'Administration:General';
+            AvailabilityPmRow.insertPermission = 'Administration:General';
+            AvailabilityPmRow.readPermission = 'Administration:General';
+            AvailabilityPmRow.updatePermission = 'Administration:General';
         })(AvailabilityPmRow = Northwind.AvailabilityPmRow || (Northwind.AvailabilityPmRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -722,9 +740,6 @@ var MobilityMatters;
         var AvailabilityPmService;
         (function (AvailabilityPmService) {
             AvailabilityPmService.baseUrl = 'Northwind/AvailabilityPm';
-            var Methods;
-            (function (Methods) {
-            })(Methods = AvailabilityPmService.Methods || (AvailabilityPmService.Methods = {}));
             [
                 'Create',
                 'Update',
@@ -735,7 +750,6 @@ var MobilityMatters;
                 AvailabilityPmService[x] = function (r, s, o) {
                     return Q.serviceRequest(AvailabilityPmService.baseUrl + '/' + x, r, s, o);
                 };
-                Methods[x] = AvailabilityPmService.baseUrl + '/' + x;
             });
         })(AvailabilityPmService = Northwind.AvailabilityPmService || (Northwind.AvailabilityPmService = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
@@ -774,6 +788,10 @@ var MobilityMatters;
             CategoryLangRow.idProperty = 'Id';
             CategoryLangRow.nameProperty = 'CategoryName';
             CategoryLangRow.localTextPrefix = 'Northwind.CategoryLang';
+            CategoryLangRow.deletePermission = 'Northwind:General';
+            CategoryLangRow.insertPermission = 'Northwind:General';
+            CategoryLangRow.readPermission = 'Northwind:General';
+            CategoryLangRow.updatePermission = 'Northwind:General';
         })(CategoryLangRow = Northwind.CategoryLangRow || (Northwind.CategoryLangRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -812,6 +830,10 @@ var MobilityMatters;
                 return Q.getLookup('Northwind.Category');
             }
             CategoryRow.getLookup = getLookup;
+            CategoryRow.deletePermission = 'Northwind:General';
+            CategoryRow.insertPermission = 'Northwind:General';
+            CategoryRow.readPermission = 'Northwind:General';
+            CategoryRow.updatePermission = 'Northwind:General';
         })(CategoryRow = Northwind.CategoryRow || (Northwind.CategoryRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -866,23 +888,23 @@ var MobilityMatters;
     (function (Northwind) {
         var CitiesMultiForm = /** @class */ (function (_super) {
             __extends(CitiesMultiForm, _super);
-            function CitiesMultiForm() {
-                return _super !== null && _super.apply(this, arguments) || this;
+            function CitiesMultiForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!CitiesMultiForm.init) {
+                    CitiesMultiForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.IntegerEditor;
+                    Q.initFormType(CitiesMultiForm, [
+                        'CityId', w0,
+                        'EmployeeId', w0
+                    ]);
+                }
+                return _this;
             }
             CitiesMultiForm.formKey = 'Northwind.CitiesMulti';
             return CitiesMultiForm;
         }(Serenity.PrefixedContext));
         Northwind.CitiesMultiForm = CitiesMultiForm;
-        [,
-            ['CityId', function () { return Serenity.IntegerEditor; }],
-            ['EmployeeId', function () { return Serenity.IntegerEditor; }]
-        ].forEach(function (x) { return Object.defineProperty(CitiesMultiForm.prototype, x[0], {
-            get: function () {
-                return this.w(x[0], x[1]());
-            },
-            enumerable: true,
-            configurable: true
-        }); });
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
 var MobilityMatters;
@@ -893,45 +915,10 @@ var MobilityMatters;
         (function (CitiesMultiRow) {
             CitiesMultiRow.idProperty = 'CitiesMultiId';
             CitiesMultiRow.localTextPrefix = 'Northwind.CitiesMulti';
-            var Fields;
-            (function (Fields) {
-            })(Fields = CitiesMultiRow.Fields || (CitiesMultiRow.Fields = {}));
-            [
-                'CitiesMultiId',
-                'CityId',
-                'EmployeeId',
-                'CityName',
-                'EmployeeLastName',
-                'EmployeeFirstName',
-                'EmployeeTitle',
-                'EmployeeTitleOfCourtesy',
-                'EmployeeBirthDate',
-                'EmployeeHireDate',
-                'EmployeeAddress',
-                'EmployeeCity',
-                'EmployeeRegion',
-                'EmployeePostalCode',
-                'EmployeeCountry',
-                'EmployeeHomePhone',
-                'EmployeeExtension',
-                'EmployeePhoto',
-                'EmployeeNotes',
-                'EmployeeReportsTo',
-                'EmployeePhotoPath',
-                'EmployeeOnVacation',
-                'EmployeeEmail',
-                'EmployeeDriversLicense',
-                'EmployeeDriversLicenseExp',
-                'EmployeeInsurance',
-                'EmployeeInsuranceExp',
-                'EmployeeLicensePlate',
-                'EmployeeLicensePlateExp',
-                'EmployeeVehicleMake',
-                'EmployeeVehicleModel',
-                'EmployeeSpecialNeedsId',
-                'EmployeeGender',
-                'EmployeeSmoker'
-            ].forEach(function (x) { return Fields[x] = x; });
+            CitiesMultiRow.deletePermission = 'Administration:General';
+            CitiesMultiRow.insertPermission = 'Administration:General';
+            CitiesMultiRow.readPermission = 'Administration:General';
+            CitiesMultiRow.updatePermission = 'Administration:General';
         })(CitiesMultiRow = Northwind.CitiesMultiRow || (Northwind.CitiesMultiRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -942,9 +929,6 @@ var MobilityMatters;
         var CitiesMultiService;
         (function (CitiesMultiService) {
             CitiesMultiService.baseUrl = 'Northwind/CitiesMulti';
-            var Methods;
-            (function (Methods) {
-            })(Methods = CitiesMultiService.Methods || (CitiesMultiService.Methods = {}));
             [
                 'Create',
                 'Update',
@@ -955,7 +939,6 @@ var MobilityMatters;
                 CitiesMultiService[x] = function (r, s, o) {
                     return Q.serviceRequest(CitiesMultiService.baseUrl + '/' + x, r, s, o);
                 };
-                Methods[x] = CitiesMultiService.baseUrl + '/' + x;
             });
         })(CitiesMultiService = Northwind.CitiesMultiService || (Northwind.CitiesMultiService = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
@@ -969,6 +952,15 @@ var MobilityMatters;
             CitiesRow.idProperty = 'CityId';
             CitiesRow.nameProperty = 'Name';
             CitiesRow.localTextPrefix = 'Northwind.Cities';
+            CitiesRow.lookupKey = 'Northwind.Cities';
+            function getLookup() {
+                return Q.getLookup('Northwind.Cities');
+            }
+            CitiesRow.getLookup = getLookup;
+            CitiesRow.deletePermission = 'Administration:General';
+            CitiesRow.insertPermission = 'Administration:General';
+            CitiesRow.readPermission = 'Administration:General';
+            CitiesRow.updatePermission = 'Administration:General';
         })(CitiesRow = Northwind.CitiesRow || (Northwind.CitiesRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1002,6 +994,10 @@ var MobilityMatters;
             CustomerCustomerDemoRow.idProperty = 'ID';
             CustomerCustomerDemoRow.nameProperty = 'CustomerID';
             CustomerCustomerDemoRow.localTextPrefix = 'Northwind.CustomerCustomerDemo';
+            CustomerCustomerDemoRow.deletePermission = 'Northwind:General';
+            CustomerCustomerDemoRow.insertPermission = 'Northwind:General';
+            CustomerCustomerDemoRow.readPermission = 'Northwind:General';
+            CustomerCustomerDemoRow.updatePermission = 'Northwind:General';
         })(CustomerCustomerDemoRow = Northwind.CustomerCustomerDemoRow || (Northwind.CustomerCustomerDemoRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1014,6 +1010,10 @@ var MobilityMatters;
             CustomerDemographicRow.idProperty = 'ID';
             CustomerDemographicRow.nameProperty = 'CustomerTypeID';
             CustomerDemographicRow.localTextPrefix = 'Northwind.CustomerDemographic';
+            CustomerDemographicRow.deletePermission = 'Northwind:General';
+            CustomerDemographicRow.insertPermission = 'Northwind:General';
+            CustomerDemographicRow.readPermission = 'Northwind:General';
+            CustomerDemographicRow.updatePermission = 'Northwind:General';
         })(CustomerDemographicRow = Northwind.CustomerDemographicRow || (Northwind.CustomerDemographicRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1031,6 +1031,10 @@ var MobilityMatters;
                 return Q.getLookup('Northwind.CustomerDetails');
             }
             CustomerDetailsRow.getLookup = getLookup;
+            CustomerDetailsRow.deletePermission = 'Northwind:General';
+            CustomerDetailsRow.insertPermission = 'Northwind:General';
+            CustomerDetailsRow.readPermission = 'Northwind:General';
+            CustomerDetailsRow.updatePermission = 'Northwind:General';
         })(CustomerDetailsRow = Northwind.CustomerDetailsRow || (Northwind.CustomerDetailsRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1108,6 +1112,10 @@ var MobilityMatters;
         (function (CustomerGrossSalesRow) {
             CustomerGrossSalesRow.nameProperty = 'ContactName';
             CustomerGrossSalesRow.localTextPrefix = 'Northwind.CustomerGrossSales';
+            CustomerGrossSalesRow.deletePermission = 'Northwind:General';
+            CustomerGrossSalesRow.insertPermission = 'Northwind:General';
+            CustomerGrossSalesRow.readPermission = 'Northwind:General';
+            CustomerGrossSalesRow.updatePermission = 'Northwind:General';
         })(CustomerGrossSalesRow = Northwind.CustomerGrossSalesRow || (Northwind.CustomerGrossSalesRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1119,6 +1127,10 @@ var MobilityMatters;
         (function (CustomerRepresentativesRow) {
             CustomerRepresentativesRow.idProperty = 'RepresentativeId';
             CustomerRepresentativesRow.localTextPrefix = 'Northwind.CustomerRepresentatives';
+            CustomerRepresentativesRow.deletePermission = 'Northwind:Customer:View';
+            CustomerRepresentativesRow.insertPermission = 'Northwind:Customer:View';
+            CustomerRepresentativesRow.readPermission = 'Northwind:Customer:View';
+            CustomerRepresentativesRow.updatePermission = 'Northwind:Customer:View';
         })(CustomerRepresentativesRow = Northwind.CustomerRepresentativesRow || (Northwind.CustomerRepresentativesRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1136,6 +1148,10 @@ var MobilityMatters;
                 return Q.getLookup('Northwind.Customer');
             }
             CustomerRow.getLookup = getLookup;
+            CustomerRow.deletePermission = 'Northwind:Customer:Delete';
+            CustomerRow.insertPermission = 'Northwind:Customer:Modify';
+            CustomerRow.readPermission = 'Northwind:Customer:View';
+            CustomerRow.updatePermission = 'Northwind:Customer:Modify';
         })(CustomerRow = Northwind.CustomerRow || (Northwind.CustomerRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1175,6 +1191,10 @@ var MobilityMatters;
                 return Q.getLookup('Northwind.Employee');
             }
             EmployeeRow.getLookup = getLookup;
+            EmployeeRow.deletePermission = 'Northwind:General';
+            EmployeeRow.insertPermission = 'Northwind:General';
+            EmployeeRow.readPermission = 'Northwind:General';
+            EmployeeRow.updatePermission = 'Northwind:General';
         })(EmployeeRow = Northwind.EmployeeRow || (Northwind.EmployeeRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1187,6 +1207,10 @@ var MobilityMatters;
             EmployeeTerritoryRow.idProperty = 'EmployeeID';
             EmployeeTerritoryRow.nameProperty = 'TerritoryID';
             EmployeeTerritoryRow.localTextPrefix = 'Northwind.EmployeeTerritory';
+            EmployeeTerritoryRow.deletePermission = 'Northwind:General';
+            EmployeeTerritoryRow.insertPermission = 'Northwind:General';
+            EmployeeTerritoryRow.readPermission = 'Northwind:General';
+            EmployeeTerritoryRow.updatePermission = 'Northwind:General';
         })(EmployeeTerritoryRow = Northwind.EmployeeTerritoryRow || (Northwind.EmployeeTerritoryRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1221,6 +1245,7 @@ var MobilityMatters;
                         'BirthDate', w4,
                         'Gender', w0,
                         'Smoker', w2,
+                        'Language', w1,
                         'DriversLicense', w1,
                         'DriversLicenseExp', w4,
                         'LicensePlate', w1,
@@ -1229,8 +1254,19 @@ var MobilityMatters;
                         'InsuranceExp', w4,
                         'VehicleMake', w1,
                         'VehicleModel', w1,
+                        'VehicleMake2', w1,
+                        'VehicleModel2', w1,
+                        'DMVClearance', w2,
+                        'PoliceClearance', w2,
+                        'ReferralSource', w0,
+                        'TrainingDate', w4,
                         'HireDate', w4,
-                        'SpecialNeedsList', w0
+                        'EndDate', w4,
+                        'WhyEnding', w1,
+                        'SpecialNeedsList', w0,
+                        'CitiesList', w0,
+                        'AvailabilityAMList', w0,
+                        'AvailabilityPMList', w0
                     ]);
                 }
                 return _this;
@@ -1250,6 +1286,10 @@ var MobilityMatters;
             EmployeesRow.idProperty = 'EmployeeId';
             EmployeesRow.nameProperty = 'LastName';
             EmployeesRow.localTextPrefix = 'Northwind.Employees';
+            EmployeesRow.deletePermission = 'Administration:General';
+            EmployeesRow.insertPermission = 'Administration:General';
+            EmployeesRow.readPermission = 'Administration:General';
+            EmployeesRow.updatePermission = 'Administration:General';
         })(EmployeesRow = Northwind.EmployeesRow || (Northwind.EmployeesRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1290,11 +1330,194 @@ var MobilityMatters;
 (function (MobilityMatters) {
     var Northwind;
     (function (Northwind) {
+        var MailAttachmentsForm = /** @class */ (function (_super) {
+            __extends(MailAttachmentsForm, _super);
+            function MailAttachmentsForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!MailAttachmentsForm.init) {
+                    MailAttachmentsForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.IntegerEditor;
+                    var w1 = s.StringEditor;
+                    var w2 = s.DateEditor;
+                    Q.initFormType(MailAttachmentsForm, [
+                        'MailId', w0,
+                        'MimeType', w1,
+                        'Size', w0,
+                        'FilePath', w1,
+                        'OriginalFileName', w1,
+                        'CreatedBy', w0,
+                        'CreatedOn', w2,
+                        'ModifiedBy', w0,
+                        'ModifiedOn', w2
+                    ]);
+                }
+                return _this;
+            }
+            MailAttachmentsForm.formKey = 'Northwind.MailAttachments';
+            return MailAttachmentsForm;
+        }(Serenity.PrefixedContext));
+        Northwind.MailAttachmentsForm = MailAttachmentsForm;
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
+        var MailAttachmentsRow;
+        (function (MailAttachmentsRow) {
+            MailAttachmentsRow.idProperty = 'AttachmentId';
+            MailAttachmentsRow.nameProperty = 'MimeType';
+            MailAttachmentsRow.localTextPrefix = 'Northwind.MailAttachments';
+            MailAttachmentsRow.deletePermission = 'Administration:General';
+            MailAttachmentsRow.insertPermission = 'Administration:General';
+            MailAttachmentsRow.readPermission = 'Administration:General';
+            MailAttachmentsRow.updatePermission = 'Administration:General';
+        })(MailAttachmentsRow = Northwind.MailAttachmentsRow || (Northwind.MailAttachmentsRow = {}));
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
+        var MailAttachmentsService;
+        (function (MailAttachmentsService) {
+            MailAttachmentsService.baseUrl = 'Northwind/MailAttachments';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List'
+            ].forEach(function (x) {
+                MailAttachmentsService[x] = function (r, s, o) {
+                    return Q.serviceRequest(MailAttachmentsService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(MailAttachmentsService = Northwind.MailAttachmentsService || (Northwind.MailAttachmentsService = {}));
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
+        var MailComposeForm = /** @class */ (function (_super) {
+            __extends(MailComposeForm, _super);
+            function MailComposeForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!MailComposeForm.init) {
+                    MailComposeForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.LookupEditor;
+                    var w1 = s.StringEditor;
+                    var w2 = Northwind.MailContentEditor;
+                    var w3 = s.MultipleImageUploadEditor;
+                    var w4 = s.IntegerEditor;
+                    Q.initFormType(MailComposeForm, [
+                        'To', w0,
+                        'Cc', w0,
+                        'Subject', w1,
+                        'BodyHtml', w2,
+                        'Attachments', w3,
+                        'ReplyToMailId', w4
+                    ]);
+                }
+                return _this;
+            }
+            MailComposeForm.formKey = 'Northwind.MailCompose';
+            return MailComposeForm;
+        }(Serenity.PrefixedContext));
+        Northwind.MailComposeForm = MailComposeForm;
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
+        var MailForm = /** @class */ (function (_super) {
+            __extends(MailForm, _super);
+            function MailForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!MailForm.init) {
+                    MailForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.StringEditor;
+                    var w1 = Northwind.MailBodyViewer;
+                    var w2 = s.MultipleImageUploadEditor;
+                    var w3 = s.DateEditor;
+                    var w4 = s.BooleanEditor;
+                    Q.initFormType(MailForm, [
+                        'From', w0,
+                        'To', w0,
+                        'Cc', w0,
+                        'Subject', w0,
+                        'Body', w1,
+                        'Attachments', w2,
+                        'SendDateTime', w3,
+                        'IsSent', w4,
+                        'ErrorMessage', w0,
+                        'ReceivedDate', w3
+                    ]);
+                }
+                return _this;
+            }
+            MailForm.formKey = 'Northwind.Mail';
+            return MailForm;
+        }(Serenity.PrefixedContext));
+        Northwind.MailForm = MailForm;
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
+        var MailRow;
+        (function (MailRow) {
+            MailRow.idProperty = 'MailId';
+            MailRow.nameProperty = 'Uid';
+            MailRow.localTextPrefix = 'Northwind.Mail';
+            MailRow.deletePermission = 'Administration:General';
+            MailRow.insertPermission = 'Administration:General';
+            MailRow.readPermission = 'Administration:General';
+            MailRow.updatePermission = 'Administration:General';
+        })(MailRow = Northwind.MailRow || (Northwind.MailRow = {}));
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
+        var MailService;
+        (function (MailService) {
+            MailService.baseUrl = 'Northwind/Mail';
+            [
+                'Create',
+                'Update',
+                'Delete',
+                'Retrieve',
+                'List',
+                'Compose'
+            ].forEach(function (x) {
+                MailService[x] = function (r, s, o) {
+                    return Q.serviceRequest(MailService.baseUrl + '/' + x, r, s, o);
+                };
+            });
+        })(MailService = Northwind.MailService || (Northwind.MailService = {}));
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
         var NoteRow;
         (function (NoteRow) {
             NoteRow.idProperty = 'NoteId';
             NoteRow.nameProperty = 'EntityType';
             NoteRow.localTextPrefix = 'Northwind.Note';
+            NoteRow.deletePermission = 'Northwind:General';
+            NoteRow.insertPermission = 'Northwind:General';
+            NoteRow.readPermission = 'Northwind:General';
+            NoteRow.updatePermission = 'Northwind:General';
         })(NoteRow = Northwind.NoteRow || (Northwind.NoteRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1335,6 +1558,10 @@ var MobilityMatters;
         (function (OrderDetailRow) {
             OrderDetailRow.idProperty = 'DetailID';
             OrderDetailRow.localTextPrefix = 'Northwind.OrderDetail';
+            OrderDetailRow.deletePermission = 'Northwind:General';
+            OrderDetailRow.insertPermission = 'Northwind:General';
+            OrderDetailRow.readPermission = 'Northwind:General';
+            OrderDetailRow.updatePermission = 'Northwind:General';
         })(OrderDetailRow = Northwind.OrderDetailRow || (Northwind.OrderDetailRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1369,25 +1596,25 @@ var MobilityMatters;
                     var s = Serenity;
                     var w0 = Northwind.CustomerEditor;
                     var w1 = s.DateEditor;
-                    var w2 = s.LookupEditor;
-                    var w3 = Northwind.OrderDetailsEditor;
+                    var w2 = s.StringEditor;
+                    var w3 = s.LookupEditor;
                     var w4 = s.DecimalEditor;
-                    var w5 = s.StringEditor;
                     Q.initFormType(OrderForm, [
                         'CustomerID', w0,
                         'OrderDate', w1,
-                        'RequiredDate', w1,
-                        'EmployeeID', w2,
-                        'DetailList', w3,
+                        'RequiredDate', w2,
+                        'EmployeeID', w3,
                         'ShippedDate', w1,
-                        'ShipVia', w2,
+                        'ShipVia', w3,
                         'Freight', w4,
-                        'ShipName', w5,
-                        'ShipAddress', w5,
-                        'ShipCity', w5,
-                        'ShipRegion', w5,
-                        'ShipPostalCode', w5,
-                        'ShipCountry', w5
+                        'ShipAddress', w2,
+                        'ShipCity', w2,
+                        'ShipPostalCode', w2,
+                        'DestinationAddress', w2,
+                        'DestinationCity', w2,
+                        'DestinationZip', w2,
+                        'DistanceText', w2,
+                        'DurationText', w2
                     ]);
                 }
                 return _this;
@@ -1407,6 +1634,10 @@ var MobilityMatters;
             OrderRow.idProperty = 'OrderID';
             OrderRow.nameProperty = 'CustomerID';
             OrderRow.localTextPrefix = 'Northwind.Order';
+            OrderRow.deletePermission = 'Northwind:General';
+            OrderRow.insertPermission = 'Northwind:General';
+            OrderRow.readPermission = 'Northwind:General';
+            OrderRow.updatePermission = 'Northwind:General';
         })(OrderRow = Northwind.OrderRow || (Northwind.OrderRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1422,7 +1653,8 @@ var MobilityMatters;
                 'Update',
                 'Delete',
                 'Retrieve',
-                'List'
+                'List',
+                'DistanceMatrix'
             ].forEach(function (x) {
                 OrderService[x] = function (r, s, o) {
                     return Q.serviceRequest(OrderService.baseUrl + '/' + x, r, s, o);
@@ -1441,6 +1673,12 @@ var MobilityMatters;
             OrderShippingState[OrderShippingState["Shipped"] = 1] = "Shipped";
         })(OrderShippingState = Northwind.OrderShippingState || (Northwind.OrderShippingState = {}));
         Serenity.Decorators.registerEnumType(OrderShippingState, 'MobilityMatters.Northwind.OrderShippingState', 'Northwind.OrderShippingState');
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
 var MobilityMatters;
@@ -1490,6 +1728,10 @@ var MobilityMatters;
             ProductLangRow.idProperty = 'Id';
             ProductLangRow.nameProperty = 'ProductName';
             ProductLangRow.localTextPrefix = 'Northwind.ProductLang';
+            ProductLangRow.deletePermission = 'Northwind:General';
+            ProductLangRow.insertPermission = 'Northwind:General';
+            ProductLangRow.readPermission = 'Northwind:General';
+            ProductLangRow.updatePermission = 'Northwind:General';
         })(ProductLangRow = Northwind.ProductLangRow || (Northwind.ProductLangRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1522,6 +1764,10 @@ var MobilityMatters;
         (function (ProductLogRow) {
             ProductLogRow.idProperty = 'ProductLogID';
             ProductLogRow.localTextPrefix = 'Northwind.ProductLog';
+            ProductLogRow.deletePermission = null;
+            ProductLogRow.insertPermission = null;
+            ProductLogRow.readPermission = '';
+            ProductLogRow.updatePermission = null;
         })(ProductLogRow = Northwind.ProductLogRow || (Northwind.ProductLogRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1539,6 +1785,10 @@ var MobilityMatters;
                 return Q.getLookup('Northwind.Product');
             }
             ProductRow.getLookup = getLookup;
+            ProductRow.deletePermission = 'Northwind:General';
+            ProductRow.insertPermission = 'Northwind:General';
+            ProductRow.readPermission = 'Northwind:General';
+            ProductRow.updatePermission = 'Northwind:General';
         })(ProductRow = Northwind.ProductRow || (Northwind.ProductRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1603,6 +1853,10 @@ var MobilityMatters;
                 return Q.getLookup('Northwind.Region');
             }
             RegionRow.getLookup = getLookup;
+            RegionRow.deletePermission = 'Northwind:General';
+            RegionRow.insertPermission = 'Northwind:General';
+            RegionRow.readPermission = 'Northwind:General';
+            RegionRow.updatePermission = 'Northwind:General';
         })(RegionRow = Northwind.RegionRow || (Northwind.RegionRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1631,10 +1885,26 @@ var MobilityMatters;
 (function (MobilityMatters) {
     var Northwind;
     (function (Northwind) {
+        var RiderByCounty;
+        (function (RiderByCounty) {
+            RiderByCounty[RiderByCounty["Alameda"] = 0] = "Alameda";
+            RiderByCounty[RiderByCounty["ContraCosta"] = 1] = "ContraCosta";
+        })(RiderByCounty = Northwind.RiderByCounty || (Northwind.RiderByCounty = {}));
+        Serenity.Decorators.registerEnumType(RiderByCounty, 'MobilityMatters.Northwind.RiderByCounty', 'Northwind.RiderByCounty');
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
         var SalesByCategoryRow;
         (function (SalesByCategoryRow) {
             SalesByCategoryRow.nameProperty = 'CategoryName';
             SalesByCategoryRow.localTextPrefix = 'Northwind.SalesByCategory';
+            SalesByCategoryRow.deletePermission = 'Northwind:General';
+            SalesByCategoryRow.insertPermission = 'Northwind:General';
+            SalesByCategoryRow.readPermission = 'Northwind:General';
+            SalesByCategoryRow.updatePermission = 'Northwind:General';
         })(SalesByCategoryRow = Northwind.SalesByCategoryRow || (Northwind.SalesByCategoryRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1695,6 +1965,10 @@ var MobilityMatters;
                 return Q.getLookup('Northwind.Shipper');
             }
             ShipperRow.getLookup = getLookup;
+            ShipperRow.deletePermission = 'Northwind:General';
+            ShipperRow.insertPermission = 'Northwind:General';
+            ShipperRow.readPermission = 'Northwind:General';
+            ShipperRow.updatePermission = 'Northwind:General';
         })(ShipperRow = Northwind.ShipperRow || (Northwind.ShipperRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1751,6 +2025,10 @@ var MobilityMatters;
         (function (SpecialNeedsMultipleRow) {
             SpecialNeedsMultipleRow.idProperty = 'SpecialNeedsMultipleId';
             SpecialNeedsMultipleRow.localTextPrefix = 'Northwind.SpecialNeedsMultiple';
+            SpecialNeedsMultipleRow.deletePermission = 'Administration:General';
+            SpecialNeedsMultipleRow.insertPermission = 'Administration:General';
+            SpecialNeedsMultipleRow.readPermission = 'Administration:General';
+            SpecialNeedsMultipleRow.updatePermission = 'Administration:General';
         })(SpecialNeedsMultipleRow = Northwind.SpecialNeedsMultipleRow || (Northwind.SpecialNeedsMultipleRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1760,23 +2038,23 @@ var MobilityMatters;
     (function (Northwind) {
         var SpecialNeedsMultipleVolunteerForm = /** @class */ (function (_super) {
             __extends(SpecialNeedsMultipleVolunteerForm, _super);
-            function SpecialNeedsMultipleVolunteerForm() {
-                return _super !== null && _super.apply(this, arguments) || this;
+            function SpecialNeedsMultipleVolunteerForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!SpecialNeedsMultipleVolunteerForm.init) {
+                    SpecialNeedsMultipleVolunteerForm.init = true;
+                    var s = Serenity;
+                    var w0 = s.IntegerEditor;
+                    Q.initFormType(SpecialNeedsMultipleVolunteerForm, [
+                        'SpecialNeedsId', w0,
+                        'EmployeeId', w0
+                    ]);
+                }
+                return _this;
             }
             SpecialNeedsMultipleVolunteerForm.formKey = 'Northwind.SpecialNeedsMultipleVolunteer';
             return SpecialNeedsMultipleVolunteerForm;
         }(Serenity.PrefixedContext));
         Northwind.SpecialNeedsMultipleVolunteerForm = SpecialNeedsMultipleVolunteerForm;
-        [,
-            ['SpecialNeedsId', function () { return Serenity.IntegerEditor; }],
-            ['EmployeeId', function () { return Serenity.IntegerEditor; }]
-        ].forEach(function (x) { return Object.defineProperty(SpecialNeedsMultipleVolunteerForm.prototype, x[0], {
-            get: function () {
-                return this.w(x[0], x[1]());
-            },
-            enumerable: true,
-            configurable: true
-        }); });
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
 var MobilityMatters;
@@ -1787,14 +2065,10 @@ var MobilityMatters;
         (function (SpecialNeedsMultipleVolunteerRow) {
             SpecialNeedsMultipleVolunteerRow.idProperty = 'SpecialNeedsMultipleVolunteerId';
             SpecialNeedsMultipleVolunteerRow.localTextPrefix = 'Northwind.SpecialNeedsMultipleVolunteer';
-            var Fields;
-            (function (Fields) {
-            })(Fields = SpecialNeedsMultipleVolunteerRow.Fields || (SpecialNeedsMultipleVolunteerRow.Fields = {}));
-            [
-                'SpecialNeedsMultipleVolunteerId',
-                'SpecialNeedsId',
-                'EmployeeId'
-            ].forEach(function (x) { return Fields[x] = x; });
+            SpecialNeedsMultipleVolunteerRow.deletePermission = 'Administration:General';
+            SpecialNeedsMultipleVolunteerRow.insertPermission = 'Administration:General';
+            SpecialNeedsMultipleVolunteerRow.readPermission = 'Administration:General';
+            SpecialNeedsMultipleVolunteerRow.updatePermission = 'Administration:General';
         })(SpecialNeedsMultipleVolunteerRow = Northwind.SpecialNeedsMultipleVolunteerRow || (Northwind.SpecialNeedsMultipleVolunteerRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1805,9 +2079,6 @@ var MobilityMatters;
         var SpecialNeedsMultipleVolunteerService;
         (function (SpecialNeedsMultipleVolunteerService) {
             SpecialNeedsMultipleVolunteerService.baseUrl = 'Northwind/SpecialNeedsMultipleVolunteer';
-            var Methods;
-            (function (Methods) {
-            })(Methods = SpecialNeedsMultipleVolunteerService.Methods || (SpecialNeedsMultipleVolunteerService.Methods = {}));
             [
                 'Create',
                 'Update',
@@ -1818,7 +2089,6 @@ var MobilityMatters;
                 SpecialNeedsMultipleVolunteerService[x] = function (r, s, o) {
                     return Q.serviceRequest(SpecialNeedsMultipleVolunteerService.baseUrl + '/' + x, r, s, o);
                 };
-                Methods[x] = SpecialNeedsMultipleVolunteerService.baseUrl + '/' + x;
             });
         })(SpecialNeedsMultipleVolunteerService = Northwind.SpecialNeedsMultipleVolunteerService || (Northwind.SpecialNeedsMultipleVolunteerService = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
@@ -1837,6 +2107,10 @@ var MobilityMatters;
                 return Q.getLookup('Northwind.SpecialNeeds');
             }
             SpecialNeedsRow.getLookup = getLookup;
+            SpecialNeedsRow.deletePermission = 'Administration:General';
+            SpecialNeedsRow.insertPermission = 'Administration:General';
+            SpecialNeedsRow.readPermission = 'Administration:General';
+            SpecialNeedsRow.updatePermission = 'Administration:General';
         })(SpecialNeedsRow = Northwind.SpecialNeedsRow || (Northwind.SpecialNeedsRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1909,6 +2183,10 @@ var MobilityMatters;
                 return Q.getLookup('Northwind.Supplier');
             }
             SupplierRow.getLookup = getLookup;
+            SupplierRow.deletePermission = 'Northwind:General';
+            SupplierRow.insertPermission = 'Northwind:General';
+            SupplierRow.readPermission = 'Northwind:General';
+            SupplierRow.updatePermission = 'Northwind:General';
         })(SupplierRow = Northwind.SupplierRow || (Northwind.SupplierRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -1974,6 +2252,10 @@ var MobilityMatters;
                 return Q.getLookup('Northwind.Territory');
             }
             TerritoryRow.getLookup = getLookup;
+            TerritoryRow.deletePermission = 'Northwind:General';
+            TerritoryRow.insertPermission = 'Northwind:General';
+            TerritoryRow.readPermission = 'Northwind:General';
+            TerritoryRow.updatePermission = 'Northwind:General';
         })(TerritoryRow = Northwind.TerritoryRow || (Northwind.TerritoryRow = {}));
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
@@ -2002,7 +2284,7 @@ var MobilityMatters;
 (function (MobilityMatters) {
     var Texts;
     (function (Texts) {
-        MobilityMatters['Texts'] = Q.proxyTexts(Texts, '', { Db: { Administration: { Language: { Id: 1, LanguageId: 1, LanguageName: 1 }, Role: { RoleId: 1, RoleName: 1 }, RolePermission: { PermissionKey: 1, RoleId: 1, RolePermissionId: 1, RoleRoleName: 1 }, Translation: { CustomText: 1, EntityPlural: 1, Key: 1, OverrideConfirmation: 1, SaveChangesButton: 1, SourceLanguage: 1, SourceText: 1, TargetLanguage: 1, TargetText: 1 }, User: { DisplayName: 1, Email: 1, InsertDate: 1, InsertUserId: 1, IsActive: 1, LastDirectoryUpdate: 1, Password: 1, PasswordConfirm: 1, PasswordHash: 1, PasswordSalt: 1, Source: 1, UpdateDate: 1, UpdateUserId: 1, UserId: 1, UserImage: 1, Username: 1 }, UserPermission: { Granted: 1, PermissionKey: 1, User: 1, UserId: 1, UserPermissionId: 1, Username: 1 }, UserRole: { RoleId: 1, User: 1, UserId: 1, UserRoleId: 1, Username: 1 } }, Common: { UserPreference: { Name: 1, PreferenceType: 1, UserId: 1, UserPreferenceId: 1, Value: 1 } }, Northwind: { Category: { CategoryID: 1, CategoryName: 1, Description: 1, Picture: 1 }, CategoryLang: { CategoryId: 1, CategoryName: 1, Description: 1, Id: 1, LanguageId: 1 }, Cities: { CityId: 1, Name: 1 }, Customer: { Address: 1, AgeCalc: 1, BirthDate: 1, City: 1, CompanyName: 1, ContactName: 1, Country: 1, CustomerID: 1, DNR: 1, Dental: 1, EIO: 1, Email: 1, EmergencyName: 1, EmergencyName2: 1, EmergencyPhone: 1, EmergencyPhone2: 1, EmergencyRelation: 1, EmergencyRelation2: 1, Gender: 1, Groceries: 1, ID: 1, LastContactDate: 1, LastContactedBy: 1, LivingWith: 1, Medical: 1, NoteList: 1, OtherTransport: 1, PLanguage: 1, Phone: 1, PostalCode: 1, PreferredHospital: 1, Program: 1, ProgramOption: 1, Radio: 1, ReferralSource: 1, Region: 1, Representatives: 1, Residence: 1, SendBulletin: 1, Smoker: 1, SpecialNeedsList: 1, TEMP: 1 }, CustomerCustomerDemo: { CustomerAddress: 1, CustomerCity: 1, CustomerCompanyName: 1, CustomerContactName: 1, CustomerContactTitle: 1, CustomerCountry: 1, CustomerFax: 1, CustomerID: 1, CustomerPhone: 1, CustomerPostalCode: 1, CustomerRegion: 1, CustomerTypeCustomerDesc: 1, CustomerTypeID: 1, ID: 1 }, CustomerDemographic: { CustomerDesc: 1, CustomerTypeID: 1, ID: 1 }, CustomerDetails: { Dental: 1, Email: 1, EmergencyName: 1, EmergencyName2: 1, EmergencyPhone: 1, EmergencyPhone2: 1, EmergencyRelation: 1, EmergencyRelation2: 1, Gender: 1, Groceries: 1, Id: 1, LastContactDate: 1, LastContactedBy: 1, LastContactedByAddress: 1, LastContactedByBirthDate: 1, LastContactedByCity: 1, LastContactedByCountry: 1, LastContactedByExtension: 1, LastContactedByFirstName: 1, LastContactedByHireDate: 1, LastContactedByHomePhone: 1, LastContactedByLastName: 1, LastContactedByNotes: 1, LastContactedByPhoto: 1, LastContactedByPhotoPath: 1, LastContactedByPostalCode: 1, LastContactedByRegion: 1, LastContactedByReportsTo: 1, LastContactedByTitle: 1, LastContactedByTitleOfCourtesy: 1, LivingWith: 1, Medical: 1, OtherTransport: 1, PreferredHospital: 1, ReferralSource: 1, SendBulletin: 1, Smoker: 1, TEMP: 1 }, CustomerGrossSales: { ContactName: 1, CustomerId: 1, GrossAmount: 1, ProductId: 1, ProductName: 1 }, CustomerRepresentatives: { CustomerId: 1, EmployeeId: 1, RepresentativeId: 1 }, Employee: { Address: 1, BirthDate: 1, City: 1, Country: 1, EmployeeID: 1, Extension: 1, FirstName: 1, FullName: 1, Gender: 1, HireDate: 1, HomePhone: 1, LastName: 1, Notes: 1, Photo: 1, PhotoPath: 1, PostalCode: 1, Region: 1, ReportsTo: 1, ReportsToAddress: 1, ReportsToBirthDate: 1, ReportsToCity: 1, ReportsToCountry: 1, ReportsToExtension: 1, ReportsToFirstName: 1, ReportsToFullName: 1, ReportsToHireDate: 1, ReportsToHomePhone: 1, ReportsToLastName: 1, ReportsToNotes: 1, ReportsToPhoto: 1, ReportsToPhotoPath: 1, ReportsToPostalCode: 1, ReportsToRegion: 1, ReportsToReportsTo: 1, ReportsToTitle: 1, ReportsToTitleOfCourtesy: 1, Title: 1, TitleOfCourtesy: 1 }, EmployeeTerritory: { EmployeeAddress: 1, EmployeeBirthDate: 1, EmployeeCity: 1, EmployeeCountry: 1, EmployeeExtension: 1, EmployeeFirstName: 1, EmployeeHireDate: 1, EmployeeHomePhone: 1, EmployeeID: 1, EmployeeLastName: 1, EmployeeNotes: 1, EmployeePhoto: 1, EmployeePhotoPath: 1, EmployeePostalCode: 1, EmployeeRegion: 1, EmployeeReportsTo: 1, EmployeeTitle: 1, EmployeeTitleOfCourtesy: 1, TerritoryID: 1, TerritoryRegionID: 1, TerritoryTerritoryDescription: 1 }, Employees: { Address: 1, BirthDate: 1, City: 1, Country: 1, DriversLicense: 1, DriversLicenseExp: 1, Email: 1, EmployeeId: 1, Extension: 1, FirstName: 1, Gender: 1, HireDate: 1, HomePhone: 1, Insurance: 1, InsuranceExp: 1, LastName: 1, LicensePlate: 1, LicensePlateExp: 1, Notes: 1, OnVacation: 1, Photo: 1, PhotoPath: 1, PostalCode: 1, Region: 1, ReportsTo: 1, ReportsTo1: 1, ReportsToAddress: 1, ReportsToBirthDate: 1, ReportsToCity: 1, ReportsToCountry: 1, ReportsToExtension: 1, ReportsToFirstName: 1, ReportsToHireDate: 1, ReportsToHomePhone: 1, ReportsToLastName: 1, ReportsToNotes: 1, ReportsToPhoto: 1, ReportsToPhotoPath: 1, ReportsToPostalCode: 1, ReportsToRegion: 1, ReportsToTitle: 1, ReportsToTitleOfCourtesy: 1, Smoker: 1, SpecialNeedsList: 1, Title: 1, TitleOfCourtesy: 1, VehicleMake: 1, VehicleModel: 1 }, Note: { EntityId: 1, EntityType: 1, InsertDate: 1, InsertUserDisplayName: 1, InsertUserId: 1, NoteId: 1, Text: 1 }, Order: { CustomerCity: 1, CustomerCompanyName: 1, CustomerContactName: 1, CustomerCountry: 1, CustomerID: 1, CustomerPhone: 1, CustomerRegion: 1, DetailList: 1, EmployeeFullName: 1, EmployeeGender: 1, EmployeeID: 1, EmployeeReportsToFullName: 1, Freight: 1, OrderDate: 1, OrderID: 1, RequiredDate: 1, ShipAddress: 1, ShipCity: 1, ShipCountry: 1, ShipName: 1, ShipPostalCode: 1, ShipRegion: 1, ShipVia: 1, ShipViaCompanyName: 1, ShipViaPhone: 1, ShippedDate: 1, ShippingState: 1 }, OrderDetail: { DetailID: 1, Discount: 1, LineTotal: 1, OrderCustomerID: 1, OrderDate: 1, OrderEmployeeID: 1, OrderID: 1, OrderShipCity: 1, OrderShipCountry: 1, OrderShipVia: 1, OrderShippedDate: 1, ProductDiscontinued: 1, ProductID: 1, ProductName: 1, ProductQuantityPerUnit: 1, ProductSupplierID: 1, ProductUnitPrice: 1, Quantity: 1, UnitPrice: 1 }, Product: { CategoryDescription: 1, CategoryID: 1, CategoryName: 1, CategoryPicture: 1, Discontinued: 1, ProductID: 1, ProductImage: 1, ProductName: 1, QuantityPerUnit: 1, ReorderLevel: 1, SupplierAddress: 1, SupplierCity: 1, SupplierCompanyName: 1, SupplierContactName: 1, SupplierContactTitle: 1, SupplierCountry: 1, SupplierFax: 1, SupplierHomePage: 1, SupplierID: 1, SupplierPhone: 1, SupplierPostalCode: 1, SupplierRegion: 1, UnitPrice: 1, UnitsInStock: 1, UnitsOnOrder: 1 }, ProductLang: { Id: 1, LanguageId: 1, ProductId: 1, ProductName: 1 }, ProductLog: { CategoryID: 1, ChangingUserId: 1, Discontinued: 1, OperationType: 1, ProductID: 1, ProductImage: 1, ProductLogID: 1, ProductName: 1, QuantityPerUnit: 1, ReorderLevel: 1, SupplierID: 1, UnitPrice: 1, UnitsInStock: 1, UnitsOnOrder: 1, ValidFrom: 1, ValidUntil: 1 }, Region: { RegionDescription: 1, RegionID: 1 }, SalesByCategory: { CategoryId: 1, CategoryName: 1, ProductName: 1, ProductSales: 1 }, Shipper: { CompanyName: 1, Phone: 1, ShipperID: 1 }, SpecialNeeds: { Name: 1, SpecialNeedsID: 1 }, SpecialNeedsMultiple: { CustomerId: 1, EmployeeId: 1, SpecialNeedsId: 1, SpecialNeedsMultipleId: 1 }, Supplier: { Address: 1, City: 1, CompanyName: 1, ContactName: 1, ContactTitle: 1, Country: 1, Fax: 1, HomePage: 1, Phone: 1, PostalCode: 1, Region: 1, SupplierID: 1 }, Territory: { ID: 1, RegionDescription: 1, RegionID: 1, TerritoryDescription: 1, TerritoryID: 1 } } }, Forms: { Membership: { ChangePassword: { FormTitle: 1, SubmitButton: 1, Success: 1 }, ForgotPassword: { BackToLogin: 1, FormInfo: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, Login: { FacebookButton: 1, ForgotPassword: 1, FormTitle: 1, GoogleButton: 1, OR: 1, RememberMe: 1, SignInButton: 1, SignUpButton: 1 }, ResetPassword: { BackToLogin: 1, EmailSubject: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, SignUp: { AcceptTerms: 1, ActivateEmailSubject: 1, ActivationCompleteMessage: 1, BackToLogin: 1, ConfirmEmail: 1, ConfirmPassword: 1, DisplayName: 1, Email: 1, FormInfo: 1, FormTitle: 1, Password: 1, SubmitButton: 1, Success: 1 } } }, Site: { AccessDenied: { ClickToChangeUser: 1, ClickToLogin: 1, LackPermissions: 1, NotLoggedIn: 1, PageTitle: 1 }, BasicProgressDialog: { CancelTitle: 1, PleaseWait: 1 }, BulkServiceAction: { AllHadErrorsFormat: 1, AllSuccessFormat: 1, ConfirmationFormat: 1, ErrorCount: 1, NothingToProcess: 1, SomeHadErrorsFormat: 1, SuccessCount: 1 }, Dashboard: { ContentDescription: 1 }, Layout: { FooterCopyright: 1, FooterInfo: 1, FooterRights: 1, GeneralSettings: 1, Language: 1, Theme: 1, ThemeBlack: 1, ThemeBlackLight: 1, ThemeBlue: 1, ThemeBlueLight: 1, ThemeGreen: 1, ThemeGreenLight: 1, ThemePurple: 1, ThemePurpleLight: 1, ThemeRed: 1, ThemeRedLight: 1, ThemeYellow: 1, ThemeYellowLight: 1 }, RolePermissionDialog: { DialogTitle: 1, EditButton: 1, SaveSuccess: 1 }, UserDialog: { EditPermissionsButton: 1, EditRolesButton: 1 }, UserPermissionDialog: { DialogTitle: 1, Grant: 1, Permission: 1, Revoke: 1, SaveSuccess: 1 }, UserRoleDialog: { DialogTitle: 1, SaveSuccess: 1 }, ValidationError: { Title: 1 } }, Validation: { AuthenticationError: 1, CantFindUserWithEmail: 1, CurrentPasswordMismatch: 1, DeleteForeignKeyError: 1, EmailConfirm: 1, EmailInUse: 1, InvalidActivateToken: 1, InvalidResetToken: 1, MinRequiredPasswordLength: 1, NorthwindPhone: 1, NorthwindPhoneMultiple: 1, SavePrimaryKeyError: 1 } });
+        MobilityMatters['Texts'] = Q.proxyTexts(Texts, '', { Db: { Administration: { Language: { Id: 1, LanguageId: 1, LanguageName: 1 }, Role: { RoleId: 1, RoleName: 1 }, RolePermission: { PermissionKey: 1, RoleId: 1, RolePermissionId: 1, RoleRoleName: 1 }, Translation: { CustomText: 1, EntityPlural: 1, Key: 1, OverrideConfirmation: 1, SaveChangesButton: 1, SourceLanguage: 1, SourceText: 1, TargetLanguage: 1, TargetText: 1 }, User: { DisplayName: 1, Email: 1, InsertDate: 1, InsertUserId: 1, IsActive: 1, LastDirectoryUpdate: 1, Password: 1, PasswordConfirm: 1, PasswordHash: 1, PasswordSalt: 1, Source: 1, UpdateDate: 1, UpdateUserId: 1, UserId: 1, UserImage: 1, Username: 1 }, UserPermission: { Granted: 1, PermissionKey: 1, User: 1, UserId: 1, UserPermissionId: 1, Username: 1 }, UserRole: { RoleId: 1, User: 1, UserId: 1, UserRoleId: 1, Username: 1 } }, Common: { UserPreference: { Name: 1, PreferenceType: 1, UserId: 1, UserPreferenceId: 1, Value: 1 } }, Northwind: { AvailabilityAm: { AvailabilityAmid: 1, Day: 1 }, AvailabilityAmMultiple: { AvailabilityAmMultipleId: 1, AvailabilityAmid: 1, EmployeeId: 1 }, AvailabilityPm: { AvailabilityPmid: 1, Day: 1 }, AvailabilityPmMultiple: { AvailabilityPmMultipleId: 1, AvailabilityPmid: 1, EmployeeId: 1 }, Category: { CategoryID: 1, CategoryName: 1, Description: 1, Picture: 1 }, CategoryLang: { CategoryId: 1, CategoryName: 1, Description: 1, Id: 1, LanguageId: 1 }, Cities: { CityId: 1, Name: 1 }, CitiesMulti: { CitiesMultiId: 1, CityId: 1, CityName: 1, EmployeeAddress: 1, EmployeeBirthDate: 1, EmployeeCity: 1, EmployeeCountry: 1, EmployeeDriversLicense: 1, EmployeeDriversLicenseExp: 1, EmployeeEmail: 1, EmployeeExtension: 1, EmployeeFirstName: 1, EmployeeGender: 1, EmployeeHireDate: 1, EmployeeHomePhone: 1, EmployeeId: 1, EmployeeInsurance: 1, EmployeeInsuranceExp: 1, EmployeeLastName: 1, EmployeeLicensePlate: 1, EmployeeLicensePlateExp: 1, EmployeeNotes: 1, EmployeeOnVacation: 1, EmployeePhoto: 1, EmployeePhotoPath: 1, EmployeePostalCode: 1, EmployeeRegion: 1, EmployeeReportsTo: 1, EmployeeSmoker: 1, EmployeeSpecialNeedsId: 1, EmployeeTitle: 1, EmployeeTitleOfCourtesy: 1, EmployeeVehicleMake: 1, EmployeeVehicleModel: 1 }, Customer: { Address: 1, AgeCalc: 1, BirthDate: 1, City: 1, CompanyName: 1, ContactName: 1, Country: 1, County: 1, CustomerID: 1, DNR: 1, Dental: 1, EIO: 1, Email: 1, EmergencyName: 1, EmergencyName2: 1, EmergencyPhone: 1, EmergencyPhone2: 1, EmergencyRelation: 1, EmergencyRelation2: 1, Gender: 1, Groceries: 1, ID: 1, LastContactDate: 1, LastContactedBy: 1, LivingWith: 1, Medical: 1, NoteList: 1, OtherTransport: 1, PLanguage: 1, Phone: 1, PostalCode: 1, PreferredHospital: 1, Program: 1, ProgramOption: 1, Radio: 1, ReferralSource: 1, Region: 1, Representatives: 1, Residence: 1, RiderFullName: 1, SendBulletin: 1, Smoker: 1, SpecialNeedsList: 1, TEMP: 1 }, CustomerCustomerDemo: { CustomerAddress: 1, CustomerCity: 1, CustomerCompanyName: 1, CustomerContactName: 1, CustomerContactTitle: 1, CustomerCountry: 1, CustomerFax: 1, CustomerID: 1, CustomerPhone: 1, CustomerPostalCode: 1, CustomerRegion: 1, CustomerTypeCustomerDesc: 1, CustomerTypeID: 1, ID: 1 }, CustomerDemographic: { CustomerDesc: 1, CustomerTypeID: 1, ID: 1 }, CustomerDetails: { Dental: 1, Email: 1, EmergencyName: 1, EmergencyName2: 1, EmergencyPhone: 1, EmergencyPhone2: 1, EmergencyRelation: 1, EmergencyRelation2: 1, Gender: 1, Groceries: 1, Id: 1, LastContactDate: 1, LastContactedBy: 1, LastContactedByAddress: 1, LastContactedByBirthDate: 1, LastContactedByCity: 1, LastContactedByCountry: 1, LastContactedByExtension: 1, LastContactedByFirstName: 1, LastContactedByHireDate: 1, LastContactedByHomePhone: 1, LastContactedByLastName: 1, LastContactedByNotes: 1, LastContactedByPhoto: 1, LastContactedByPhotoPath: 1, LastContactedByPostalCode: 1, LastContactedByRegion: 1, LastContactedByReportsTo: 1, LastContactedByTitle: 1, LastContactedByTitleOfCourtesy: 1, LivingWith: 1, Medical: 1, OtherTransport: 1, PreferredHospital: 1, ReferralSource: 1, SendBulletin: 1, Smoker: 1, TEMP: 1 }, CustomerGrossSales: { ContactName: 1, CustomerId: 1, GrossAmount: 1, ProductId: 1, ProductName: 1 }, CustomerRepresentatives: { CustomerId: 1, EmployeeId: 1, RepresentativeId: 1 }, Employee: { Address: 1, BirthDate: 1, City: 1, Country: 1, EmployeeID: 1, Extension: 1, FirstName: 1, FullName: 1, Gender: 1, HireDate: 1, HomePhone: 1, LastName: 1, Notes: 1, Photo: 1, PhotoPath: 1, PostalCode: 1, Region: 1, ReportsTo: 1, ReportsToAddress: 1, ReportsToBirthDate: 1, ReportsToCity: 1, ReportsToCountry: 1, ReportsToExtension: 1, ReportsToFirstName: 1, ReportsToFullName: 1, ReportsToHireDate: 1, ReportsToHomePhone: 1, ReportsToLastName: 1, ReportsToNotes: 1, ReportsToPhoto: 1, ReportsToPhotoPath: 1, ReportsToPostalCode: 1, ReportsToRegion: 1, ReportsToReportsTo: 1, ReportsToTitle: 1, ReportsToTitleOfCourtesy: 1, Title: 1, TitleOfCourtesy: 1 }, EmployeeTerritory: { EmployeeAddress: 1, EmployeeBirthDate: 1, EmployeeCity: 1, EmployeeCountry: 1, EmployeeExtension: 1, EmployeeFirstName: 1, EmployeeHireDate: 1, EmployeeHomePhone: 1, EmployeeID: 1, EmployeeLastName: 1, EmployeeNotes: 1, EmployeePhoto: 1, EmployeePhotoPath: 1, EmployeePostalCode: 1, EmployeeRegion: 1, EmployeeReportsTo: 1, EmployeeTitle: 1, EmployeeTitleOfCourtesy: 1, TerritoryID: 1, TerritoryRegionID: 1, TerritoryTerritoryDescription: 1 }, Employees: { Address: 1, AvailabilityAMList: 1, AvailabilityPMList: 1, BirthDate: 1, CitiesList: 1, City: 1, Country: 1, DMVClearance: 1, DriversLicense: 1, DriversLicenseExp: 1, Email: 1, EmployeeId: 1, EndDate: 1, Extension: 1, FirstName: 1, Gender: 1, HireDate: 1, HomePhone: 1, Insurance: 1, InsuranceExp: 1, Language: 1, LastName: 1, LicensePlate: 1, LicensePlateExp: 1, Notes: 1, OnVacation: 1, Photo: 1, PhotoPath: 1, PoliceClearance: 1, PostalCode: 1, ReferralSource: 1, Region: 1, ReportsTo: 1, ReportsTo1: 1, ReportsToAddress: 1, ReportsToBirthDate: 1, ReportsToCity: 1, ReportsToCountry: 1, ReportsToExtension: 1, ReportsToFirstName: 1, ReportsToHireDate: 1, ReportsToHomePhone: 1, ReportsToLastName: 1, ReportsToNotes: 1, ReportsToPhoto: 1, ReportsToPhotoPath: 1, ReportsToPostalCode: 1, ReportsToRegion: 1, ReportsToTitle: 1, ReportsToTitleOfCourtesy: 1, Smoker: 1, SpecialNeedsList: 1, Title: 1, TitleOfCourtesy: 1, TrainingDate: 1, VehicleMake: 1, VehicleMake2: 1, VehicleModel: 1, VehicleModel2: 1, WhyEnding: 1 }, Mail: { Attachments: 1, Body: 1, Cc: 1, CreatedBy: 1, CreatedOn: 1, Direction: 1, ErrorMessage: 1, From: 1, IsSent: 1, MailId: 1, ModifiedBy: 1, ModifiedOn: 1, ReceivedDate: 1, SendDateTime: 1, Subject: 1, To: 1, Uid: 1 }, MailAttachments: { AttachmentId: 1, CreatedBy: 1, CreatedOn: 1, FilePath: 1, MailBody: 1, MailCc: 1, MailCreatedBy: 1, MailCreatedOn: 1, MailDirection: 1, MailFrom: 1, MailId: 1, MailModifiedBy: 1, MailModifiedOn: 1, MailReceivedDate: 1, MailSendDateTime: 1, MailSubject: 1, MailTo: 1, MailUid: 1, MimeType: 1, ModifiedBy: 1, ModifiedOn: 1, OriginalFileName: 1, Size: 1 }, Note: { EntityId: 1, EntityType: 1, InsertDate: 1, InsertUserDisplayName: 1, InsertUserId: 1, NoteId: 1, Text: 1 }, Order: { CustomerCity: 1, CustomerCompanyName: 1, CustomerContactName: 1, CustomerCountry: 1, CustomerID: 1, CustomerPhone: 1, CustomerRegion: 1, DestinationAddress: 1, DestinationCity: 1, DestinationZip: 1, DetailList: 1, DistanceText: 1, DistanceValue: 1, DurationText: 1, DurationValue: 1, EmployeeFullName: 1, EmployeeGender: 1, EmployeeID: 1, EmployeeReportsToFullName: 1, Freight: 1, OrderDate: 1, OrderID: 1, RequiredDate: 1, RiderFullName: 1, ShipAddress: 1, ShipCity: 1, ShipCountry: 1, ShipName: 1, ShipPostalCode: 1, ShipRegion: 1, ShipVia: 1, ShipViaCompanyName: 1, ShipViaPhone: 1, ShippedDate: 1, ShippingState: 1 }, OrderDetail: { DetailID: 1, Discount: 1, LineTotal: 1, OrderCustomerID: 1, OrderDate: 1, OrderEmployeeID: 1, OrderID: 1, OrderShipCity: 1, OrderShipCountry: 1, OrderShipVia: 1, OrderShippedDate: 1, ProductDiscontinued: 1, ProductID: 1, ProductName: 1, ProductQuantityPerUnit: 1, ProductSupplierID: 1, ProductUnitPrice: 1, Quantity: 1, UnitPrice: 1 }, Product: { CategoryDescription: 1, CategoryID: 1, CategoryName: 1, CategoryPicture: 1, Discontinued: 1, ProductID: 1, ProductImage: 1, ProductName: 1, QuantityPerUnit: 1, ReorderLevel: 1, SupplierAddress: 1, SupplierCity: 1, SupplierCompanyName: 1, SupplierContactName: 1, SupplierContactTitle: 1, SupplierCountry: 1, SupplierFax: 1, SupplierHomePage: 1, SupplierID: 1, SupplierPhone: 1, SupplierPostalCode: 1, SupplierRegion: 1, UnitPrice: 1, UnitsInStock: 1, UnitsOnOrder: 1 }, ProductLang: { Id: 1, LanguageId: 1, ProductId: 1, ProductName: 1 }, ProductLog: { CategoryID: 1, ChangingUserId: 1, Discontinued: 1, OperationType: 1, ProductID: 1, ProductImage: 1, ProductLogID: 1, ProductName: 1, QuantityPerUnit: 1, ReorderLevel: 1, SupplierID: 1, UnitPrice: 1, UnitsInStock: 1, UnitsOnOrder: 1, ValidFrom: 1, ValidUntil: 1 }, Region: { RegionDescription: 1, RegionID: 1 }, SalesByCategory: { CategoryId: 1, CategoryName: 1, ProductName: 1, ProductSales: 1 }, Shipper: { CompanyName: 1, Phone: 1, ShipperID: 1 }, SpecialNeeds: { Name: 1, SpecialNeedsID: 1 }, SpecialNeedsMultiple: { CustomerId: 1, SpecialNeedsId: 1, SpecialNeedsMultipleId: 1 }, SpecialNeedsMultipleVolunteer: { EmployeeId: 1, SpecialNeedsId: 1, SpecialNeedsMultipleVolunteerId: 1 }, Supplier: { Address: 1, City: 1, CompanyName: 1, ContactName: 1, ContactTitle: 1, Country: 1, Fax: 1, HomePage: 1, Phone: 1, PostalCode: 1, Region: 1, SupplierID: 1 }, Territory: { ID: 1, RegionDescription: 1, RegionID: 1, TerritoryDescription: 1, TerritoryID: 1 } } }, Forms: { Membership: { ChangePassword: { FormTitle: 1, SubmitButton: 1, Success: 1 }, ForgotPassword: { BackToLogin: 1, FormInfo: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, Login: { FacebookButton: 1, ForgotPassword: 1, FormTitle: 1, GoogleButton: 1, OR: 1, RememberMe: 1, SignInButton: 1, SignUpButton: 1 }, ResetPassword: { BackToLogin: 1, EmailSubject: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, SignUp: { AcceptTerms: 1, ActivateEmailSubject: 1, ActivationCompleteMessage: 1, BackToLogin: 1, ConfirmEmail: 1, ConfirmPassword: 1, DisplayName: 1, Email: 1, FormInfo: 1, FormTitle: 1, Password: 1, SubmitButton: 1, Success: 1 } } }, Site: { AccessDenied: { ClickToChangeUser: 1, ClickToLogin: 1, LackPermissions: 1, NotLoggedIn: 1, PageTitle: 1 }, BasicProgressDialog: { CancelTitle: 1, PleaseWait: 1 }, BulkServiceAction: { AllHadErrorsFormat: 1, AllSuccessFormat: 1, ConfirmationFormat: 1, ErrorCount: 1, NothingToProcess: 1, SomeHadErrorsFormat: 1, SuccessCount: 1 }, Dashboard: { ContentDescription: 1 }, Layout: { FooterCopyright: 1, FooterInfo: 1, FooterRights: 1, GeneralSettings: 1, Language: 1, Theme: 1, ThemeBlack: 1, ThemeBlackLight: 1, ThemeBlue: 1, ThemeBlueLight: 1, ThemeGreen: 1, ThemeGreenLight: 1, ThemePurple: 1, ThemePurpleLight: 1, ThemeRed: 1, ThemeRedLight: 1, ThemeYellow: 1, ThemeYellowLight: 1 }, RolePermissionDialog: { DialogTitle: 1, EditButton: 1, SaveSuccess: 1 }, UserDialog: { EditPermissionsButton: 1, EditRolesButton: 1 }, UserPermissionDialog: { DialogTitle: 1, Grant: 1, Permission: 1, Revoke: 1, SaveSuccess: 1 }, UserRoleDialog: { DialogTitle: 1, SaveSuccess: 1 }, ValidationError: { Title: 1 } }, Validation: { AuthenticationError: 1, CantFindUserWithEmail: 1, CurrentPasswordMismatch: 1, DeleteForeignKeyError: 1, EmailConfirm: 1, EmailInUse: 1, InvalidActivateToken: 1, InvalidResetToken: 1, MinRequiredPasswordLength: 1, NorthwindPhone: 1, NorthwindPhoneMultiple: 1, SavePrimaryKeyError: 1 } });
     })(Texts = MobilityMatters.Texts || (MobilityMatters.Texts = {}));
 })(MobilityMatters || (MobilityMatters = {}));
 var MobilityMatters;
@@ -4774,6 +5056,40 @@ var MobilityMatters;
                         OrderID: _this.get_entityId()
                     }); }
                 }));
+                buttons.push({
+                    title: 'Distance and Duration by Google Maps',
+                    icon: 'fa fa-map-o text-green',
+                    onClick: function () {
+                        Q.confirm("Do you really want to calculate distance and duration by Google Maps?", function () {
+                            var source = (_this.form.ShipAddress == null ? "" : _this.form.ShipAddress.value + ",") +
+                                (_this.form.ShipCity == null ? "" : _this.form.ShipCity.value + ",") +
+                                (_this.form.ShipPostalCode == null ? "" : _this.form.ShipPostalCode.value);
+                            var destination = (_this.form.DestinationAddress == null ? "" : _this.form.DestinationAddress.value + ",") +
+                                (_this.form.DestinationCity == null ? "" : _this.form.DestinationCity.value + ",") +
+                                (_this.form.DestinationZip == null ? "" : _this.form.DestinationZip.value);
+                            if (!Q.isEmptyOrNull(source) && !Q.isEmptyOrNull(destination)) {
+                                Northwind.OrderService.DistanceMatrix({
+                                    Source: source,
+                                    Destination: destination
+                                }, function (response) {
+                                    if (response != null && response.Status == "OK" &&
+                                        response.Rows.length > 0 && response.Rows[0].Elements.length > 0 &&
+                                        response.Rows[0].Elements[0].Status == "OK") {
+                                        _this.form.DistanceText.value = response.Rows[0].Elements[0].Distance.Text;
+                                        _this.form.DurationText.value = response.Rows[0].Elements[0].Duration.Text;
+                                        Q.notifySuccess("Distance: " + response.Rows[0].Elements[0].Distance.Text + " Duration: " + response.Rows[0].Elements[0].Duration.Text);
+                                    }
+                                    else {
+                                        Q.notifyError("No distance and duration found!");
+                                    }
+                                });
+                            }
+                            else {
+                                Q.notifyWarning("Please type origin and destination!");
+                            }
+                        });
+                    }
+                });
                 return buttons;
             };
             OrderDialog.prototype.updateInterface = function () {
@@ -5085,6 +5401,10 @@ var MobilityMatters;
             EmployeesGrid.prototype.getIdProperty = function () { return Northwind.EmployeesRow.idProperty; };
             EmployeesGrid.prototype.getLocalTextPrefix = function () { return Northwind.EmployeesRow.localTextPrefix; };
             EmployeesGrid.prototype.getService = function () { return Northwind.EmployeesService.baseUrl; };
+            EmployeesGrid.prototype.createToolbarExtensions = function () {
+                _super.prototype.createToolbarExtensions.call(this);
+                this.rowSelection = new Serenity.GridRowSelectionMixin(this);
+            };
             EmployeesGrid.prototype.getButtons = function () {
                 var _this = this;
                 var buttons = _super.prototype.getButtons.call(this);
@@ -5098,7 +5418,30 @@ var MobilityMatters;
                     grid: this,
                     onViewSubmit: function () { return _this.onViewSubmit(); }
                 }));
+                buttons.push({
+                    title: 'Send Email',
+                    icon: "fa-envelope text-green",
+                    separator: false,
+                    onClick: function () {
+                        if (!_this.onViewSubmit())
+                            return;
+                        var checkedIDs = _this.rowSelection.getSelectedAsInt32();
+                        if (checkedIDs.length == 0) {
+                            Q.alert("You must select at least one Volunteer to send email!");
+                            return;
+                        }
+                        new Northwind.MailComposeDialog({
+                            toVoluntueer: checkedIDs
+                        }).dialogOpen();
+                    }
+                });
                 return buttons;
+            };
+            EmployeesGrid.prototype.getColumns = function () {
+                var _this = this;
+                var columns = _super.prototype.getColumns.call(this);
+                columns.splice(0, 0, Serenity.GridRowSelectionMixin.createSelectColumn(function () { return _this.rowSelection; }));
+                return columns;
             };
             EmployeesGrid = __decorate([
                 Serenity.Decorators.registerClass()
@@ -5106,6 +5449,243 @@ var MobilityMatters;
             return EmployeesGrid;
         }(Serenity.EntityGrid));
         Northwind.EmployeesGrid = EmployeesGrid;
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
+        var MailBodyViewer = /** @class */ (function (_super) {
+            __extends(MailBodyViewer, _super);
+            function MailBodyViewer(element) {
+                var _this = _super.call(this, element) || this;
+                element.attr("border", "0")
+                    .css("border", "1px solid #eee")
+                    .css("width", "100%")
+                    .css("height", "400px");
+                return _this;
+            }
+            MailBodyViewer.prototype.setEditValue = function (source, property) {
+                var value = source[property.name];
+                var iframe = this.element[0];
+                iframe.onload = function () {
+                    var doc = iframe.contentDocument;
+                    doc.open();
+                    doc.write(value || '');
+                    doc.close();
+                    $(iframe.contentDocument.body).removeAttr('oncontextmenu');
+                    iframe.style.height = (Math.max(250, iframe.contentWindow.document.body.scrollHeight + 30)) + 'px';
+                };
+            };
+            MailBodyViewer = __decorate([
+                Serenity.Decorators.element("<iframe />"),
+                Serenity.Decorators.registerEditor([Serenity.ISetEditValue])
+            ], MailBodyViewer);
+            return MailBodyViewer;
+        }(Serenity.Widget));
+        Northwind.MailBodyViewer = MailBodyViewer;
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
+        var MailComposeDialog = /** @class */ (function (_super) {
+            __extends(MailComposeDialog, _super);
+            function MailComposeDialog(opt) {
+                var _this = _super.call(this, opt) || this;
+                _this.form = new Northwind.MailComposeForm(_this.idPrefix);
+                _this.dialogTitle = "Compose Mail";
+                _this.form.To.value = opt.toVoluntueer ? opt.toVoluntueer.toString() : null;
+                if (opt.ccList && opt.ccList.length) {
+                    _this.form.Cc.values = opt.ccList.map(function (x) { return x.toString(); });
+                }
+                _this.form.Subject.value = opt.subject;
+                if (opt.body)
+                    _this.form.BodyHtml.value = opt.body;
+                if (opt.attachments)
+                    _this.form.Attachments.value = opt.attachments;
+                return _this;
+            }
+            MailComposeDialog.prototype.getDialogButtons = function () {
+                var buttons = _super.prototype['getDialogButtons'].call(this);
+                buttons[0].text = "Send";
+                return buttons;
+            };
+            MailComposeDialog.prototype.getDialogOptions = function () {
+                var opt = _super.prototype.getDialogOptions.call(this);
+                opt.width = 950;
+                return opt;
+            };
+            MailComposeDialog.prototype.validateBeforeSave = function () {
+                if (!_super.prototype.validateBeforeSave.call(this))
+                    return false;
+                if (this.options.attachments &&
+                    (!this.form.Attachments.value ||
+                        !this.form.Attachments.value.length)) {
+                    Q.notifyError("You need to attach a file to this message!");
+                    return false;
+                }
+                return true;
+            };
+            MailComposeDialog.prototype.okClickValidated = function () {
+                var _this = this;
+                var request = {};
+                this.propertyGrid.save(request);
+                Northwind.MailService.Compose(request, function (response) {
+                    Serenity.SubDialogHelper.triggerDataChange(_this);
+                    _this.dialogClose();
+                });
+            };
+            MailComposeDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], MailComposeDialog);
+            return MailComposeDialog;
+        }(Serenity.PropertyDialog));
+        Northwind.MailComposeDialog = MailComposeDialog;
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
+        var MailContentEditor = /** @class */ (function (_super) {
+            __extends(MailContentEditor, _super);
+            function MailContentEditor(element, opt) {
+                return _super.call(this, element, opt) || this;
+            }
+            MailContentEditor.prototype.getConfig = function () {
+                var config = _super.prototype.getConfig.call(this);
+                config.extraPlugins = (config.extraPlugins ? (config.extraPlugins + ",") : "") + "uploadimage,image2";
+                config.removePlugins = (config.removePlugins ? (config.removePlugins + ",") : "") + "elementspath";
+                config.imageUploadUrl = Q.resolveUrl("~/File/TemporaryUploadCK");
+                config.fullPage = true;
+                config.allowedContent = true;
+                return config;
+            };
+            MailContentEditor = __decorate([
+                Serenity.Decorators.registerEditor()
+            ], MailContentEditor);
+            return MailContentEditor;
+        }(Serenity.HtmlContentEditor));
+        Northwind.MailContentEditor = MailContentEditor;
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
+        var MailDialog = /** @class */ (function (_super) {
+            __extends(MailDialog, _super);
+            function MailDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Northwind.MailForm(_this.idPrefix);
+                return _this;
+            }
+            MailDialog.prototype.getFormKey = function () { return Northwind.MailForm.formKey; };
+            MailDialog.prototype.getIdProperty = function () { return Northwind.MailRow.idProperty; };
+            MailDialog.prototype.getLocalTextPrefix = function () { return Northwind.MailRow.localTextPrefix; };
+            MailDialog.prototype.getNameProperty = function () { return Northwind.MailRow.nameProperty; };
+            MailDialog.prototype.getService = function () { return Northwind.MailService.baseUrl; };
+            MailDialog.prototype.updateInterface = function () {
+                _super.prototype.updateInterface.call(this);
+                Serenity.EditorUtils.setReadonly(this.element.find('.editor').not('iframe'), true);
+                this.applyChangesButton.hide();
+                this.saveAndCloseButton.hide();
+                this.deleteButton.hide();
+            };
+            MailDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], MailDialog);
+            return MailDialog;
+        }(Serenity.EntityDialog));
+        Northwind.MailDialog = MailDialog;
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
+        var MailGrid = /** @class */ (function (_super) {
+            __extends(MailGrid, _super);
+            function MailGrid(container, opt) {
+                var _this = _super.call(this, container, opt) || this;
+                if (_this.options.isSent != null)
+                    _this.setEquality("IsSent" /* IsSent */, _this.options.isSent);
+                return _this;
+            }
+            MailGrid.prototype.getColumnsKey = function () { return 'Northwind.Mail'; };
+            MailGrid.prototype.getDialogType = function () { return Northwind.MailDialog; };
+            MailGrid.prototype.getIdProperty = function () { return Northwind.MailRow.idProperty; };
+            MailGrid.prototype.getLocalTextPrefix = function () { return Northwind.MailRow.localTextPrefix; };
+            MailGrid.prototype.getService = function () { return Northwind.MailService.baseUrl; };
+            MailGrid.prototype.getItemCssClass = function (item, index) {
+                return (_super.prototype.getItemCssClass.call(this, item, index) || "") +
+                    (item.IsSent == false ? " deleted" : "");
+            };
+            MailGrid.prototype.getIncludeColumns = function (include) {
+                _super.prototype.getIncludeColumns.call(this, include);
+                include["IsSent" /* IsSent */] = true;
+            };
+            MailGrid.prototype.onViewSubmit = function () {
+                if (!_super.prototype.onViewSubmit.call(this))
+                    return false;
+                var request = this.view.params;
+                request.ColumnSelection = 1 /* KeyOnly */;
+                return true;
+            };
+            MailGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], MailGrid);
+            return MailGrid;
+        }(Serenity.EntityGrid));
+        Northwind.MailGrid = MailGrid;
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
+        var MailAttachmentsDialog = /** @class */ (function (_super) {
+            __extends(MailAttachmentsDialog, _super);
+            function MailAttachmentsDialog() {
+                var _this = _super !== null && _super.apply(this, arguments) || this;
+                _this.form = new Northwind.MailAttachmentsForm(_this.idPrefix);
+                return _this;
+            }
+            MailAttachmentsDialog.prototype.getFormKey = function () { return Northwind.MailAttachmentsForm.formKey; };
+            MailAttachmentsDialog.prototype.getIdProperty = function () { return Northwind.MailAttachmentsRow.idProperty; };
+            MailAttachmentsDialog.prototype.getLocalTextPrefix = function () { return Northwind.MailAttachmentsRow.localTextPrefix; };
+            MailAttachmentsDialog.prototype.getNameProperty = function () { return Northwind.MailAttachmentsRow.nameProperty; };
+            MailAttachmentsDialog.prototype.getService = function () { return Northwind.MailAttachmentsService.baseUrl; };
+            MailAttachmentsDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], MailAttachmentsDialog);
+            return MailAttachmentsDialog;
+        }(Serenity.EntityDialog));
+        Northwind.MailAttachmentsDialog = MailAttachmentsDialog;
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
+        var MailAttachmentsGrid = /** @class */ (function (_super) {
+            __extends(MailAttachmentsGrid, _super);
+            function MailAttachmentsGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            MailAttachmentsGrid.prototype.getColumnsKey = function () { return 'Northwind.MailAttachments'; };
+            MailAttachmentsGrid.prototype.getDialogType = function () { return Northwind.MailAttachmentsDialog; };
+            MailAttachmentsGrid.prototype.getIdProperty = function () { return Northwind.MailAttachmentsRow.idProperty; };
+            MailAttachmentsGrid.prototype.getLocalTextPrefix = function () { return Northwind.MailAttachmentsRow.localTextPrefix; };
+            MailAttachmentsGrid.prototype.getService = function () { return Northwind.MailAttachmentsService.baseUrl; };
+            MailAttachmentsGrid = __decorate([
+                Serenity.Decorators.registerClass()
+            ], MailAttachmentsGrid);
+            return MailAttachmentsGrid;
+        }(Serenity.EntityGrid));
+        Northwind.MailAttachmentsGrid = MailAttachmentsGrid;
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
 var MobilityMatters;

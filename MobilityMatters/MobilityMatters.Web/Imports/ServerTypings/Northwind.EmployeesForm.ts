@@ -14,6 +14,7 @@
         BirthDate: Serenity.DateEditor;
         Gender: Serenity.LookupEditor;
         Smoker: Serenity.BooleanEditor;
+        Language: Serenity.StringEditor;
         DriversLicense: Serenity.StringEditor;
         DriversLicenseExp: Serenity.DateEditor;
         LicensePlate: Serenity.StringEditor;
@@ -22,8 +23,19 @@
         InsuranceExp: Serenity.DateEditor;
         VehicleMake: Serenity.StringEditor;
         VehicleModel: Serenity.StringEditor;
+        VehicleMake2: Serenity.StringEditor;
+        VehicleModel2: Serenity.StringEditor;
+        DMVClearance: Serenity.BooleanEditor;
+        PoliceClearance: Serenity.BooleanEditor;
+        ReferralSource: Serenity.LookupEditor;
+        TrainingDate: Serenity.DateEditor;
         HireDate: Serenity.DateEditor;
+        EndDate: Serenity.DateEditor;
+        WhyEnding: Serenity.StringEditor;
         SpecialNeedsList: Serenity.LookupEditor;
+        CitiesList: Serenity.LookupEditor;
+        AvailabilityAMList: Serenity.LookupEditor;
+        AvailabilityPMList: Serenity.LookupEditor;
     }
 
     export class EmployeesForm extends Serenity.PrefixedContext {
@@ -58,6 +70,7 @@
                     'BirthDate', w4,
                     'Gender', w0,
                     'Smoker', w2,
+                    'Language', w1,
                     'DriversLicense', w1,
                     'DriversLicenseExp', w4,
                     'LicensePlate', w1,
@@ -66,8 +79,19 @@
                     'InsuranceExp', w4,
                     'VehicleMake', w1,
                     'VehicleModel', w1,
+                    'VehicleMake2', w1,
+                    'VehicleModel2', w1,
+                    'DMVClearance', w2,
+                    'PoliceClearance', w2,
+                    'ReferralSource', w0,
+                    'TrainingDate', w4,
                     'HireDate', w4,
-                    'SpecialNeedsList', w0
+                    'EndDate', w4,
+                    'WhyEnding', w1,
+                    'SpecialNeedsList', w0,
+                    'CitiesList', w0,
+                    'AvailabilityAMList', w0,
+                    'AvailabilityPMList', w0
                 ]);
             }
         }

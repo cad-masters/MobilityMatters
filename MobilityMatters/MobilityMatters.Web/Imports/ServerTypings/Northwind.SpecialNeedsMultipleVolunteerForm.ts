@@ -1,22 +1,28 @@
-﻿
-namespace MobilityMatters.Northwind {
-    export class SpecialNeedsMultipleVolunteerForm extends Serenity.PrefixedContext {
-        static formKey = 'Northwind.SpecialNeedsMultipleVolunteer';
-    }
-
+﻿namespace MobilityMatters.Northwind {
     export interface SpecialNeedsMultipleVolunteerForm {
         SpecialNeedsId: Serenity.IntegerEditor;
         EmployeeId: Serenity.IntegerEditor;
     }
 
-    [,
-        ['SpecialNeedsId', () => Serenity.IntegerEditor],
-        ['EmployeeId', () => Serenity.IntegerEditor]
-    ].forEach(x => Object.defineProperty(SpecialNeedsMultipleVolunteerForm.prototype, <string>x[0], {
-        get: function () {
-            return this.w(x[0], (x[1] as any)());
-        },
-        enumerable: true,
-        configurable: true
-    }));
+    export class SpecialNeedsMultipleVolunteerForm extends Serenity.PrefixedContext {
+        static formKey = 'Northwind.SpecialNeedsMultipleVolunteer';
+        private static init: boolean;
+
+        constructor(prefix: string) {
+            super(prefix);
+
+            if (!SpecialNeedsMultipleVolunteerForm.init)  {
+                SpecialNeedsMultipleVolunteerForm.init = true;
+
+                var s = Serenity;
+                var w0 = s.IntegerEditor;
+
+                Q.initFormType(SpecialNeedsMultipleVolunteerForm, [
+                    'SpecialNeedsId', w0,
+                    'EmployeeId', w0
+                ]);
+            }
+        }
+    }
 }
+

@@ -1,5 +1,4 @@
-﻿
-namespace MobilityMatters.Northwind {
+﻿namespace MobilityMatters.Northwind {
     export namespace AvailabilityAmMultipleService {
         export const baseUrl = 'Northwind/AvailabilityAmMultiple';
 
@@ -9,12 +8,12 @@ namespace MobilityMatters.Northwind {
         export declare function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<AvailabilityAmMultipleRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<AvailabilityAmMultipleRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
 
-        export namespace Methods {
-            export declare const Create: string;
-            export declare const Update: string;
-            export declare const Delete: string;
-            export declare const Retrieve: string;
-            export declare const List: string;
+        export declare const enum Methods {
+            Create = "Northwind/AvailabilityAmMultiple/Create",
+            Update = "Northwind/AvailabilityAmMultiple/Update",
+            Delete = "Northwind/AvailabilityAmMultiple/Delete",
+            Retrieve = "Northwind/AvailabilityAmMultiple/Retrieve",
+            List = "Northwind/AvailabilityAmMultiple/List"
         }
 
         [
@@ -24,10 +23,10 @@ namespace MobilityMatters.Northwind {
             'Retrieve', 
             'List'
         ].forEach(x => {
-            (<any>AvailabilityAmMultipleService)[x] = function (r, s, o) { 
-                return Q.serviceRequest(baseUrl + '/' + x, r, s, o); 
+            (<any>AvailabilityAmMultipleService)[x] = function (r, s, o) {
+                return Q.serviceRequest(baseUrl + '/' + x, r, s, o);
             };
-            (<any>Methods)[x] = baseUrl + '/' + x;
         });
     }
 }
+

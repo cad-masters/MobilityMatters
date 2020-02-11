@@ -1,5 +1,4 @@
-﻿
-namespace MobilityMatters.Northwind {
+﻿namespace MobilityMatters.Northwind {
     export interface CitiesMultiRow {
         CitiesMultiId?: number;
         CityId?: number;
@@ -40,79 +39,47 @@ namespace MobilityMatters.Northwind {
     export namespace CitiesMultiRow {
         export const idProperty = 'CitiesMultiId';
         export const localTextPrefix = 'Northwind.CitiesMulti';
+        export const deletePermission = 'Administration:General';
+        export const insertPermission = 'Administration:General';
+        export const readPermission = 'Administration:General';
+        export const updatePermission = 'Administration:General';
 
-        export namespace Fields {
-            export declare const CitiesMultiId;
-            export declare const CityId;
-            export declare const EmployeeId;
-            export declare const CityName;
-            export declare const EmployeeLastName;
-            export declare const EmployeeFirstName;
-            export declare const EmployeeTitle;
-            export declare const EmployeeTitleOfCourtesy;
-            export declare const EmployeeBirthDate;
-            export declare const EmployeeHireDate;
-            export declare const EmployeeAddress;
-            export declare const EmployeeCity;
-            export declare const EmployeeRegion;
-            export declare const EmployeePostalCode;
-            export declare const EmployeeCountry;
-            export declare const EmployeeHomePhone;
-            export declare const EmployeeExtension;
-            export declare const EmployeePhoto;
-            export declare const EmployeeNotes;
-            export declare const EmployeeReportsTo;
-            export declare const EmployeePhotoPath;
-            export declare const EmployeeOnVacation;
-            export declare const EmployeeEmail;
-            export declare const EmployeeDriversLicense;
-            export declare const EmployeeDriversLicenseExp;
-            export declare const EmployeeInsurance;
-            export declare const EmployeeInsuranceExp;
-            export declare const EmployeeLicensePlate;
-            export declare const EmployeeLicensePlateExp;
-            export declare const EmployeeVehicleMake;
-            export declare const EmployeeVehicleModel;
-            export declare const EmployeeSpecialNeedsId;
-            export declare const EmployeeGender;
-            export declare const EmployeeSmoker;
+        export declare const enum Fields {
+            CitiesMultiId = "CitiesMultiId",
+            CityId = "CityId",
+            EmployeeId = "EmployeeId",
+            CityName = "CityName",
+            EmployeeLastName = "EmployeeLastName",
+            EmployeeFirstName = "EmployeeFirstName",
+            EmployeeTitle = "EmployeeTitle",
+            EmployeeTitleOfCourtesy = "EmployeeTitleOfCourtesy",
+            EmployeeBirthDate = "EmployeeBirthDate",
+            EmployeeHireDate = "EmployeeHireDate",
+            EmployeeAddress = "EmployeeAddress",
+            EmployeeCity = "EmployeeCity",
+            EmployeeRegion = "EmployeeRegion",
+            EmployeePostalCode = "EmployeePostalCode",
+            EmployeeCountry = "EmployeeCountry",
+            EmployeeHomePhone = "EmployeeHomePhone",
+            EmployeeExtension = "EmployeeExtension",
+            EmployeePhoto = "EmployeePhoto",
+            EmployeeNotes = "EmployeeNotes",
+            EmployeeReportsTo = "EmployeeReportsTo",
+            EmployeePhotoPath = "EmployeePhotoPath",
+            EmployeeOnVacation = "EmployeeOnVacation",
+            EmployeeEmail = "EmployeeEmail",
+            EmployeeDriversLicense = "EmployeeDriversLicense",
+            EmployeeDriversLicenseExp = "EmployeeDriversLicenseExp",
+            EmployeeInsurance = "EmployeeInsurance",
+            EmployeeInsuranceExp = "EmployeeInsuranceExp",
+            EmployeeLicensePlate = "EmployeeLicensePlate",
+            EmployeeLicensePlateExp = "EmployeeLicensePlateExp",
+            EmployeeVehicleMake = "EmployeeVehicleMake",
+            EmployeeVehicleModel = "EmployeeVehicleModel",
+            EmployeeSpecialNeedsId = "EmployeeSpecialNeedsId",
+            EmployeeGender = "EmployeeGender",
+            EmployeeSmoker = "EmployeeSmoker"
         }
-
-        [
-            'CitiesMultiId',
-            'CityId',
-            'EmployeeId',
-            'CityName',
-            'EmployeeLastName',
-            'EmployeeFirstName',
-            'EmployeeTitle',
-            'EmployeeTitleOfCourtesy',
-            'EmployeeBirthDate',
-            'EmployeeHireDate',
-            'EmployeeAddress',
-            'EmployeeCity',
-            'EmployeeRegion',
-            'EmployeePostalCode',
-            'EmployeeCountry',
-            'EmployeeHomePhone',
-            'EmployeeExtension',
-            'EmployeePhoto',
-            'EmployeeNotes',
-            'EmployeeReportsTo',
-            'EmployeePhotoPath',
-            'EmployeeOnVacation',
-            'EmployeeEmail',
-            'EmployeeDriversLicense',
-            'EmployeeDriversLicenseExp',
-            'EmployeeInsurance',
-            'EmployeeInsuranceExp',
-            'EmployeeLicensePlate',
-            'EmployeeLicensePlateExp',
-            'EmployeeVehicleMake',
-            'EmployeeVehicleModel',
-            'EmployeeSpecialNeedsId',
-            'EmployeeGender',
-            'EmployeeSmoker'
-        ].forEach(x => (<any>Fields)[x] = x);
     }
 }
+

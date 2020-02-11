@@ -13,6 +13,10 @@
         export function getLookup(): Q.Lookup<SpecialNeedsRow> {
             return Q.getLookup<SpecialNeedsRow>('Northwind.SpecialNeeds');
         }
+        export const deletePermission = 'Administration:General';
+        export const insertPermission = 'Administration:General';
+        export const readPermission = 'Administration:General';
+        export const updatePermission = 'Administration:General';
 
         export declare const enum Fields {
             SpecialNeedsID = "SpecialNeedsID",

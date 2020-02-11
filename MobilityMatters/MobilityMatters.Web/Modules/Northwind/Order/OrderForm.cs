@@ -38,5 +38,9 @@ namespace MobilityMatters.Northwind.Forms
         public String DestinationAddress { get; set; }
         public String DestinationCity { get; set; }
         public String DestinationZip { get; set; }
+        [HalfWidth]
+        public String DistanceText { get; set; }
+        [HalfWidth]
+        public String DurationText { get; set; }
     }
 }

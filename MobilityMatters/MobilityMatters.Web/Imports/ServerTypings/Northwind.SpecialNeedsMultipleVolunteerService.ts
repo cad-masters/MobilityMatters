@@ -1,5 +1,4 @@
-﻿
-namespace MobilityMatters.Northwind {
+﻿namespace MobilityMatters.Northwind {
     export namespace SpecialNeedsMultipleVolunteerService {
         export const baseUrl = 'Northwind/SpecialNeedsMultipleVolunteer';
 
@@ -9,12 +8,12 @@ namespace MobilityMatters.Northwind {
         export declare function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<SpecialNeedsMultipleVolunteerRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<SpecialNeedsMultipleVolunteerRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
 
-        export namespace Methods {
-            export declare const Create: string;
-            export declare const Update: string;
-            export declare const Delete: string;
-            export declare const Retrieve: string;
-            export declare const List: string;
+        export declare const enum Methods {
+            Create = "Northwind/SpecialNeedsMultipleVolunteer/Create",
+            Update = "Northwind/SpecialNeedsMultipleVolunteer/Update",
+            Delete = "Northwind/SpecialNeedsMultipleVolunteer/Delete",
+            Retrieve = "Northwind/SpecialNeedsMultipleVolunteer/Retrieve",
+            List = "Northwind/SpecialNeedsMultipleVolunteer/List"
         }
 
         [
@@ -24,10 +23,10 @@ namespace MobilityMatters.Northwind {
             'Retrieve', 
             'List'
         ].forEach(x => {
-            (<any>SpecialNeedsMultipleVolunteerService)[x] = function (r, s, o) { 
-                return Q.serviceRequest(baseUrl + '/' + x, r, s, o); 
+            (<any>SpecialNeedsMultipleVolunteerService)[x] = function (r, s, o) {
+                return Q.serviceRequest(baseUrl + '/' + x, r, s, o);
             };
-            (<any>Methods)[x] = baseUrl + '/' + x;
         });
     }
 }
+

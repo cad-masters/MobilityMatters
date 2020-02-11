@@ -178,6 +178,34 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.ShipCountry[this] = value; }
         }
 
+        [DisplayName("Distance"), ReadOnly(true)]
+        public String DistanceText
+        {
+            get { return Fields.DistanceText[this]; }
+            set { Fields.DistanceText[this] = value; }
+        }
+
+        [DisplayName("Distance Value"), ReadOnly(true)]
+        public Int32? DistanceValue
+        {
+            get { return Fields.DistanceValue[this]; }
+            set { Fields.DistanceValue[this] = value; }
+        }
+
+        [DisplayName("Duration"), ReadOnly(true)]
+        public String DurationText
+        {
+            get { return Fields.DurationText[this]; }
+            set { Fields.DurationText[this] = value; }
+        }
+
+        [DisplayName("Duration Value"), ReadOnly(true)]
+        public Int32? DurationValue
+        {
+            get { return Fields.DurationValue[this]; }
+            set { Fields.DurationValue[this] = value; }
+        }
+
         [Origin("c"), DisplayName("Rider First Name")]
         public String CustomerContactName
         {
@@ -277,6 +305,10 @@ namespace MobilityMatters.Northwind.Entities
             public StringField DestinationCity;
             public StringField DestinationZip;
             public StringField ShipCountry;
+            public StringField DistanceText;
+            public Int32Field DistanceValue;
+            public StringField DurationText;
+            public Int32Field DurationValue;
 
             public StringField CustomerCompanyName;
             public StringField CustomerContactName;

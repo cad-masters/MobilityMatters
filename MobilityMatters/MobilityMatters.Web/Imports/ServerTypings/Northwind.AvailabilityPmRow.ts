@@ -1,5 +1,4 @@
-﻿
-namespace MobilityMatters.Northwind {
+﻿namespace MobilityMatters.Northwind {
     export interface AvailabilityPmRow {
         AvailabilityPmid?: number;
         Day?: string;
@@ -9,15 +8,20 @@ namespace MobilityMatters.Northwind {
         export const idProperty = 'AvailabilityPmid';
         export const nameProperty = 'Day';
         export const localTextPrefix = 'Northwind.AvailabilityPm';
+        export const lookupKey = 'Northwind.AvailabilityPM';
 
-        export namespace Fields {
-            export declare const AvailabilityPmid;
-            export declare const Day;
+        export function getLookup(): Q.Lookup<AvailabilityPmRow> {
+            return Q.getLookup<AvailabilityPmRow>('Northwind.AvailabilityPM');
         }
+        export const deletePermission = 'Administration:General';
+        export const insertPermission = 'Administration:General';
+        export const readPermission = 'Administration:General';
+        export const updatePermission = 'Administration:General';
 
-        [
-            'AvailabilityPmid',
-            'Day'
-        ].forEach(x => (<any>Fields)[x] = x);
+        export declare const enum Fields {
+            AvailabilityPmid = "AvailabilityPmid",
+            Day = "Day"
+        }
     }
 }
+

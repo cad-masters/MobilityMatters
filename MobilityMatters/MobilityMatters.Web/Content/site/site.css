@@ -7878,3 +7878,15 @@ section.content > .s-DataGrid {
 .s-Northwind-AvailabilityPmMultipleDialog .caption {
   width: 150px;
 }
+.s-Northwind-MailDialog > .size {
+  width: 650px;
+}
+.s-Northwind-MailDialog .caption {
+  width: 150px;
+}
+.s-Northwind-MailAttachmentsDialog > .size {
+  width: 650px;
+}
+.s-Northwind-MailAttachmentsDialog .caption {
+  width: 150px;
+}

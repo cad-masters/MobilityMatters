@@ -8,6 +8,7 @@ namespace MobilityMatters.Northwind.Endpoints
     using System;
     using System.Data;
     using System.Web.Mvc;
+    using static MobilityMatters.Northwind.OrderModel;
     using MyRepository = Repositories.OrderRepository;
     using MyRow = Entities.OrderRow;
 
@@ -50,6 +51,11 @@ namespace MobilityMatters.Northwind.Endpoints
             var bytes = new ReportRepository().Render(report);
             return ExcelContentResult.Create(bytes, "OrderList_" +
                 DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx");
+        }
+
+        public DistanceMatrixResponse DistanceMatrix(IDbConnection connection, DistanceMatrixRequest request)
+        {
+            return new MyRepository().DistanceMatrix(connection, request);
         }
     }
 }

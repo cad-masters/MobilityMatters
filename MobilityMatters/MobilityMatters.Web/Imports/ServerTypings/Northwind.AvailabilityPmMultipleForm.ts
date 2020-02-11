@@ -1,22 +1,28 @@
-﻿
-namespace MobilityMatters.Northwind {
-    export class AvailabilityPmMultipleForm extends Serenity.PrefixedContext {
-        static formKey = 'Northwind.AvailabilityPmMultiple';
-    }
-
+﻿namespace MobilityMatters.Northwind {
     export interface AvailabilityPmMultipleForm {
         AvailabilityPmid: Serenity.IntegerEditor;
         EmployeeId: Serenity.IntegerEditor;
     }
 
-    [,
-        ['AvailabilityPmid', () => Serenity.IntegerEditor],
-        ['EmployeeId', () => Serenity.IntegerEditor]
-    ].forEach(x => Object.defineProperty(AvailabilityPmMultipleForm.prototype, <string>x[0], {
-        get: function () {
-            return this.w(x[0], (x[1] as any)());
-        },
-        enumerable: true,
-        configurable: true
-    }));
+    export class AvailabilityPmMultipleForm extends Serenity.PrefixedContext {
+        static formKey = 'Northwind.AvailabilityPmMultiple';
+        private static init: boolean;
+
+        constructor(prefix: string) {
+            super(prefix);
+
+            if (!AvailabilityPmMultipleForm.init)  {
+                AvailabilityPmMultipleForm.init = true;
+
+                var s = Serenity;
+                var w0 = s.IntegerEditor;
+
+                Q.initFormType(AvailabilityPmMultipleForm, [
+                    'AvailabilityPmid', w0,
+                    'EmployeeId', w0
+                ]);
+            }
+        }
+    }
 }
+
