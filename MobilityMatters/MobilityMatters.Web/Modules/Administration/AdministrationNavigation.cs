@@ -1,4 +1,5 @@
-﻿using Serenity.Navigation;
+﻿using MobilityMatters.Northwind.Pages;
+using Serenity.Navigation;
 using Administration = MobilityMatters.Administration.Pages;
 
 [assembly: NavigationMenu(9000, "Administration", icon: "fa-desktop")]
@@ -7,3 +8,4 @@ using Administration = MobilityMatters.Administration.Pages;
 [assembly: NavigationLink(9000, "Administration/Translations", typeof(Administration.TranslationController), icon: "fa-comment-o")]
 [assembly: NavigationLink(9000, "Administration/Roles", typeof(Administration.RoleController), icon: "fa-lock")]
 [assembly: NavigationLink(9000, "Administration/User Management", typeof(Administration.UserController), icon: "fa-users")]
+[assembly: NavigationLink(9000, "Administration/Mail", typeof(MailController), icon: "fa-envelope")]
