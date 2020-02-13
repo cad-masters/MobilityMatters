@@ -35,7 +35,7 @@ namespace MobilityMatters.Common.Pages
                         model.OrderCount = connection.Count<OrderRow>();
 
                         model.ClientsByCity = ClientsByCity(connection);
-                        model.ClientsByAge = ClientsByAge(connection);
+                        model.ClientsByAge = ClientsByAgeRange(connection);
                     }
 
                     using (var connection = SqlConnections.NewFor<CustomerRow>())
@@ -72,6 +72,26 @@ namespace MobilityMatters.Common.Pages
                 .Select(Sql.Count(), nameof(ClientReportModel.Count))
                 .GroupBy(fld.AgeCalc)
                 .OrderBy(fld.AgeCalc);
+
+            return connection.Query<ClientReportModel>(query).ToList();
+        }
+
+        private List<ClientReportModel> ClientsByAgeRange(System.Data.IDbConnection connection)
+        {
+            var fld = CustomerRow.Fields;
+            var query = new SqlQuery();
+
+            var caseExpression = query.Case(x => x.When(fld.AgeCalc < 18).Then("Under 18")
+                .When(fld.AgeCalc > 18 && fld.AgeCalc <= 26).Then("19 - 26")
+                .When(fld.AgeCalc > 26 && fld.AgeCalc <= 35).Then("25 - 35")
+                .When(fld.AgeCalc > 35 && fld.AgeCalc <= 45).Then("36 - 45")
+                .When(fld.AgeCalc > 45).Then("Over 45"));
+
+            query.From(fld)
+            .Where(fld.AgeCalc.IsNotNull())
+            .Select(caseExpression, nameof(ClientReportModel.Name))
+            .Select(Sql.Count(), nameof(ClientReportModel.Count))
+            .GroupBy(caseExpression);
 
             return connection.Query<ClientReportModel>(query).ToList();
         }
