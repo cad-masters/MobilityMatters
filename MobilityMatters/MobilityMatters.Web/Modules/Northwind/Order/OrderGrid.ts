@@ -10,11 +10,17 @@
         protected getIdProperty() { return OrderRow.idProperty; }
         protected getLocalTextPrefix() { return OrderRow.localTextPrefix; }
         protected getService() { return OrderService.baseUrl; }
+        private rowSelection: Serenity.GridRowSelectionMixin;
 
         protected shippingStateFilter: Serenity.EnumEditor;
 
         constructor(container: JQuery) {
             super(container);
+        }
+
+        protected createToolbarExtensions() {
+            super.createToolbarExtensions();
+            this.rowSelection = new Serenity.GridRowSelectionMixin(this);
         }
 
         /*protected getQuickFilters() {
@@ -58,6 +64,27 @@
                 onViewSubmit: () => this.onViewSubmit()
             }));
 
+            buttons.push({
+                title: 'Send Email',
+                icon: "fa-envelope text-green",
+                separator: false,
+                onClick: () => {
+
+                    if (!this.onViewSubmit())
+                        return;
+
+                    var checkedIDs = this.rowSelection.getSelectedAsInt32();
+                    if (checkedIDs.length == 0) {
+                        Q.alert("You must select at least one Volunteer to send email!");
+                        return;
+                    }
+
+                    new Northwind.MailComposeDialog({
+                        toVoluntueer: checkedIDs
+                    }).dialogOpen();
+                }
+            });
+
             return buttons;
         }
 
@@ -73,6 +100,8 @@
                 minWidth: 24,
                 maxWidth: 24
             });
+
+            columns.splice(0, 0, Serenity.GridRowSelectionMixin.createSelectColumn(() => this.rowSelection));
 
             return columns;
         }

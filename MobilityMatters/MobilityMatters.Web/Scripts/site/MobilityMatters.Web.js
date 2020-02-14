@@ -5141,6 +5141,10 @@ var MobilityMatters;
             OrderGrid.prototype.getIdProperty = function () { return Northwind.OrderRow.idProperty; };
             OrderGrid.prototype.getLocalTextPrefix = function () { return Northwind.OrderRow.localTextPrefix; };
             OrderGrid.prototype.getService = function () { return Northwind.OrderService.baseUrl; };
+            OrderGrid.prototype.createToolbarExtensions = function () {
+                _super.prototype.createToolbarExtensions.call(this);
+                this.rowSelection = new Serenity.GridRowSelectionMixin(this);
+            };
             /*protected getQuickFilters() {
                 var filters = super.getQuickFilters();
     
@@ -5176,9 +5180,27 @@ var MobilityMatters;
                     grid: this,
                     onViewSubmit: function () { return _this.onViewSubmit(); }
                 }));
+                buttons.push({
+                    title: 'Send Email',
+                    icon: "fa-envelope text-green",
+                    separator: false,
+                    onClick: function () {
+                        if (!_this.onViewSubmit())
+                            return;
+                        var checkedIDs = _this.rowSelection.getSelectedAsInt32();
+                        if (checkedIDs.length == 0) {
+                            Q.alert("You must select at least one Volunteer to send email!");
+                            return;
+                        }
+                        new Northwind.MailComposeDialog({
+                            toVoluntueer: checkedIDs
+                        }).dialogOpen();
+                    }
+                });
                 return buttons;
             };
             OrderGrid.prototype.getColumns = function () {
+                var _this = this;
                 var columns = _super.prototype.getColumns.call(this);
                 columns.splice(1, 0, {
                     field: 'Print Invoice',
@@ -5189,6 +5211,7 @@ var MobilityMatters;
                     minWidth: 24,
                     maxWidth: 24
                 });
+                columns.splice(0, 0, Serenity.GridRowSelectionMixin.createSelectColumn(function () { return _this.rowSelection; }));
                 return columns;
             };
             OrderGrid.prototype.onClick = function (e, row, cell) {

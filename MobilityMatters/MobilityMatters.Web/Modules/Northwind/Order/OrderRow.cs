@@ -7,11 +7,13 @@ namespace MobilityMatters.Northwind.Entities
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.IO;
 
     [ConnectionKey("Northwind"), Module("Northwind"), TableName("Orders")]
     [DisplayName("Trips"), InstanceName("Trip")]
     [ReadPermission(PermissionKeys.General)]
     [ModifyPermission(PermissionKeys.General)]
+    [LookupScript]
     public sealed class OrderRow : Row, IIdRow, INameRow
     {
         [DisplayName("Ride ID"), NotNull, Identity, QuickSearch]

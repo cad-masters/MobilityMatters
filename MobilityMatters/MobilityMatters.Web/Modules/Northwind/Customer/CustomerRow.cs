@@ -132,7 +132,7 @@ namespace MobilityMatters.Northwind.Entities
         }
 
 
-        [DisplayName("Status"), Size(5), LookupEditor(typeof(Lookups.CustomerProgramLookup), AutoComplete = true)]
+        [DisplayName("Status"), Size(5), LookupEditor(typeof(Lookups.CustomerProgramLookup), InplaceAdd = true, AutoComplete = true)]
         public String Program
         {
             get { return Fields.Program[this]; }
@@ -217,7 +217,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Gender[this] = value; }
         }
 
-        [Origin("cd"), LookupEditor(typeof(Lookups.CustomerDetailsReferralSourceLookup))]
+        [Origin("cd"), LookupEditor(typeof(Lookups.CustomerDetailsReferralSourceLookup), InplaceAdd = true)]
         public String ReferralSource
         {
             get { return Fields.ReferralSource[this]; }

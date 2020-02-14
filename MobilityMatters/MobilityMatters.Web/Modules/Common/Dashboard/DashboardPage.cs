@@ -36,6 +36,8 @@ namespace MobilityMatters.Common.Pages
 
                         model.ClientsByCity = ClientsByCity(connection);
                         model.ClientsByAge = ClientsByAgeRange(connection);
+                        model.ClientsByStatusType = ClientsByStatusType(connection);
+                        model.ClientsByStatusOption = ClientsByStatusOption(connection);
                     }
 
                     using (var connection = SqlConnections.NewFor<CustomerRow>())
@@ -76,16 +78,49 @@ namespace MobilityMatters.Common.Pages
             return connection.Query<ClientReportModel>(query).ToList();
         }
 
+        private List<ClientReportModel> ClientsByStatusOption(System.Data.IDbConnection connection)
+        {
+            var fld = CustomerRow.Fields;
+            var query = new SqlQuery()
+                .From(fld)
+                .Where(fld.ProgramOption.IsNotNull())
+                .Select(fld.ProgramOption, nameof(ClientReportModel.Name))
+                .Select(Sql.Count(), nameof(ClientReportModel.Count))
+                .GroupBy(fld.ProgramOption)
+                .OrderBy(fld.ProgramOption);
+
+            return connection.Query<ClientReportModel>(query).ToList();
+        }
+
+        private List<ClientReportModel> ClientsByStatusType(System.Data.IDbConnection connection)
+        {
+            var fld = CustomerRow.Fields;
+            var query = new SqlQuery()
+                .From(fld)
+                .Where(fld.Program.IsNotNull())
+                .Select(fld.Program, nameof(ClientReportModel.Name))
+                .Select(Sql.Count(), nameof(ClientReportModel.Count))
+                .GroupBy(fld.Program)
+                .OrderBy(fld.Program);
+
+            return connection.Query<ClientReportModel>(query).ToList();
+        }
+
         private List<ClientReportModel> ClientsByAgeRange(System.Data.IDbConnection connection)
         {
             var fld = CustomerRow.Fields;
             var query = new SqlQuery();
 
             var caseExpression = query.Case(x => x.When(fld.AgeCalc < 18).Then("Under 18")
-                .When(fld.AgeCalc > 18 && fld.AgeCalc <= 26).Then("19 - 26")
-                .When(fld.AgeCalc > 26 && fld.AgeCalc <= 35).Then("25 - 35")
-                .When(fld.AgeCalc > 35 && fld.AgeCalc <= 45).Then("36 - 45")
-                .When(fld.AgeCalc > 45).Then("Over 45"));
+                .When(fld.AgeCalc > 19 && fld.AgeCalc <= 29).Then("20 - 29")
+                .When(fld.AgeCalc > 29 && fld.AgeCalc <= 39).Then("30 - 39")
+                .When(fld.AgeCalc > 39 && fld.AgeCalc <= 49).Then("40 - 49")
+                .When(fld.AgeCalc > 49 && fld.AgeCalc <= 59).Then("50 - 59")
+                .When(fld.AgeCalc > 59 && fld.AgeCalc <= 69).Then("60 - 69")
+                .When(fld.AgeCalc > 69 && fld.AgeCalc <= 79).Then("70 - 79")
+                .When(fld.AgeCalc > 79 && fld.AgeCalc <= 89).Then("80 - 89")
+                .When(fld.AgeCalc > 89 && fld.AgeCalc <= 99).Then("90 - 99")
+                .When(fld.AgeCalc > 99).Then("100+"));
 
             query.From(fld)
             .Where(fld.AgeCalc.IsNotNull())
