@@ -13,7 +13,7 @@ namespace MobilityMatters.Northwind.Entities
     [ReadPermission(PermissionKeys.Customer.View)]
     [ModifyPermission(PermissionKeys.Customer.Modify)]
     [DeletePermission(PermissionKeys.Customer.Delete)]
-    [LeftJoin("cd", "CustomerDetails", "cd.[ID] = t0.[ID]", RowType = typeof(CustomerDetailsRow), TitlePrefix = "")]
+    /*[LeftJoin("cd", "CustomerDetails", "cd.[ID] = t0.[ID]", RowType = typeof(CustomerDetailsRow), TitlePrefix = "")]*/
     [UpdatableExtension("cd", typeof(CustomerDetailsRow), CascadeDelete = true)]
     [LookupScript(typeof(Lookups.CustomerLookup))]
     public sealed class CustomerRow : Row, IIdRow, INameRow
@@ -53,6 +53,8 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.RiderFullName[this]; }
             set { Fields.RiderFullName[this] = value; }
+            //get { return Fields.ContactName[this]; }      //created by johnd for testing
+            //set { Fields.ContactName[this] = value; }
         }
 
         /*[DisplayName("Contact Title"), Size(30)]
@@ -174,7 +176,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.BirthDate[this] = value; }
         }
 
-        [Origin("cd")]
+        /*[Origin("cd")]
         public DateTime? LastContactDate
         {
             get { return Fields.LastContactDate[this]; }
@@ -187,126 +189,127 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.LastContactedBy[this]; }
             set { Fields.LastContactedBy[this] = value; }
-        }
+        }*/
 
-        [Origin("cd"), EmailEditor]
+        [/*Origin("cd")*/ EmailEditor]
         public String Email
         {
             get { return Fields.Email[this]; }
             set { Fields.Email[this] = value; }
         }
 
-        [Origin("cd")]
+        [/*Origin("cd")*/ Width(50)]
         public String EmergencyName
         {
             get { return Fields.EmergencyName[this]; }
             set { Fields.EmergencyName[this] = value; }
         }
 
-        [Origin("cd")]
+        [/*Origin("cd")*/ Width(50)]
         public String EmergencyName2
         {
             get { return Fields.EmergencyName2[this]; }
             set { Fields.EmergencyName2[this] = value; }
         }
 
-        [Origin("cd"), LookupEditor(typeof(Lookups.CustomerDetailsGenderLookup))]
+        [/*Origin("cd"), LookupEditor(typeof(Lookups.CustomerDetailsGenderLookup))*//*Origin("cd")*/ Width(50)]
         public String Gender
         {
             get { return Fields.Gender[this]; }
             set { Fields.Gender[this] = value; }
         }
 
-        [Origin("cd"), LookupEditor(typeof(Lookups.CustomerDetailsReferralSourceLookup), InplaceAdd = true)]
+        [LookupEditor(typeof(Lookups.CustomerReferralSourceLookup),InplaceAdd = true, AutoComplete = true)]
         public String ReferralSource
         {
             get { return Fields.ReferralSource[this]; }
             set { Fields.ReferralSource[this] = value; }
         }
 
-        [Origin("cd")]
+        [/*Origin("cd")*/ Width(50)]
         public String EmergencyPhone
         {
             get { return Fields.EmergencyPhone[this]; }
             set { Fields.EmergencyPhone[this] = value; }
         }
 
-        [Origin("cd")]
+        [/*Origin("cd")*/ Width(50)]
         public String EmergencyPhone2
         {
             get { return Fields.EmergencyPhone2[this]; }
             set { Fields.EmergencyPhone2[this] = value; }
         }
 
-        [Origin("cd")]
+        [/*Origin("cd")*/ Width(50)]
         public String EmergencyRelation
         {
             get { return Fields.EmergencyRelation[this]; }
             set { Fields.EmergencyRelation[this] = value; }
         }
 
-        [Origin("cd")]
+        [/*Origin("cd")*/ Width(50)]
         public String EmergencyRelation2
         {
             get { return Fields.EmergencyRelation2[this]; }
             set { Fields.EmergencyRelation2[this] = value; }
         }
 
-        [Origin("cd")]
+        [/*Origin("cd")*/ Width(50)]
         public String PreferredHospital
         {
             get { return Fields.PreferredHospital[this]; }
             set { Fields.PreferredHospital[this] = value; }
         }
 
-        [Origin("cd")]
+        [/*Origin("cd")*/ Width(50)]
         public String Medical
         {
             get { return Fields.Medical[this]; }
             set { Fields.Medical[this] = value; }
         }
 
-        [Origin("cd")]
+        [/*Origin("cd")*/ Width(50)]
         public String Dental
         {
             get { return Fields.Dental[this]; }
             set { Fields.Dental[this] = value; }
         }
-        [Origin("cd")]
+        [/*Origin("cd")*/ Width(50)]
         public String Groceries
         {
             get { return Fields.Groceries[this]; }
             set { Fields.Groceries[this] = value; }
         }
-        [Origin("cd")]
+        [/*Origin("cd")*/ Width(50)]
         public String OtherTransport
         {
             get { return Fields.OtherTransport[this]; }
             set { Fields.OtherTransport[this] = value; }
         }
 
-        [Origin("cd"), LookupEditor(typeof(Lookups.CustomerDetailsTEMPLookup))]
+        /*[Origin("cd"), LookupEditor(typeof(Lookups.CustomerDetailsTEMPLookup))]*/
+        [/*Origin("cd")*/ Width(50)]
         public String TEMP
         {
             get { return Fields.TEMP[this]; }
             set { Fields.TEMP[this] = value; }
         }
 
-        [Origin("cd")]
+        [/*Origin("cd")*/ Width(50)]
         public String LivingWith
         {
             get { return Fields.LivingWith[this]; }
             set { Fields.LivingWith[this] = value; }
         }
 
-        [Origin("cd"), DefaultValue(false)]
+        /*[Origin("cd"), DefaultValue(false)]
         public Boolean? SendBulletin
         {
             get { return Fields.SendBulletin[this]; }
             set { Fields.SendBulletin[this] = value; }
-        }
+        }*/
 
-        [Origin("cd"), DefaultValue(false)]
+        [/*Origin("cd"),*/ DefaultValue(false)]
         public Boolean? Smoker
         {
             get { return Fields.Smoker[this]; }
@@ -320,18 +323,18 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.NoteList[this] = value; }
         }
         
-        [LookupEditor(typeof(EmployeeRow), Multiple = true), NotMapped]
+        /*[LookupEditor(typeof(EmployeeRow), Multiple = true), NotMapped]
         [LinkingSetRelation(typeof(CustomerRepresentativesRow), "CustomerId", "EmployeeId")]
         [MinSelectLevel(SelectLevel.Details), QuickFilter(CssClass = "hidden-xs")]
         public List<Int32> Representatives
         {
             get { return Fields.Representatives[this]; }
             set { Fields.Representatives[this] = value; }
-        }
+        }*/
 
         [DisplayName("Special Needs")]
         [LookupEditor(typeof(SpecialNeedsRow), Multiple = true), NotMapped]
-        [LinkingSetRelation(typeof(SpecialNeedsMultipleRow), "CustomerId", "SpecialNeedsId")]
+        [LinkingSetRelation(typeof(SpecialNeedsMultipleRow), "CustomerID", "SpecialNeedsId")]
         [MinSelectLevel(SelectLevel.Details)]
         public List<Int32> SpecialNeedsList
         {
@@ -341,11 +344,12 @@ namespace MobilityMatters.Northwind.Entities
 
         IIdField IIdRow.IdField
         {
-            get { return Fields.ID; }
+           get { return Fields.ID; }    
         }
 
         StringField INameRow.NameField
         {
+            //get { return Fields.CompanyName; }            //original
             get { return Fields.CompanyName; }
         }
 
@@ -388,10 +392,10 @@ namespace MobilityMatters.Northwind.Entities
             public StringField ReferralSource;
             public DateTimeField BirthDate;
             public RowListField<NoteRow> NoteList;
-            public ListField<Int32> Representatives;
+            /*public ListField<Int32> Representatives;*/
             public ListField<Int32> SpecialNeedsList;
-            public DateTimeField LastContactDate;
-            public Int32Field LastContactedBy;
+            /*public DateTimeField LastContactDate;
+            public Int32Field LastContactedBy;*/
             public StringField Email;
             public StringField Gender;
             public StringField EmergencyName;
@@ -401,7 +405,7 @@ namespace MobilityMatters.Northwind.Entities
             public StringField EmergencyRelation2;
             public StringField EmergencyRelation;
             public Int32Field AgeCalc;
-            public BooleanField SendBulletin;
+            /*public BooleanField SendBulletin;*/
 
         }
     }

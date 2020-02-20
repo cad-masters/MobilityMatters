@@ -23,7 +23,8 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.OrderID[this] = value; }
         }
 
-        [DisplayName("Rider"), Size(5), NotNull, ForeignKey(typeof(CustomerRow), "CustomerID"), LeftJoin("c"), CustomerEditor]
+        //[DisplayName("Rider"), Size(5), NotNull, ForeignKey(typeof(CustomerRow), "CustomerID"), LeftJoin("c"), CustomerEditor]
+        [DisplayName("Rider"), Size(5), NotNull, ForeignKey(typeof(CustomerRow)), LeftJoin("c"), CustomerEditor]
         [LookupEditor(typeof(CustomerRow)), TextualField("RiderFullName")]
         public String CustomerID
         {
@@ -58,6 +59,8 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.RiderFullName[this]; }
             set { Fields.RiderFullName[this] = value; }
+            //get { return Fields.CustomerContactName[this]; }      //created by johnd for testing
+            //set { Fields.CustomerContactName[this] = value; }
         }
 
         [Origin("e")]

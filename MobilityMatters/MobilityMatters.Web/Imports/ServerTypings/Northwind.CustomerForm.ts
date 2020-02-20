@@ -5,7 +5,7 @@
         Program: Serenity.LookupEditor;
         ProgramOption: Serenity.LookupEditor;
         ReferralSource: Serenity.LookupEditor;
-        TEMP: Serenity.LookupEditor;
+        TEMP: Serenity.StringEditor;
         ContactName: Serenity.StringEditor;
         Phone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
@@ -23,7 +23,7 @@
         Residence: Serenity.LookupEditor;
         LivingWith: Serenity.StringEditor;
         NoteList: NotesEditor;
-        Gender: Serenity.LookupEditor;
+        Gender: Serenity.StringEditor;
         BirthDate: Serenity.DateEditor;
         AgeCalc: Serenity.IntegerEditor;
         PLanguage: Serenity.StringEditor;
@@ -64,7 +64,7 @@
                     'Program', w1,
                     'ProgramOption', w1,
                     'ReferralSource', w1,
-                    'TEMP', w1,
+                    'TEMP', w0,
                     'ContactName', w0,
                     'Phone', w0,
                     'Email', w2,
@@ -82,7 +82,7 @@
                     'Residence', w1,
                     'LivingWith', w0,
                     'NoteList', w3,
-                    'Gender', w1,
+                    'Gender', w0,
                     'BirthDate', w4,
                     'AgeCalc', w5,
                     'PLanguage', w0,
