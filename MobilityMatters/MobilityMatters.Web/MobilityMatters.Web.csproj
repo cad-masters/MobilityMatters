@@ -1854,9 +1854,6 @@
     <Compile Include="Imports\ClientTypes\Northwind.SpecialNeedsListFormatterAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20200210_182000_MailAddFields.cs" />
-    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20200210_155700_Mail.cs" />
-    <Compile Include="Migrations\NorthwindDB\NorthwindDB_20200210_102300_GoogleMapsIntegration.cs" />
     <Compile Include="Modules\Administration\AdministrationNavigation.cs" />
     <Compile Include="Modules\Administration\Language\LanguageLookup.cs" />
     <Compile Include="Modules\Administration\RolePermission\RolePermissionUpdateRequest.cs" />
