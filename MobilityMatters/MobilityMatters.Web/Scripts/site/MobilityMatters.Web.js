@@ -1634,6 +1634,11 @@ var MobilityMatters;
             OrderRow.idProperty = 'OrderID';
             OrderRow.nameProperty = 'CustomerID';
             OrderRow.localTextPrefix = 'Northwind.Order';
+            OrderRow.lookupKey = 'Northwind.Order';
+            function getLookup() {
+                return Q.getLookup('Northwind.Order');
+            }
+            OrderRow.getLookup = getLookup;
             OrderRow.deletePermission = 'Northwind:General';
             OrderRow.insertPermission = 'Northwind:General';
             OrderRow.readPermission = 'Northwind:General';

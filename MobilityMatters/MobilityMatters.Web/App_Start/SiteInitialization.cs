@@ -39,7 +39,7 @@
 
             foreach (var databaseKey in databaseKeys)
             {
-                EnsureDatabase(databaseKey);
+                /*EnsureDatabase(databaseKey);*/
                 RunMigrations(databaseKey);
             }
         }

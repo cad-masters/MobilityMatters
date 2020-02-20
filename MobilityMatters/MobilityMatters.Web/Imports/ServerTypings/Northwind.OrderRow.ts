@@ -41,6 +41,11 @@
         export const idProperty = 'OrderID';
         export const nameProperty = 'CustomerID';
         export const localTextPrefix = 'Northwind.Order';
+        export const lookupKey = 'Northwind.Order';
+
+        export function getLookup(): Q.Lookup<OrderRow> {
+            return Q.getLookup<OrderRow>('Northwind.Order');
+        }
         export const deletePermission = 'Northwind:General';
         export const insertPermission = 'Northwind:General';
         export const readPermission = 'Northwind:General';

@@ -21,7 +21,7 @@
         /// Automatically creates a database for the template if it doesn't already exists.
         /// You might delete this method to disable auto create functionality.
         /// </summary>
-        private static void EnsureDatabase(string databaseKey)
+        /*private static void EnsureDatabase(string databaseKey)
         {
             var cs = SqlConnections.GetConnectionString(databaseKey);
 
@@ -137,11 +137,11 @@
                 serverConnection.Execute(command);
                 SqlConnection.ClearAllPools();
             }
-        }
+        }*/
 
         public static bool SkippedMigrations { get; private set; }
 
-        private static void RunMigrations(string databaseKey)
+       private static void RunMigrations(string databaseKey)
         {
             var cs = SqlConnections.GetConnectionString(databaseKey);
             var connection = cs.ConnectionString;
