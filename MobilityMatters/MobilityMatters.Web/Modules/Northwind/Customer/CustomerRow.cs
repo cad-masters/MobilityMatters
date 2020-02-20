@@ -217,7 +217,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Gender[this] = value; }
         }
 
-        [Origin("cd"), LookupEditor(typeof(Lookups.CustomerDetailsReferralSourceLookup), InplaceAdd = true)]
+        [LookupEditor(typeof(Lookups.CustomerReferralSourceLookup),InplaceAdd = true, AutoComplete = true)]
         public String ReferralSource
         {
             get { return Fields.ReferralSource[this]; }

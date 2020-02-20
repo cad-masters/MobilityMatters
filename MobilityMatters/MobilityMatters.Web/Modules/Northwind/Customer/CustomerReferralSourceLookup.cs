@@ -6,16 +6,16 @@ namespace MobilityMatters.Northwind.Lookups
     using Serenity.Web;
 
     [LookupScript]
-    public class CustomerDetailsReferralSourceLookup : RowLookupScript<Entities.CustomerDetailsRow>
+    public class CustomerReferralSourceLookup : RowLookupScript<Entities.CustomerRow>
     {
-        public CustomerDetailsReferralSourceLookup()
+        public CustomerReferralSourceLookup()
         {
             IdField = TextField = "ReferralSource";
         }
 
         protected override void PrepareQuery(SqlQuery query)
         {
-            var fld = Entities.CustomerDetailsRow.Fields;
+            var fld = Entities.CustomerRow.Fields;
             query.Distinct(true)
                 .Select(fld.ReferralSource)
                 .Where(
