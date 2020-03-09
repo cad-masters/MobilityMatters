@@ -7,7 +7,7 @@ namespace MobilityMatters.Northwind.Forms
     using System.ComponentModel;
 
     [FormScript("Northwind.Customer")]
-    [BasedOnRow(typeof(Entities.CustomerRow), CheckNames = true)]
+    [BasedOnRow(typeof(Entities.CustomerRow)/*, CheckNames = true*/)]
     public class CustomerForm
     {
         [Category("General")]
@@ -48,12 +48,12 @@ namespace MobilityMatters.Northwind.Forms
         [HalfWidth]
         public String Country { get; set; }
         [HalfWidth]
-        public String City { get; set; }   
+        public String City { get; set; }
         [HalfWidth]
         public String Region { get; set; }
         [HalfWidth]
         public String PostalCode { get; set; }
-        
+
         [HalfWidth]
         public String Residence { get; set; }
         [HalfWidth]
@@ -74,18 +74,18 @@ namespace MobilityMatters.Northwind.Forms
         public Int32 AgeCalc { get; set; }
         [HalfWidth]
         public String PLanguage { get; set; }
-        
+
         [HalfWidth]
         public List<Int32> SpecialNeedsList { get; set; }
-        
+
         [HalfWidth]
         public String DNR { get; set; }
-        
+
         [QuarterWidth, BooleanFormatter]
         public Boolean Radio { get; set; }
         [QuarterWidth, BooleanFormatter]
         public Boolean EIO { get; set; }
-        
+
         [HalfWidth]
         public String PreferredHospital { get; set; }
         [HalfWidth, BooleanFormatter]

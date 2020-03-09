@@ -4,7 +4,6 @@
         LastContactDate?: string;
         LastContactedBy?: number;
         Email?: string;
-        SendBulletin?: boolean;
         EmergencyName?: string;
         EmergencyPhone?: string;
         EmergencyName2?: string;
@@ -16,7 +15,6 @@
         LivingWith?: string;
         TEMP?: string;
         PreferredHospital?: string;
-        Smoker?: boolean;
         Medical?: string;
         Dental?: string;
         Groceries?: string;
@@ -59,7 +57,6 @@
             LastContactDate = "LastContactDate",
             LastContactedBy = "LastContactedBy",
             Email = "Email",
-            SendBulletin = "SendBulletin",
             EmergencyName = "EmergencyName",
             EmergencyPhone = "EmergencyPhone",
             EmergencyName2 = "EmergencyName2",
@@ -71,7 +68,6 @@
             LivingWith = "LivingWith",
             TEMP = "TEMP",
             PreferredHospital = "PreferredHospital",
-            Smoker = "Smoker",
             Medical = "Medical",
             Dental = "Dental",
             Groceries = "Groceries",

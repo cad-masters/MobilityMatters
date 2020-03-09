@@ -1,13 +1,11 @@
 ﻿
 namespace MobilityMatters.Northwind.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Northwind"), Module("Northwind"), TableName("[dbo].[SpecialNeeds]")]
     [DisplayName("Special Needs"), InstanceName("Special Needs")]

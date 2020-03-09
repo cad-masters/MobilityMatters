@@ -50,7 +50,7 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return (Gender?)Fields.Gender[this]; }
             set { Fields.Gender[this] = (Int32?)value; }
-        } 
+        }
 
         [DisplayName("Title"), Size(10)]
         public String Title

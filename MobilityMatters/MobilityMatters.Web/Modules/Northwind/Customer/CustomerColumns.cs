@@ -2,7 +2,6 @@
 namespace MobilityMatters.Northwind.Columns
 {
     using Serenity.ComponentModel;
-    using Serenity.Reporting;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -15,12 +14,14 @@ namespace MobilityMatters.Northwind.Columns
         public String CustomerID { get; set; }
         [EditLink, Width(150)]
         public String CompanyName { get; set; }
-        [EditLink, Width(150)]
+        [Width(150)]
         public String ContactName { get; set; }
         [Width(50), QuickFilter, LookupEditor(typeof(Lookups.CustomerProgramLookup))]
         public String Program { get; set; }
         [Width(65), QuickFilter, LookupEditor(typeof(Lookups.CustomerProgramOptionLookup))]
         public String ProgramOption { get; set; }
+        [Width(120)]
+        public String Email { get; set; }
         [Width(120)]
         public String Phone { get; set; }
         [Width(150)]
@@ -32,8 +33,8 @@ namespace MobilityMatters.Northwind.Columns
         public String City { get; set; }
         [Width(50)]
         public String Region { get; set; }
-        /*[Width(130), FilterOnly, LookupEditor(typeof(Lookups.CustomerDetailsTEMPLookup)), QuickFilter(CssClass = "hidden-xs")]
-        public String TEMP { get; set; }*/
+        [Width(130), FilterOnly, LookupEditor(typeof(Lookups.CustomerDetailsTEMPLookup)), QuickFilter(CssClass = "hidden-xs")]
+        public String TEMP { get; set; }
         [Width(80)]
         public String PostalCode { get; set; }
         [Width(110), SpecialNeedsListFormatter]

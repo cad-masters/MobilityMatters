@@ -1,14 +1,13 @@
 ﻿
 namespace MobilityMatters.Northwind.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
     using System.IO;
-    using System.Collections.Generic;
 
     [ConnectionKey("Northwind"), Module("Northwind"), TableName("[dbo].[Employees]")]
     [DisplayName("Volunteers"), InstanceName("Volunteer")]

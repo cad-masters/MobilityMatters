@@ -2,9 +2,6 @@
 namespace MobilityMatters.Northwind
 {
     using Serenity.ComponentModel;
-    using Serenity.Services;
-    using System.Collections.Generic;
-    using System.ComponentModel;
 
     [SettingScope("Application"), SettingKey("Email")]
     public class MailSettings

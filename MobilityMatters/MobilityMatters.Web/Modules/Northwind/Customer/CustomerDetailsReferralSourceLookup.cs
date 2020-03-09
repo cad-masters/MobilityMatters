@@ -6,9 +6,9 @@ namespace MobilityMatters.Northwind.Lookups
     using Serenity.Web;
 
     [LookupScript]
-    public class CustomerReferralSourceLookup : RowLookupScript<Entities.CustomerRow>
+    public class CustomerDetailsReferralSourceLookup : RowLookupScript<Entities.CustomerRow>
     {
-        public CustomerReferralSourceLookup()
+        public CustomerDetailsReferralSourceLookup()
         {
             IdField = TextField = "ReferralSource";
         }

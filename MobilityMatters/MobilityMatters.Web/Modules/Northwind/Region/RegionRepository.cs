@@ -42,7 +42,7 @@ namespace MobilityMatters.Northwind.Repositories
             return new MyListHandler().Process(connection, request);
         }
 
-        private class MySaveHandler : SaveRequestHandler<MyRow> 
+        private class MySaveHandler : SaveRequestHandler<MyRow>
         {
             protected override void ExecuteSave()
             {
@@ -58,7 +58,7 @@ namespace MobilityMatters.Northwind.Repositories
             }
         }
 
-        private class MyDeleteHandler : DeleteRequestHandler<MyRow> 
+        private class MyDeleteHandler : DeleteRequestHandler<MyRow>
         {
             protected override void ExecuteDelete()
             {

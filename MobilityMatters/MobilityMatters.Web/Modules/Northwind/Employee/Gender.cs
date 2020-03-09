@@ -5,5 +5,5 @@ namespace MobilityMatters.Northwind.Entities
     {
         Male = 1,
         Female = 2
-    } 
+    }
 }

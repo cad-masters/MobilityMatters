@@ -177,7 +177,7 @@ namespace MobilityMatters.Northwind.Entities
             public Int32Field OrderShipVia;
             public StringField OrderShipCity;
             public StringField OrderShipCountry;
-  
+
             public StringField ProductName;
             public BooleanField ProductDiscontinued;
             public Int32Field ProductSupplierID;

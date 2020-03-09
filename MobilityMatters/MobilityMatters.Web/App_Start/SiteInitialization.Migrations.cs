@@ -4,14 +4,10 @@
     using FluentMigrator.Runner.Initialization;
     using Serenity.Data;
     using System;
-    using System.Data.SqlClient;
     using System.IO;
-    using System.Linq;
-    using System.Reflection;
-    using System.Web.Hosting;
 
     public static partial class SiteInitialization
-    { 
+    {
         private static string[] databaseKeys = new[] {
             "Default"
             , "Northwind"
@@ -141,7 +137,7 @@
 
         public static bool SkippedMigrations { get; private set; }
 
-       private static void RunMigrations(string databaseKey)
+        private static void RunMigrations(string databaseKey)
         {
             var cs = SqlConnections.GetConnectionString(databaseKey);
             var connection = cs.ConnectionString;

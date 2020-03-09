@@ -12,7 +12,7 @@ namespace MobilityMatters.Northwind
             public string Destination { get; set; }
         }
 
-        public class DistanceMatrixResponse: ServiceResponse
+        public class DistanceMatrixResponse : ServiceResponse
         {
             public string Status { get; set; }
 

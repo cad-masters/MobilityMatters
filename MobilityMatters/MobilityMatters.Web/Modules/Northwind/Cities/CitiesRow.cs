@@ -1,19 +1,17 @@
 ﻿
 namespace MobilityMatters.Northwind.Entities
 {
-    using Serenity;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Northwind"), Module("Northwind"), TableName("[dbo].[Cities]")]
     [DisplayName("Cities"), InstanceName("Cities")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
-    [LookupScript ("Northwind.Cities")]
+    [LookupScript("Northwind.Cities")]
     public sealed class CitiesRow : Row, IIdRow, INameRow
     {
         [DisplayName("City Id"), Column("CityID"), PrimaryKey]

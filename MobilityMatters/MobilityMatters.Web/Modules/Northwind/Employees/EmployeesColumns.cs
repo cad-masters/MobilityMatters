@@ -1,13 +1,9 @@
 ﻿
 namespace MobilityMatters.Northwind.Columns
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
     using System.ComponentModel;
-    using System.Collections.Generic;
-    using System.IO;
 
     [ColumnsScript("Northwind.Employees")]
     [BasedOnRow(typeof(Entities.EmployeesRow), CheckNames = true)]
@@ -26,13 +22,14 @@ namespace MobilityMatters.Northwind.Columns
         public String TitleOfCourtesy { get; set; }
         public String HomePhone { get; set; }
         public DateTime BirthDate { get; set; }
-       /* public DateTime HireDate { get; set; }*/
+        /* public DateTime HireDate { get; set; }*/
         public String Address { get; set; }
         public String City { get; set; }
         /*public String Region { get; set; }*/
         public String PostalCode { get; set; }
         public String Email { get; set; }
-        
+        public DateTime DriversLicenseExp { get; set; }
+        public DateTime InsuranceExp { get; set; }
         /*public String Country { get; set; }
         
         public String Extension { get; set; }

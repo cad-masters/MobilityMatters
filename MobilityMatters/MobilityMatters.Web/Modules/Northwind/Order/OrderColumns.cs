@@ -17,6 +17,7 @@ namespace MobilityMatters.Northwind.Columns
         [EditLink, Width(200)]
         public String CustomerCompanyName { get; set; }
         public String CustomerContactName { get; set; }
+        public String CustomerPhone { get; set; }
 
         [Width(140), /*EmployeeFormatter(GenderProperty = "EmployeeGender"),*/ QuickFilter(CssClass = "hidden-xs")]
         public String EmployeeFullName { get; set; }

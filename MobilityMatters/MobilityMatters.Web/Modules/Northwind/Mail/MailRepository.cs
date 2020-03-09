@@ -4,7 +4,6 @@ namespace MobilityMatters.Northwind.Repositories
     using Serenity;
     using Serenity.Data;
     using Serenity.Services;
-    using System;
     using System.Data;
     using System.Linq;
     using MyRow = Entities.MailRow;
@@ -40,7 +39,8 @@ namespace MobilityMatters.Northwind.Repositories
 
         private class MySaveHandler : SaveRequestHandler<MyRow> { }
         private class MyDeleteHandler : DeleteRequestHandler<MyRow> { }
-        private class MyRetrieveHandler : RetrieveRequestHandler<MyRow> {
+        private class MyRetrieveHandler : RetrieveRequestHandler<MyRow>
+        {
             protected override void OnReturn()
             {
                 base.OnReturn();

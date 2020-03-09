@@ -6,7 +6,7 @@ namespace MobilityMatters.Northwind.Lookups
     using Serenity.Web;
 
     [LookupScript]
-    public class CustomerDetailsGenderLookup : RowLookupScript<Entities.CustomerDetailsRow>
+    public class CustomerDetailsGenderLookup : RowLookupScript<Entities.CustomerRow>
     {
         public CustomerDetailsGenderLookup()
         {
@@ -15,7 +15,7 @@ namespace MobilityMatters.Northwind.Lookups
 
         protected override void PrepareQuery(SqlQuery query)
         {
-            var fld = Entities.CustomerDetailsRow.Fields;
+            var fld = Entities.CustomerRow.Fields;
             query.Distinct(true)
                 .Select(fld.Gender)
                 .Where(

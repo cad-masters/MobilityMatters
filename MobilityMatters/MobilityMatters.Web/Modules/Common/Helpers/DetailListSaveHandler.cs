@@ -7,7 +7,7 @@ using System.Linq;
 namespace MobilityMatters.Common
 {
     public class DetailListSaveHandler<TRow>
-        where TRow: Row, IIdRow, new()
+        where TRow : Row, IIdRow, new()
     {
         private IEnumerable<TRow> oldList;
         private IDictionary<Int64, TRow> oldById;
@@ -17,7 +17,7 @@ namespace MobilityMatters.Common
         private Action<IUnitOfWork, SaveRequest<TRow>> save;
         private Action<TRow> setOwnerID;
 
-        public DetailListSaveHandler(IEnumerable<TRow> oldList, IEnumerable<TRow> newList, Action<TRow> setOwnerID, 
+        public DetailListSaveHandler(IEnumerable<TRow> oldList, IEnumerable<TRow> newList, Action<TRow> setOwnerID,
             Action<IUnitOfWork, SaveRequest<TRow>> save = null, Action<IUnitOfWork, DeleteRequest> delete = null)
         {
             this.oldList = oldList ?? new List<TRow>();
@@ -61,7 +61,7 @@ namespace MobilityMatters.Common
                 Delete(uow, request);
             }
 
-            foreach (var row in newList.Where(x => 
+            foreach (var row in newList.Where(x =>
             {
                 var id = GetID(x);
                 return id == null || !oldById.ContainsKey(id.Value);

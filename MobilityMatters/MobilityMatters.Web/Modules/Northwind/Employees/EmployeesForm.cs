@@ -1,13 +1,10 @@
 ﻿
 namespace MobilityMatters.Northwind.Forms
 {
-    using Serenity;
     using Serenity.ComponentModel;
-    using Serenity.Data;
     using System;
-    using System.ComponentModel;
     using System.Collections.Generic;
-    using System.IO;
+    using System.ComponentModel;
 
     [FormScript("Northwind.Employees")]
     [BasedOnRow(typeof(Entities.EmployeesRow), CheckNames = true)]
@@ -31,7 +28,7 @@ namespace MobilityMatters.Northwind.Forms
         public String City { get; set; }
         public String Region { get; set; }
         public String PostalCode { get; set; }
-       /* public String Country { get; set; }*/
+        /* public String Country { get; set; }*/
         [Category("Details")]
         public DateTime BirthDate { get; set; }
         [HalfWidth]

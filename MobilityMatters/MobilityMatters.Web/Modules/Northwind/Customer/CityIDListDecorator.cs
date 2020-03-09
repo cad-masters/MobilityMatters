@@ -20,7 +20,7 @@ namespace MobilityMatters.Northwind
                 return;
             }
 
-            var byId = TwoLevelCache.GetLocalStoreOnly("CityIDListDecorator:CityIDById", 
+            var byId = TwoLevelCache.GetLocalStoreOnly("CityIDListDecorator:CityIDById",
                 TimeSpan.Zero, TerritoryRow.Fields.GenerationKey, () =>
                 {
                     using (var connection = SqlConnections.NewFor<TerritoryRow>())

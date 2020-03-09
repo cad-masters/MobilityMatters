@@ -6,7 +6,6 @@ namespace MobilityMatters.Northwind.Entities
     using Serenity.Data;
     using Serenity.Data.Mapping;
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel;
     using System.IO;
 
@@ -59,7 +58,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.EmergencyName2[this] = value; }
         }
 
-        [DisplayName("Referral Source"), Size(100), QuickSearch]
+        [DisplayName("Referral Source"), Size(100), QuickSearch, LookupEditor(typeof(Lookups.CustomerDetailsReferralSourceLookup), InplaceAdd = true)]
         public String ReferralSource
         {
             get { return Fields.ReferralSource[this]; }
@@ -148,19 +147,19 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.TEMP[this] = value; }
         }
 
-        [DisplayName("Send Bulletin"), NotNull]
+        /*[DisplayName("Send Bulletin"), NotNull]
         public Boolean? SendBulletin
         {
             get { return Fields.SendBulletin[this]; }
             set { Fields.SendBulletin[this] = value; }
-        }
+        }*/
 
-        [DisplayName("Smoker"), NotNull]
+        /*[DisplayName("Smoker"), NotNull]
         public Boolean? Smoker
         {
             get { return Fields.Smoker[this]; }
             set { Fields.Smoker[this] = value; }
-        }
+        }*/
 
         [DisplayName("Last Contacted By Last Name"), Expression("jLastContactedBy.[LastName]")]
         public String LastContactedByLastName
@@ -304,7 +303,7 @@ namespace MobilityMatters.Northwind.Entities
             public DateTimeField LastContactDate;
             public Int32Field LastContactedBy;
             public StringField Email;
-            public BooleanField SendBulletin;
+            /*public BooleanField SendBulletin;*/
             public StringField EmergencyName;
             public StringField EmergencyPhone;
             public StringField EmergencyName2;
@@ -316,7 +315,7 @@ namespace MobilityMatters.Northwind.Entities
             public StringField LivingWith;
             public StringField TEMP;
             public StringField PreferredHospital;
-            public BooleanField Smoker;
+            /*public BooleanField Smoker;*/
             public StringField Medical;
             public StringField Dental;
             public StringField Groceries;

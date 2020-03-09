@@ -107,7 +107,7 @@ namespace MobilityMatters.Northwind
 
         private void NoteListSave(IUnitOfWork uow, string entityType, Int64 entityId, List<NoteRow> oldList, List<NoteRow> newList)
         {
-            var row = oldList.Count > 0 ? oldList[0] : 
+            var row = oldList.Count > 0 ? oldList[0] :
                 (newList.Count > 0) ? newList[0] : null;
 
             if (row == null)

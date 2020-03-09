@@ -3,7 +3,6 @@ namespace MobilityMatters.Northwind.Forms
 {
     using Serenity.ComponentModel;
     using System;
-    using System.Collections.Generic;
     using System.ComponentModel;
 
     [FormScript("Northwind.Order")]

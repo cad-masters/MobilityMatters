@@ -10,10 +10,8 @@ namespace MobilityMatters.Northwind.Lookups
     {
         public CustomerLookup()
         {
-            //IdField = CustomerRow.Fields.CustomerID.PropertyName;     //original code
-            IdField = CustomerRow.Fields.CompanyName.PropertyName;
-            //TextField = CustomerRow.Fields.CompanyName.PropertyName;  //original code
-            TextField = CustomerRow.Fields.ContactName.PropertyName;
+            IdField = CustomerRow.Fields.CustomerID.PropertyName;
+            TextField = CustomerRow.Fields.CompanyName.PropertyName;
         }
     }
 }

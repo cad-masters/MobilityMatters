@@ -42,8 +42,8 @@ namespace MobilityMatters.Common.Pages
 
                     using (var connection = SqlConnections.NewFor<CustomerRow>())
                     {
-                        model.ContraCostaRiders = connection.Count<CustomerRow>(r.County == (int)RiderByCounty.Alameda);
-                        model.AlamedaRiders = connection.Count<CustomerRow>(r.County == (int)RiderByCounty.ContraCosta);
+                        model.ContraCostaRiders = connection.Count<CustomerRow>(r.County == (int)RiderByCounty.ContraCosta);
+                        model.AlamedaRiders = connection.Count<CustomerRow>(r.County == (int)RiderByCounty.Alameda);
                     }
                     return model;
                 });

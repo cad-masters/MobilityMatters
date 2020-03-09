@@ -5,7 +5,6 @@ namespace MobilityMatters.Northwind.Repositories
     using Serenity;
     using Serenity.Data;
     using Serenity.Services;
-    using System;
     using System.Configuration;
     using System.Data;
     using System.IO;
@@ -87,15 +86,16 @@ namespace MobilityMatters.Northwind.Repositories
 
         }
 
-        private class MySaveHandler : SaveRequestHandler<MyRow> {
+        private class MySaveHandler : SaveRequestHandler<MyRow>
+        {
             protected override void BeforeSave()
             {
                 base.BeforeSave();
 
-                if(Old.DestinationAddress != Row.DestinationAddress ||
+                if (Old.DestinationAddress != Row.DestinationAddress ||
                     Old.DestinationCity != Row.DestinationCity ||
                     Old.DestinationZip != Row.DestinationZip)
-                { 
+                {
                     var destination = (Row.DestinationAddress == null ? "" : Row.DestinationAddress + ",") +
                         (Row.DestinationCity == null ? "" : Row.DestinationCity + ",") +
                         (Row.DestinationZip == null ? "" : Row.DestinationZip);
@@ -110,7 +110,7 @@ namespace MobilityMatters.Northwind.Repositories
                         Source = source
                     });
 
-                    if( result != null && result.Status == "OK" &&
+                    if (result != null && result.Status == "OK" &&
                         result.Rows.Length > 0 && result.Rows[0].Elements.Length > 0 &&
                         result.Rows[0].Elements[0].Status == "OK")
                     {

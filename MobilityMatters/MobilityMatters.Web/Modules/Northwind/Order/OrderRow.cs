@@ -7,7 +7,6 @@ namespace MobilityMatters.Northwind.Entities
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
-    using System.IO;
 
     [ConnectionKey("Northwind"), Module("Northwind"), TableName("Orders")]
     [DisplayName("Trips"), InstanceName("Trip")]
@@ -23,8 +22,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.OrderID[this] = value; }
         }
 
-        //[DisplayName("Rider"), Size(5), NotNull, ForeignKey(typeof(CustomerRow), "CustomerID"), LeftJoin("c"), CustomerEditor]
-        [DisplayName("Rider"), Size(5), NotNull, ForeignKey(typeof(CustomerRow)), LeftJoin("c"), CustomerEditor]
+        [DisplayName("Rider"), Size(5), NotNull, ForeignKey(typeof(CustomerRow), "CustomerID"), LeftJoin("c"), CustomerEditor]
         [LookupEditor(typeof(CustomerRow)), TextualField("RiderFullName")]
         public String CustomerID
         {
@@ -59,8 +57,6 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.RiderFullName[this]; }
             set { Fields.RiderFullName[this] = value; }
-            //get { return Fields.CustomerContactName[this]; }      //created by johnd for testing
-            //set { Fields.CustomerContactName[this] = value; }
         }
 
         [Origin("e")]
@@ -218,12 +214,12 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.CustomerContactName[this] = value; }
         }
 
-       /* [Origin("c")]
-        public String CustomerContactTitle
-        {
-            get { return Fields.CustomerContactTitle[this]; }
-            set { Fields.CustomerContactTitle[this] = value; }
-        }*/
+        /* [Origin("c")]
+         public String CustomerContactTitle
+         {
+             get { return Fields.CustomerContactTitle[this]; }
+             set { Fields.CustomerContactTitle[this] = value; }
+         }*/
 
         [Origin("c")]
         public String CustomerCity
@@ -266,7 +262,7 @@ namespace MobilityMatters.Northwind.Entities
             get { return Fields.ShipViaPhone[this]; }
             set { Fields.ShipViaPhone[this] = value; }
         }
-        
+
         [DisplayName("Details"), MasterDetailRelation(foreignKey: "OrderID"), NotMapped]
         public List<OrderDetailRow> DetailList
         {

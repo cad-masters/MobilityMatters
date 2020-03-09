@@ -30,6 +30,7 @@
         ReferralSource?: string;
         BirthDate?: string;
         NoteList?: NoteRow[];
+        Representatives?: number[];
         SpecialNeedsList?: number[];
         Email?: string;
         Gender?: string;
@@ -87,6 +88,7 @@
             ReferralSource = "ReferralSource",
             BirthDate = "BirthDate",
             NoteList = "NoteList",
+            Representatives = "Representatives",
             SpecialNeedsList = "SpecialNeedsList",
             Email = "Email",
             Gender = "Gender",
