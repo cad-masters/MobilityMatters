@@ -32,6 +32,8 @@
         NoteList?: NoteRow[];
         Representatives?: number[];
         SpecialNeedsList?: number[];
+        LastContactDate?: string;
+        LastContactedBy?: number;
         Email?: string;
         Gender?: string;
         EmergencyName?: string;
@@ -41,6 +43,7 @@
         EmergencyRelation2?: string;
         EmergencyRelation?: string;
         AgeCalc?: number;
+        SendBulletin?: boolean;
     }
 
     export namespace CustomerRow {
@@ -90,6 +93,8 @@
             NoteList = "NoteList",
             Representatives = "Representatives",
             SpecialNeedsList = "SpecialNeedsList",
+            LastContactDate = "LastContactDate",
+            LastContactedBy = "LastContactedBy",
             Email = "Email",
             Gender = "Gender",
             EmergencyName = "EmergencyName",
@@ -98,7 +103,8 @@
             EmergencyPhone2 = "EmergencyPhone2",
             EmergencyRelation2 = "EmergencyRelation2",
             EmergencyRelation = "EmergencyRelation",
-            AgeCalc = "AgeCalc"
+            AgeCalc = "AgeCalc",
+            SendBulletin = "SendBulletin"
         }
     }
 }
