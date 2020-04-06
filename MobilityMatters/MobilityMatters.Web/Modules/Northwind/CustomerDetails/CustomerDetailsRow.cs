@@ -58,7 +58,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.EmergencyName2[this] = value; }
         }
 
-        [DisplayName("Referral Source"), Size(100), QuickSearch, LookupEditor(typeof(Lookups.CustomerDetailsReferralSourceLookup), InplaceAdd = true)]
+        [DisplayName("Referral Source"), Size(100), QuickSearch, LookupEditor(typeof(Lookups.CustomerReferralSourceLookup), InplaceAdd = true)]
         public String ReferralSource
         {
             get { return Fields.ReferralSource[this]; }

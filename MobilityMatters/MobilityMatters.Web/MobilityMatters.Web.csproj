@@ -1875,7 +1875,7 @@
     <Compile Include="Modules\Administration\User\UserColumns.cs" />
     <Compile Include="Modules\Northwind\CustomerDetails\CustomerDetailsTEMPLookup.cs" />
     <Compile Include="Modules\Northwind\Customer\CustomerDetailsGenderLookup.cs" />
-    <Compile Include="Modules\Northwind\Customer\CustomerDetailsReferralSourceLookup.cs" />
+    <Compile Include="Modules\Northwind\Customer\CustomerReferralSourceLookup.cs" />
     <Compile Include="Modules\Northwind\Customer\CustomerResidenceLookup.cs" />
     <Compile Include="Modules\Northwind\Customer\CustomerProgramOptionLookup.cs" />
     <Compile Include="Modules\Northwind\Customer\CustomerDNRLookup.cs" />
