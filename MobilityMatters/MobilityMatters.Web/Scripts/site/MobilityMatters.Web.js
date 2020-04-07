@@ -5052,7 +5052,7 @@ var MobilityMatters;
             function OrderDialog() {
                 var _this = _super.call(this) || this;
                 _this.form = new Northwind.OrderForm(_this.idPrefix);
-                _this.form.CustomerID.changeSelect2(function (e) {
+                _this.form.CustomerID.change(function (e) {
                     Northwind.CustomerService.List({
                         EqualityFilter: {
                             CustomerID: _this.form.CustomerID.value

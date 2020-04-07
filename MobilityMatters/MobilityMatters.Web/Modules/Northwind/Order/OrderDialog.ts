@@ -14,7 +14,7 @@
         constructor() {
             super();
 
-            this.form.CustomerID.changeSelect2(e => {
+            this.form.CustomerID.change(e => {
                 CustomerService.List({
                     EqualityFilter: <CustomerRow>{
                         CustomerID: this.form.CustomerID.value
