@@ -835,6 +835,7 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="wkhtmltopdf-license.txt" />
     <Content Include="Modules\Northwind\Customer\InactiveCustomerIndex.cshtml" />
+    <Content Include="Modules\Northwind\Employees\InactiveEmployeeIndex.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -1094,6 +1095,7 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="Modules\Northwind\Customer\InactiveCustomerGrid.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Customer\SpecialNeedsListFormatter.ts" />
+    <TypeScriptCompile Include="Modules\Northwind\Employees\InactiveEmployeeGrid.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Mail\MailBodyViewer.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Mail\MailComposeDialog.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Mail\MailContentEditor.ts" />

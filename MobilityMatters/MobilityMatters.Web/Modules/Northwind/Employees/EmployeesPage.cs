@@ -12,5 +12,10 @@ namespace MobilityMatters.Northwind.Pages
         {
             return View("~/Modules/Northwind/Employees/EmployeesIndex.cshtml");
         }
+
+        public ActionResult Inactive()
+        {
+            return View(MVC.Views.Northwind.Employees.InactiveEmployeeIndex);
+        }
     }
 }

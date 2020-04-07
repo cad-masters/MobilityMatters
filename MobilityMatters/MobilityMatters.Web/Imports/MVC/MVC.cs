@@ -127,6 +127,7 @@ namespace MVC
             public static class Employees
             {
                 public const string EmployeesIndex = "~/Modules/Northwind/Employees/EmployeesIndex.cshtml";
+                public const string InactiveEmployeeIndex = "~/Modules/Northwind/Employees/InactiveEmployeeIndex.cshtml";
             }
 
             public static class Mail

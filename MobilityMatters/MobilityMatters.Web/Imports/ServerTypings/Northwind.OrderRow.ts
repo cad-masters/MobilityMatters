@@ -28,7 +28,7 @@
         CustomerCountry?: string;
         CustomerPhone?: string;
         EmployeeFullName?: string;
-        RiderFullName?: string;
+        CustomerFullName?: string;
         EmployeeGender?: Gender;
         EmployeeReportsToFullName?: string;
         ShipViaCompanyName?: string;
@@ -80,7 +80,7 @@
             CustomerCountry = "CustomerCountry",
             CustomerPhone = "CustomerPhone",
             EmployeeFullName = "EmployeeFullName",
-            RiderFullName = "RiderFullName",
+            CustomerFullName = "CustomerFullName",
             EmployeeGender = "EmployeeGender",
             EmployeeReportsToFullName = "EmployeeReportsToFullName",
             ShipViaCompanyName = "ShipViaCompanyName",

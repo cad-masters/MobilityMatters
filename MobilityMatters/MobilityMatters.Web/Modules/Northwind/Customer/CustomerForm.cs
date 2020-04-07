@@ -21,6 +21,8 @@ namespace MobilityMatters.Northwind.Forms
         public String ReferralSource { get; set; }
         [HalfWidth]
         public String TEMP { get; set; }
+        [HalfWidth, BooleanFormatter]
+        public Boolean Active { get; set; }
 
         [Category("Contact")]
         public String ContactName { get; set; }

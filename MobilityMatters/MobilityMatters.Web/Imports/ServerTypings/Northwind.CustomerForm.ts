@@ -6,6 +6,7 @@
         ProgramOption: Serenity.LookupEditor;
         ReferralSource: Serenity.LookupEditor;
         TEMP: Serenity.LookupEditor;
+        Active: Serenity.BooleanEditor;
         ContactName: Serenity.StringEditor;
         Phone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
@@ -52,11 +53,11 @@
                 var s = Serenity;
                 var w0 = s.StringEditor;
                 var w1 = s.LookupEditor;
-                var w2 = s.EmailEditor;
-                var w3 = NotesEditor;
-                var w4 = s.DateEditor;
-                var w5 = s.IntegerEditor;
-                var w6 = s.BooleanEditor;
+                var w2 = s.BooleanEditor;
+                var w3 = s.EmailEditor;
+                var w4 = NotesEditor;
+                var w5 = s.DateEditor;
+                var w6 = s.IntegerEditor;
 
                 Q.initFormType(CustomerForm, [
                     'CustomerID', w0,
@@ -65,9 +66,10 @@
                     'ProgramOption', w1,
                     'ReferralSource', w1,
                     'TEMP', w1,
+                    'Active', w2,
                     'ContactName', w0,
                     'Phone', w0,
-                    'Email', w2,
+                    'Email', w3,
                     'EmergencyName', w0,
                     'EmergencyPhone', w0,
                     'EmergencyRelation', w0,
@@ -81,17 +83,17 @@
                     'PostalCode', w0,
                     'Residence', w1,
                     'LivingWith', w0,
-                    'NoteList', w3,
+                    'NoteList', w4,
                     'Gender', w1,
-                    'BirthDate', w4,
-                    'AgeCalc', w5,
+                    'BirthDate', w5,
+                    'AgeCalc', w6,
                     'PLanguage', w0,
                     'SpecialNeedsList', w1,
                     'DNR', w1,
-                    'Radio', w6,
-                    'EIO', w6,
+                    'Radio', w2,
+                    'EIO', w2,
                     'PreferredHospital', w0,
-                    'Smoker', w6,
+                    'Smoker', w2,
                     'Medical', w0,
                     'Dental', w0,
                     'Groceries', w0,

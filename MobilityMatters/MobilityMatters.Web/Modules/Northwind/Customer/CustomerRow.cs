@@ -49,10 +49,10 @@ namespace MobilityMatters.Northwind.Entities
         [DisplayName("FullName"), QuickSearch]
         [Expression("CONCAT(T0.[ContactName], CONCAT(' ', T0.[CompanyName]))")]
         [Expression("(T0.ContacttName || ' ' || T0.CompanyName)", Dialect = "Sqlite")]
-        public String RiderFullName
+        public String FullName
         {
-            get { return Fields.RiderFullName[this]; }
-            set { Fields.RiderFullName[this] = value; }
+            get { return Fields.FullName[this]; }
+            set { Fields.FullName[this] = value; }
         }
 
         /*[DisplayName("Contact Title"), Size(30)]
@@ -313,6 +313,13 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Smoker[this] = value; }
         }
 
+        [DisplayName("Inactive Client"), Size(30)]
+        public Boolean? Active
+        {
+            get { return Fields.Active[this]; }
+            set { Fields.Active[this] = value; }
+        }
+
         [NotesEditor, NotMapped]
         public List<NoteRow> NoteList
         {
@@ -346,7 +353,7 @@ namespace MobilityMatters.Northwind.Entities
 
         StringField INameRow.NameField
         {
-            get { return Fields.CompanyName; }
+            get { return Fields.FullName; }
         }
 
         public static readonly RowFields Fields = new RowFields().Init();
@@ -362,7 +369,7 @@ namespace MobilityMatters.Northwind.Entities
             public StringField CustomerID;
             public StringField CompanyName;
             public StringField ContactName;
-            public StringField RiderFullName;
+            public StringField FullName;
             public StringField PLanguage;
             public StringField Address;
             public StringField City;
@@ -383,6 +390,7 @@ namespace MobilityMatters.Northwind.Entities
             public StringField TEMP;
             public BooleanField EIO;
             public BooleanField Smoker;
+            public BooleanField Active;
             public StringField LivingWith;
             public StringField Residence;
             public StringField ReferralSource;

@@ -4,7 +4,7 @@
         CustomerID?: string;
         CompanyName?: string;
         ContactName?: string;
-        RiderFullName?: string;
+        FullName?: string;
         PLanguage?: string;
         Address?: string;
         City?: string;
@@ -25,6 +25,7 @@
         TEMP?: string;
         EIO?: boolean;
         Smoker?: boolean;
+        Active?: boolean;
         LivingWith?: string;
         Residence?: string;
         ReferralSource?: string;
@@ -45,7 +46,7 @@
 
     export namespace CustomerRow {
         export const idProperty = 'ID';
-        export const nameProperty = 'CompanyName';
+        export const nameProperty = 'FullName';
         export const localTextPrefix = 'Northwind.Customer';
         export const lookupKey = 'Northwind.Customer';
 
@@ -62,7 +63,7 @@
             CustomerID = "CustomerID",
             CompanyName = "CompanyName",
             ContactName = "ContactName",
-            RiderFullName = "RiderFullName",
+            FullName = "FullName",
             PLanguage = "PLanguage",
             Address = "Address",
             City = "City",
@@ -83,6 +84,7 @@
             TEMP = "TEMP",
             EIO = "EIO",
             Smoker = "Smoker",
+            Active = "Active",
             LivingWith = "LivingWith",
             Residence = "Residence",
             ReferralSource = "ReferralSource",

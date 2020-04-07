@@ -20,7 +20,7 @@
 
             var request = this.view.params as Serenity.ListRequest;
             request.EqualityFilter = request.EqualityFilter || {};
-            request.EqualityFilter[CustomerRow.Fields.EIO] = false;
+            request.EqualityFilter[CustomerRow.Fields.Active] = true;
 
             return true;
         }

@@ -11,7 +11,7 @@ namespace MobilityMatters.Northwind.Lookups
         public CustomerLookup()
         {
             IdField = CustomerRow.Fields.CustomerID.PropertyName;
-            TextField = CustomerRow.Fields.CompanyName.PropertyName;
+            TextField = CustomerRow.Fields.FullName.PropertyName;
         }
     }
 }

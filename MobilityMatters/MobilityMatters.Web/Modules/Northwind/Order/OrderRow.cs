@@ -22,7 +22,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.OrderID[this] = value; }
         }
 
-        [DisplayName("Rider"), Size(5), NotNull, ForeignKey(typeof(CustomerRow), "CustomerID"), LeftJoin("c"), CustomerEditor]
+        [DisplayName("Rider"), Size(5), NotNull, ForeignKey(typeof(CustomerRow)), LeftJoin("c"), CustomerEditor]
         [LookupEditor(typeof(CustomerRow)), TextualField("RiderFullName")]
         public String CustomerID
         {
@@ -53,10 +53,10 @@ namespace MobilityMatters.Northwind.Entities
         }
 
         [Origin("c"), DisplayName("Rider")]
-        public String RiderFullName
+        public String CustomerFullName
         {
-            get { return Fields.RiderFullName[this]; }
-            set { Fields.RiderFullName[this] = value; }
+            get { return Fields.CustomerFullName[this]; }
+            set { Fields.CustomerFullName[this] = value; }
         }
 
         [Origin("e")]
@@ -320,7 +320,7 @@ namespace MobilityMatters.Northwind.Entities
             public StringField CustomerPhone;
 
             public StringField EmployeeFullName;
-            public StringField RiderFullName;
+            public StringField CustomerFullName;
             public Int32Field EmployeeGender;
             public StringField EmployeeReportsToFullName;
 

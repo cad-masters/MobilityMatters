@@ -2,6 +2,7 @@
 namespace MobilityMatters.Northwind {
 
     @Serenity.Decorators.registerClass()
+    @Serenity.Decorators.filterable()
     export class EmployeesGrid extends Serenity.EntityGrid<EmployeesRow, any> {
         protected getColumnsKey() { return 'Northwind.Employees'; }
         protected getDialogType() { return EmployeesDialog; }
@@ -64,6 +65,17 @@ namespace MobilityMatters.Northwind {
             columns.splice(0, 0, Serenity.GridRowSelectionMixin.createSelectColumn(() => this.rowSelection));
 
             return columns;
+        }
+
+        protected onViewSubmit() {
+            if (!super.onViewSubmit())
+                return false;
+
+            var request = this.view.params as Serenity.ListRequest;
+            request.EqualityFilter = request.EqualityFilter || {};
+            request.EqualityFilter[EmployeesRow.Fields.OnVacation] = false;
+
+            return true;
         }
     }
 }
