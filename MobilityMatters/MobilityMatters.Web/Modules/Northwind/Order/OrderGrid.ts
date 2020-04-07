@@ -64,26 +64,26 @@
                 onViewSubmit: () => this.onViewSubmit()
             }));
 
-            buttons.push({
-                title: 'Send Email',
-                icon: "fa-envelope text-green",
-                separator: false,
-                onClick: () => {
+            //buttons.push({
+            //    title: 'Send Email',
+            //    icon: "fa-envelope text-green",
+            //    separator: false,
+            //    onClick: () => {
 
-                    if (!this.onViewSubmit())
-                        return;
+            //        if (!this.onViewSubmit())
+            //            return;
 
-                    var checkedIDs = this.rowSelection.getSelectedAsInt32();
-                    if (checkedIDs.length == 0) {
-                        Q.alert("You must select at least one Volunteer to send email!");
-                        return;
-                    }
+            //        var checkedIDs = this.rowSelection.getSelectedAsInt32();
+            //        if (checkedIDs.length == 0) {
+            //            Q.alert("You must select a trip!");
+            //            return;
+            //        }
 
-                    new Northwind.MailComposeDialog({
-                        toVoluntueer: checkedIDs
-                    }).dialogOpen();
-                }
-            });
+            //        new Northwind.MailComposeDialog({
+            //            toVoluntueer: checkedIDs
+            //        }).dialogOpen();
+            //    }
+            //});
 
             return buttons;
         }

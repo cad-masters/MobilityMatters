@@ -12,5 +12,10 @@ namespace MobilityMatters.Northwind.Pages
         {
             return View(MVC.Views.Northwind.Customer.CustomerIndex);
         }
+
+        public ActionResult Inactive()
+        {
+            return View(MVC.Views.Northwind.Customer.InactiveCustomerIndex);
+        }
     }
 }

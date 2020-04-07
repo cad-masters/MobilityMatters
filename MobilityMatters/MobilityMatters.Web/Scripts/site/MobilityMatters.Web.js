@@ -2289,7 +2289,7 @@ var MobilityMatters;
 (function (MobilityMatters) {
     var Texts;
     (function (Texts) {
-        MobilityMatters['Texts'] = Q.proxyTexts(Texts, '', { Db: { Administration: { Language: { Id: 1, LanguageId: 1, LanguageName: 1 }, Role: { RoleId: 1, RoleName: 1 }, RolePermission: { PermissionKey: 1, RoleId: 1, RolePermissionId: 1, RoleRoleName: 1 }, Translation: { CustomText: 1, EntityPlural: 1, Key: 1, OverrideConfirmation: 1, SaveChangesButton: 1, SourceLanguage: 1, SourceText: 1, TargetLanguage: 1, TargetText: 1 }, User: { DisplayName: 1, Email: 1, InsertDate: 1, InsertUserId: 1, IsActive: 1, LastDirectoryUpdate: 1, Password: 1, PasswordConfirm: 1, PasswordHash: 1, PasswordSalt: 1, Source: 1, UpdateDate: 1, UpdateUserId: 1, UserId: 1, UserImage: 1, Username: 1 }, UserPermission: { Granted: 1, PermissionKey: 1, User: 1, UserId: 1, UserPermissionId: 1, Username: 1 }, UserRole: { RoleId: 1, User: 1, UserId: 1, UserRoleId: 1, Username: 1 } }, Common: { UserPreference: { Name: 1, PreferenceType: 1, UserId: 1, UserPreferenceId: 1, Value: 1 } }, Northwind: { AvailabilityAm: { AvailabilityAmid: 1, Day: 1 }, AvailabilityAmMultiple: { AvailabilityAmMultipleId: 1, AvailabilityAmid: 1, EmployeeId: 1 }, AvailabilityPm: { AvailabilityPmid: 1, Day: 1 }, AvailabilityPmMultiple: { AvailabilityPmMultipleId: 1, AvailabilityPmid: 1, EmployeeId: 1 }, Category: { CategoryID: 1, CategoryName: 1, Description: 1, Picture: 1 }, CategoryLang: { CategoryId: 1, CategoryName: 1, Description: 1, Id: 1, LanguageId: 1 }, Cities: { CityId: 1, Name: 1 }, CitiesMulti: { CitiesMultiId: 1, CityId: 1, CityName: 1, EmployeeAddress: 1, EmployeeBirthDate: 1, EmployeeCity: 1, EmployeeCountry: 1, EmployeeDriversLicense: 1, EmployeeDriversLicenseExp: 1, EmployeeEmail: 1, EmployeeExtension: 1, EmployeeFirstName: 1, EmployeeGender: 1, EmployeeHireDate: 1, EmployeeHomePhone: 1, EmployeeId: 1, EmployeeInsurance: 1, EmployeeInsuranceExp: 1, EmployeeLastName: 1, EmployeeLicensePlate: 1, EmployeeLicensePlateExp: 1, EmployeeNotes: 1, EmployeeOnVacation: 1, EmployeePhoto: 1, EmployeePhotoPath: 1, EmployeePostalCode: 1, EmployeeRegion: 1, EmployeeReportsTo: 1, EmployeeSmoker: 1, EmployeeSpecialNeedsId: 1, EmployeeTitle: 1, EmployeeTitleOfCourtesy: 1, EmployeeVehicleMake: 1, EmployeeVehicleModel: 1 }, Customer: { Address: 1, AgeCalc: 1, BirthDate: 1, City: 1, CompanyName: 1, ContactName: 1, Country: 1, County: 1, CustomerID: 1, DNR: 1, Dental: 1, EIO: 1, Email: 1, EmergencyName: 1, EmergencyName2: 1, EmergencyPhone: 1, EmergencyPhone2: 1, EmergencyRelation: 1, EmergencyRelation2: 1, Gender: 1, Groceries: 1, ID: 1, LastContactDate: 1, LastContactedBy: 1, LivingWith: 1, Medical: 1, NoteList: 1, OtherTransport: 1, PLanguage: 1, Phone: 1, PostalCode: 1, PreferredHospital: 1, Program: 1, ProgramOption: 1, Radio: 1, ReferralSource: 1, Region: 1, Representatives: 1, Residence: 1, RiderFullName: 1, SendBulletin: 1, Smoker: 1, SpecialNeedsList: 1, TEMP: 1 }, CustomerCustomerDemo: { CustomerAddress: 1, CustomerCity: 1, CustomerCompanyName: 1, CustomerContactName: 1, CustomerContactTitle: 1, CustomerCountry: 1, CustomerFax: 1, CustomerID: 1, CustomerPhone: 1, CustomerPostalCode: 1, CustomerRegion: 1, CustomerTypeCustomerDesc: 1, CustomerTypeID: 1, ID: 1 }, CustomerDemographic: { CustomerDesc: 1, CustomerTypeID: 1, ID: 1 }, CustomerDetails: { Dental: 1, Email: 1, EmergencyName: 1, EmergencyName2: 1, EmergencyPhone: 1, EmergencyPhone2: 1, EmergencyRelation: 1, EmergencyRelation2: 1, Gender: 1, Groceries: 1, Id: 1, LastContactDate: 1, LastContactedBy: 1, LastContactedByAddress: 1, LastContactedByBirthDate: 1, LastContactedByCity: 1, LastContactedByCountry: 1, LastContactedByExtension: 1, LastContactedByFirstName: 1, LastContactedByHireDate: 1, LastContactedByHomePhone: 1, LastContactedByLastName: 1, LastContactedByNotes: 1, LastContactedByPhoto: 1, LastContactedByPhotoPath: 1, LastContactedByPostalCode: 1, LastContactedByRegion: 1, LastContactedByReportsTo: 1, LastContactedByTitle: 1, LastContactedByTitleOfCourtesy: 1, LivingWith: 1, Medical: 1, OtherTransport: 1, PreferredHospital: 1, ReferralSource: 1, SendBulletin: 1, Smoker: 1, TEMP: 1 }, CustomerGrossSales: { ContactName: 1, CustomerId: 1, GrossAmount: 1, ProductId: 1, ProductName: 1 }, CustomerRepresentatives: { CustomerId: 1, EmployeeId: 1, RepresentativeId: 1 }, Employee: { Address: 1, BirthDate: 1, City: 1, Country: 1, EmployeeID: 1, Extension: 1, FirstName: 1, FullName: 1, Gender: 1, HireDate: 1, HomePhone: 1, LastName: 1, Notes: 1, Photo: 1, PhotoPath: 1, PostalCode: 1, Region: 1, ReportsTo: 1, ReportsToAddress: 1, ReportsToBirthDate: 1, ReportsToCity: 1, ReportsToCountry: 1, ReportsToExtension: 1, ReportsToFirstName: 1, ReportsToFullName: 1, ReportsToHireDate: 1, ReportsToHomePhone: 1, ReportsToLastName: 1, ReportsToNotes: 1, ReportsToPhoto: 1, ReportsToPhotoPath: 1, ReportsToPostalCode: 1, ReportsToRegion: 1, ReportsToReportsTo: 1, ReportsToTitle: 1, ReportsToTitleOfCourtesy: 1, Title: 1, TitleOfCourtesy: 1 }, EmployeeTerritory: { EmployeeAddress: 1, EmployeeBirthDate: 1, EmployeeCity: 1, EmployeeCountry: 1, EmployeeExtension: 1, EmployeeFirstName: 1, EmployeeHireDate: 1, EmployeeHomePhone: 1, EmployeeID: 1, EmployeeLastName: 1, EmployeeNotes: 1, EmployeePhoto: 1, EmployeePhotoPath: 1, EmployeePostalCode: 1, EmployeeRegion: 1, EmployeeReportsTo: 1, EmployeeTitle: 1, EmployeeTitleOfCourtesy: 1, TerritoryID: 1, TerritoryRegionID: 1, TerritoryTerritoryDescription: 1 }, Employees: { Address: 1, AvailabilityAMList: 1, AvailabilityPMList: 1, BirthDate: 1, CitiesList: 1, City: 1, Country: 1, DMVClearance: 1, DriversLicense: 1, DriversLicenseExp: 1, Email: 1, EmployeeId: 1, EndDate: 1, Extension: 1, FirstName: 1, Gender: 1, HireDate: 1, HomePhone: 1, Insurance: 1, InsuranceExp: 1, Language: 1, LastName: 1, LicensePlate: 1, LicensePlateExp: 1, Notes: 1, OnVacation: 1, Photo: 1, PhotoPath: 1, PoliceClearance: 1, PostalCode: 1, ReferralSource: 1, Region: 1, ReportsTo: 1, ReportsTo1: 1, ReportsToAddress: 1, ReportsToBirthDate: 1, ReportsToCity: 1, ReportsToCountry: 1, ReportsToExtension: 1, ReportsToFirstName: 1, ReportsToHireDate: 1, ReportsToHomePhone: 1, ReportsToLastName: 1, ReportsToNotes: 1, ReportsToPhoto: 1, ReportsToPhotoPath: 1, ReportsToPostalCode: 1, ReportsToRegion: 1, ReportsToTitle: 1, ReportsToTitleOfCourtesy: 1, Smoker: 1, SpecialNeedsList: 1, Title: 1, TitleOfCourtesy: 1, TrainingDate: 1, VehicleMake: 1, VehicleMake2: 1, VehicleModel: 1, VehicleModel2: 1, WhyEnding: 1 }, Mail: { Attachments: 1, Body: 1, Cc: 1, CreatedBy: 1, CreatedOn: 1, Direction: 1, ErrorMessage: 1, From: 1, IsSent: 1, MailId: 1, ModifiedBy: 1, ModifiedOn: 1, ReceivedDate: 1, SendDateTime: 1, Subject: 1, To: 1, Uid: 1 }, MailAttachments: { AttachmentId: 1, CreatedBy: 1, CreatedOn: 1, FilePath: 1, MailBody: 1, MailCc: 1, MailCreatedBy: 1, MailCreatedOn: 1, MailDirection: 1, MailFrom: 1, MailId: 1, MailModifiedBy: 1, MailModifiedOn: 1, MailReceivedDate: 1, MailSendDateTime: 1, MailSubject: 1, MailTo: 1, MailUid: 1, MimeType: 1, ModifiedBy: 1, ModifiedOn: 1, OriginalFileName: 1, Size: 1 }, Note: { EntityId: 1, EntityType: 1, InsertDate: 1, InsertUserDisplayName: 1, InsertUserId: 1, NoteId: 1, Text: 1 }, Order: { CustomerCity: 1, CustomerCompanyName: 1, CustomerContactName: 1, CustomerCountry: 1, CustomerID: 1, CustomerPhone: 1, CustomerRegion: 1, DestinationAddress: 1, DestinationCity: 1, DestinationZip: 1, DetailList: 1, DistanceText: 1, DistanceValue: 1, DurationText: 1, DurationValue: 1, EmployeeFullName: 1, EmployeeGender: 1, EmployeeID: 1, EmployeeReportsToFullName: 1, Freight: 1, OrderDate: 1, OrderID: 1, RequiredDate: 1, RiderFullName: 1, ShipAddress: 1, ShipCity: 1, ShipCountry: 1, ShipName: 1, ShipPostalCode: 1, ShipRegion: 1, ShipVia: 1, ShipViaCompanyName: 1, ShipViaPhone: 1, ShippedDate: 1, ShippingState: 1 }, OrderDetail: { DetailID: 1, Discount: 1, LineTotal: 1, OrderCustomerID: 1, OrderDate: 1, OrderEmployeeID: 1, OrderID: 1, OrderShipCity: 1, OrderShipCountry: 1, OrderShipVia: 1, OrderShippedDate: 1, ProductDiscontinued: 1, ProductID: 1, ProductName: 1, ProductQuantityPerUnit: 1, ProductSupplierID: 1, ProductUnitPrice: 1, Quantity: 1, UnitPrice: 1 }, Product: { CategoryDescription: 1, CategoryID: 1, CategoryName: 1, CategoryPicture: 1, Discontinued: 1, ProductID: 1, ProductImage: 1, ProductName: 1, QuantityPerUnit: 1, ReorderLevel: 1, SupplierAddress: 1, SupplierCity: 1, SupplierCompanyName: 1, SupplierContactName: 1, SupplierContactTitle: 1, SupplierCountry: 1, SupplierFax: 1, SupplierHomePage: 1, SupplierID: 1, SupplierPhone: 1, SupplierPostalCode: 1, SupplierRegion: 1, UnitPrice: 1, UnitsInStock: 1, UnitsOnOrder: 1 }, ProductLang: { Id: 1, LanguageId: 1, ProductId: 1, ProductName: 1 }, ProductLog: { CategoryID: 1, ChangingUserId: 1, Discontinued: 1, OperationType: 1, ProductID: 1, ProductImage: 1, ProductLogID: 1, ProductName: 1, QuantityPerUnit: 1, ReorderLevel: 1, SupplierID: 1, UnitPrice: 1, UnitsInStock: 1, UnitsOnOrder: 1, ValidFrom: 1, ValidUntil: 1 }, Region: { RegionDescription: 1, RegionID: 1 }, SalesByCategory: { CategoryId: 1, CategoryName: 1, ProductName: 1, ProductSales: 1 }, Shipper: { CompanyName: 1, Phone: 1, ShipperID: 1 }, SpecialNeeds: { Name: 1, SpecialNeedsID: 1 }, SpecialNeedsMultiple: { CustomerId: 1, SpecialNeedsId: 1, SpecialNeedsMultipleId: 1 }, SpecialNeedsMultipleVolunteer: { EmployeeId: 1, SpecialNeedsId: 1, SpecialNeedsMultipleVolunteerId: 1 }, Supplier: { Address: 1, City: 1, CompanyName: 1, ContactName: 1, ContactTitle: 1, Country: 1, Fax: 1, HomePage: 1, Phone: 1, PostalCode: 1, Region: 1, SupplierID: 1 }, Territory: { ID: 1, RegionDescription: 1, RegionID: 1, TerritoryDescription: 1, TerritoryID: 1 } } }, Forms: { Membership: { ChangePassword: { FormTitle: 1, SubmitButton: 1, Success: 1 }, ForgotPassword: { BackToLogin: 1, FormInfo: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, Login: { FacebookButton: 1, ForgotPassword: 1, FormTitle: 1, GoogleButton: 1, OR: 1, RememberMe: 1, SignInButton: 1, SignUpButton: 1 }, ResetPassword: { BackToLogin: 1, EmailSubject: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, SignUp: { AcceptTerms: 1, ActivateEmailSubject: 1, ActivationCompleteMessage: 1, BackToLogin: 1, ConfirmEmail: 1, ConfirmPassword: 1, DisplayName: 1, Email: 1, FormInfo: 1, FormTitle: 1, Password: 1, SubmitButton: 1, Success: 1 } } }, Site: { AccessDenied: { ClickToChangeUser: 1, ClickToLogin: 1, LackPermissions: 1, NotLoggedIn: 1, PageTitle: 1 }, BasicProgressDialog: { CancelTitle: 1, PleaseWait: 1 }, BulkServiceAction: { AllHadErrorsFormat: 1, AllSuccessFormat: 1, ConfirmationFormat: 1, ErrorCount: 1, NothingToProcess: 1, SomeHadErrorsFormat: 1, SuccessCount: 1 }, Dashboard: { ContentDescription: 1 }, Layout: { FooterCopyright: 1, FooterInfo: 1, FooterRights: 1, GeneralSettings: 1, Language: 1, Theme: 1, ThemeBlack: 1, ThemeBlackLight: 1, ThemeBlue: 1, ThemeBlueLight: 1, ThemeGreen: 1, ThemeGreenLight: 1, ThemePurple: 1, ThemePurpleLight: 1, ThemeRed: 1, ThemeRedLight: 1, ThemeYellow: 1, ThemeYellowLight: 1 }, RolePermissionDialog: { DialogTitle: 1, EditButton: 1, SaveSuccess: 1 }, UserDialog: { EditPermissionsButton: 1, EditRolesButton: 1 }, UserPermissionDialog: { DialogTitle: 1, Grant: 1, Permission: 1, Revoke: 1, SaveSuccess: 1 }, UserRoleDialog: { DialogTitle: 1, SaveSuccess: 1 }, ValidationError: { Title: 1 } }, Validation: { AuthenticationError: 1, CantFindUserWithEmail: 1, CurrentPasswordMismatch: 1, DeleteForeignKeyError: 1, EmailConfirm: 1, EmailInUse: 1, InvalidActivateToken: 1, InvalidResetToken: 1, MinRequiredPasswordLength: 1, NorthwindPhone: 1, NorthwindPhoneMultiple: 1, SavePrimaryKeyError: 1 } });
+        MobilityMatters['Texts'] = Q.proxyTexts(Texts, '', { Db: { Administration: { Language: { Id: 1, LanguageId: 1, LanguageName: 1 }, Role: { RoleId: 1, RoleName: 1 }, RolePermission: { PermissionKey: 1, RoleId: 1, RolePermissionId: 1, RoleRoleName: 1 }, Translation: { CustomText: 1, EntityPlural: 1, Key: 1, OverrideConfirmation: 1, SaveChangesButton: 1, SourceLanguage: 1, SourceText: 1, TargetLanguage: 1, TargetText: 1 }, User: { DisplayName: 1, Email: 1, InsertDate: 1, InsertUserId: 1, IsActive: 1, LastDirectoryUpdate: 1, Password: 1, PasswordConfirm: 1, PasswordHash: 1, PasswordSalt: 1, Source: 1, UpdateDate: 1, UpdateUserId: 1, UserId: 1, UserImage: 1, Username: 1 }, UserPermission: { Granted: 1, PermissionKey: 1, User: 1, UserId: 1, UserPermissionId: 1, Username: 1 }, UserRole: { RoleId: 1, User: 1, UserId: 1, UserRoleId: 1, Username: 1 } }, Common: { UserPreference: { Name: 1, PreferenceType: 1, UserId: 1, UserPreferenceId: 1, Value: 1 } }, Northwind: { AvailabilityAm: { AvailabilityAmid: 1, Day: 1 }, AvailabilityAmMultiple: { AvailabilityAmMultipleId: 1, AvailabilityAmid: 1, EmployeeId: 1 }, AvailabilityPm: { AvailabilityPmid: 1, Day: 1 }, AvailabilityPmMultiple: { AvailabilityPmMultipleId: 1, AvailabilityPmid: 1, EmployeeId: 1 }, Category: { CategoryID: 1, CategoryName: 1, Description: 1, Picture: 1 }, CategoryLang: { CategoryId: 1, CategoryName: 1, Description: 1, Id: 1, LanguageId: 1 }, Cities: { CityId: 1, Name: 1 }, CitiesMulti: { CitiesMultiId: 1, CityId: 1, CityName: 1, EmployeeAddress: 1, EmployeeBirthDate: 1, EmployeeCity: 1, EmployeeCountry: 1, EmployeeDriversLicense: 1, EmployeeDriversLicenseExp: 1, EmployeeEmail: 1, EmployeeExtension: 1, EmployeeFirstName: 1, EmployeeGender: 1, EmployeeHireDate: 1, EmployeeHomePhone: 1, EmployeeId: 1, EmployeeInsurance: 1, EmployeeInsuranceExp: 1, EmployeeLastName: 1, EmployeeLicensePlate: 1, EmployeeLicensePlateExp: 1, EmployeeNotes: 1, EmployeeOnVacation: 1, EmployeePhoto: 1, EmployeePhotoPath: 1, EmployeePostalCode: 1, EmployeeRegion: 1, EmployeeReportsTo: 1, EmployeeSmoker: 1, EmployeeSpecialNeedsId: 1, EmployeeTitle: 1, EmployeeTitleOfCourtesy: 1, EmployeeVehicleMake: 1, EmployeeVehicleModel: 1 }, Customer: { Address: 1, AgeCalc: 1, BirthDate: 1, City: 1, CompanyName: 1, ContactName: 1, Country: 1, County: 1, CustomerID: 1, DNR: 1, Dental: 1, EIO: 1, Email: 1, EmergencyName: 1, EmergencyName2: 1, EmergencyPhone: 1, EmergencyPhone2: 1, EmergencyRelation: 1, EmergencyRelation2: 1, Gender: 1, Groceries: 1, ID: 1, LivingWith: 1, Medical: 1, NoteList: 1, OtherTransport: 1, PLanguage: 1, Phone: 1, PostalCode: 1, PreferredHospital: 1, Program: 1, ProgramOption: 1, Radio: 1, ReferralSource: 1, Region: 1, Representatives: 1, Residence: 1, RiderFullName: 1, Smoker: 1, SpecialNeedsList: 1, TEMP: 1 }, CustomerCustomerDemo: { CustomerAddress: 1, CustomerCity: 1, CustomerCompanyName: 1, CustomerContactName: 1, CustomerContactTitle: 1, CustomerCountry: 1, CustomerFax: 1, CustomerID: 1, CustomerPhone: 1, CustomerPostalCode: 1, CustomerRegion: 1, CustomerTypeCustomerDesc: 1, CustomerTypeID: 1, ID: 1 }, CustomerDemographic: { CustomerDesc: 1, CustomerTypeID: 1, ID: 1 }, CustomerDetails: { Dental: 1, Email: 1, EmergencyName: 1, EmergencyName2: 1, EmergencyPhone: 1, EmergencyPhone2: 1, EmergencyRelation: 1, EmergencyRelation2: 1, Gender: 1, Groceries: 1, Id: 1, LastContactDate: 1, LastContactedBy: 1, LastContactedByAddress: 1, LastContactedByBirthDate: 1, LastContactedByCity: 1, LastContactedByCountry: 1, LastContactedByExtension: 1, LastContactedByFirstName: 1, LastContactedByHireDate: 1, LastContactedByHomePhone: 1, LastContactedByLastName: 1, LastContactedByNotes: 1, LastContactedByPhoto: 1, LastContactedByPhotoPath: 1, LastContactedByPostalCode: 1, LastContactedByRegion: 1, LastContactedByReportsTo: 1, LastContactedByTitle: 1, LastContactedByTitleOfCourtesy: 1, LivingWith: 1, Medical: 1, OtherTransport: 1, PreferredHospital: 1, ReferralSource: 1, TEMP: 1 }, CustomerGrossSales: { ContactName: 1, CustomerId: 1, GrossAmount: 1, ProductId: 1, ProductName: 1 }, CustomerRepresentatives: { CustomerId: 1, EmployeeId: 1, RepresentativeId: 1 }, Employee: { Address: 1, BirthDate: 1, City: 1, Country: 1, EmployeeID: 1, Extension: 1, FirstName: 1, FullName: 1, Gender: 1, HireDate: 1, HomePhone: 1, LastName: 1, Notes: 1, Photo: 1, PhotoPath: 1, PostalCode: 1, Region: 1, ReportsTo: 1, ReportsToAddress: 1, ReportsToBirthDate: 1, ReportsToCity: 1, ReportsToCountry: 1, ReportsToExtension: 1, ReportsToFirstName: 1, ReportsToFullName: 1, ReportsToHireDate: 1, ReportsToHomePhone: 1, ReportsToLastName: 1, ReportsToNotes: 1, ReportsToPhoto: 1, ReportsToPhotoPath: 1, ReportsToPostalCode: 1, ReportsToRegion: 1, ReportsToReportsTo: 1, ReportsToTitle: 1, ReportsToTitleOfCourtesy: 1, Title: 1, TitleOfCourtesy: 1 }, EmployeeTerritory: { EmployeeAddress: 1, EmployeeBirthDate: 1, EmployeeCity: 1, EmployeeCountry: 1, EmployeeExtension: 1, EmployeeFirstName: 1, EmployeeHireDate: 1, EmployeeHomePhone: 1, EmployeeID: 1, EmployeeLastName: 1, EmployeeNotes: 1, EmployeePhoto: 1, EmployeePhotoPath: 1, EmployeePostalCode: 1, EmployeeRegion: 1, EmployeeReportsTo: 1, EmployeeTitle: 1, EmployeeTitleOfCourtesy: 1, TerritoryID: 1, TerritoryRegionID: 1, TerritoryTerritoryDescription: 1 }, Employees: { Address: 1, AvailabilityAMList: 1, AvailabilityPMList: 1, BirthDate: 1, CitiesList: 1, City: 1, Country: 1, DMVClearance: 1, DriversLicense: 1, DriversLicenseExp: 1, Email: 1, EmployeeId: 1, EndDate: 1, Extension: 1, FirstName: 1, Gender: 1, HireDate: 1, HomePhone: 1, Insurance: 1, InsuranceExp: 1, Language: 1, LastName: 1, LicensePlate: 1, LicensePlateExp: 1, Notes: 1, OnVacation: 1, Photo: 1, PhotoPath: 1, PoliceClearance: 1, PostalCode: 1, ReferralSource: 1, Region: 1, ReportsTo: 1, ReportsTo1: 1, ReportsToAddress: 1, ReportsToBirthDate: 1, ReportsToCity: 1, ReportsToCountry: 1, ReportsToExtension: 1, ReportsToFirstName: 1, ReportsToHireDate: 1, ReportsToHomePhone: 1, ReportsToLastName: 1, ReportsToNotes: 1, ReportsToPhoto: 1, ReportsToPhotoPath: 1, ReportsToPostalCode: 1, ReportsToRegion: 1, ReportsToTitle: 1, ReportsToTitleOfCourtesy: 1, Smoker: 1, SpecialNeedsList: 1, Title: 1, TitleOfCourtesy: 1, TrainingDate: 1, VehicleMake: 1, VehicleMake2: 1, VehicleModel: 1, VehicleModel2: 1, WhyEnding: 1 }, Mail: { Attachments: 1, Body: 1, Cc: 1, CreatedBy: 1, CreatedOn: 1, Direction: 1, ErrorMessage: 1, From: 1, IsSent: 1, MailId: 1, ModifiedBy: 1, ModifiedOn: 1, ReceivedDate: 1, SendDateTime: 1, Subject: 1, To: 1, Uid: 1 }, MailAttachments: { AttachmentId: 1, CreatedBy: 1, CreatedOn: 1, FilePath: 1, MailBody: 1, MailCc: 1, MailCreatedBy: 1, MailCreatedOn: 1, MailDirection: 1, MailFrom: 1, MailId: 1, MailModifiedBy: 1, MailModifiedOn: 1, MailReceivedDate: 1, MailSendDateTime: 1, MailSubject: 1, MailTo: 1, MailUid: 1, MimeType: 1, ModifiedBy: 1, ModifiedOn: 1, OriginalFileName: 1, Size: 1 }, Note: { EntityId: 1, EntityType: 1, InsertDate: 1, InsertUserDisplayName: 1, InsertUserId: 1, NoteId: 1, Text: 1 }, Order: { CustomerCity: 1, CustomerCompanyName: 1, CustomerContactName: 1, CustomerCountry: 1, CustomerID: 1, CustomerPhone: 1, CustomerRegion: 1, DestinationAddress: 1, DestinationCity: 1, DestinationZip: 1, DetailList: 1, DistanceText: 1, DistanceValue: 1, DurationText: 1, DurationValue: 1, EmployeeFullName: 1, EmployeeGender: 1, EmployeeID: 1, EmployeeReportsToFullName: 1, Freight: 1, OrderDate: 1, OrderID: 1, RequiredDate: 1, RiderFullName: 1, ShipAddress: 1, ShipCity: 1, ShipCountry: 1, ShipName: 1, ShipPostalCode: 1, ShipRegion: 1, ShipVia: 1, ShipViaCompanyName: 1, ShipViaPhone: 1, ShippedDate: 1, ShippingState: 1 }, OrderDetail: { DetailID: 1, Discount: 1, LineTotal: 1, OrderCustomerID: 1, OrderDate: 1, OrderEmployeeID: 1, OrderID: 1, OrderShipCity: 1, OrderShipCountry: 1, OrderShipVia: 1, OrderShippedDate: 1, ProductDiscontinued: 1, ProductID: 1, ProductName: 1, ProductQuantityPerUnit: 1, ProductSupplierID: 1, ProductUnitPrice: 1, Quantity: 1, UnitPrice: 1 }, Product: { CategoryDescription: 1, CategoryID: 1, CategoryName: 1, CategoryPicture: 1, Discontinued: 1, ProductID: 1, ProductImage: 1, ProductName: 1, QuantityPerUnit: 1, ReorderLevel: 1, SupplierAddress: 1, SupplierCity: 1, SupplierCompanyName: 1, SupplierContactName: 1, SupplierContactTitle: 1, SupplierCountry: 1, SupplierFax: 1, SupplierHomePage: 1, SupplierID: 1, SupplierPhone: 1, SupplierPostalCode: 1, SupplierRegion: 1, UnitPrice: 1, UnitsInStock: 1, UnitsOnOrder: 1 }, ProductLang: { Id: 1, LanguageId: 1, ProductId: 1, ProductName: 1 }, ProductLog: { CategoryID: 1, ChangingUserId: 1, Discontinued: 1, OperationType: 1, ProductID: 1, ProductImage: 1, ProductLogID: 1, ProductName: 1, QuantityPerUnit: 1, ReorderLevel: 1, SupplierID: 1, UnitPrice: 1, UnitsInStock: 1, UnitsOnOrder: 1, ValidFrom: 1, ValidUntil: 1 }, Region: { RegionDescription: 1, RegionID: 1 }, SalesByCategory: { CategoryId: 1, CategoryName: 1, ProductName: 1, ProductSales: 1 }, Shipper: { CompanyName: 1, Phone: 1, ShipperID: 1 }, SpecialNeeds: { Name: 1, SpecialNeedsID: 1 }, SpecialNeedsMultiple: { CustomerId: 1, SpecialNeedsId: 1, SpecialNeedsMultipleId: 1 }, SpecialNeedsMultipleVolunteer: { EmployeeId: 1, SpecialNeedsId: 1, SpecialNeedsMultipleVolunteerId: 1 }, Supplier: { Address: 1, City: 1, CompanyName: 1, ContactName: 1, ContactTitle: 1, Country: 1, Fax: 1, HomePage: 1, Phone: 1, PostalCode: 1, Region: 1, SupplierID: 1 }, Territory: { ID: 1, RegionDescription: 1, RegionID: 1, TerritoryDescription: 1, TerritoryID: 1 } } }, Forms: { Membership: { ChangePassword: { FormTitle: 1, SubmitButton: 1, Success: 1 }, ForgotPassword: { BackToLogin: 1, FormInfo: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, Login: { FacebookButton: 1, ForgotPassword: 1, FormTitle: 1, GoogleButton: 1, OR: 1, RememberMe: 1, SignInButton: 1, SignUpButton: 1 }, ResetPassword: { BackToLogin: 1, EmailSubject: 1, FormTitle: 1, SubmitButton: 1, Success: 1 }, SignUp: { AcceptTerms: 1, ActivateEmailSubject: 1, ActivationCompleteMessage: 1, BackToLogin: 1, ConfirmEmail: 1, ConfirmPassword: 1, DisplayName: 1, Email: 1, FormInfo: 1, FormTitle: 1, Password: 1, SubmitButton: 1, Success: 1 } } }, Site: { AccessDenied: { ClickToChangeUser: 1, ClickToLogin: 1, LackPermissions: 1, NotLoggedIn: 1, PageTitle: 1 }, BasicProgressDialog: { CancelTitle: 1, PleaseWait: 1 }, BulkServiceAction: { AllHadErrorsFormat: 1, AllSuccessFormat: 1, ConfirmationFormat: 1, ErrorCount: 1, NothingToProcess: 1, SomeHadErrorsFormat: 1, SuccessCount: 1 }, Dashboard: { ContentDescription: 1 }, Layout: { FooterCopyright: 1, FooterInfo: 1, FooterRights: 1, GeneralSettings: 1, Language: 1, Theme: 1, ThemeBlack: 1, ThemeBlackLight: 1, ThemeBlue: 1, ThemeBlueLight: 1, ThemeGreen: 1, ThemeGreenLight: 1, ThemePurple: 1, ThemePurpleLight: 1, ThemeRed: 1, ThemeRedLight: 1, ThemeYellow: 1, ThemeYellowLight: 1 }, RolePermissionDialog: { DialogTitle: 1, EditButton: 1, SaveSuccess: 1 }, UserDialog: { EditPermissionsButton: 1, EditRolesButton: 1 }, UserPermissionDialog: { DialogTitle: 1, Grant: 1, Permission: 1, Revoke: 1, SaveSuccess: 1 }, UserRoleDialog: { DialogTitle: 1, SaveSuccess: 1 }, ValidationError: { Title: 1 } }, Validation: { AuthenticationError: 1, CantFindUserWithEmail: 1, CurrentPasswordMismatch: 1, DeleteForeignKeyError: 1, EmailConfirm: 1, EmailInUse: 1, InvalidActivateToken: 1, InvalidResetToken: 1, MinRequiredPasswordLength: 1, NorthwindPhone: 1, NorthwindPhoneMultiple: 1, SavePrimaryKeyError: 1 } });
     })(Texts = MobilityMatters.Texts || (MobilityMatters.Texts = {}));
 })(MobilityMatters || (MobilityMatters = {}));
 var MobilityMatters;
@@ -5043,6 +5043,20 @@ var MobilityMatters;
             function OrderDialog() {
                 var _this = _super.call(this) || this;
                 _this.form = new Northwind.OrderForm(_this.idPrefix);
+                _this.form.CustomerID.changeSelect2(function (e) {
+                    Northwind.CustomerService.List({
+                        EqualityFilter: {
+                            CustomerID: _this.form.CustomerID.value
+                        }
+                    }, function (response) {
+                        if (response.Entities.length) {
+                            _this.form.ShipAddress.value = response.Entities[0].Address;
+                            _this.form.ShipCity.value = response.Entities[0].City;
+                            _this.form.ShipPostalCode.value = response.Entities[0].PostalCode;
+                            _this.CalculateDistanceAndDuration();
+                        }
+                    });
+                });
                 return _this;
             }
             OrderDialog.prototype.getFormKey = function () { return Northwind.OrderForm.formKey; };
@@ -5066,36 +5080,62 @@ var MobilityMatters;
                     icon: 'fa fa-map-o text-green',
                     onClick: function () {
                         Q.confirm("Do you really want to calculate distance and duration by Google Maps?", function () {
-                            var source = (_this.form.ShipAddress == null ? "" : _this.form.ShipAddress.value + ",") +
-                                (_this.form.ShipCity == null ? "" : _this.form.ShipCity.value + ",") +
-                                (_this.form.ShipPostalCode == null ? "" : _this.form.ShipPostalCode.value);
-                            var destination = (_this.form.DestinationAddress == null ? "" : _this.form.DestinationAddress.value + ",") +
-                                (_this.form.DestinationCity == null ? "" : _this.form.DestinationCity.value + ",") +
-                                (_this.form.DestinationZip == null ? "" : _this.form.DestinationZip.value);
-                            if (!Q.isEmptyOrNull(source) && !Q.isEmptyOrNull(destination)) {
-                                Northwind.OrderService.DistanceMatrix({
-                                    Source: source,
-                                    Destination: destination
-                                }, function (response) {
-                                    if (response != null && response.Status == "OK" &&
-                                        response.Rows.length > 0 && response.Rows[0].Elements.length > 0 &&
-                                        response.Rows[0].Elements[0].Status == "OK") {
-                                        _this.form.DistanceText.value = response.Rows[0].Elements[0].Distance.Text;
-                                        _this.form.DurationText.value = response.Rows[0].Elements[0].Duration.Text;
-                                        Q.notifySuccess("Distance: " + response.Rows[0].Elements[0].Distance.Text + " Duration: " + response.Rows[0].Elements[0].Duration.Text);
-                                    }
-                                    else {
-                                        Q.notifyError("No distance and duration found!");
-                                    }
-                                });
-                            }
-                            else {
-                                Q.notifyWarning("Please type origin and destination!");
-                            }
+                            _this.CalculateDistanceAndDuration();
                         });
                     }
                 });
+                buttons.push({
+                    title: 'Send Email',
+                    icon: "fa-envelope text-green",
+                    separator: false,
+                    onClick: function () {
+                        var volunteers = [];
+                        if (_this.form.EmployeeID.value) {
+                            volunteers.push(Q.toId(_this.form.EmployeeID.value));
+                        }
+                        var client = Q.tryFirst(Northwind.CustomerRow.getLookup().items, function (x) { return x.CustomerID == _this.form.CustomerID.value; });
+                        var subject = "Ride Scheduled for " + _this.form.OrderDate.value + " at " + _this.form.RequiredDate.value + " with " + (client ? client.CompanyName : "");
+                        new Northwind.MailComposeDialog({
+                            mailFromTrip: true,
+                            toVoluntueer: volunteers,
+                            subject: subject,
+                            appointmentDate: _this.form.OrderDate.value,
+                            clientName: (client ? client.CompanyName : ""),
+                            rideNumber: "###",
+                            directions: ""
+                        }).dialogOpen();
+                    }
+                });
                 return buttons;
+            };
+            OrderDialog.prototype.CalculateDistanceAndDuration = function () {
+                var _this = this;
+                var source = (this.form.ShipAddress == null ? "" : this.form.ShipAddress.value + ",") +
+                    (this.form.ShipCity == null ? "" : this.form.ShipCity.value + ",") +
+                    (this.form.ShipPostalCode == null ? "" : this.form.ShipPostalCode.value);
+                var destination = (this.form.DestinationAddress == null ? "" : this.form.DestinationAddress.value + ",") +
+                    (this.form.DestinationCity == null ? "" : this.form.DestinationCity.value + ",") +
+                    (this.form.DestinationZip == null ? "" : this.form.DestinationZip.value);
+                if (!Q.isEmptyOrNull(source) && !Q.isEmptyOrNull(destination)) {
+                    Northwind.OrderService.DistanceMatrix({
+                        Source: source,
+                        Destination: destination
+                    }, function (response) {
+                        if (response != null && response.Status == "OK" &&
+                            response.Rows.length > 0 && response.Rows[0].Elements.length > 0 &&
+                            response.Rows[0].Elements[0].Status == "OK") {
+                            _this.form.DistanceText.value = response.Rows[0].Elements[0].Distance.Text;
+                            _this.form.DurationText.value = response.Rows[0].Elements[0].Duration.Text;
+                            Q.notifySuccess("Distance: " + response.Rows[0].Elements[0].Distance.Text + " Duration: " + response.Rows[0].Elements[0].Duration.Text);
+                        }
+                        else {
+                            Q.notifyError("No distance and duration found!");
+                        }
+                    });
+                }
+                else {
+                    Q.notifyWarning("Please type origin and destination!");
+                }
             };
             OrderDialog.prototype.updateInterface = function () {
                 _super.prototype.updateInterface.call(this);
@@ -5185,23 +5225,23 @@ var MobilityMatters;
                     grid: this,
                     onViewSubmit: function () { return _this.onViewSubmit(); }
                 }));
-                buttons.push({
-                    title: 'Send Email',
-                    icon: "fa-envelope text-green",
-                    separator: false,
-                    onClick: function () {
-                        if (!_this.onViewSubmit())
-                            return;
-                        var checkedIDs = _this.rowSelection.getSelectedAsInt32();
-                        if (checkedIDs.length == 0) {
-                            Q.alert("You must select at least one Volunteer to send email!");
-                            return;
-                        }
-                        new Northwind.MailComposeDialog({
-                            toVoluntueer: checkedIDs
-                        }).dialogOpen();
-                    }
-                });
+                //buttons.push({
+                //    title: 'Send Email',
+                //    icon: "fa-envelope text-green",
+                //    separator: false,
+                //    onClick: () => {
+                //        if (!this.onViewSubmit())
+                //            return;
+                //        var checkedIDs = this.rowSelection.getSelectedAsInt32();
+                //        if (checkedIDs.length == 0) {
+                //            Q.alert("You must select a trip!");
+                //            return;
+                //        }
+                //        new Northwind.MailComposeDialog({
+                //            toVoluntueer: checkedIDs
+                //        }).dialogOpen();
+                //    }
+                //});
                 return buttons;
             };
             OrderGrid.prototype.getColumns = function () {
@@ -5328,6 +5368,37 @@ var MobilityMatters;
             return EmployeeListFormatter;
         }());
         Northwind.EmployeeListFormatter = EmployeeListFormatter;
+    })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Northwind;
+    (function (Northwind) {
+        var InactiveCustomerGrid = /** @class */ (function (_super) {
+            __extends(InactiveCustomerGrid, _super);
+            function InactiveCustomerGrid(container) {
+                return _super.call(this, container) || this;
+            }
+            InactiveCustomerGrid.prototype.getColumnsKey = function () { return "Northwind.Customer"; };
+            InactiveCustomerGrid.prototype.getDialogType = function () { return Northwind.CustomerDialog; };
+            InactiveCustomerGrid.prototype.getIdProperty = function () { return Northwind.CustomerRow.idProperty; };
+            InactiveCustomerGrid.prototype.getLocalTextPrefix = function () { return Northwind.CustomerRow.localTextPrefix; };
+            InactiveCustomerGrid.prototype.getService = function () { return Northwind.CustomerService.baseUrl; };
+            InactiveCustomerGrid.prototype.onViewSubmit = function () {
+                if (!_super.prototype.onViewSubmit.call(this))
+                    return false;
+                var request = this.view.params;
+                request.EqualityFilter = request.EqualityFilter || {};
+                request.EqualityFilter["EIO" /* EIO */] = false;
+                return true;
+            };
+            InactiveCustomerGrid = __decorate([
+                Serenity.Decorators.registerClass(),
+                Serenity.Decorators.filterable()
+            ], InactiveCustomerGrid);
+            return InactiveCustomerGrid;
+        }(Northwind.CustomerGrid));
+        Northwind.InactiveCustomerGrid = InactiveCustomerGrid;
     })(Northwind = MobilityMatters.Northwind || (MobilityMatters.Northwind = {}));
 })(MobilityMatters || (MobilityMatters = {}));
 var MobilityMatters;
@@ -5533,6 +5604,11 @@ var MobilityMatters;
                     _this.form.BodyHtml.value = opt.body;
                 if (opt.attachments)
                     _this.form.Attachments.value = opt.attachments;
+                if (opt.mailFromTrip) {
+                    var body = _this.form.BodyHtml.value;
+                    body = body.replace('{RideNumber}', opt.rideNumber).replace('{AppointmentDate}', opt.appointmentDate).replace('{ClientName}', opt.clientName).replace('{Directions}', opt.directions);
+                    _this.form.BodyHtml.value = body;
+                }
                 return _this;
             }
             MailComposeDialog.prototype.getDialogButtons = function () {

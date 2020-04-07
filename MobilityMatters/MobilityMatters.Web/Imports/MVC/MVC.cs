@@ -1,4 +1,6 @@
-﻿namespace MVC
+﻿using System;
+
+namespace MVC
 {
     public static class Views
     {
@@ -119,6 +121,7 @@
             public static class Customer
             {
                 public const string CustomerIndex = "~/Modules/Northwind/Customer/CustomerIndex.cshtml";
+                public const string InactiveCustomerIndex = "~/Modules/Northwind/Customer/InactiveCustomerIndex.cshtml";
             }
 
             public static class Employees

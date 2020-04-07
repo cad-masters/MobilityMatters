@@ -1084,7 +1084,6 @@ declare namespace MobilityMatters.Northwind {
         LastContactDate?: string;
         LastContactedBy?: number;
         Email?: string;
-        SendBulletin?: boolean;
         EmergencyName?: string;
         EmergencyPhone?: string;
         EmergencyName2?: string;
@@ -1096,7 +1095,6 @@ declare namespace MobilityMatters.Northwind {
         LivingWith?: string;
         TEMP?: string;
         PreferredHospital?: string;
-        Smoker?: boolean;
         Medical?: string;
         Dental?: string;
         Groceries?: string;
@@ -1134,7 +1132,6 @@ declare namespace MobilityMatters.Northwind {
             LastContactDate = "LastContactDate",
             LastContactedBy = "LastContactedBy",
             Email = "Email",
-            SendBulletin = "SendBulletin",
             EmergencyName = "EmergencyName",
             EmergencyPhone = "EmergencyPhone",
             EmergencyName2 = "EmergencyName2",
@@ -1146,7 +1143,6 @@ declare namespace MobilityMatters.Northwind {
             LivingWith = "LivingWith",
             TEMP = "TEMP",
             PreferredHospital = "PreferredHospital",
-            Smoker = "Smoker",
             Medical = "Medical",
             Dental = "Dental",
             Groceries = "Groceries",
@@ -1295,8 +1291,6 @@ declare namespace MobilityMatters.Northwind {
         NoteList?: NoteRow[];
         Representatives?: number[];
         SpecialNeedsList?: number[];
-        LastContactDate?: string;
-        LastContactedBy?: number;
         Email?: string;
         Gender?: string;
         EmergencyName?: string;
@@ -1306,7 +1300,6 @@ declare namespace MobilityMatters.Northwind {
         EmergencyRelation2?: string;
         EmergencyRelation?: string;
         AgeCalc?: number;
-        SendBulletin?: boolean;
     }
     namespace CustomerRow {
         const idProperty = "ID";
@@ -1351,8 +1344,6 @@ declare namespace MobilityMatters.Northwind {
             NoteList = "NoteList",
             Representatives = "Representatives",
             SpecialNeedsList = "SpecialNeedsList",
-            LastContactDate = "LastContactDate",
-            LastContactedBy = "LastContactedBy",
             Email = "Email",
             Gender = "Gender",
             EmergencyName = "EmergencyName",
@@ -1361,8 +1352,7 @@ declare namespace MobilityMatters.Northwind {
             EmergencyPhone2 = "EmergencyPhone2",
             EmergencyRelation2 = "EmergencyRelation2",
             EmergencyRelation = "EmergencyRelation",
-            AgeCalc = "AgeCalc",
-            SendBulletin = "SendBulletin"
+            AgeCalc = "AgeCalc"
         }
     }
 }
@@ -1741,6 +1731,218 @@ declare namespace MobilityMatters.Northwind {
     }
 }
 declare namespace MobilityMatters.Northwind {
+}
+declare namespace MobilityMatters.Northwind {
+    interface MailAttachmentsForm {
+        MailId: Serenity.IntegerEditor;
+        MimeType: Serenity.StringEditor;
+        Size: Serenity.IntegerEditor;
+        FilePath: Serenity.StringEditor;
+        OriginalFileName: Serenity.StringEditor;
+        CreatedBy: Serenity.IntegerEditor;
+        CreatedOn: Serenity.DateEditor;
+        ModifiedBy: Serenity.IntegerEditor;
+        ModifiedOn: Serenity.DateEditor;
+    }
+    class MailAttachmentsForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface MailAttachmentsRow {
+        AttachmentId?: number;
+        MailId?: number;
+        MimeType?: string;
+        Size?: number;
+        FilePath?: string;
+        OriginalFileName?: string;
+        CreatedBy?: number;
+        CreatedOn?: string;
+        ModifiedBy?: number;
+        ModifiedOn?: string;
+        MailUid?: string;
+        MailSubject?: string;
+        MailBody?: string;
+        MailDirection?: string;
+        MailTo?: string;
+        MailCc?: string;
+        MailFrom?: string;
+        MailSendDateTime?: string;
+        MailReceivedDate?: string;
+        MailCreatedBy?: number;
+        MailCreatedOn?: string;
+        MailModifiedBy?: number;
+        MailModifiedOn?: string;
+    }
+    namespace MailAttachmentsRow {
+        const idProperty = "AttachmentId";
+        const nameProperty = "MimeType";
+        const localTextPrefix = "Northwind.MailAttachments";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            AttachmentId = "AttachmentId",
+            MailId = "MailId",
+            MimeType = "MimeType",
+            Size = "Size",
+            FilePath = "FilePath",
+            OriginalFileName = "OriginalFileName",
+            CreatedBy = "CreatedBy",
+            CreatedOn = "CreatedOn",
+            ModifiedBy = "ModifiedBy",
+            ModifiedOn = "ModifiedOn",
+            MailUid = "MailUid",
+            MailSubject = "MailSubject",
+            MailBody = "MailBody",
+            MailDirection = "MailDirection",
+            MailTo = "MailTo",
+            MailCc = "MailCc",
+            MailFrom = "MailFrom",
+            MailSendDateTime = "MailSendDateTime",
+            MailReceivedDate = "MailReceivedDate",
+            MailCreatedBy = "MailCreatedBy",
+            MailCreatedOn = "MailCreatedOn",
+            MailModifiedBy = "MailModifiedBy",
+            MailModifiedOn = "MailModifiedOn"
+        }
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    namespace MailAttachmentsService {
+        const baseUrl = "Northwind/MailAttachments";
+        function Create(request: Serenity.SaveRequest<MailAttachmentsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MailAttachmentsRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MailAttachmentsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MailAttachmentsRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Northwind/MailAttachments/Create",
+            Update = "Northwind/MailAttachments/Update",
+            Delete = "Northwind/MailAttachments/Delete",
+            Retrieve = "Northwind/MailAttachments/Retrieve",
+            List = "Northwind/MailAttachments/List"
+        }
+    }
+}
+declare namespace MobilityMatters.Northwind {
+}
+declare namespace MobilityMatters.Northwind {
+    interface MailComposeForm {
+        To: Serenity.LookupEditor;
+        Cc: Serenity.LookupEditor;
+        Subject: Serenity.StringEditor;
+        BodyHtml: MailContentEditor;
+        Attachments: Serenity.MultipleImageUploadEditor;
+        ReplyToMailId: Serenity.IntegerEditor;
+    }
+    class MailComposeForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface MailComposeRequest extends Serenity.ServiceRequest {
+        To?: number[];
+        Cc?: number[];
+        Subject?: string;
+        BodyHtml?: string;
+        Attachments?: string;
+        ReplyToMailId?: number;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface MailForm {
+        From: Serenity.StringEditor;
+        To: Serenity.StringEditor;
+        Cc: Serenity.StringEditor;
+        Subject: Serenity.StringEditor;
+        Body: MailBodyViewer;
+        Attachments: Serenity.MultipleImageUploadEditor;
+        SendDateTime: Serenity.DateEditor;
+        IsSent: Serenity.BooleanEditor;
+        ErrorMessage: Serenity.StringEditor;
+        ReceivedDate: Serenity.DateEditor;
+    }
+    class MailForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface MailRow {
+        MailId?: number;
+        Uid?: string;
+        Subject?: string;
+        Body?: string;
+        Direction?: string;
+        To?: string;
+        Cc?: string;
+        From?: string;
+        SendDateTime?: string;
+        IsSent?: boolean;
+        ErrorMessage?: string;
+        ReceivedDate?: string;
+        CreatedBy?: number;
+        CreatedOn?: string;
+        ModifiedBy?: number;
+        ModifiedOn?: string;
+        Attachments?: string;
+    }
+    namespace MailRow {
+        const idProperty = "MailId";
+        const nameProperty = "Uid";
+        const localTextPrefix = "Northwind.Mail";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            MailId = "MailId",
+            Uid = "Uid",
+            Subject = "Subject",
+            Body = "Body",
+            Direction = "Direction",
+            To = "To",
+            Cc = "Cc",
+            From = "From",
+            SendDateTime = "SendDateTime",
+            IsSent = "IsSent",
+            ErrorMessage = "ErrorMessage",
+            ReceivedDate = "ReceivedDate",
+            CreatedBy = "CreatedBy",
+            CreatedOn = "CreatedOn",
+            ModifiedBy = "ModifiedBy",
+            ModifiedOn = "ModifiedOn",
+            Attachments = "Attachments"
+        }
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    namespace MailService {
+        const baseUrl = "Northwind/Mail";
+        function Create(request: Serenity.SaveRequest<MailRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<MailRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<MailRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<MailRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Compose(request: MailComposeRequest, onSuccess?: (response: Serenity.ServiceResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Northwind/Mail/Create",
+            Update = "Northwind/Mail/Update",
+            Delete = "Northwind/Mail/Delete",
+            Retrieve = "Northwind/Mail/Retrieve",
+            List = "Northwind/Mail/List",
+            Compose = "Northwind/Mail/Compose"
+        }
+    }
+}
+declare namespace MobilityMatters.Northwind {
     interface NoteRow {
         NoteId?: number;
         EntityType?: string;
@@ -1852,7 +2054,7 @@ declare namespace MobilityMatters.Northwind {
 declare namespace MobilityMatters.Northwind {
     interface OrderForm {
         CustomerID: CustomerEditor;
-        OrderDate: Serenity.DateEditor;
+        OrderDate: Serenity.DateTimeEditor;
         RequiredDate: Serenity.StringEditor;
         EmployeeID: Serenity.LookupEditor;
         ShippedDate: Serenity.DateEditor;
@@ -1920,6 +2122,8 @@ declare namespace MobilityMatters.Northwind {
         const idProperty = "OrderID";
         const nameProperty = "CustomerID";
         const localTextPrefix = "Northwind.Order";
+        const lookupKey = "Northwind.Order";
+        function getLookup(): Q.Lookup<OrderRow>;
         const deletePermission = "Northwind:General";
         const insertPermission = "Northwind:General";
         const readPermission = "Northwind:General";
@@ -1976,7 +2180,8 @@ declare namespace MobilityMatters.Northwind {
             Update = "Northwind/Order/Update",
             Delete = "Northwind/Order/Delete",
             Retrieve = "Northwind/Order/Retrieve",
-            List = "Northwind/Order/List"
+            List = "Northwind/Order/List",
+            DistanceMatrix = "Northwind/Order/DistanceMatrix"
         }
     }
 }
@@ -3240,8 +3445,10 @@ declare namespace MobilityMatters.Northwind {
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;
         protected getService(): string;
+        private rowSelection;
         protected shippingStateFilter: Serenity.EnumEditor;
         constructor(container: JQuery);
+        protected createToolbarExtensions(): void;
         protected createQuickFilters(): void;
         protected getButtons(): Serenity.ToolButton[];
         protected getColumns(): Slick.Column[];
@@ -3302,6 +3509,88 @@ declare namespace MobilityMatters.Northwind {
         protected createToolbarExtensions(): void;
         getButtons(): Serenity.ToolButton[];
         protected getColumns(): Slick.Column[];
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    class MailBodyViewer extends Serenity.Widget<any> implements Serenity.ISetEditValue {
+        constructor(element: JQuery);
+        setEditValue(source: any, property: Serenity.PropertyItem): void;
+    }
+    interface StaticTextBlockOptions {
+        text: string;
+        isHtml: boolean;
+        isLocalText: boolean;
+        hideLabel: boolean;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface MailComposeDialogOptions {
+        toVoluntueer?: number[];
+        ccList?: number[];
+        subject?: string;
+        body?: string;
+        attachments?: Serenity.UploadedFile[];
+    }
+    class MailComposeDialog extends Serenity.PropertyDialog<MailComposeRequest, MailComposeDialogOptions> {
+        private form;
+        constructor(opt: MailComposeDialogOptions);
+        getDialogButtons(): JQueryUI.DialogButtonOptions[];
+        getDialogOptions(): JQueryUI.DialogOptions;
+        validateBeforeSave(): boolean;
+        okClickValidated(): void;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    class MailContentEditor extends Serenity.HtmlContentEditor {
+        constructor(element: JQuery, opt: Serenity.HtmlContentEditorOptions);
+        getConfig(): Serenity.CKEditorConfig;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    class MailDialog extends Serenity.EntityDialog<MailRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: MailForm;
+        updateInterface(): void;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface MailGridOptions {
+        isSent?: boolean;
+    }
+    class MailGrid extends Serenity.EntityGrid<MailRow, MailGridOptions> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MailDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery, opt?: MailGridOptions);
+        getItemCssClass(item: MailRow, index: number): string;
+        getIncludeColumns(include: any): void;
+        onViewSubmit(): boolean;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    class MailAttachmentsDialog extends Serenity.EntityDialog<MailAttachmentsRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: MailAttachmentsForm;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    class MailAttachmentsGrid extends Serenity.EntityGrid<MailAttachmentsRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof MailAttachmentsDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
     }
 }
 declare namespace MobilityMatters.Northwind {
