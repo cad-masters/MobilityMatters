@@ -7,6 +7,7 @@
         ReferralSource: Serenity.LookupEditor;
         TEMP: Serenity.LookupEditor;
         Active: Serenity.BooleanEditor;
+        DateOfLastTrip: Serenity.DateEditor;
         ContactName: Serenity.StringEditor;
         Phone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
@@ -54,9 +55,9 @@
                 var w0 = s.StringEditor;
                 var w1 = s.LookupEditor;
                 var w2 = s.BooleanEditor;
-                var w3 = s.EmailEditor;
-                var w4 = NotesEditor;
-                var w5 = s.DateEditor;
+                var w3 = s.DateEditor;
+                var w4 = s.EmailEditor;
+                var w5 = NotesEditor;
                 var w6 = s.IntegerEditor;
 
                 Q.initFormType(CustomerForm, [
@@ -67,9 +68,10 @@
                     'ReferralSource', w1,
                     'TEMP', w1,
                     'Active', w2,
+                    'DateOfLastTrip', w3,
                     'ContactName', w0,
                     'Phone', w0,
-                    'Email', w3,
+                    'Email', w4,
                     'EmergencyName', w0,
                     'EmergencyPhone', w0,
                     'EmergencyRelation', w0,
@@ -83,9 +85,9 @@
                     'PostalCode', w0,
                     'Residence', w1,
                     'LivingWith', w0,
-                    'NoteList', w4,
+                    'NoteList', w5,
                     'Gender', w1,
-                    'BirthDate', w5,
+                    'BirthDate', w3,
                     'AgeCalc', w6,
                     'PLanguage', w0,
                     'SpecialNeedsList', w1,

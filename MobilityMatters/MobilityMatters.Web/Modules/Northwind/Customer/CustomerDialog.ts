@@ -20,7 +20,7 @@
             this.ordersGrid = new CustomerOrdersGrid(this.byId('OrdersGrid'));
             // force order dialog to open in Dialog mode instead of Panel mode
             // which is set as default on OrderDialog with @panelAttribute
-            this.ordersGrid.openDialogsAsPanel = false; 
+            this.ordersGrid.openDialogsAsPanel = false;
 
             this.byId('NoteList').closest('.field').hide().end().appendTo(this.byId('TabNotes'));
             DialogUtils.pendingChangesConfirmation(this.element, () => this.getSaveState() != this.loadedState);
@@ -46,6 +46,24 @@
             Serenity.TabsExtensions.setDisabled(this.tabs, 'Orders', this.isNewOrDeleted());
 
             this.ordersGrid.customerID = entity.CustomerID;
+
+            if (!this.isNew()) {
+                OrderService.List({
+                    EqualityFilter: <OrderRow>{
+                        CustomerID: this.entity.CustomerID
+                    },
+                    Sort: [OrderRow.Fields.OrderDate + " desc"]
+
+                },
+                    response => {
+                        if (response.Entities.length) {
+                            this.form.DateOfLastTrip.value = response.Entities[0].OrderDate;
+                        }
+                    },
+                    {
+                        async: false
+                    });
+            }
         }
 
         onSaveSuccess(response) {

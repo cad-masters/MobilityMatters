@@ -23,6 +23,8 @@ namespace MobilityMatters.Northwind.Forms
         public String TEMP { get; set; }
         [HalfWidth, BooleanFormatter]
         public Boolean Active { get; set; }
+        [HalfWidth]
+        public DateTime DateOfLastTrip { get; set; }
 
         [Category("Contact")]
         public String ContactName { get; set; }
