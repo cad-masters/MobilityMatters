@@ -300,6 +300,13 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Language[this] = value; }
         }
 
+        [DisplayName("Inactive"), Size(30)]
+        public Boolean? Inactive
+        {
+            get { return Fields.Inactive[this]; }
+            set { Fields.Inactive[this] = value; }
+        }
+
         [DisplayName("On Vacation"), Size(30)]
         public Boolean? OnVacation
         {
@@ -489,6 +496,7 @@ namespace MobilityMatters.Northwind.Entities
             public Int32Field ReportsTo;
             public StringField PhotoPath;
             public BooleanField OnVacation;
+            public BooleanField Inactive;
             public StringField DriversLicense;
             public DateTimeField DriversLicenseExp;
             public StringField LicensePlate;

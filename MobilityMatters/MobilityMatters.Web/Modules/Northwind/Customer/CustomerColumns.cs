@@ -23,6 +23,8 @@ namespace MobilityMatters.Northwind.Columns
         [Width(120)]
         public String Email { get; set; }
         [Width(120)]
+        public DateTime? DateOfLastTrip { get; set; }
+        [Width(120)]
         public String Phone { get; set; }
         [Width(150)]
         public String Address { get; set; }

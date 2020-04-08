@@ -5608,7 +5608,7 @@ var MobilityMatters;
                     return false;
                 var request = this.view.params;
                 request.EqualityFilter = request.EqualityFilter || {};
-                request.EqualityFilter["OnVacation" /* OnVacation */] = true;
+                request.EqualityFilter[Northwind.EmployeesRow.Fields.Inactive] = true;
                 return true;
             };
             InactiveEmployeesGrid = __decorate([
