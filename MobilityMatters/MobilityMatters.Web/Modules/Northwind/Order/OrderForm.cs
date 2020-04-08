@@ -11,6 +11,8 @@ namespace MobilityMatters.Northwind.Forms
     {
         [Tab("General")]
         [Category("Trip")]
+        [Hidden]
+        public Int32? OrderID { get; set; }
         public String CustomerID { get; set; }
         [DefaultValue("now")]
         public DateTime OrderDate { get; set; }

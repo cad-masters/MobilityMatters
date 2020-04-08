@@ -139,7 +139,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Program[this] = value; }
         }
 
-        [DisplayName("Phone"), Size(24)]
+        [DisplayName("Phone"), Size(24), LookupInclude]
         public String Phone
         {
             get { return Fields.Phone[this]; }

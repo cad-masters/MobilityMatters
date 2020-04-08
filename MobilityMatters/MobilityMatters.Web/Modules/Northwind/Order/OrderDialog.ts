@@ -75,8 +75,11 @@
                         subject: subject,
                         appointmentDate: this.form.OrderDate.value,
                         clientName: (client ? client.CompanyName : ""),
-                        rideNumber: "###",
-                        directions: ""
+                        rideNumber: this.form.OrderID.value,
+                        telephoneNumber: client.Phone,
+                        pickupTime: this.form.RequiredDate.value,
+                        pickupAddress: this.form.ShipAddress.value + " " + this.form.ShipCity.value + " " + this.form.ShipPostalCode.value,
+                        deliveryAddress: this.form.DestinationAddress.value + " " + this.form.DestinationCity.value + " " + this.form.DestinationZip.value
                     }).dialogOpen();
                 }
             });

@@ -1595,27 +1595,29 @@ var MobilityMatters;
                 if (!OrderForm.init) {
                     OrderForm.init = true;
                     var s = Serenity;
-                    var w0 = Northwind.CustomerEditor;
-                    var w1 = s.DateEditor;
-                    var w2 = s.StringEditor;
-                    var w3 = s.LookupEditor;
-                    var w4 = s.DecimalEditor;
+                    var w0 = s.IntegerEditor;
+                    var w1 = Northwind.CustomerEditor;
+                    var w2 = s.DateEditor;
+                    var w3 = s.StringEditor;
+                    var w4 = s.LookupEditor;
+                    var w5 = s.DecimalEditor;
                     Q.initFormType(OrderForm, [
-                        'CustomerID', w0,
-                        'OrderDate', w1,
-                        'RequiredDate', w2,
-                        'EmployeeID', w3,
-                        'ShippedDate', w1,
-                        'ShipVia', w3,
-                        'Freight', w4,
-                        'ShipAddress', w2,
-                        'ShipCity', w2,
-                        'ShipPostalCode', w2,
-                        'DestinationAddress', w2,
-                        'DestinationCity', w2,
-                        'DestinationZip', w2,
-                        'DistanceText', w2,
-                        'DurationText', w2
+                        'OrderID', w0,
+                        'CustomerID', w1,
+                        'OrderDate', w2,
+                        'RequiredDate', w3,
+                        'EmployeeID', w4,
+                        'ShippedDate', w2,
+                        'ShipVia', w4,
+                        'Freight', w5,
+                        'ShipAddress', w3,
+                        'ShipCity', w3,
+                        'ShipPostalCode', w3,
+                        'DestinationAddress', w3,
+                        'DestinationCity', w3,
+                        'DestinationZip', w3,
+                        'DistanceText', w3,
+                        'DurationText', w3
                     ]);
                 }
                 return _this;
@@ -5110,8 +5112,11 @@ var MobilityMatters;
                             subject: subject,
                             appointmentDate: _this.form.OrderDate.value,
                             clientName: (client ? client.CompanyName : ""),
-                            rideNumber: "###",
-                            directions: ""
+                            rideNumber: _this.form.OrderID.value,
+                            telephoneNumber: client.Phone,
+                            pickupTime: _this.form.RequiredDate.value,
+                            pickupAddress: _this.form.ShipAddress.value + " " + _this.form.ShipCity.value + " " + _this.form.ShipPostalCode.value,
+                            deliveryAddress: _this.form.DestinationAddress.value + " " + _this.form.DestinationCity.value + " " + _this.form.DestinationZip.value
                         }).dialogOpen();
                     }
                 });
@@ -5655,7 +5660,8 @@ var MobilityMatters;
                     _this.form.Attachments.value = opt.attachments;
                 if (opt.mailFromTrip) {
                     var body = _this.form.BodyHtml.value;
-                    body = body.replace('{RideNumber}', opt.rideNumber).replace('{AppointmentDate}', opt.appointmentDate).replace('{ClientName}', opt.clientName).replace('{Directions}', opt.directions);
+                    body = body.replace('{RideNumber}', opt.rideNumber.toString()).replace('{AppointmentDate}', opt.appointmentDate).replace('{ClientName}', opt.clientName)
+                        .replace('{PickupAddress}', opt.pickupAddress).replace('{TelephoneNumber}', opt.telephoneNumber).replace('{PickupTime}', opt.pickupTime).replace('{DeliveryAddress}', opt.deliveryAddress);
                     _this.form.BodyHtml.value = body;
                 }
                 return _this;
