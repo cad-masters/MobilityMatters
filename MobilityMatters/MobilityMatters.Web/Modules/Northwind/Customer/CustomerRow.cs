@@ -16,6 +16,7 @@ namespace MobilityMatters.Northwind.Entities
     [LeftJoin("cd", "CustomerDetails", "cd.[ID] = t0.[ID]", RowType = typeof(CustomerDetailsRow), TitlePrefix = "")]
     [UpdatableExtension("cd", typeof(CustomerDetailsRow), CascadeDelete = true)]
     [LookupScript(typeof(Lookups.CustomerLookup))]
+    [OuterApply("jLastTrip", "select top 1 * from Orders o where o.CustomerID = t0.CustomerID order by o.OrderDate desc")]
     public sealed class CustomerRow : Row, IIdRow, INameRow
     {
         [DisplayName("ID"), Identity]
@@ -346,7 +347,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.SpecialNeedsList[this] = value; }
         }
 
-        [DisplayName("Date of Last Trip"), NotMapped, ReadOnly(true)]
+        [DisplayName("Date of Last Trip"), ReadOnly(true), Expression("jLastTrip.[OrderDate]")]
         public DateTime? DateOfLastTrip
         {
             get { return Fields.DateOfLastTrip[this]; }

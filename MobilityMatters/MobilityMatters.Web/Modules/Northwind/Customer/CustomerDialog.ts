@@ -46,24 +46,6 @@
             Serenity.TabsExtensions.setDisabled(this.tabs, 'Orders', this.isNewOrDeleted());
 
             this.ordersGrid.customerID = entity.CustomerID;
-
-            if (!this.isNew()) {
-                OrderService.List({
-                    EqualityFilter: <OrderRow>{
-                        CustomerID: this.entity.CustomerID
-                    },
-                    Sort: [OrderRow.Fields.OrderDate + " desc"]
-
-                },
-                    response => {
-                        if (response.Entities.length) {
-                            this.form.DateOfLastTrip.value = response.Entities[0].OrderDate;
-                        }
-                    },
-                    {
-                        async: false
-                    });
-            }
         }
 
         onSaveSuccess(response) {

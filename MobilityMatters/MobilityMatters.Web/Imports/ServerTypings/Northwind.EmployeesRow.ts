@@ -23,6 +23,7 @@
         ReportsTo?: number;
         PhotoPath?: string;
         OnVacation?: boolean;
+        Inactive?: boolean;
         DriversLicense?: string;
         DriversLicenseExp?: string;
         LicensePlate?: string;
@@ -95,6 +96,7 @@
             ReportsTo = "ReportsTo",
             PhotoPath = "PhotoPath",
             OnVacation = "OnVacation",
+            Inactive = "Inactive",
             DriversLicense = "DriversLicense",
             DriversLicenseExp = "DriversLicenseExp",
             LicensePlate = "LicensePlate",

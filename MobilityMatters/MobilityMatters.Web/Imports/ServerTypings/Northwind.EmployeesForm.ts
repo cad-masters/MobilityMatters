@@ -3,6 +3,7 @@
         Title: Serenity.LookupEditor;
         TitleOfCourtesy: Serenity.StringEditor;
         OnVacation: Serenity.BooleanEditor;
+        Inactive: Serenity.BooleanEditor;
         LastName: Serenity.StringEditor;
         FirstName: Serenity.StringEditor;
         HomePhone: Serenity.StringEditor;
@@ -59,6 +60,7 @@
                     'Title', w0,
                     'TitleOfCourtesy', w1,
                     'OnVacation', w2,
+                    'Inactive', w2,
                     'LastName', w1,
                     'FirstName', w1,
                     'HomePhone', w1,
