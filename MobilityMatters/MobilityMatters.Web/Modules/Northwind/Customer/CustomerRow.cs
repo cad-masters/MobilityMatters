@@ -139,7 +139,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Program[this] = value; }
         }
 
-        [DisplayName("Phone"), Size(24)]
+        [DisplayName("Phone"), Size(24), LookupInclude]
         public String Phone
         {
             get { return Fields.Phone[this]; }
@@ -346,6 +346,13 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.SpecialNeedsList[this] = value; }
         }
 
+        [DisplayName("Date of Last Trip"), NotMapped, ReadOnly(true)]
+        public DateTime? DateOfLastTrip
+        {
+            get { return Fields.DateOfLastTrip[this]; }
+            set { Fields.DateOfLastTrip[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.ID; }
@@ -410,6 +417,8 @@ namespace MobilityMatters.Northwind.Entities
             public StringField EmergencyRelation;
             public Int32Field AgeCalc;
             /*public BooleanField SendBulletin;*/
+
+            public DateTimeField DateOfLastTrip;
 
         }
     }

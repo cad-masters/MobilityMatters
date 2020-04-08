@@ -7,11 +7,14 @@
             subject?: string;
             body?: string;
             attachments?: Serenity.UploadedFile[];
-            rideNumber?: string;
+            mailFromTrip?: boolean;
+            rideNumber?: number;
             appointmentDate?: string;
             clientName?: string;
-            directions?: string;
-            mailFromTrip?: boolean;
+            pickupAddress?: string;
+            telephoneNumber?: string;
+            pickupTime?: string;
+            deliveryAddress?: string;
         }
 
         @Serenity.Decorators.registerClass()
@@ -38,7 +41,8 @@
 
                 if (opt.mailFromTrip) {
                     var body = this.form.BodyHtml.value;
-                    body = body.replace('{RideNumber}', opt.rideNumber).replace('{AppointmentDate}', opt.appointmentDate).replace('{ClientName}', opt.clientName).replace('{Directions}', opt.directions);
+                    body = body.replace('{RideNumber}', opt.rideNumber.toString()).replace('{AppointmentDate}', opt.appointmentDate).replace('{ClientName}', opt.clientName)
+                        .replace('{PickupAddress}', opt.pickupAddress).replace('{TelephoneNumber}', opt.telephoneNumber).replace('{PickupTime}', opt.pickupTime).replace('{DeliveryAddress}', opt.deliveryAddress);
                     this.form.BodyHtml.value = body;
                 }
             }

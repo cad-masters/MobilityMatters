@@ -42,6 +42,7 @@
         EmergencyRelation2?: string;
         EmergencyRelation?: string;
         AgeCalc?: number;
+        DateOfLastTrip?: string;
     }
 
     export namespace CustomerRow {
@@ -100,7 +101,8 @@
             EmergencyPhone2 = "EmergencyPhone2",
             EmergencyRelation2 = "EmergencyRelation2",
             EmergencyRelation = "EmergencyRelation",
-            AgeCalc = "AgeCalc"
+            AgeCalc = "AgeCalc",
+            DateOfLastTrip = "DateOfLastTrip"
         }
     }
 }
