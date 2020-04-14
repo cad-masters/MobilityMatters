@@ -1175,6 +1175,8 @@ declare namespace MobilityMatters.Northwind {
         ProgramOption: Serenity.LookupEditor;
         ReferralSource: Serenity.LookupEditor;
         TEMP: Serenity.LookupEditor;
+        Active: Serenity.BooleanEditor;
+        DateOfLastTrip: Serenity.DateEditor;
         ContactName: Serenity.StringEditor;
         Phone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
@@ -1263,7 +1265,7 @@ declare namespace MobilityMatters.Northwind {
         CustomerID?: string;
         CompanyName?: string;
         ContactName?: string;
-        RiderFullName?: string;
+        FullName?: string;
         PLanguage?: string;
         Address?: string;
         City?: string;
@@ -1284,6 +1286,7 @@ declare namespace MobilityMatters.Northwind {
         TEMP?: string;
         EIO?: boolean;
         Smoker?: boolean;
+        Active?: boolean;
         LivingWith?: string;
         Residence?: string;
         ReferralSource?: string;
@@ -1300,10 +1303,11 @@ declare namespace MobilityMatters.Northwind {
         EmergencyRelation2?: string;
         EmergencyRelation?: string;
         AgeCalc?: number;
+        DateOfLastTrip?: string;
     }
     namespace CustomerRow {
         const idProperty = "ID";
-        const nameProperty = "CompanyName";
+        const nameProperty = "FullName";
         const localTextPrefix = "Northwind.Customer";
         const lookupKey = "Northwind.Customer";
         function getLookup(): Q.Lookup<CustomerRow>;
@@ -1316,7 +1320,7 @@ declare namespace MobilityMatters.Northwind {
             CustomerID = "CustomerID",
             CompanyName = "CompanyName",
             ContactName = "ContactName",
-            RiderFullName = "RiderFullName",
+            FullName = "FullName",
             PLanguage = "PLanguage",
             Address = "Address",
             City = "City",
@@ -1337,6 +1341,7 @@ declare namespace MobilityMatters.Northwind {
             TEMP = "TEMP",
             EIO = "EIO",
             Smoker = "Smoker",
+            Active = "Active",
             LivingWith = "LivingWith",
             Residence = "Residence",
             ReferralSource = "ReferralSource",
@@ -1352,7 +1357,8 @@ declare namespace MobilityMatters.Northwind {
             EmergencyPhone2 = "EmergencyPhone2",
             EmergencyRelation2 = "EmergencyRelation2",
             EmergencyRelation = "EmergencyRelation",
-            AgeCalc = "AgeCalc"
+            AgeCalc = "AgeCalc",
+            DateOfLastTrip = "DateOfLastTrip"
         }
     }
 }
@@ -1373,6 +1379,33 @@ declare namespace MobilityMatters.Northwind {
             Retrieve = "Northwind/Customer/Retrieve",
             List = "Northwind/Customer/List"
         }
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface Data {
+        Value?: number;
+        Text?: string;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface DistanceMatrixRequest extends Serenity.ServiceRequest {
+        Source?: string;
+        Destination?: string;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface DistanceMatrixResponse extends Serenity.ServiceResponse {
+        Status?: string;
+        DestinationAddresses?: string[];
+        OriginAddresses?: string[];
+        Rows?: Row[];
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface Element {
+        Status?: string;
+        Duration?: Data;
+        Distance?: Data;
     }
 }
 declare namespace MobilityMatters.Northwind {
@@ -1532,6 +1565,7 @@ declare namespace MobilityMatters.Northwind {
         Title: Serenity.LookupEditor;
         TitleOfCourtesy: Serenity.StringEditor;
         OnVacation: Serenity.BooleanEditor;
+        Inactive: Serenity.BooleanEditor;
         LastName: Serenity.StringEditor;
         FirstName: Serenity.StringEditor;
         HomePhone: Serenity.StringEditor;
@@ -1597,6 +1631,7 @@ declare namespace MobilityMatters.Northwind {
         ReportsTo?: number;
         PhotoPath?: string;
         OnVacation?: boolean;
+        Inactive?: boolean;
         DriversLicense?: string;
         DriversLicenseExp?: string;
         LicensePlate?: string;
@@ -1667,6 +1702,7 @@ declare namespace MobilityMatters.Northwind {
             ReportsTo = "ReportsTo",
             PhotoPath = "PhotoPath",
             OnVacation = "OnVacation",
+            Inactive = "Inactive",
             DriversLicense = "DriversLicense",
             DriversLicenseExp = "DriversLicenseExp",
             LicensePlate = "LicensePlate",
@@ -2053,8 +2089,9 @@ declare namespace MobilityMatters.Northwind {
 }
 declare namespace MobilityMatters.Northwind {
     interface OrderForm {
+        OrderID: Serenity.IntegerEditor;
         CustomerID: CustomerEditor;
-        OrderDate: Serenity.DateTimeEditor;
+        OrderDate: Serenity.DateEditor;
         RequiredDate: Serenity.StringEditor;
         EmployeeID: Serenity.LookupEditor;
         ShippedDate: Serenity.DateEditor;
@@ -2110,7 +2147,7 @@ declare namespace MobilityMatters.Northwind {
         CustomerCountry?: string;
         CustomerPhone?: string;
         EmployeeFullName?: string;
-        RiderFullName?: string;
+        CustomerFullName?: string;
         EmployeeGender?: Gender;
         EmployeeReportsToFullName?: string;
         ShipViaCompanyName?: string;
@@ -2157,7 +2194,7 @@ declare namespace MobilityMatters.Northwind {
             CustomerCountry = "CustomerCountry",
             CustomerPhone = "CustomerPhone",
             EmployeeFullName = "EmployeeFullName",
-            RiderFullName = "RiderFullName",
+            CustomerFullName = "CustomerFullName",
             EmployeeGender = "EmployeeGender",
             EmployeeReportsToFullName = "EmployeeReportsToFullName",
             ShipViaCompanyName = "ShipViaCompanyName",
@@ -2175,13 +2212,14 @@ declare namespace MobilityMatters.Northwind {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<OrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: OrderListRequest, onSuccess?: (response: Serenity.ListResponse<OrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function GetDistanceMatrix(request: DistanceMatrixRequest, onSuccess?: (response: DistanceMatrixResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
             Create = "Northwind/Order/Create",
             Update = "Northwind/Order/Update",
             Delete = "Northwind/Order/Delete",
             Retrieve = "Northwind/Order/Retrieve",
             List = "Northwind/Order/List",
-            DistanceMatrix = "Northwind/Order/DistanceMatrix"
+            GetDistanceMatrix = "Northwind/Order/GetDistanceMatrix"
         }
     }
 }
@@ -2439,6 +2477,11 @@ declare namespace MobilityMatters.Northwind {
     enum RiderByCounty {
         Alameda = 0,
         ContraCosta = 1
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface Row {
+        Elements?: Element[];
     }
 }
 declare namespace MobilityMatters.Northwind {
@@ -3417,6 +3460,7 @@ declare namespace MobilityMatters.Northwind {
         protected getService(): string;
         constructor(container: JQuery);
         getButtons(): Serenity.ToolButton[];
+        protected onViewSubmit(): boolean;
     }
 }
 declare namespace MobilityMatters.Northwind {
@@ -3429,6 +3473,7 @@ declare namespace MobilityMatters.Northwind {
         protected form: OrderForm;
         constructor();
         getToolbarButtons(): Serenity.ToolButton[];
+        protected CalculateDistanceAndDuration(isRiderChanged: boolean): void;
         protected updateInterface(): void;
     }
 }
@@ -3476,6 +3521,17 @@ declare namespace MobilityMatters.Northwind {
     }
 }
 declare namespace MobilityMatters.Northwind {
+    class InactiveCustomerGrid extends CustomerGrid {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected onViewSubmit(): boolean;
+    }
+}
+declare namespace MobilityMatters.Northwind {
     class SpecialNeedsListFormatter implements Slick.Formatter {
         format(ctx: Slick.FormatterContext): string;
     }
@@ -3509,6 +3565,18 @@ declare namespace MobilityMatters.Northwind {
         protected createToolbarExtensions(): void;
         getButtons(): Serenity.ToolButton[];
         protected getColumns(): Slick.Column[];
+        protected onViewSubmit(): boolean;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    class InactiveEmployeesGrid extends EmployeesGrid {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+        protected onViewSubmit(): boolean;
     }
 }
 declare namespace MobilityMatters.Northwind {
@@ -3530,6 +3598,14 @@ declare namespace MobilityMatters.Northwind {
         subject?: string;
         body?: string;
         attachments?: Serenity.UploadedFile[];
+        mailFromTrip?: boolean;
+        rideNumber?: number;
+        appointmentDate?: string;
+        clientName?: string;
+        pickupAddress?: string;
+        telephoneNumber?: string;
+        pickupTime?: string;
+        deliveryAddress?: string;
     }
     class MailComposeDialog extends Serenity.PropertyDialog<MailComposeRequest, MailComposeDialogOptions> {
         private form;

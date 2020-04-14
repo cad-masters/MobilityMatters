@@ -1063,6 +1063,18 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Northwind.CitiesService.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Northwind.Data.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Northwind.DistanceMatrixRequest.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Northwind.DistanceMatrixResponse.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Northwind.Element.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Northwind.EmployeesColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1082,6 +1094,9 @@
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Northwind.RiderByCounty.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Northwind.Row.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Northwind.SpecialNeedsColumns.ts">
@@ -2005,7 +2020,8 @@
     <Compile Include="Modules\Northwind\Note\NotesBehavior.cs" />
     <Compile Include="Modules\Northwind\OrderDetail\OrderDetailColumns.cs" />
     <Content Include="Modules\Northwind\Order\OrderDetailReport.cshtml" />
-    <Compile Include="Modules\Northwind\Order\OrderModel.cs" />
+    <Compile Include="Modules\Northwind\Order\DistanceMatrixResponse.cs" />
+    <Compile Include="Modules\Northwind\Order\DistanceMatrixRequest.cs" />
     <Compile Include="Modules\Northwind\Order\OrderDetailReport.cs" />
     <Compile Include="Modules\Northwind\Order\OrderListRequest.cs" />
     <Compile Include="Modules\Northwind\Order\OrderShippingState.cs" />

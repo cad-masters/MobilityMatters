@@ -1664,7 +1664,7 @@ var MobilityMatters;
                 'Delete',
                 'Retrieve',
                 'List',
-                'DistanceMatrix'
+                'GetDistanceMatrix'
             ].forEach(function (x) {
                 OrderService[x] = function (r, s, o) {
                     return Q.serviceRequest(OrderService.baseUrl + '/' + x, r, s, o);
@@ -5056,7 +5056,7 @@ var MobilityMatters;
             function OrderDialog() {
                 var _this = _super.call(this) || this;
                 _this.form = new Northwind.OrderForm(_this.idPrefix);
-                _this.form.CustomerID.change(function (e) {
+                _this.form.CustomerID.changeSelect2(function (e) {
                     Northwind.CustomerService.List({
                         EqualityFilter: {
                             CustomerID: _this.form.CustomerID.value
@@ -5066,7 +5066,7 @@ var MobilityMatters;
                             _this.form.ShipAddress.value = response.Entities[0].Address;
                             _this.form.ShipCity.value = response.Entities[0].City;
                             _this.form.ShipPostalCode.value = response.Entities[0].PostalCode;
-                            _this.CalculateDistanceAndDuration();
+                            _this.CalculateDistanceAndDuration(true);
                         }
                     });
                 });
@@ -5093,7 +5093,7 @@ var MobilityMatters;
                     icon: 'fa fa-map-o text-green',
                     onClick: function () {
                         Q.confirm("Do you really want to calculate distance and duration by Google Maps?", function () {
-                            _this.CalculateDistanceAndDuration();
+                            _this.CalculateDistanceAndDuration(false);
                         });
                     }
                 });
@@ -5124,16 +5124,16 @@ var MobilityMatters;
                 });
                 return buttons;
             };
-            OrderDialog.prototype.CalculateDistanceAndDuration = function () {
+            OrderDialog.prototype.CalculateDistanceAndDuration = function (isRiderChanged) {
                 var _this = this;
-                var source = (this.form.ShipAddress == null ? "" : this.form.ShipAddress.value + ",") +
-                    (this.form.ShipCity == null ? "" : this.form.ShipCity.value + ",") +
-                    (this.form.ShipPostalCode == null ? "" : this.form.ShipPostalCode.value);
-                var destination = (this.form.DestinationAddress == null ? "" : this.form.DestinationAddress.value + ",") +
-                    (this.form.DestinationCity == null ? "" : this.form.DestinationCity.value + ",") +
-                    (this.form.DestinationZip == null ? "" : this.form.DestinationZip.value);
+                var source = (Q.isEmptyOrNull(this.form.ShipAddress.value) ? "" : this.form.ShipAddress.value + ",") +
+                    (Q.isEmptyOrNull(this.form.ShipCity.value) ? "" : this.form.ShipCity.value + ",") +
+                    (Q.isEmptyOrNull(this.form.ShipPostalCode.value) ? "" : this.form.ShipPostalCode.value);
+                var destination = (Q.isEmptyOrNull(this.form.DestinationAddress.value) ? "" : this.form.DestinationAddress.value + ",") +
+                    (Q.isEmptyOrNull(this.form.DestinationCity.value) ? "" : this.form.DestinationCity.value + ",") +
+                    (Q.isEmptyOrNull(this.form.DestinationZip.value) ? "" : this.form.DestinationZip.value);
                 if (!Q.isEmptyOrNull(source) && !Q.isEmptyOrNull(destination)) {
-                    Northwind.OrderService.DistanceMatrix({
+                    Northwind.OrderService.GetDistanceMatrix({
                         Source: source,
                         Destination: destination
                     }, function (response) {
@@ -5150,7 +5150,9 @@ var MobilityMatters;
                     });
                 }
                 else {
-                    Q.notifyWarning("Please type origin and destination!");
+                    if (!isRiderChanged) {
+                        Q.notifyWarning("Please type origin and destination!");
+                    }
                 }
             };
             OrderDialog.prototype.updateInterface = function () {

@@ -1,4 +1,5 @@
-﻿using Serenity.Services;
+﻿using Newtonsoft.Json;
+using Serenity.Services;
 
 namespace MobilityMatters.Northwind
 {

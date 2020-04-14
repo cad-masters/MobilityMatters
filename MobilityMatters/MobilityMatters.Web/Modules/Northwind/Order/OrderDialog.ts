@@ -14,7 +14,7 @@
         constructor() {
             super();
 
-            this.form.CustomerID.change(e => {
+            this.form.CustomerID.changeSelect2(e => {
                 CustomerService.List({
                     EqualityFilter: <CustomerRow>{
                         CustomerID: this.form.CustomerID.value
@@ -26,7 +26,7 @@
                             this.form.ShipCity.value = response.Entities[0].City;
                             this.form.ShipPostalCode.value = response.Entities[0].PostalCode;
 
-                            this.CalculateDistanceAndDuration();
+                            this.CalculateDistanceAndDuration(true);
                         }
                     });
             });
@@ -49,7 +49,7 @@
                 icon: 'fa fa-map-o text-green',
                 onClick: () => {
                     Q.confirm("Do you really want to calculate distance and duration by Google Maps?", () => {
-                        this.CalculateDistanceAndDuration();
+                        this.CalculateDistanceAndDuration(false);
                     });
                 }
             });
@@ -87,17 +87,18 @@
             return buttons;
         }
 
-        protected CalculateDistanceAndDuration() {
-            var source = (this.form.ShipAddress == null ? "" : this.form.ShipAddress.value + ",") +
-                (this.form.ShipCity == null ? "" : this.form.ShipCity.value + ",") +
-                (this.form.ShipPostalCode == null ? "" : this.form.ShipPostalCode.value);
+        protected CalculateDistanceAndDuration(isRiderChanged: boolean) {
+            var source = (Q.isEmptyOrNull(this.form.ShipAddress.value) ? "" : this.form.ShipAddress.value + ",") +
+                (Q.isEmptyOrNull(this.form.ShipCity.value) ? "" : this.form.ShipCity.value + ",") +
+                (Q.isEmptyOrNull(this.form.ShipPostalCode.value) ? "" : this.form.ShipPostalCode.value);
 
-            var destination = (this.form.DestinationAddress == null ? "" : this.form.DestinationAddress.value + ",") +
-                (this.form.DestinationCity == null ? "" : this.form.DestinationCity.value + ",") +
-                (this.form.DestinationZip == null ? "" : this.form.DestinationZip.value);
+            var destination = (Q.isEmptyOrNull(this.form.DestinationAddress.value) ? "" : this.form.DestinationAddress.value + ",") +
+                (Q.isEmptyOrNull(this.form.DestinationCity.value) ? "" : this.form.DestinationCity.value + ",") +
+                (Q.isEmptyOrNull(this.form.DestinationZip.value) ? "" : this.form.DestinationZip.value);
 
             if (!Q.isEmptyOrNull(source) && !Q.isEmptyOrNull(destination)) {
-                OrderService.DistanceMatrix({
+                
+                OrderService.GetDistanceMatrix({
                     Source: source,
                     Destination: destination
                 },
@@ -115,7 +116,9 @@
                     })
             }
             else {
-                Q.notifyWarning("Please type origin and destination!");
+                if (!isRiderChanged) {
+                    Q.notifyWarning("Please type origin and destination!");
+                }
             }
         }
 

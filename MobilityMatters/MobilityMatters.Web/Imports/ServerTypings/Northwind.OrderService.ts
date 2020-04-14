@@ -7,7 +7,7 @@
         export declare function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<OrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function List(request: OrderListRequest, onSuccess?: (response: Serenity.ListResponse<OrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        export declare function DistanceMatrix(request: DistanceMatrixRequest, onSuccess?: (response: DistanceMatrixResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        export declare function GetDistanceMatrix(request: DistanceMatrixRequest, onSuccess?: (response: DistanceMatrixResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
 
         export declare const enum Methods {
             Create = "Northwind/Order/Create",
@@ -15,7 +15,7 @@
             Delete = "Northwind/Order/Delete",
             Retrieve = "Northwind/Order/Retrieve",
             List = "Northwind/Order/List",
-            DistanceMatrix = "Northwind/Order/DistanceMatrix"
+            GetDistanceMatrix = "Northwind/Order/GetDistanceMatrix"
         }
 
         [
@@ -24,7 +24,7 @@
             'Delete', 
             'Retrieve', 
             'List', 
-            'DistanceMatrix'
+            'GetDistanceMatrix'
         ].forEach(x => {
             (<any>OrderService)[x] = function (r, s, o) {
                 return Q.serviceRequest(baseUrl + '/' + x, r, s, o);
