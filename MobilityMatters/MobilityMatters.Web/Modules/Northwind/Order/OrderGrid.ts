@@ -88,7 +88,7 @@
             return buttons;
         }
 
-        protected getColumns() {
+        /*protected getColumns() {
             var columns = super.getColumns();
 
             columns.splice(1, 0, {
@@ -104,7 +104,7 @@
             columns.splice(0, 0, Serenity.GridRowSelectionMixin.createSelectColumn(() => this.rowSelection));
 
             return columns;
-        }
+        }*/
 
         protected onClick(e: JQueryEventObject, row: number, cell: number) {
             super.onClick(e, row, cell);

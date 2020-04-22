@@ -21,6 +21,7 @@
             var request = this.view.params as Serenity.ListRequest;
             request.EqualityFilter = request.EqualityFilter || {};
             request.EqualityFilter[EmployeesRow.Fields.Inactive] = true;
+            
 
             return true;
         }

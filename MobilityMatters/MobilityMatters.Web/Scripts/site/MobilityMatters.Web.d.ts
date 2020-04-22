@@ -1566,6 +1566,8 @@ declare namespace MobilityMatters.Northwind {
         TitleOfCourtesy: Serenity.StringEditor;
         OnVacation: Serenity.BooleanEditor;
         Inactive: Serenity.BooleanEditor;
+        DateOfLastTrip: Serenity.DateEditor;
+        ReturnDate: Serenity.DateEditor;
         LastName: Serenity.StringEditor;
         FirstName: Serenity.StringEditor;
         HomePhone: Serenity.StringEditor;
@@ -1669,6 +1671,8 @@ declare namespace MobilityMatters.Northwind {
         ReportsToNotes?: string;
         ReportsTo1?: number;
         ReportsToPhotoPath?: string;
+        DateOfLastTrip?: string;
+        ReturnDate?: string;
     }
     namespace EmployeesRow {
         const idProperty = "EmployeeId";
@@ -1739,7 +1743,9 @@ declare namespace MobilityMatters.Northwind {
             ReportsToPhoto = "ReportsToPhoto",
             ReportsToNotes = "ReportsToNotes",
             ReportsTo1 = "ReportsTo1",
-            ReportsToPhotoPath = "ReportsToPhotoPath"
+            ReportsToPhotoPath = "ReportsToPhotoPath",
+            DateOfLastTrip = "DateOfLastTrip",
+            ReturnDate = "ReturnDate"
         }
     }
 }
@@ -2093,16 +2099,16 @@ declare namespace MobilityMatters.Northwind {
         CustomerID: CustomerEditor;
         OrderDate: Serenity.DateEditor;
         RequiredDate: Serenity.StringEditor;
+        AppointmentTime: Serenity.StringEditor;
         EmployeeID: Serenity.LookupEditor;
-        ShippedDate: Serenity.DateEditor;
-        ShipVia: Serenity.LookupEditor;
-        Freight: Serenity.DecimalEditor;
         ShipAddress: Serenity.StringEditor;
         ShipCity: Serenity.StringEditor;
         ShipPostalCode: Serenity.StringEditor;
         DestinationAddress: Serenity.StringEditor;
         DestinationCity: Serenity.StringEditor;
         DestinationZip: Serenity.StringEditor;
+        ApptTime: Serenity.StringEditor;
+        ApptType: Serenity.StringEditor;
         DistanceText: Serenity.StringEditor;
         DurationText: Serenity.StringEditor;
     }
@@ -2134,6 +2140,9 @@ declare namespace MobilityMatters.Northwind {
         ShipPostalCode?: string;
         DestinationAddress?: string;
         DestinationCity?: string;
+        ApptTime?: string;
+        AppointmentTime?: string;
+        ApptType?: string;
         DestinationZip?: string;
         ShipCountry?: string;
         DistanceText?: string;
@@ -2181,6 +2190,9 @@ declare namespace MobilityMatters.Northwind {
             ShipPostalCode = "ShipPostalCode",
             DestinationAddress = "DestinationAddress",
             DestinationCity = "DestinationCity",
+            ApptTime = "ApptTime",
+            AppointmentTime = "AppointmentTime",
+            ApptType = "ApptType",
             DestinationZip = "DestinationZip",
             ShipCountry = "ShipCountry",
             DistanceText = "DistanceText",
@@ -3496,7 +3508,6 @@ declare namespace MobilityMatters.Northwind {
         protected createToolbarExtensions(): void;
         protected createQuickFilters(): void;
         protected getButtons(): Serenity.ToolButton[];
-        protected getColumns(): Slick.Column[];
         protected onClick(e: JQueryEventObject, row: number, cell: number): void;
         set_shippingState(value: number): void;
         protected addButtonClick(): void;
@@ -3606,6 +3617,9 @@ declare namespace MobilityMatters.Northwind {
         telephoneNumber?: string;
         pickupTime?: string;
         deliveryAddress?: string;
+        apptLength?: string;
+        apptType?: string;
+        appointmentTime?: string;
     }
     class MailComposeDialog extends Serenity.PropertyDialog<MailComposeRequest, MailComposeDialogOptions> {
         private form;

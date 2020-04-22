@@ -19,6 +19,10 @@ namespace MobilityMatters.Northwind.Forms
         public Boolean OnVacation { get; set; }
         [HalfWidth, BooleanFormatter]
         public Boolean Inactive { get; set; }
+        [HalfWidth]
+        public DateTime DateOfLastTrip { get; set; }
+        [HalfWidth]
+        public DateTime ReturnDate { get; set; }
         [Category("Contact")]
         [HalfWidth]
         public String LastName { get; set; }

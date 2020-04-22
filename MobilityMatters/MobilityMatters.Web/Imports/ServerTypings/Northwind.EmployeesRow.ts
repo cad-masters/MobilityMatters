@@ -61,6 +61,8 @@
         ReportsToNotes?: string;
         ReportsTo1?: number;
         ReportsToPhotoPath?: string;
+        DateOfLastTrip?: string;
+        ReturnDate?: string;
     }
 
     export namespace EmployeesRow {
@@ -133,7 +135,9 @@
             ReportsToPhoto = "ReportsToPhoto",
             ReportsToNotes = "ReportsToNotes",
             ReportsTo1 = "ReportsTo1",
-            ReportsToPhotoPath = "ReportsToPhotoPath"
+            ReportsToPhotoPath = "ReportsToPhotoPath",
+            DateOfLastTrip = "DateOfLastTrip",
+            ReturnDate = "ReturnDate"
         }
     }
 }

@@ -94,7 +94,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.ShippedDate[this] = value; }
         }
 
-        [DisplayName("Shipping State"), Expression("(CASE WHEN T0.[ShippedDate] IS NULL THEN 0 ELSE 1 END)")]
+        [DisplayName("Completed Trip"), Expression("(CASE WHEN T0.[ShippedDate] < GETDATE() THEN 1 ELSE 0 END)")]
         public OrderShippingState? ShippingState
         {
             get { return (OrderShippingState?)Fields.ShippingState[this]; }
@@ -207,6 +207,27 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.DurationValue[this] = value; }
         }
 
+        [DisplayName("Est. Appt. Length"), Size(10)]
+        public String ApptTime
+        {
+            get { return Fields.ApptTime[this]; }
+            set { Fields.ApptTime[this] = value; }
+        }
+
+        [DisplayName("Appointment Time"), Size(10)]
+        public String AppointmentTime
+        {
+            get { return Fields.AppointmentTime[this]; }
+            set { Fields.AppointmentTime[this] = value; }
+        }
+
+        [DisplayName("Appt. Type"), Size(10)]
+        public String ApptType
+        {
+            get { return Fields.ApptType[this]; }
+            set { Fields.ApptType[this] = value; }
+        }
+
         [Origin("c"), DisplayName("Rider First Name")]
         public String CustomerContactName
         {
@@ -304,6 +325,9 @@ namespace MobilityMatters.Northwind.Entities
             public StringField ShipPostalCode;
             public StringField DestinationAddress;
             public StringField DestinationCity;
+            public StringField ApptTime;
+            public StringField AppointmentTime;
+            public StringField ApptType;
             public StringField DestinationZip;
             public StringField ShipCountry;
             public StringField DistanceText;

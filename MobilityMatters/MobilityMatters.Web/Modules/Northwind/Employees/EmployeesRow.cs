@@ -13,6 +13,7 @@ namespace MobilityMatters.Northwind.Entities
     [DisplayName("Volunteers"), InstanceName("Volunteer")]
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
+    [OuterApply("jLastTrip", "select top 1 * from Orders o where o.EmployeeId = t0.EmployeeId order by o.OrderDate desc")]
     public sealed class EmployeesRow : Row, IIdRow, INameRow
     {
         [DisplayName("Employee Id"), Size(2), Column("EmployeeID"), Identity]
@@ -63,6 +64,13 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.BirthDate[this]; }
             set { Fields.BirthDate[this] = value; }
+        }
+
+        [DisplayName("Date of Return")]
+        public DateTime? ReturnDate
+        {
+            get { return Fields.ReturnDate[this]; }
+            set { Fields.ReturnDate[this] = value; }
         }
 
         [DisplayName("Start Date")]
@@ -454,6 +462,13 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.ReportsToPhotoPath[this] = value; }
         }
 
+        [DisplayName("Date of Last Trip"), ReadOnly(true), Expression("jLastTrip.[OrderDate]")]
+        public DateTime? DateOfLastTrip
+        {
+            get { return Fields.DateOfLastTrip[this]; }
+            set { Fields.DateOfLastTrip[this] = value; }
+        }
+
         IIdField IIdRow.IdField
         {
             get { return Fields.EmployeeId; }
@@ -503,6 +518,7 @@ namespace MobilityMatters.Northwind.Entities
             public DateTimeField LicensePlateExp;
             public StringField Insurance;
             public DateTimeField InsuranceExp;
+            
             public StringField VehicleMake;
             public StringField VehicleModel;
             public StringField VehicleMake2;
@@ -535,6 +551,9 @@ namespace MobilityMatters.Northwind.Entities
             public StringField ReportsToNotes;
             public Int32Field ReportsTo1;
             public StringField ReportsToPhotoPath;
+
+            public DateTimeField DateOfLastTrip;
+            public DateTimeField ReturnDate;
         }
     }
 }

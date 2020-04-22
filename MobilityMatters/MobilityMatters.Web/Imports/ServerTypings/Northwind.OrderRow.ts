@@ -15,6 +15,9 @@
         ShipPostalCode?: string;
         DestinationAddress?: string;
         DestinationCity?: string;
+        ApptTime?: string;
+        AppointmentTime?: string;
+        ApptType?: string;
         DestinationZip?: string;
         ShipCountry?: string;
         DistanceText?: string;
@@ -67,6 +70,9 @@
             ShipPostalCode = "ShipPostalCode",
             DestinationAddress = "DestinationAddress",
             DestinationCity = "DestinationCity",
+            ApptTime = "ApptTime",
+            AppointmentTime = "AppointmentTime",
+            ApptType = "ApptType",
             DestinationZip = "DestinationZip",
             ShipCountry = "ShipCountry",
             DistanceText = "DistanceText",

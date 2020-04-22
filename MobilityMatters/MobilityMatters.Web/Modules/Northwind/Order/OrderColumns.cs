@@ -24,6 +24,9 @@ namespace MobilityMatters.Northwind.Columns
         [Width(100)]
         public String RequiredDate { get; set; }
 
+        [Width(100)]
+        public String ApptTime { get; set; }
+
         [FilterOnly, QuickFilter, Hidden]
         public OrderShippingState ShippingState { get; set; }
 

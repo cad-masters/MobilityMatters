@@ -13,13 +13,18 @@ namespace MobilityMatters.Northwind.Columns
         public Int32 EmployeeId { get; set; }
         [Width(100), AlignCenter]
         public Boolean OnVacation { get; set; }
+        [Width(100), ]
+        public DateTime? ReturnDate { get; set; }
         [EditLink]
         public String LastName { get; set; }
         public String FirstName { get; set; }
+        
         [Width(60), QuickFilter]
         public String Title { get; set; }
         [Width(90)]
         public String TitleOfCourtesy { get; set; }
+        [Width(120)]
+        public DateTime? DateOfLastTrip { get; set; }
         public String HomePhone { get; set; }
         public DateTime BirthDate { get; set; }
         /* public DateTime HireDate { get; set; }*/

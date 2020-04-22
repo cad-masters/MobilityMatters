@@ -15,6 +15,9 @@
             telephoneNumber?: string;
             pickupTime?: string;
             deliveryAddress?: string;
+            apptLength?: string;
+            apptType?: string;
+            appointmentTime?: string;
         }
 
         @Serenity.Decorators.registerClass()
@@ -42,7 +45,7 @@
                 if (opt.mailFromTrip) {
                     var body = this.form.BodyHtml.value;
                     body = body.replace('{RideNumber}', opt.rideNumber.toString()).replace('{AppointmentDate}', opt.appointmentDate).replace('{ClientName}', opt.clientName)
-                        .replace('{PickupAddress}', opt.pickupAddress).replace('{TelephoneNumber}', opt.telephoneNumber).replace('{PickupTime}', opt.pickupTime).replace('{DeliveryAddress}', opt.deliveryAddress);
+                        .replace('{PickupAddress}', opt.pickupAddress).replace('{TelephoneNumber}', opt.telephoneNumber).replace('{PickupTime}', opt.pickupTime).replace('{DeliveryAddress}', opt.deliveryAddress).replace('{ApptTime}', opt.apptLength).replace('{ApptType}', opt.apptType).replace('{AppointmentTime}', opt.appointmentTime);
                     this.form.BodyHtml.value = body;
                 }
             }

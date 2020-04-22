@@ -91,7 +91,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.PostalCode[this] = value; }
         }
 
-        [DisplayName("Residence"), Size(10), LookupEditor(typeof(Lookups.CustomerResidenceLookup), AutoComplete = true)]
+        [DisplayName("Residence"), LookupEditor(typeof(Lookups.CustomerResidenceLookup), AutoComplete = true)]
         public String Residence
         {
             get { return Fields.Residence[this]; }

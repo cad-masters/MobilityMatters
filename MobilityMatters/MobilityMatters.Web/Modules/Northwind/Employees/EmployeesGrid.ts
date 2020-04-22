@@ -73,7 +73,7 @@ namespace MobilityMatters.Northwind {
 
             var request = this.view.params as Serenity.ListRequest;
             request.EqualityFilter = request.EqualityFilter || {};
-            request.EqualityFilter[EmployeesRow.Fields.OnVacation] = false;
+            request.EqualityFilter[EmployeesRow.Fields.Inactive] = false;
 
             return true;
         }

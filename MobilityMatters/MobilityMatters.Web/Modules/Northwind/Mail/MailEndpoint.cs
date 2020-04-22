@@ -120,7 +120,7 @@ namespace MobilityMatters.Northwind.Endpoints
             row.Uid = Guid.NewGuid().ToString("N");
             message.MessageId = row.Uid;
 
-            var subject = "Mobility Matters | Ride Scheduled" + request.Subject ?? "";
+            var subject = "Mobility Matters | " + request.Subject ?? "";
 
             string editLink = null;
             string editKind = null;

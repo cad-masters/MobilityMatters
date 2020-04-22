@@ -67,19 +67,22 @@
 
                     var client = Q.tryFirst(CustomerRow.getLookup().items, x => x.CustomerID == this.form.CustomerID.value);
 
-                    var subject = "Ride Scheduled for " + this.form.OrderDate.value + " at " + this.form.RequiredDate.value + " with " + (client ? client.CompanyName : "");
+                    var subject = "Ride Scheduled for " + this.form.OrderDate.value + " at " + this.form.RequiredDate.value + " with " + (client ? client.FullName : "");
 
                     new Northwind.MailComposeDialog({
                         mailFromTrip: true,
                         toVoluntueer: volunteers,
                         subject: subject,
                         appointmentDate: this.form.OrderDate.value,
-                        clientName: (client ? client.CompanyName : ""),
+                        clientName: (client ? client.FullName : ""),
                         rideNumber: this.form.OrderID.value,
                         telephoneNumber: client.Phone,
                         pickupTime: this.form.RequiredDate.value,
                         pickupAddress: this.form.ShipAddress.value + " " + this.form.ShipCity.value + " " + this.form.ShipPostalCode.value,
-                        deliveryAddress: this.form.DestinationAddress.value + " " + this.form.DestinationCity.value + " " + this.form.DestinationZip.value
+                        deliveryAddress: this.form.DestinationAddress.value + " " + this.form.DestinationCity.value + " " + this.form.DestinationZip.value,
+                        apptLength: this.form.ApptTime.value,
+                        apptType: this.form.ApptType.value,
+                        appointmentTime: this.form.AppointmentTime.value,
                     }).dialogOpen();
                 }
             });

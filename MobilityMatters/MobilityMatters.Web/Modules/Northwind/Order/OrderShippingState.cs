@@ -7,9 +7,9 @@ namespace MobilityMatters.Northwind
     [EnumKey("Northwind.OrderShippingState")]
     public enum OrderShippingState
     {
-        [Description("Not Shipped")]
+        [Description("Not Completed")]
         NotShipped = 0,
-        [Description("Shipped")]
+        [Description("Completed")]
         Shipped = 1
     }
 }
