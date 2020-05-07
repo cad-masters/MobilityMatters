@@ -1171,14 +1171,15 @@ declare namespace MobilityMatters.Northwind {
     interface CustomerForm {
         CustomerID: Serenity.StringEditor;
         CompanyName: Serenity.StringEditor;
+        ContactName: Serenity.StringEditor;
         Program: Serenity.LookupEditor;
         ProgramOption: Serenity.LookupEditor;
-        ReferralSource: Serenity.LookupEditor;
-        TEMP: Serenity.LookupEditor;
+        ReferralSource: Serenity.StringEditor;
+        TEMP: Serenity.BooleanEditor;
         Active: Serenity.BooleanEditor;
         DateOfLastTrip: Serenity.DateEditor;
-        ContactName: Serenity.StringEditor;
         Phone: Serenity.StringEditor;
+        AltPhone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
         EmergencyName: Serenity.StringEditor;
         EmergencyPhone: Serenity.StringEditor;
@@ -1276,6 +1277,7 @@ declare namespace MobilityMatters.Northwind {
         Country?: string;
         County?: RiderByCounty;
         Phone?: string;
+        AltPhone?: string;
         PreferredHospital?: string;
         Medical?: string;
         Dental?: string;
@@ -1283,7 +1285,7 @@ declare namespace MobilityMatters.Northwind {
         OtherTransport?: string;
         Program?: string;
         ProgramOption?: string;
-        TEMP?: string;
+        TEMP?: boolean;
         EIO?: boolean;
         Smoker?: boolean;
         Active?: boolean;
@@ -1331,6 +1333,7 @@ declare namespace MobilityMatters.Northwind {
             Country = "Country",
             County = "County",
             Phone = "Phone",
+            AltPhone = "AltPhone",
             PreferredHospital = "PreferredHospital",
             Medical = "Medical",
             Dental = "Dental",
@@ -1592,12 +1595,13 @@ declare namespace MobilityMatters.Northwind {
         VehicleModel2: Serenity.StringEditor;
         DMVClearance: Serenity.BooleanEditor;
         PoliceClearance: Serenity.BooleanEditor;
-        ReferralSource: Serenity.LookupEditor;
+        ReferralSource: Serenity.StringEditor;
         TrainingDate: Serenity.DateEditor;
         HireDate: Serenity.DateEditor;
         EndDate: Serenity.DateEditor;
         WhyEnding: Serenity.StringEditor;
         SpecialNeedsList: Serenity.LookupEditor;
+        VolunteerRegion: Serenity.StringEditor;
         CitiesList: Serenity.LookupEditor;
         AvailabilityAMList: Serenity.LookupEditor;
         AvailabilityPMList: Serenity.LookupEditor;
@@ -1630,6 +1634,7 @@ declare namespace MobilityMatters.Northwind {
         Extension?: string;
         Photo?: number[];
         Notes?: string;
+        VolunteerRegion?: string;
         ReportsTo?: number;
         PhotoPath?: string;
         OnVacation?: boolean;
@@ -1703,6 +1708,7 @@ declare namespace MobilityMatters.Northwind {
             Extension = "Extension",
             Photo = "Photo",
             Notes = "Notes",
+            VolunteerRegion = "VolunteerRegion",
             ReportsTo = "ReportsTo",
             PhotoPath = "PhotoPath",
             OnVacation = "OnVacation",
@@ -2099,8 +2105,11 @@ declare namespace MobilityMatters.Northwind {
         CustomerID: CustomerEditor;
         OrderDate: Serenity.DateEditor;
         RequiredDate: Serenity.StringEditor;
-        AppointmentTime: Serenity.StringEditor;
         EmployeeID: Serenity.LookupEditor;
+        RideCompleted: Serenity.BooleanEditor;
+        Cancelled: Serenity.BooleanEditor;
+        CancelReason: Serenity.StringEditor;
+        AppointmentTime: Serenity.StringEditor;
         ShipAddress: Serenity.StringEditor;
         ShipCity: Serenity.StringEditor;
         ShipPostalCode: Serenity.StringEditor;
@@ -2111,6 +2120,14 @@ declare namespace MobilityMatters.Northwind {
         ApptType: Serenity.StringEditor;
         DistanceText: Serenity.StringEditor;
         DurationText: Serenity.StringEditor;
+        AppointmentTime2: Serenity.StringEditor;
+        DestinationAddress2: Serenity.StringEditor;
+        DestinationCity2: Serenity.StringEditor;
+        DestinationZip2: Serenity.StringEditor;
+        ApptTime2: Serenity.StringEditor;
+        ApptType2: Serenity.StringEditor;
+        DistanceText2: Serenity.StringEditor;
+        DurationText2: Serenity.StringEditor;
     }
     class OrderForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -2134,21 +2151,34 @@ declare namespace MobilityMatters.Northwind {
         ShipVia?: number;
         Freight?: number;
         ShipName?: string;
+        RideCompleted?: boolean;
+        Cancelled?: boolean;
+        CancelReason?: string;
         ShipAddress?: string;
         ShipCity?: string;
         ShipRegion?: string;
         ShipPostalCode?: string;
         DestinationAddress?: string;
         DestinationCity?: string;
+        DestinationAddress2?: string;
+        DestinationCity2?: string;
         ApptTime?: string;
         AppointmentTime?: string;
         ApptType?: string;
+        ApptTime2?: string;
+        AppointmentTime2?: string;
+        ApptType2?: string;
         DestinationZip?: string;
+        DestinationZip2?: string;
         ShipCountry?: string;
         DistanceText?: string;
         DistanceValue?: number;
         DurationText?: string;
         DurationValue?: number;
+        DistanceText2?: string;
+        DistanceValue2?: number;
+        DurationText2?: string;
+        DurationValue2?: number;
         CustomerCompanyName?: string;
         CustomerContactName?: string;
         CustomerCity?: string;
@@ -2184,21 +2214,34 @@ declare namespace MobilityMatters.Northwind {
             ShipVia = "ShipVia",
             Freight = "Freight",
             ShipName = "ShipName",
+            RideCompleted = "RideCompleted",
+            Cancelled = "Cancelled",
+            CancelReason = "CancelReason",
             ShipAddress = "ShipAddress",
             ShipCity = "ShipCity",
             ShipRegion = "ShipRegion",
             ShipPostalCode = "ShipPostalCode",
             DestinationAddress = "DestinationAddress",
             DestinationCity = "DestinationCity",
+            DestinationAddress2 = "DestinationAddress2",
+            DestinationCity2 = "DestinationCity2",
             ApptTime = "ApptTime",
             AppointmentTime = "AppointmentTime",
             ApptType = "ApptType",
+            ApptTime2 = "ApptTime2",
+            AppointmentTime2 = "AppointmentTime2",
+            ApptType2 = "ApptType2",
             DestinationZip = "DestinationZip",
+            DestinationZip2 = "DestinationZip2",
             ShipCountry = "ShipCountry",
             DistanceText = "DistanceText",
             DistanceValue = "DistanceValue",
             DurationText = "DurationText",
             DurationValue = "DurationValue",
+            DistanceText2 = "DistanceText2",
+            DistanceValue2 = "DistanceValue2",
+            DurationText2 = "DurationText2",
+            DurationValue2 = "DurationValue2",
             CustomerCompanyName = "CustomerCompanyName",
             CustomerContactName = "CustomerContactName",
             CustomerCity = "CustomerCity",
@@ -3615,11 +3658,16 @@ declare namespace MobilityMatters.Northwind {
         clientName?: string;
         pickupAddress?: string;
         telephoneNumber?: string;
+        altPhone?: string;
         pickupTime?: string;
         deliveryAddress?: string;
         apptLength?: string;
         apptType?: string;
         appointmentTime?: string;
+        deliveryAddress2?: string;
+        apptLength2?: string;
+        apptType2?: string;
+        appointmentTime2?: string;
     }
     class MailComposeDialog extends Serenity.PropertyDialog<MailComposeRequest, MailComposeDialogOptions> {
         private form;

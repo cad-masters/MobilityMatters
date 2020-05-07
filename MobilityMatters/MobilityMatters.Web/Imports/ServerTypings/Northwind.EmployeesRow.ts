@@ -20,6 +20,7 @@
         Extension?: string;
         Photo?: number[];
         Notes?: string;
+        VolunteerRegion?: string;
         ReportsTo?: number;
         PhotoPath?: string;
         OnVacation?: boolean;
@@ -95,6 +96,7 @@
             Extension = "Extension",
             Photo = "Photo",
             Notes = "Notes",
+            VolunteerRegion = "VolunteerRegion",
             ReportsTo = "ReportsTo",
             PhotoPath = "PhotoPath",
             OnVacation = "OnVacation",

@@ -33,6 +33,9 @@ namespace MobilityMatters.Northwind.Columns
         /*public String Region { get; set; }*/
         public String PostalCode { get; set; }
         public String Email { get; set; }
+        public DateTime HireDate { get; set; }
+        public String ReferralSource { get; set; }
+        public String VolunteerRegion { get; set; }
         public DateTime DriversLicenseExp { get; set; }
         public DateTime InsuranceExp { get; set; }
         /*public String Country { get; set; }

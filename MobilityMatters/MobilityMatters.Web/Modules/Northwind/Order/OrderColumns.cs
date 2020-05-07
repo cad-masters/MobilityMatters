@@ -1,8 +1,10 @@
 ﻿
 namespace MobilityMatters.Northwind.Columns
 {
+    using MobilityMatters.Northwind.Entities;
     using Serenity.ComponentModel;
     using System;
+    using System.Collections.Generic;
 
     [ColumnsScript("Northwind.Order")]
     [BasedOnRow(typeof(Entities.OrderRow), CheckNames = true)]
@@ -13,19 +15,28 @@ namespace MobilityMatters.Northwind.Columns
 
         [EditLink, QuickFilter(CssClass = "hidden-xs")]
         public DateTime? OrderDate { get; set; }
-
-        [EditLink, Width(200)]
+        [Width(60)]
+        public Boolean Cancelled { get; set; }
+        [EditLink, Width(150)]
         public String CustomerCompanyName { get; set; }
         public String CustomerContactName { get; set; }
         public String CustomerPhone { get; set; }
+        [Width(60)]
+        public Boolean CustomerTEMP { get; set; }
+        [Width(110), SpecialNeedsListFormatter]
+        public List<Int32> CustomerSpecialNeedsList { get; set; }
 
         [Width(140), /*EmployeeFormatter(GenderProperty = "EmployeeGender"),*/ QuickFilter(CssClass = "hidden-xs")]
         public String EmployeeFullName { get; set; }
         [Width(100)]
+        public String HowMany { get; set; }
+        [Width(100)]
         public String RequiredDate { get; set; }
-
+        
         [Width(100)]
         public String ApptTime { get; set; }
+        [Width(100)]
+        public String ApptType { get; set; }
 
         [FilterOnly, QuickFilter, Hidden]
         public OrderShippingState ShippingState { get; set; }

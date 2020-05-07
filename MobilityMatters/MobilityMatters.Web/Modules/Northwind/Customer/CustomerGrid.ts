@@ -38,7 +38,7 @@
 
             var request = this.view.params as Serenity.ListRequest;
             request.EqualityFilter = request.EqualityFilter || {};
-            request.EqualityFilter[CustomerRow.Fields.Active] = false || null;
+            request.EqualityFilter[CustomerRow.Fields.Active] = false;
 
             return true;
         }

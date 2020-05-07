@@ -18,11 +18,10 @@ namespace MobilityMatters.Northwind.Lookups
         {
             var fld = Entities.OrderRow.Fields;
             query.Distinct(true)
-                .Select(fld.ShipCountry)
+                
                 .Select(fld.ShipCity)
                 .Where(
-                    new Criteria(fld.ShipCountry) != "" &
-                    new Criteria(fld.ShipCountry).IsNotNull() &
+                    
                     new Criteria(fld.ShipCity) != "" &
                     new Criteria(fld.ShipCity).IsNotNull());
         }

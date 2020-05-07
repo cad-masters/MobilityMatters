@@ -38,6 +38,8 @@ namespace MobilityMatters.Common.Pages
                         model.ClientsByAge = ClientsByAgeRange(connection);
                         model.ClientsByStatusType = ClientsByStatusType(connection);
                         model.ClientsByStatusOption = ClientsByStatusOption(connection);
+                        model.ClientsByReferralSource = ClientsByReferralSource(connection);
+                        model.VolunteersByReferralSource = VolunteersByReferralSource(connection);
                     }
 
                     using (var connection = SqlConnections.NewFor<CustomerRow>())
@@ -102,6 +104,35 @@ namespace MobilityMatters.Common.Pages
                 .Select(Sql.Count(), nameof(ClientReportModel.Count))
                 .GroupBy(fld.Program)
                 .OrderBy(fld.Program);
+
+            return connection.Query<ClientReportModel>(query).ToList();
+        }
+
+
+        private List<ClientReportModel> ClientsByReferralSource(System.Data.IDbConnection connection)
+        {
+            var fld = CustomerRow.Fields;
+            var query = new SqlQuery()
+                .From(fld)
+                .Where(fld.ReferralSource.IsNotNull())
+                .Select(fld.ReferralSource, nameof(ClientReportModel.Name))
+                .Select(Sql.Count(), nameof(ClientReportModel.Count))
+                .GroupBy(fld.ReferralSource)
+                .OrderBy(fld.ReferralSource);
+
+            return connection.Query<ClientReportModel>(query).ToList();
+        }
+
+        private List<ClientReportModel> VolunteersByReferralSource(System.Data.IDbConnection connection)
+        {
+            var fld = EmployeesRow.Fields;
+            var query = new SqlQuery()
+                .From(fld)
+                .Where(fld.ReferralSource.IsNotNull())
+                .Select(fld.ReferralSource, nameof(ClientReportModel.Name))
+                .Select(Sql.Count(), nameof(ClientReportModel.Count))
+                .GroupBy(fld.ReferralSource)
+                .OrderBy(fld.ReferralSource);
 
             return connection.Query<ClientReportModel>(query).ToList();
         }

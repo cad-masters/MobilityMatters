@@ -14,8 +14,12 @@ namespace MobilityMatters.Northwind.Columns
         public String CustomerID { get; set; }
         [EditLink, Width(150)]
         public String CompanyName { get; set; }
-        [Width(150)]
+        [Width(100)]
         public String ContactName { get; set; }
+        [Width(20)]
+        public Boolean TEMP { get; set; }
+        [Width(120)]
+        public DateTime? StartDate { get; set; }
         [Width(50), QuickFilter, LookupEditor(typeof(Lookups.CustomerProgramLookup))]
         public String Program { get; set; }
         [Width(65), QuickFilter, LookupEditor(typeof(Lookups.CustomerProgramOptionLookup))]
@@ -36,8 +40,6 @@ namespace MobilityMatters.Northwind.Columns
         [Width(50)]
         public String Region { get; set; }
         [Width(130), FilterOnly, LookupEditor(typeof(Lookups.CustomerDetailsTEMPLookup)), QuickFilter(CssClass = "hidden-xs")]
-        public String TEMP { get; set; }
-        [Width(80)]
         public String PostalCode { get; set; }
         [Width(110), SpecialNeedsListFormatter]
         public List<Int32> SpecialNeedsList { get; set; }

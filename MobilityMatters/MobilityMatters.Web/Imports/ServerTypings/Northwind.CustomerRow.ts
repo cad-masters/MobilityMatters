@@ -15,6 +15,7 @@
         Country?: string;
         County?: RiderByCounty;
         Phone?: string;
+        AltPhone?: string;
         PreferredHospital?: string;
         Medical?: string;
         Dental?: string;
@@ -22,7 +23,7 @@
         OtherTransport?: string;
         Program?: string;
         ProgramOption?: string;
-        TEMP?: string;
+        TEMP?: boolean;
         EIO?: boolean;
         Smoker?: boolean;
         Active?: boolean;
@@ -75,6 +76,7 @@
             Country = "Country",
             County = "County",
             Phone = "Phone",
+            AltPhone = "AltPhone",
             PreferredHospital = "PreferredHospital",
             Medical = "Medical",
             Dental = "Dental",

@@ -45,7 +45,7 @@ namespace MobilityMatters.Northwind.Entities
         }
 
 
-        [DisplayName("Status"), Size(7), QuickSearch, LookupEditor(typeof(Lookups.EmployeesStatusLookup))]
+        [DisplayName("Status"), Size(7), QuickSearch, LookupEditor(typeof(Lookups.EmployeesStatusLookup), InplaceAdd = true, AutoComplete = true)]
         public String Title
         {
             get { return Fields.Title[this]; }
@@ -171,7 +171,8 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Gender[this] = value; }
         }
 
-        [LookupEditor(typeof(Lookups.EmployeesReferralSourceLookup))]
+        /*[LookupEditor(typeof(Lookups.EmployeesReferralSourceLookup))]*/
+        [DisplayName("Referral Source"), Size(30)]
         public String ReferralSource
         {
             get { return Fields.ReferralSource[this]; }
@@ -299,6 +300,13 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.PhotoPath[this]; }
             set { Fields.PhotoPath[this] = value; }
+        }
+
+        [DisplayName("Volunteer Region"), Size(255)]
+        public String VolunteerRegion
+        {
+            get { return Fields.VolunteerRegion[this]; }
+            set { Fields.VolunteerRegion[this] = value; }
         }
 
         [DisplayName("Additional Languages"), Size(100)]
@@ -508,6 +516,7 @@ namespace MobilityMatters.Northwind.Entities
             public StringField Extension;
             public StreamField Photo;
             public StringField Notes;
+            public StringField VolunteerRegion;
             public Int32Field ReportsTo;
             public StringField PhotoPath;
             public BooleanField OnVacation;

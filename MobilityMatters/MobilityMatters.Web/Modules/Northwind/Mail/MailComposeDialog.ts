@@ -13,11 +13,16 @@
             clientName?: string;
             pickupAddress?: string;
             telephoneNumber?: string;
+            altPhone?: string;
             pickupTime?: string;
             deliveryAddress?: string;
             apptLength?: string;
             apptType?: string;
             appointmentTime?: string;
+            deliveryAddress2?: string;
+            apptLength2?: string;
+            apptType2?: string;
+            appointmentTime2?: string;
         }
 
         @Serenity.Decorators.registerClass()
@@ -45,7 +50,7 @@
                 if (opt.mailFromTrip) {
                     var body = this.form.BodyHtml.value;
                     body = body.replace('{RideNumber}', opt.rideNumber.toString()).replace('{AppointmentDate}', opt.appointmentDate).replace('{ClientName}', opt.clientName)
-                        .replace('{PickupAddress}', opt.pickupAddress).replace('{TelephoneNumber}', opt.telephoneNumber).replace('{PickupTime}', opt.pickupTime).replace('{DeliveryAddress}', opt.deliveryAddress).replace('{ApptTime}', opt.apptLength).replace('{ApptType}', opt.apptType).replace('{AppointmentTime}', opt.appointmentTime);
+                        .replace('{PickupAddress}', opt.pickupAddress).replace('{AltPhone}', opt.altPhone).replace('{TelephoneNumber}', opt.telephoneNumber).replace('{PickupTime}', opt.pickupTime).replace('{DeliveryAddress}', opt.deliveryAddress).replace('{ApptTime}', opt.apptLength).replace('{ApptType}', opt.apptType).replace('{AppointmentTime}', opt.appointmentTime).replace('{DeliveryAddress2}', opt.deliveryAddress2).replace('{ApptTime2}', opt.apptLength2).replace('{ApptType2}', opt.apptType2).replace('{AppointmentTime2}', opt.appointmentTime2);
                     this.form.BodyHtml.value = body;
                 }
             }

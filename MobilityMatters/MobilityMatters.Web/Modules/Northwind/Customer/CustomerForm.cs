@@ -12,7 +12,10 @@ namespace MobilityMatters.Northwind.Forms
     {
         [Category("General")]
         public String CustomerID { get; set; }
+        [HalfWidth]
         public String CompanyName { get; set; }
+        [HalfWidth]
+        public String ContactName { get; set; }
         [HalfWidth]
         public String Program { get; set; }
         [HalfWidth]
@@ -20,15 +23,27 @@ namespace MobilityMatters.Northwind.Forms
         [HalfWidth]
         public String ReferralSource { get; set; }
         [HalfWidth]
-        public String TEMP { get; set; }
-        [HalfWidth, BooleanFormatter]
-        public Boolean Active { get; set; }
-        [HalfWidth]
         public DateTime DateOfLastTrip { get; set; }
+        
+        [BooleanFormatter]
+        public Boolean Active { get; set; }
+        [QuarterWidth, BooleanFormatter]
+        public Boolean TEMP { get; set; }
+        [QuarterWidth]
+        public DateTime StartDate { get; set; }
+        [QuarterWidth]
+        public DateTime EndDate { get; set; }
+        [QuarterWidth]
+        public String WhyEnding { get; set; }
+
+
 
         [Category("Contact")]
-        public String ContactName { get; set; }
+        
+        [HalfWidth]
         public String Phone { get; set; }
+        [HalfWidth]
+        public String AltPhone { get; set; }
         public String Email { get; set; }
         /*public List<Int32> Representatives { get; set; }*/
 

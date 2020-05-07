@@ -35,14 +35,14 @@
         getToolbarButtons() {
             var buttons = super.getToolbarButtons();
 
-            buttons.push(MobilityMatters.Common.ReportHelper.createToolButton({
+            /*buttons.push(MobilityMatters.Common.ReportHelper.createToolButton({
                 title: 'Invoice',
                 cssClass: 'export-pdf-button',
                 reportKey: 'Northwind.OrderDetail',
                 getParams: () => ({
                     OrderID: this.get_entityId()
                 })
-            }));
+            }));*/
 
             buttons.push({
                 title: 'Distance and Duration by Google Maps',
@@ -80,9 +80,14 @@
                         pickupTime: this.form.RequiredDate.value,
                         pickupAddress: this.form.ShipAddress.value + " " + this.form.ShipCity.value + " " + this.form.ShipPostalCode.value,
                         deliveryAddress: this.form.DestinationAddress.value + " " + this.form.DestinationCity.value + " " + this.form.DestinationZip.value,
+                        deliveryAddress2: this.form.DestinationAddress2.value + " " + this.form.DestinationCity2.value + " " + this.form.DestinationZip2.value,
                         apptLength: this.form.ApptTime.value,
                         apptType: this.form.ApptType.value,
                         appointmentTime: this.form.AppointmentTime.value,
+                        apptLength2: this.form.ApptTime2.value,
+                        apptType2: this.form.ApptType2.value,
+                        appointmentTime2: this.form.AppointmentTime2.value,
+                        altPhone: client.AltPhone
                     }).dialogOpen();
                 }
             });

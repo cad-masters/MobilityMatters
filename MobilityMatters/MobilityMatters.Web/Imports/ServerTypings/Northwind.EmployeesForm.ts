@@ -30,12 +30,13 @@
         VehicleModel2: Serenity.StringEditor;
         DMVClearance: Serenity.BooleanEditor;
         PoliceClearance: Serenity.BooleanEditor;
-        ReferralSource: Serenity.LookupEditor;
+        ReferralSource: Serenity.StringEditor;
         TrainingDate: Serenity.DateEditor;
         HireDate: Serenity.DateEditor;
         EndDate: Serenity.DateEditor;
         WhyEnding: Serenity.StringEditor;
         SpecialNeedsList: Serenity.LookupEditor;
+        VolunteerRegion: Serenity.StringEditor;
         CitiesList: Serenity.LookupEditor;
         AvailabilityAMList: Serenity.LookupEditor;
         AvailabilityPMList: Serenity.LookupEditor;
@@ -89,12 +90,13 @@
                     'VehicleModel2', w1,
                     'DMVClearance', w2,
                     'PoliceClearance', w2,
-                    'ReferralSource', w0,
+                    'ReferralSource', w1,
                     'TrainingDate', w3,
                     'HireDate', w3,
                     'EndDate', w3,
                     'WhyEnding', w1,
                     'SpecialNeedsList', w0,
+                    'VolunteerRegion', w1,
                     'CitiesList', w0,
                     'AvailabilityAMList', w0,
                     'AvailabilityPMList', w0

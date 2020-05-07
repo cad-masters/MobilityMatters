@@ -18,6 +18,8 @@ namespace MobilityMatters.Common
         public List<ClientReportModel> ClientsByTransportationType { get; set; }
         public List<ClientReportModel> ClientsByStatusType { get; set; }
         public List<ClientReportModel> ClientsByStatusOption { get; set; }
+        public List<ClientReportModel> ClientsByReferralSource { get; set; }
+        public List<ClientReportModel> VolunteersByReferralSource { get; set; }
     }
 
     public class ClientReportModel

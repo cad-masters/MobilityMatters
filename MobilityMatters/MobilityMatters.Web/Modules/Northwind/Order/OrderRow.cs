@@ -87,6 +87,34 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.RequiredDate[this] = value; }
         }
 
+        [DisplayName("# of Trips"), DefaultValue(1), LookupEditor(typeof(Lookups.OrderHowManyLookup))]
+        public Int32? HowMany
+        {
+            get { return Fields.HowMany[this]; }
+            set { Fields.HowMany[this] = value; }
+        }
+
+        [DisplayName("Completed"), Size(30)]
+        public Boolean? RideCompleted
+        {
+            get { return Fields.RideCompleted[this]; }
+            set { Fields.RideCompleted[this] = value; }
+        }
+
+        [DisplayName("Cancelled"), Size(30)]
+        public Boolean? Cancelled
+        {
+            get { return Fields.Cancelled[this]; }
+            set { Fields.Cancelled[this] = value; }
+        }
+
+        [DisplayName("Cancel Reason")]
+        public String CancelReason
+        {
+            get { return Fields.CancelReason[this]; }
+            set { Fields.CancelReason[this] = value; }
+        }
+
         [DisplayName("Shipped Date")]
         public DateTime? ShippedDate
         {
@@ -129,7 +157,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.ShipAddress[this] = value; }
         }
 
-        [DisplayName("Origin City"), Size(15)]
+        [DisplayName("Origin City"), Size(15), LookupEditor(typeof(Lookups.OrderShipCityLookup))]
         public String ShipCity
         {
             get { return Fields.ShipCity[this]; }
@@ -170,6 +198,28 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.DestinationZip[this]; }
             set { Fields.DestinationZip[this] = value; }
+        }
+
+        [DisplayName("Destination 2 Address"), Size(60)]
+        public String DestinationAddress2
+        {
+            get { return Fields.DestinationAddress2[this]; }
+            set { Fields.DestinationAddress2[this] = value; }
+        }
+
+        [DisplayName("Destination 2 City"), Size(15)]
+        public String DestinationCity2
+        {
+            get { return Fields.DestinationCity2[this]; }
+            set { Fields.DestinationCity2[this] = value; }
+        }
+
+
+        [DisplayName("Destination 2 Zip"), Size(10)]
+        public String DestinationZip2
+        {
+            get { return Fields.DestinationZip2[this]; }
+            set { Fields.DestinationZip2[this] = value; }
         }
 
         [DisplayName("Ship Country"), Size(15)]
@@ -228,6 +278,59 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.ApptType[this] = value; }
         }
 
+        /*--------------------------------------------------*/
+
+        [DisplayName("Distance"), ReadOnly(true)]
+        public String DistanceText2
+        {
+            get { return Fields.DistanceText2[this]; }
+            set { Fields.DistanceText2[this] = value; }
+        }
+
+        [DisplayName("Distance Value"), ReadOnly(true)]
+        public Int32? DistanceValue2
+        {
+            get { return Fields.DistanceValue2[this]; }
+            set { Fields.DistanceValue2[this] = value; }
+        }
+
+        [DisplayName("Duration"), ReadOnly(true)]
+        public String DurationText2
+        {
+            get { return Fields.DurationText2[this]; }
+            set { Fields.DurationText2[this] = value; }
+        }
+
+        [DisplayName("Duration Value"), ReadOnly(true)]
+        public Int32? DurationValue2
+        {
+            get { return Fields.DurationValue2[this]; }
+            set { Fields.DurationValue2[this] = value; }
+        }
+
+        [DisplayName("Est. Appt. Length"), Size(10)]
+        public String ApptTime2
+        {
+            get { return Fields.ApptTime2[this]; }
+            set { Fields.ApptTime2[this] = value; }
+        }
+
+        [DisplayName("Appointment Time"), Size(10)]
+        public String AppointmentTime2
+        {
+            get { return Fields.AppointmentTime2[this]; }
+            set { Fields.AppointmentTime2[this] = value; }
+        }
+
+        [DisplayName("Appt. Type"), Size(10)]
+        public String ApptType2
+        {
+            get { return Fields.ApptType2[this]; }
+            set { Fields.ApptType2[this] = value; }
+        }
+
+
+
         [Origin("c"), DisplayName("Rider First Name")]
         public String CustomerContactName
         {
@@ -268,6 +371,20 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.CustomerPhone[this]; }
             set { Fields.CustomerPhone[this] = value; }
+        }
+
+        [Origin("c"), DisplayName("Temp. Rider")]
+        public Boolean? CustomerTEMP
+        {
+            get { return Fields.CustomerTEMP[this]; }
+            set { Fields.CustomerTEMP[this] = value; }
+        }
+
+        [Origin("c")]
+        public List<Int32> CustomerSpecialNeedsList
+        {
+            get { return Fields.CustomerSpecialNeedsList[this]; }
+            set { Fields.CustomerSpecialNeedsList[this] = value; }
         }
 
         [Origin("via"), DisplayName("Ship Via")]
@@ -319,21 +436,35 @@ namespace MobilityMatters.Northwind.Entities
             public Int32Field ShipVia;
             public DecimalField Freight;
             public StringField ShipName;
+            public BooleanField RideCompleted;
+            public BooleanField Cancelled;
+            public StringField CancelReason;
             public StringField ShipAddress;
             public StringField ShipCity;
             public StringField ShipRegion;
             public StringField ShipPostalCode;
             public StringField DestinationAddress;
             public StringField DestinationCity;
+            public StringField DestinationAddress2;
+            public StringField DestinationCity2;
             public StringField ApptTime;
             public StringField AppointmentTime;
             public StringField ApptType;
+            public StringField ApptTime2;
+            public StringField AppointmentTime2;
+            public StringField ApptType2;
             public StringField DestinationZip;
+            public StringField DestinationZip2;
             public StringField ShipCountry;
             public StringField DistanceText;
             public Int32Field DistanceValue;
             public StringField DurationText;
             public Int32Field DurationValue;
+            public StringField DistanceText2;
+            public Int32Field DistanceValue2;
+            public StringField DurationText2;
+            public Int32Field DurationValue2;
+            public Int32Field HowMany;
 
             public StringField CustomerCompanyName;
             public StringField CustomerContactName;
@@ -342,6 +473,8 @@ namespace MobilityMatters.Northwind.Entities
             public StringField CustomerRegion;
             public StringField CustomerCountry;
             public StringField CustomerPhone;
+            public BooleanField CustomerTEMP;
+            public ListField<Int32> CustomerSpecialNeedsList;
 
             public StringField EmployeeFullName;
             public StringField CustomerFullName;

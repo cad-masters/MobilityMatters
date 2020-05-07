@@ -147,6 +147,13 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Phone[this] = value; }
         }
 
+        [DisplayName("Alt. Phone"), Size(24), LookupInclude]
+        public String AltPhone
+        {
+            get { return Fields.AltPhone[this]; }
+            set { Fields.AltPhone[this] = value; }
+        }
+
         [DisplayName("Language"), Size(24)]
         public String PLanguage
         {
@@ -218,7 +225,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Gender[this] = value; }
         }
 
-        [Width(100), LookupEditor(typeof(Lookups.CustomerReferralSourceLookup), InplaceAdd = true)]
+        [Width(100)/*, LookupEditor(typeof(Lookups.CustomerReferralSourceLookup), InplaceAdd = true)*/]
         public String ReferralSource
         {
             get { return Fields.ReferralSource[this]; }
@@ -286,11 +293,32 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.OtherTransport[this] = value; }
         }
 
-        [Origin("cd"), LookupEditor(typeof(Lookups.CustomerDetailsTEMPLookup))]
-        public String TEMP
+        [DisplayName("Temp. Client"), Width(30)]
+        public Boolean? TEMP
         {
             get { return Fields.TEMP[this]; }
             set { Fields.TEMP[this] = value; }
+        }
+
+        [DisplayName("Start Date")]
+        public DateTime? StartDate
+        {
+            get { return Fields.StartDate[this]; }
+            set { Fields.StartDate[this] = value; }
+        }
+
+        [DisplayName("End Date")]
+        public DateTime? EndDate
+        {
+            get { return Fields.EndDate[this]; }
+            set { Fields.EndDate[this] = value; }
+        }
+
+        [DisplayName("Why Ending?"), Size(60)]
+        public String WhyEnding
+        {
+            get { return Fields.WhyEnding[this]; }
+            set { Fields.WhyEnding[this] = value; }
         }
 
         [Width(100)]
@@ -388,6 +416,7 @@ namespace MobilityMatters.Northwind.Entities
             public StringField Country;
             public Int32Field County;
             public StringField Phone;
+            public StringField AltPhone;
             public StringField PreferredHospital;
             public StringField Medical;
             public StringField Dental;
@@ -395,7 +424,10 @@ namespace MobilityMatters.Northwind.Entities
             public StringField OtherTransport;
             public StringField Program;
             public StringField ProgramOption;
-            public StringField TEMP;
+            public BooleanField TEMP;
+            public DateTimeField StartDate;
+            public DateTimeField EndDate;
+            public StringField WhyEnding;
             public BooleanField EIO;
             public BooleanField Smoker;
             public BooleanField Active;

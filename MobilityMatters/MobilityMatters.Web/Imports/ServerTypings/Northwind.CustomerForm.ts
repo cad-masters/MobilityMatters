@@ -2,14 +2,15 @@
     export interface CustomerForm {
         CustomerID: Serenity.StringEditor;
         CompanyName: Serenity.StringEditor;
+        ContactName: Serenity.StringEditor;
         Program: Serenity.LookupEditor;
         ProgramOption: Serenity.LookupEditor;
-        ReferralSource: Serenity.LookupEditor;
-        TEMP: Serenity.LookupEditor;
+        ReferralSource: Serenity.StringEditor;
+        TEMP: Serenity.BooleanEditor;
         Active: Serenity.BooleanEditor;
         DateOfLastTrip: Serenity.DateEditor;
-        ContactName: Serenity.StringEditor;
         Phone: Serenity.StringEditor;
+        AltPhone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
         EmergencyName: Serenity.StringEditor;
         EmergencyPhone: Serenity.StringEditor;
@@ -63,14 +64,15 @@
                 Q.initFormType(CustomerForm, [
                     'CustomerID', w0,
                     'CompanyName', w0,
+                    'ContactName', w0,
                     'Program', w1,
                     'ProgramOption', w1,
-                    'ReferralSource', w1,
-                    'TEMP', w1,
+                    'ReferralSource', w0,
+                    'TEMP', w2,
                     'Active', w2,
                     'DateOfLastTrip', w3,
-                    'ContactName', w0,
                     'Phone', w0,
+                    'AltPhone', w0,
                     'Email', w4,
                     'EmergencyName', w0,
                     'EmergencyPhone', w0,

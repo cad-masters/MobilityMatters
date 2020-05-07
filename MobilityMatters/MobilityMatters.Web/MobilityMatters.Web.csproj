@@ -2022,10 +2022,11 @@
     <Content Include="Modules\Northwind\Order\OrderDetailReport.cshtml" />
     <Compile Include="Modules\Northwind\Order\DistanceMatrixResponse.cs" />
     <Compile Include="Modules\Northwind\Order\DistanceMatrixRequest.cs" />
+    <Compile Include="Modules\Northwind\Order\OrderHowManyLookup.cs" />
     <Compile Include="Modules\Northwind\Order\OrderDetailReport.cs" />
     <Compile Include="Modules\Northwind\Order\OrderListRequest.cs" />
     <Compile Include="Modules\Northwind\Order\OrderShippingState.cs" />
-    <Compile Include="Modules\Northwind\Order\OrderShipCity.cs" />
+    <Compile Include="Modules\Northwind\Order\OrderShipCityLookup.cs" />
     <Compile Include="Modules\Northwind\Order\OrderShipCountry.cs" />
     <Compile Include="Modules\Northwind\Order\OrderColumns.cs" />
     <Compile Include="Modules\Northwind\NorthwindPermissionKeys.cs" />
