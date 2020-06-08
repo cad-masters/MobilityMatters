@@ -15,14 +15,7 @@ namespace MobilityMatters.Northwind.Forms
         public String Title { get; set; }
         [HalfWidth]
         public String TitleOfCourtesy { get; set; }
-        [HalfWidth, BooleanFormatter]
         public Boolean OnVacation { get; set; }
-        [HalfWidth, BooleanFormatter]
-        public Boolean Inactive { get; set; }
-        [HalfWidth]
-        public DateTime DateOfLastTrip { get; set; }
-        [HalfWidth]
-        public DateTime ReturnDate { get; set; }
         [Category("Contact")]
         [HalfWidth]
         public String LastName { get; set; }
@@ -78,7 +71,6 @@ namespace MobilityMatters.Northwind.Forms
         public DateTime EndDate { get; set; }
         public String WhyEnding { get; set; }
         public List<Int32> SpecialNeedsList { get; set; }
-        public String VolunteerRegion { get; set; }
         public List<Int32> CitiesList { get; set; }
         [HalfWidth]
         public List<Int32> AvailabilityAMList { get; set; }

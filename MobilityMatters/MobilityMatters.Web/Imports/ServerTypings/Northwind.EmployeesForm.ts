@@ -40,6 +40,7 @@
         CitiesList: Serenity.LookupEditor;
         AvailabilityAMList: Serenity.LookupEditor;
         AvailabilityPMList: Serenity.LookupEditor;
+        NotesPlainText: Serenity.TextAreaEditor;
     }
 
     export class EmployeesForm extends Serenity.PrefixedContext {
@@ -58,6 +59,7 @@
                 var w2 = s.BooleanEditor;
                 var w3 = s.DateEditor;
                 var w4 = s.EmailEditor;
+                var w5 = s.TextAreaEditor;
 
                 Q.initFormType(EmployeesForm, [
                     'Title', w0,
@@ -99,7 +101,8 @@
                     'VolunteerRegion', w1,
                     'CitiesList', w0,
                     'AvailabilityAMList', w0,
-                    'AvailabilityPMList', w0
+                    'AvailabilityPMList', w0,
+                    'NotesPlainText', w5
                 ]);
             }
         }

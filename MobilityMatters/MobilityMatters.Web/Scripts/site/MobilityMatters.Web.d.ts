@@ -463,6 +463,16 @@ declare namespace MobilityMatters {
         Serial?: string;
     }
 }
+declare namespace MobilityMatters.Helpers {
+    interface HardcodedValuesForm {
+        SomeValue: HardcodedValuesEditor;
+    }
+    class HardcodedValuesForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
 declare namespace MobilityMatters.Membership {
     interface ChangePasswordForm {
         OldPassword: Serenity.PasswordEditor;
@@ -1203,6 +1213,8 @@ declare namespace MobilityMatters.Northwind {
         AgeCalc: Serenity.IntegerEditor;
         PLanguage: Serenity.StringEditor;
         SpecialNeedsList: Serenity.LookupEditor;
+        SpecialNeedsPlainText: Serenity.StringEditor;
+        SpecialConditionsDirections: Serenity.StringEditor;
         DNR: Serenity.LookupEditor;
         Radio: Serenity.BooleanEditor;
         EIO: Serenity.BooleanEditor;
@@ -1628,6 +1640,7 @@ declare namespace MobilityMatters.Northwind {
         CitiesList: Serenity.LookupEditor;
         AvailabilityAMList: Serenity.LookupEditor;
         AvailabilityPMList: Serenity.LookupEditor;
+        NotesPlainText: Serenity.TextAreaEditor;
     }
     class EmployeesForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -1697,6 +1710,7 @@ declare namespace MobilityMatters.Northwind {
         ReportsToExtension?: string;
         ReportsToPhoto?: number[];
         ReportsToNotes?: string;
+        NotesPlainText?: string;
         ReportsTo1?: number;
         ReportsToPhotoPath?: string;
         DateOfLastTrip?: string;
@@ -1771,6 +1785,7 @@ declare namespace MobilityMatters.Northwind {
             ReportsToExtension = "ReportsToExtension",
             ReportsToPhoto = "ReportsToPhoto",
             ReportsToNotes = "ReportsToNotes",
+            NotesPlainText = "NotesPlainText",
             ReportsTo1 = "ReportsTo1",
             ReportsToPhotoPath = "ReportsToPhotoPath",
             DateOfLastTrip = "DateOfLastTrip",
@@ -3221,6 +3236,25 @@ declare namespace MobilityMatters.Common {
         protected deleteHandler(options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void): void;
     }
 }
+declare namespace MobilityMatters.Helpers {
+    class HardcodedValuesDialog extends Serenity.PropertyDialog<any, any> {
+        protected getFormKey(): string;
+        protected form: HardcodedValuesForm;
+        constructor();
+    }
+}
+declare namespace MobilityMatters.Helpers {
+    /**
+     * Our select editor with hardcoded values.
+     *
+     * When you define a new editor type, make sure you build
+     * and transform templates for it to be available
+     * in server side forms, e.g. [HardCodedValuesEditor]
+     */
+    class HardcodedValuesEditor extends Serenity.Select2Editor<any, any> {
+        constructor(container: JQuery);
+    }
+}
 declare namespace MobilityMatters {
     /**
      * This is an editor widget but it only displays a text, not edits it.
@@ -3698,6 +3732,8 @@ declare namespace MobilityMatters.Northwind {
         apptLength2?: string;
         apptType2?: string;
         appointmentTime2?: string;
+        specialNeedsTemp?: string;
+        specialConditionsDirections?: string;
     }
     class MailComposeDialog extends Serenity.PropertyDialog<MailComposeRequest, MailComposeDialogOptions> {
         private form;
