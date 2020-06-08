@@ -1,3 +1,0 @@
-﻿namespace MobilityMatters.Northwind {
-}
-
