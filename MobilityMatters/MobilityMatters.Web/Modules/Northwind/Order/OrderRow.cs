@@ -1,7 +1,6 @@
 ﻿
 namespace MobilityMatters.Northwind.Entities
 {
-    using MobilityMatters.Helpers;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
@@ -88,7 +87,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.RequiredDate[this] = value; }
         }
 
-        [DisplayName("# of Trips"), HardcodedValuesEditor, DefaultValue(1)]
+        [DisplayName("# of Trips"), DefaultValue(1), LookupEditor(typeof(Lookups.OrderHowManyLookup))]
         public Int32? HowMany
         {
             get { return Fields.HowMany[this]; }
@@ -158,7 +157,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.ShipAddress[this] = value; }
         }
 
-        [DisplayName("Origin City"), Size(15)/*, LookupEditor(typeof(Lookups.OrderShipCityLookup))*/]
+        [DisplayName("Origin City"), Size(15), LookupEditor(typeof(Lookups.OrderShipCityLookup))]
         public String ShipCity
         {
             get { return Fields.ShipCity[this]; }
@@ -201,13 +200,6 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.DestinationZip[this] = value; }
         }
 
-        [DisplayName("Destination Apt #"), Size(10)]
-        public String DestinationApartment
-        {
-            get { return Fields.DestinationApartment[this]; }
-            set { Fields.DestinationApartment[this] = value; }
-        }
-
         [DisplayName("Destination 2 Address"), Size(60)]
         public String DestinationAddress2
         {
@@ -228,42 +220,6 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.DestinationZip2[this]; }
             set { Fields.DestinationZip2[this] = value; }
-        }
-
-        [DisplayName("Destination 2 Apt #"), Size(10)]
-        public String DestinationApartment2
-        {
-            get { return Fields.DestinationApartment2[this]; }
-            set { Fields.DestinationApartment2[this] = value; }
-        }
-
-        [DisplayName("Destination 3 Address"), Size(60)]
-        public String DestinationAddress3
-        {
-            get { return Fields.DestinationAddress3[this]; }
-            set { Fields.DestinationAddress3[this] = value; }
-        }
-
-        [DisplayName("Destination 3 City"), Size(15)]
-        public String DestinationCity3
-        {
-            get { return Fields.DestinationCity3[this]; }
-            set { Fields.DestinationCity3[this] = value; }
-        }
-
-
-        [DisplayName("Destination 3 Zip"), Size(10)]
-        public String DestinationZip3
-        {
-            get { return Fields.DestinationZip3[this]; }
-            set { Fields.DestinationZip3[this] = value; }
-        }
-
-        [DisplayName("Destination 3 Apt #"), Size(10)]
-        public String DestinationApartment3
-        {
-            get { return Fields.DestinationApartment3[this]; }
-            set { Fields.DestinationApartment3[this] = value; }
         }
 
         [DisplayName("Ship Country"), Size(15)]
@@ -287,7 +243,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.DistanceValue[this] = value; }
         }
 
-        [DisplayName("Calc. Driving Time"), ReadOnly(true)]
+        [DisplayName("Duration"), ReadOnly(true)]
         public String DurationText
         {
             get { return Fields.DurationText[this]; }
@@ -338,7 +294,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.DistanceValue2[this] = value; }
         }
 
-        [DisplayName("Calc. Driving Time"), ReadOnly(true)]
+        [DisplayName("Duration"), ReadOnly(true)]
         public String DurationText2
         {
             get { return Fields.DurationText2[this]; }
@@ -352,103 +308,11 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.DurationValue2[this] = value; }
         }
 
-
-        [DisplayName("Distance"), ReadOnly(true)]
-        public String DistanceText3
-        {
-            get { return Fields.DistanceText3[this]; }
-            set { Fields.DistanceText3[this] = value; }
-        }
-
-        [DisplayName("Distance Value"), ReadOnly(true)]
-        public Int32? DistanceValue3
-        {
-            get { return Fields.DistanceValue3[this]; }
-            set { Fields.DistanceValue3[this] = value; }
-        }
-
-        [DisplayName("Calc. Driving Time"), ReadOnly(true)]
-        public String DurationText3
-        {
-            get { return Fields.DurationText3[this]; }
-            set { Fields.DurationText3[this] = value; }
-        }
-
-        [DisplayName("Duration Value"), ReadOnly(true)]
-        public Int32? DurationValue3
-        {
-            get { return Fields.DurationValue3[this]; }
-            set { Fields.DurationValue3[this] = value; }
-        }
-
         [DisplayName("Est. Appt. Length"), Size(10)]
         public String ApptTime2
         {
             get { return Fields.ApptTime2[this]; }
             set { Fields.ApptTime2[this] = value; }
-        }
-
-        [DisplayName("Actual Hrs"), Size(10)]
-        public String ActualDuration1
-        {
-            get { return Fields.ActualDuration1[this]; }
-            set { Fields.ActualDuration1[this] = value; }
-        }
-
-        [DisplayName("Actual Hrs"), Size(10)]
-        public String ActualDuration2
-        {
-            get { return Fields.ActualDuration2[this]; }
-            set { Fields.ActualDuration2[this] = value; }
-        }
-
-        [DisplayName("Actual Hrs"), Size(10)]
-        public String ActualDuration3
-        {
-            get { return Fields.ActualDuration3[this]; }
-            set { Fields.ActualDuration3[this] = value; }
-        }
-
-        [DisplayName("Actual Mins"), Size(10)]
-        public String ActualDurationMins1
-        {
-            get { return Fields.ActualDuration1[this]; }
-            set { Fields.ActualDuration1[this] = value; }
-        }
-
-        [DisplayName("Actual Mins"), Size(10)]
-        public String ActualDurationMins2
-        {
-            get { return Fields.ActualDuration1[this]; }
-            set { Fields.ActualDuration1[this] = value; }
-        }
-
-        [DisplayName("Actual Mins"), Size(10)]
-        public String ActualDurationMins3
-        {
-            get { return Fields.ActualDuration1[this]; }
-            set { Fields.ActualDuration1[this] = value; }
-        }
-
-        [DisplayName("Actual Hrs"), Size(10)]
-        public String ActualTotalHours
-        {
-            get { return Fields.ActualTotalHours[this]; }
-            set { Fields.ActualTotalHours[this] = value; }
-        }
-
-        [DisplayName("Actual Mins"), Size(10)]
-        public String ActualTotalMinutes
-        {
-            get { return Fields.ActualTotalMinutes[this]; }
-            set { Fields.ActualTotalMinutes[this] = value; }
-        }
-
-        [DisplayName("Actual Mileage"), Size(10)]
-        public String ActualTotalMileage
-        {
-            get { return Fields.ActualTotalMileage[this]; }
-            set { Fields.ActualTotalMileage[this] = value; }
         }
 
         [DisplayName("Appointment Time"), Size(10)]
@@ -463,27 +327,6 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.ApptType2[this]; }
             set { Fields.ApptType2[this] = value; }
-        }
-
-        [DisplayName("Appt. Type"), Size(10)]
-        public String ApptType3
-        {
-            get { return Fields.ApptType3[this]; }
-            set { Fields.ApptType3[this] = value; }
-        }
-
-        [DisplayName("Appointment Time"), Size(10)]
-        public String AppointmentTime3
-        {
-            get { return Fields.AppointmentTime3[this]; }
-            set { Fields.AppointmentTime3[this] = value; }
-        }
-
-        [DisplayName("Est. Appt. Length"), Size(10)]
-        public String ApptTime3
-        {
-            get { return Fields.ApptTime3[this]; }
-            set { Fields.ApptTime3[this] = value; }
         }
 
 
@@ -515,21 +358,6 @@ namespace MobilityMatters.Northwind.Entities
             get { return Fields.CustomerRegion[this]; }
             set { Fields.CustomerRegion[this] = value; }
         }
-
-        [Origin("c"), TextAreaEditor]
-        public String CustomerSpecialNeedsPlainText
-        {
-            get { return Fields.CustomerSpecialNeedsPlainText[this]; }
-            set { Fields.CustomerSpecialNeedsPlainText[this] = value; }
-        }
-
-        [Origin("c"), TextAreaEditor]
-        public String CustomerSpecialConditionsDirections
-        {
-            get { return Fields.CustomerSpecialConditionsDirections[this]; }
-            set { Fields.CustomerSpecialConditionsDirections[this] = value; }
-        }
-
 
         [Origin("c")]
         public String CustomerCountry
@@ -615,59 +443,28 @@ namespace MobilityMatters.Northwind.Entities
             public StringField ShipCity;
             public StringField ShipRegion;
             public StringField ShipPostalCode;
-            public StringField ShipCountry;
-            public Int32Field HowMany;
-            public StringField ActualTotalHours;
-            public StringField ActualTotalMinutes;
-            public StringField ActualTotalMileage;
-
-            //Trip One
             public StringField DestinationAddress;
             public StringField DestinationCity;
-            public StringField DestinationZip;
-            public StringField DestinationApartment;
+            public StringField DestinationAddress2;
+            public StringField DestinationCity2;
             public StringField ApptTime;
             public StringField AppointmentTime;
             public StringField ApptType;
+            public StringField ApptTime2;
+            public StringField AppointmentTime2;
+            public StringField ApptType2;
+            public StringField DestinationZip;
+            public StringField DestinationZip2;
+            public StringField ShipCountry;
             public StringField DistanceText;
             public Int32Field DistanceValue;
             public StringField DurationText;
             public Int32Field DurationValue;
-            public StringField ActualDuration1;
-            public StringField ActualDurationMins1;
-
-
-            //Trip Two
-            public StringField DestinationAddress2;
-            public StringField DestinationCity2;
-            public StringField DestinationZip2;
-            public StringField DestinationApartment2;
-            public StringField ApptTime2;
-            public StringField AppointmentTime2;
-            public StringField ApptType2;
             public StringField DistanceText2;
             public Int32Field DistanceValue2;
             public StringField DurationText2;
             public Int32Field DurationValue2;
-            public StringField ActualDuration2;
-            public StringField ActualDurationMins2;
-
-            //Trip Three
-            public StringField DestinationAddress3;
-            public StringField DestinationCity3;
-            public StringField DestinationZip3;
-            public StringField DestinationApartment3;
-            public StringField ApptTime3;
-            public StringField AppointmentTime3;
-            public StringField ApptType3;
-            public StringField DistanceText3;
-            public Int32Field DistanceValue3;
-            public StringField DurationText3;
-            public Int32Field DurationValue3;
-            public StringField ActualDuration3;
-            public StringField ActualDurationMins3;
-
-
+            public Int32Field HowMany;
 
             public StringField CustomerCompanyName;
             public StringField CustomerContactName;
@@ -678,8 +475,6 @@ namespace MobilityMatters.Northwind.Entities
             public StringField CustomerPhone;
             public BooleanField CustomerTEMP;
             public ListField<Int32> CustomerSpecialNeedsList;
-            public StringField CustomerSpecialNeedsPlainText;
-            public StringField CustomerSpecialConditionsDirections;
 
             public StringField EmployeeFullName;
             public StringField CustomerFullName;

@@ -356,20 +356,6 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.NoteList[this] = value; }
         }
 
-        [Width(100), TextAreaEditor, DisplayName("Rider Special Needs")]
-        public String SpecialNeedsPlainText
-        {
-            get { return Fields.SpecialNeedsPlainText[this]; }
-            set { Fields.SpecialNeedsPlainText[this] = value; }
-        }
-
-        [Width(100), TextAreaEditor, DisplayName("Special Conditions & Directions")]
-        public String SpecialConditionsDirections
-        {
-            get { return Fields.SpecialConditionsDirections[this]; }
-            set { Fields.SpecialConditionsDirections[this] = value; }
-        }
-
         [LookupEditor(typeof(EmployeeRow), Multiple = true), NotMapped]
         [LinkingSetRelation(typeof(CustomerRepresentativesRow), "CustomerId", "EmployeeId")]
         [MinSelectLevel(SelectLevel.Details), QuickFilter(CssClass = "hidden-xs")]
@@ -379,7 +365,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Representatives[this] = value; }
         }
 
-        [DisplayName("Old Special Needs")]
+        [DisplayName("Special Needs")]
         [LookupEditor(typeof(SpecialNeedsRow), Multiple = true), NotMapped]
         [LinkingSetRelation(typeof(SpecialNeedsMultipleRow), "CustomerId", "SpecialNeedsId")]
         [MinSelectLevel(SelectLevel.Details)]
@@ -466,10 +452,6 @@ namespace MobilityMatters.Northwind.Entities
             /*public BooleanField SendBulletin;*/
 
             public DateTimeField DateOfLastTrip;
-
-
-            public StringField SpecialNeedsPlainText;
-            public StringField SpecialConditionsDirections;
 
         }
     }

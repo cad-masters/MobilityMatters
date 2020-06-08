@@ -34,8 +34,6 @@
         AgeCalc: Serenity.IntegerEditor;
         PLanguage: Serenity.StringEditor;
         SpecialNeedsList: Serenity.LookupEditor;
-        SpecialNeedsPlainText: Serenity.StringEditor;
-        SpecialConditionsDirections: Serenity.StringEditor;
         DNR: Serenity.LookupEditor;
         Radio: Serenity.BooleanEditor;
         EIO: Serenity.BooleanEditor;
@@ -101,8 +99,6 @@
                     'AgeCalc', w6,
                     'PLanguage', w0,
                     'SpecialNeedsList', w1,
-                    'SpecialNeedsPlainText', w0,
-                    'SpecialConditionsDirections', w0,
                     'DNR', w1,
                     'Radio', w3,
                     'EIO', w3,

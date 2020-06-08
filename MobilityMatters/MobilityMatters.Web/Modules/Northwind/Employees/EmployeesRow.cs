@@ -524,7 +524,6 @@ namespace MobilityMatters.Northwind.Entities
             public StreamField Photo;
             public StringField Notes;
             public StringField VolunteerRegion;
-            public StringField NotesPlainText;
             public Int32Field ReportsTo;
             public StringField PhotoPath;
             public BooleanField OnVacation;
@@ -535,7 +534,7 @@ namespace MobilityMatters.Northwind.Entities
             public DateTimeField LicensePlateExp;
             public StringField Insurance;
             public DateTimeField InsuranceExp;
-
+            
             public StringField VehicleMake;
             public StringField VehicleModel;
             public StringField VehicleMake2;
@@ -566,6 +565,7 @@ namespace MobilityMatters.Northwind.Entities
             public StringField ReportsToExtension;
             public StreamField ReportsToPhoto;
             public StringField ReportsToNotes;
+            public StringField NotesPlainText;
             public Int32Field ReportsTo1;
             public StringField ReportsToPhotoPath;
 

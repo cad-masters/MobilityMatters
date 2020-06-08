@@ -23,8 +23,8 @@ namespace MobilityMatters.Northwind.Columns
         public String CustomerPhone { get; set; }
         [Width(60)]
         public Boolean CustomerTEMP { get; set; }
-        [Width(110)]
-        public String CustomerSpecialNeedsPlainText { get; set; }
+        [Width(110), SpecialNeedsListFormatter]
+        public List<Int32> CustomerSpecialNeedsList { get; set; }
 
         [Width(140), /*EmployeeFormatter(GenderProperty = "EmployeeGender"),*/ QuickFilter(CssClass = "hidden-xs")]
         public String EmployeeFullName { get; set; }
@@ -32,16 +32,11 @@ namespace MobilityMatters.Northwind.Columns
         public String HowMany { get; set; }
         [Width(100)]
         public String RequiredDate { get; set; }
-
+        
         [Width(100)]
         public String ApptTime { get; set; }
         [Width(100)]
         public String ApptType { get; set; }
-
-        [Width(100)]
-        public String ActualTotalHours { get; set; }
-        [Width(100)]
-        public String ActualTotalMileage { get; set; }
 
         [FilterOnly, QuickFilter, Hidden]
         public OrderShippingState ShippingState { get; set; }
