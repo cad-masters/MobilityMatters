@@ -6,12 +6,9 @@
         Program: Serenity.LookupEditor;
         ProgramOption: Serenity.LookupEditor;
         ReferralSource: Serenity.StringEditor;
-        DateOfLastTrip: Serenity.DateEditor;
-        Active: Serenity.BooleanEditor;
         TEMP: Serenity.BooleanEditor;
-        StartDate: Serenity.DateEditor;
-        EndDate: Serenity.DateEditor;
-        WhyEnding: Serenity.StringEditor;
+        Active: Serenity.BooleanEditor;
+        DateOfLastTrip: Serenity.DateEditor;
         Phone: Serenity.StringEditor;
         AltPhone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
@@ -58,8 +55,8 @@
                 var s = Serenity;
                 var w0 = s.StringEditor;
                 var w1 = s.LookupEditor;
-                var w2 = s.DateEditor;
-                var w3 = s.BooleanEditor;
+                var w2 = s.BooleanEditor;
+                var w3 = s.DateEditor;
                 var w4 = s.EmailEditor;
                 var w5 = NotesEditor;
                 var w6 = s.IntegerEditor;
@@ -71,12 +68,9 @@
                     'Program', w1,
                     'ProgramOption', w1,
                     'ReferralSource', w0,
-                    'DateOfLastTrip', w2,
-                    'Active', w3,
-                    'TEMP', w3,
-                    'StartDate', w2,
-                    'EndDate', w2,
-                    'WhyEnding', w0,
+                    'TEMP', w2,
+                    'Active', w2,
+                    'DateOfLastTrip', w3,
                     'Phone', w0,
                     'AltPhone', w0,
                     'Email', w4,
@@ -95,15 +89,15 @@
                     'LivingWith', w0,
                     'NoteList', w5,
                     'Gender', w1,
-                    'BirthDate', w2,
+                    'BirthDate', w3,
                     'AgeCalc', w6,
                     'PLanguage', w0,
                     'SpecialNeedsList', w1,
                     'DNR', w1,
-                    'Radio', w3,
-                    'EIO', w3,
+                    'Radio', w2,
+                    'EIO', w2,
                     'PreferredHospital', w0,
-                    'Smoker', w3,
+                    'Smoker', w2,
                     'Medical', w0,
                     'Dental', w0,
                     'Groceries', w0,

@@ -37,15 +37,12 @@
         DistanceValue2?: number;
         DurationText2?: string;
         DurationValue2?: number;
-        HowMany?: number;
         CustomerCompanyName?: string;
         CustomerContactName?: string;
         CustomerCity?: string;
         CustomerRegion?: string;
         CustomerCountry?: string;
         CustomerPhone?: string;
-        CustomerTEMP?: boolean;
-        CustomerSpecialNeedsList?: number[];
         EmployeeFullName?: string;
         CustomerFullName?: string;
         EmployeeGender?: Gender;
@@ -108,15 +105,12 @@
             DistanceValue2 = "DistanceValue2",
             DurationText2 = "DurationText2",
             DurationValue2 = "DurationValue2",
-            HowMany = "HowMany",
             CustomerCompanyName = "CustomerCompanyName",
             CustomerContactName = "CustomerContactName",
             CustomerCity = "CustomerCity",
             CustomerRegion = "CustomerRegion",
             CustomerCountry = "CustomerCountry",
             CustomerPhone = "CustomerPhone",
-            CustomerTEMP = "CustomerTEMP",
-            CustomerSpecialNeedsList = "CustomerSpecialNeedsList",
             EmployeeFullName = "EmployeeFullName",
             CustomerFullName = "CustomerFullName",
             EmployeeGender = "EmployeeGender",

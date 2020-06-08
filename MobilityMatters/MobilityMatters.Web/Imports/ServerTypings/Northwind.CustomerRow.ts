@@ -24,9 +24,6 @@
         Program?: string;
         ProgramOption?: string;
         TEMP?: boolean;
-        StartDate?: string;
-        EndDate?: string;
-        WhyEnding?: string;
         EIO?: boolean;
         Smoker?: boolean;
         Active?: boolean;
@@ -88,9 +85,6 @@
             Program = "Program",
             ProgramOption = "ProgramOption",
             TEMP = "TEMP",
-            StartDate = "StartDate",
-            EndDate = "EndDate",
-            WhyEnding = "WhyEnding",
             EIO = "EIO",
             Smoker = "Smoker",
             Active = "Active",

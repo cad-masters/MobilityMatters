@@ -1175,12 +1175,9 @@ declare namespace MobilityMatters.Northwind {
         Program: Serenity.LookupEditor;
         ProgramOption: Serenity.LookupEditor;
         ReferralSource: Serenity.StringEditor;
-        DateOfLastTrip: Serenity.DateEditor;
-        Active: Serenity.BooleanEditor;
         TEMP: Serenity.BooleanEditor;
-        StartDate: Serenity.DateEditor;
-        EndDate: Serenity.DateEditor;
-        WhyEnding: Serenity.StringEditor;
+        Active: Serenity.BooleanEditor;
+        DateOfLastTrip: Serenity.DateEditor;
         Phone: Serenity.StringEditor;
         AltPhone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
@@ -1289,9 +1286,6 @@ declare namespace MobilityMatters.Northwind {
         Program?: string;
         ProgramOption?: string;
         TEMP?: boolean;
-        StartDate?: string;
-        EndDate?: string;
-        WhyEnding?: string;
         EIO?: boolean;
         Smoker?: boolean;
         Active?: boolean;
@@ -1348,9 +1342,6 @@ declare namespace MobilityMatters.Northwind {
             Program = "Program",
             ProgramOption = "ProgramOption",
             TEMP = "TEMP",
-            StartDate = "StartDate",
-            EndDate = "EndDate",
-            WhyEnding = "WhyEnding",
             EIO = "EIO",
             Smoker = "Smoker",
             Active = "Active",
@@ -1406,24 +1397,10 @@ declare namespace MobilityMatters.Northwind {
     }
 }
 declare namespace MobilityMatters.Northwind {
-    interface DistanceMatrixRequest2 extends Serenity.ServiceRequest {
-        Source2?: string;
-        Destination2?: string;
-    }
-}
-declare namespace MobilityMatters.Northwind {
     interface DistanceMatrixResponse extends Serenity.ServiceResponse {
         Status?: string;
         DestinationAddresses?: string[];
         OriginAddresses?: string[];
-        Rows?: Row[];
-    }
-}
-declare namespace MobilityMatters.Northwind {
-    interface DistanceMatrixResponse2 extends Serenity.ServiceResponse {
-        Status?: string;
-        DestinationAddresses?: string[];
-        Destination2Addresses?: string[];
         Rows?: Row[];
     }
 }
@@ -2130,12 +2107,11 @@ declare namespace MobilityMatters.Northwind {
         RequiredDate: Serenity.StringEditor;
         EmployeeID: Serenity.LookupEditor;
         RideCompleted: Serenity.BooleanEditor;
-        HowMany: Serenity.LookupEditor;
         Cancelled: Serenity.BooleanEditor;
         CancelReason: Serenity.StringEditor;
         AppointmentTime: Serenity.StringEditor;
         ShipAddress: Serenity.StringEditor;
-        ShipCity: Serenity.LookupEditor;
+        ShipCity: Serenity.StringEditor;
         ShipPostalCode: Serenity.StringEditor;
         DestinationAddress: Serenity.StringEditor;
         DestinationCity: Serenity.StringEditor;
@@ -2203,15 +2179,12 @@ declare namespace MobilityMatters.Northwind {
         DistanceValue2?: number;
         DurationText2?: string;
         DurationValue2?: number;
-        HowMany?: number;
         CustomerCompanyName?: string;
         CustomerContactName?: string;
         CustomerCity?: string;
         CustomerRegion?: string;
         CustomerCountry?: string;
         CustomerPhone?: string;
-        CustomerTEMP?: boolean;
-        CustomerSpecialNeedsList?: number[];
         EmployeeFullName?: string;
         CustomerFullName?: string;
         EmployeeGender?: Gender;
@@ -2269,15 +2242,12 @@ declare namespace MobilityMatters.Northwind {
             DistanceValue2 = "DistanceValue2",
             DurationText2 = "DurationText2",
             DurationValue2 = "DurationValue2",
-            HowMany = "HowMany",
             CustomerCompanyName = "CustomerCompanyName",
             CustomerContactName = "CustomerContactName",
             CustomerCity = "CustomerCity",
             CustomerRegion = "CustomerRegion",
             CustomerCountry = "CustomerCountry",
             CustomerPhone = "CustomerPhone",
-            CustomerTEMP = "CustomerTEMP",
-            CustomerSpecialNeedsList = "CustomerSpecialNeedsList",
             EmployeeFullName = "EmployeeFullName",
             CustomerFullName = "CustomerFullName",
             EmployeeGender = "EmployeeGender",

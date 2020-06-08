@@ -57,9 +57,9 @@ namespace MobilityMatters.Northwind.Endpoints
             return new MyRepository().GetDistanceMatrix(connection, request);
         }
 
-        //public DistanceMatrixResponse2 GetDistanceMatrix2(IDbConnection connection, DistanceMatrixRequest2 request)
-        //{
-        //    return new MyRepository().GetDistanceMatrix2(connection, request);
-        //}
+        public DistanceMatrixResponse2 GetDistanceMatrix2(IDbConnection connection, DistanceMatrixRequest2 request)
+        {
+            return new MyRepository().GetDistanceMatrix2(connection, request);
+        }
     }
 }
