@@ -2020,8 +2020,10 @@
     <Compile Include="Modules\Northwind\Note\NotesBehavior.cs" />
     <Compile Include="Modules\Northwind\OrderDetail\OrderDetailColumns.cs" />
     <Content Include="Modules\Northwind\Order\OrderDetailReport.cshtml" />
+    <Compile Include="Modules\Northwind\Order\DistanceMatrixRequest2.cs" />
     <Compile Include="Modules\Northwind\Order\DistanceMatrixResponse.cs" />
     <Compile Include="Modules\Northwind\Order\DistanceMatrixRequest.cs" />
+    <Compile Include="Modules\Northwind\Order\DistanceMatrixResponse2.cs" />
     <Compile Include="Modules\Northwind\Order\OrderHowManyLookup.cs" />
     <Compile Include="Modules\Northwind\Order\OrderDetailReport.cs" />
     <Compile Include="Modules\Northwind\Order\OrderListRequest.cs" />
