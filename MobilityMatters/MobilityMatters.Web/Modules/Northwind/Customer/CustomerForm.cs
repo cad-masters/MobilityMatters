@@ -97,6 +97,12 @@ namespace MobilityMatters.Northwind.Forms
         [HalfWidth]
         public List<Int32> SpecialNeedsList { get; set; }
 
+
+        [HalfWidth]
+        public String SpecialNeedsPlainText { get; set; }
+        [HalfWidth]
+        public String SpecialConditionsDirections { get; set; }
+
         [HalfWidth]
         public String DNR { get; set; }
 

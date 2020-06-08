@@ -84,6 +84,9 @@ namespace MobilityMatters.Northwind.Forms
         public List<Int32> AvailabilityAMList { get; set; }
         [HalfWidth]
         public List<Int32> AvailabilityPMList { get; set; }
+
+        [Category("Volunteer Notes"), TextAreaEditor]
+        public String NotesPlainText { get; set; }
         /*public String Extension { get; set; }
         public Stream Photo { get; set; }
         public String Notes { get; set; }
