@@ -316,6 +316,13 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Language[this] = value; }
         }
 
+        [DisplayName("Volunteer Notes"), Size(100)]
+        public String NotesPlainText
+        {
+            get { return Fields.NotesPlainText[this]; }
+            set { Fields.NotesPlainText[this] = value; }
+        }
+
         [DisplayName("Inactive"), Size(30)]
         public Boolean? Inactive
         {
@@ -558,6 +565,7 @@ namespace MobilityMatters.Northwind.Entities
             public StringField ReportsToExtension;
             public StreamField ReportsToPhoto;
             public StringField ReportsToNotes;
+            public StringField NotesPlainText;
             public Int32Field ReportsTo1;
             public StringField ReportsToPhotoPath;
 

@@ -6,11 +6,12 @@
         RequiredDate: Serenity.StringEditor;
         EmployeeID: Serenity.LookupEditor;
         RideCompleted: Serenity.BooleanEditor;
+        HowMany: Serenity.LookupEditor;
         Cancelled: Serenity.BooleanEditor;
         CancelReason: Serenity.StringEditor;
         AppointmentTime: Serenity.StringEditor;
         ShipAddress: Serenity.StringEditor;
-        ShipCity: Serenity.StringEditor;
+        ShipCity: Serenity.LookupEditor;
         ShipPostalCode: Serenity.StringEditor;
         DestinationAddress: Serenity.StringEditor;
         DestinationCity: Serenity.StringEditor;
@@ -54,11 +55,12 @@
                     'RequiredDate', w3,
                     'EmployeeID', w4,
                     'RideCompleted', w5,
+                    'HowMany', w4,
                     'Cancelled', w5,
                     'CancelReason', w3,
                     'AppointmentTime', w3,
                     'ShipAddress', w3,
-                    'ShipCity', w3,
+                    'ShipCity', w4,
                     'ShipPostalCode', w3,
                     'DestinationAddress', w3,
                     'DestinationCity', w3,
