@@ -9,6 +9,7 @@ namespace MobilityMatters.Northwind.Repositories
     using System.Data;
     using System.IO;
     using System.Net;
+    using static MobilityMatters.Northwind.OrderModel;
     using MyRow = Entities.OrderRow;
 
     public class OrderRepository
@@ -45,7 +46,7 @@ namespace MobilityMatters.Northwind.Repositories
             return new MyListHandler().Process(connection, request);
         }
 
-        public DistanceMatrixResponse GetDistanceMatrix(IDbConnection connection, DistanceMatrixRequest DistanceMatrixRequest)
+        public DistanceMatrixResponse DistanceMatrix(IDbConnection connection, DistanceMatrixRequest DistanceMatrixRequest)
         {
             return GetDistanceMatrix(DistanceMatrixRequest);
         }
@@ -132,9 +133,9 @@ namespace MobilityMatters.Northwind.Repositories
             {
                 base.BeforeSave();
 
-                if (!IsCreate && (Old.DestinationAddress != Row.DestinationAddress ||
+                if (Old.DestinationAddress != Row.DestinationAddress ||
                     Old.DestinationCity != Row.DestinationCity ||
-                    Old.DestinationZip != Row.DestinationZip))
+                    Old.DestinationZip != Row.DestinationZip)
                 {
                     var destination = (Row.DestinationAddress == null ? "" : Row.DestinationAddress + ",") +
                         (Row.DestinationCity == null ? "" : Row.DestinationCity + ",") +

@@ -60,6 +60,7 @@
         ReportsToExtension?: string;
         ReportsToPhoto?: number[];
         ReportsToNotes?: string;
+        NotesPlainText?: string;
         ReportsTo1?: number;
         ReportsToPhotoPath?: string;
         DateOfLastTrip?: string;
@@ -136,6 +137,7 @@
             ReportsToExtension = "ReportsToExtension",
             ReportsToPhoto = "ReportsToPhoto",
             ReportsToNotes = "ReportsToNotes",
+            NotesPlainText = "NotesPlainText",
             ReportsTo1 = "ReportsTo1",
             ReportsToPhotoPath = "ReportsToPhotoPath",
             DateOfLastTrip = "DateOfLastTrip",
