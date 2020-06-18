@@ -2,15 +2,13 @@
     export interface CustomerForm {
         CustomerID: Serenity.StringEditor;
         CompanyName: Serenity.StringEditor;
-        ContactName: Serenity.StringEditor;
         Program: Serenity.LookupEditor;
         ProgramOption: Serenity.LookupEditor;
         ReferralSource: Serenity.StringEditor;
-        TEMP: Serenity.BooleanEditor;
+        TEMP: Serenity.StringEditor;
         Active: Serenity.BooleanEditor;
-        DateOfLastTrip: Serenity.DateEditor;
+        ContactName: Serenity.StringEditor;
         Phone: Serenity.StringEditor;
-        AltPhone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
         EmergencyName: Serenity.StringEditor;
         EmergencyPhone: Serenity.StringEditor;
@@ -31,8 +29,8 @@
         AgeCalc: Serenity.IntegerEditor;
         PLanguage: Serenity.StringEditor;
         SpecialNeedsList: Serenity.LookupEditor;
-        SpecialNeedsPlainText: Serenity.StringEditor;
-        SpecialConditionsDirections: Serenity.StringEditor;
+        SpecialNeedsPlainText: Serenity.TextAreaEditor;
+        SpecialConditionsDirections: Serenity.TextAreaEditor;
         DNR: Serenity.LookupEditor;
         Radio: Serenity.BooleanEditor;
         EIO: Serenity.BooleanEditor;
@@ -58,24 +56,23 @@
                 var w0 = s.StringEditor;
                 var w1 = s.LookupEditor;
                 var w2 = s.BooleanEditor;
-                var w3 = s.DateEditor;
-                var w4 = s.EmailEditor;
-                var w5 = NotesEditor;
+                var w3 = s.EmailEditor;
+                var w4 = NotesEditor;
+                var w5 = s.DateEditor;
                 var w6 = s.IntegerEditor;
+                var w7 = s.TextAreaEditor;
 
                 Q.initFormType(CustomerForm, [
                     'CustomerID', w0,
                     'CompanyName', w0,
-                    'ContactName', w0,
                     'Program', w1,
                     'ProgramOption', w1,
                     'ReferralSource', w0,
-                    'TEMP', w2,
+                    'TEMP', w0,
                     'Active', w2,
-                    'DateOfLastTrip', w3,
+                    'ContactName', w0,
                     'Phone', w0,
-                    'AltPhone', w0,
-                    'Email', w4,
+                    'Email', w3,
                     'EmergencyName', w0,
                     'EmergencyPhone', w0,
                     'EmergencyRelation', w0,
@@ -89,14 +86,14 @@
                     'PostalCode', w0,
                     'Residence', w1,
                     'LivingWith', w0,
-                    'NoteList', w5,
+                    'NoteList', w4,
                     'Gender', w1,
-                    'BirthDate', w3,
+                    'BirthDate', w5,
                     'AgeCalc', w6,
                     'PLanguage', w0,
                     'SpecialNeedsList', w1,
-                    'SpecialNeedsPlainText', w0,
-                    'SpecialConditionsDirections', w0,
+                    'SpecialNeedsPlainText', w7,
+                    'SpecialConditionsDirections', w7,
                     'DNR', w1,
                     'Radio', w2,
                     'EIO', w2,

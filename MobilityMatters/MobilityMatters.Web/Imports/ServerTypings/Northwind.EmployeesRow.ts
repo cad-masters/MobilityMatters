@@ -21,6 +21,7 @@
         Photo?: number[];
         Notes?: string;
         VolunteerRegion?: string;
+        NotesPlainText?: string;
         ReportsTo?: number;
         PhotoPath?: string;
         OnVacation?: boolean;
@@ -60,7 +61,6 @@
         ReportsToExtension?: string;
         ReportsToPhoto?: number[];
         ReportsToNotes?: string;
-        NotesPlainText?: string;
         ReportsTo1?: number;
         ReportsToPhotoPath?: string;
         DateOfLastTrip?: string;
@@ -98,6 +98,7 @@
             Photo = "Photo",
             Notes = "Notes",
             VolunteerRegion = "VolunteerRegion",
+            NotesPlainText = "NotesPlainText",
             ReportsTo = "ReportsTo",
             PhotoPath = "PhotoPath",
             OnVacation = "OnVacation",
@@ -137,7 +138,6 @@
             ReportsToExtension = "ReportsToExtension",
             ReportsToPhoto = "ReportsToPhoto",
             ReportsToNotes = "ReportsToNotes",
-            NotesPlainText = "NotesPlainText",
             ReportsTo1 = "ReportsTo1",
             ReportsToPhotoPath = "ReportsToPhotoPath",
             DateOfLastTrip = "DateOfLastTrip",

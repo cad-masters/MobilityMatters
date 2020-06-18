@@ -95,11 +95,11 @@ namespace Serenity.Reporting
                 if (!ReferenceEquals(null, dtf) &&
                     dtf.DateTimeKind != DateTimeKind.Unspecified)
                 {
-                    result.Format = "dd/MM/yyyy HH:mm";
+                    result.Format = "MM/dd/yyyy HH:mm";
                 }
                 else if (!ReferenceEquals(null, dtf))
                 {
-                    result.Format = "dd/MM/yyyy";
+                    result.Format = "MM/dd/yyyy";
                 }
             }
 

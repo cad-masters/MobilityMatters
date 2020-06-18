@@ -24,6 +24,9 @@
         Program?: string;
         ProgramOption?: string;
         TEMP?: boolean;
+        StartDate?: string;
+        EndDate?: string;
+        WhyEnding?: string;
         EIO?: boolean;
         Smoker?: boolean;
         Active?: boolean;
@@ -44,6 +47,8 @@
         EmergencyRelation?: string;
         AgeCalc?: number;
         DateOfLastTrip?: string;
+        SpecialNeedsPlainText?: string;
+        SpecialConditionsDirections?: string;
     }
 
     export namespace CustomerRow {
@@ -85,6 +90,9 @@
             Program = "Program",
             ProgramOption = "ProgramOption",
             TEMP = "TEMP",
+            StartDate = "StartDate",
+            EndDate = "EndDate",
+            WhyEnding = "WhyEnding",
             EIO = "EIO",
             Smoker = "Smoker",
             Active = "Active",
@@ -104,7 +112,9 @@
             EmergencyRelation2 = "EmergencyRelation2",
             EmergencyRelation = "EmergencyRelation",
             AgeCalc = "AgeCalc",
-            DateOfLastTrip = "DateOfLastTrip"
+            DateOfLastTrip = "DateOfLastTrip",
+            SpecialNeedsPlainText = "SpecialNeedsPlainText",
+            SpecialConditionsDirections = "SpecialConditionsDirections"
         }
     }
 }

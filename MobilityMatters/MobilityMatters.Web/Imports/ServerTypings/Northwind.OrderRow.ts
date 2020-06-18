@@ -16,33 +16,60 @@
         ShipCity?: string;
         ShipRegion?: string;
         ShipPostalCode?: string;
+        ShipCountry?: string;
+        HowMany?: number;
+        ActualTotalHours?: string;
+        ActualTotalMinutes?: string;
+        ActualTotalMileage?: string;
         DestinationAddress?: string;
         DestinationCity?: string;
-        DestinationAddress2?: string;
-        DestinationCity2?: string;
+        DestinationZip?: string;
+        DestinationApartment?: string;
         ApptTime?: string;
         AppointmentTime?: string;
         ApptType?: string;
-        ApptTime2?: string;
-        AppointmentTime2?: string;
-        ApptType2?: string;
-        DestinationZip?: string;
-        DestinationZip2?: string;
-        ShipCountry?: string;
         DistanceText?: string;
         DistanceValue?: number;
         DurationText?: string;
         DurationValue?: number;
+        ActualDuration1?: string;
+        ActualDurationMins1?: string;
+        DestinationAddress2?: string;
+        DestinationCity2?: string;
+        DestinationZip2?: string;
+        DestinationApartment2?: string;
+        ApptTime2?: string;
+        AppointmentTime2?: string;
+        ApptType2?: string;
         DistanceText2?: string;
         DistanceValue2?: number;
         DurationText2?: string;
         DurationValue2?: number;
+        ActualDuration2?: string;
+        ActualDurationMins2?: string;
+        DestinationAddress3?: string;
+        DestinationCity3?: string;
+        DestinationZip3?: string;
+        DestinationApartment3?: string;
+        ApptTime3?: string;
+        AppointmentTime3?: string;
+        ApptType3?: string;
+        DistanceText3?: string;
+        DistanceValue3?: number;
+        DurationText3?: string;
+        DurationValue3?: number;
+        ActualDuration3?: string;
+        ActualDurationMins3?: string;
         CustomerCompanyName?: string;
         CustomerContactName?: string;
         CustomerCity?: string;
         CustomerRegion?: string;
         CustomerCountry?: string;
         CustomerPhone?: string;
+        CustomerTEMP?: boolean;
+        CustomerSpecialNeedsList?: number[];
+        CustomerSpecialNeedsPlainText?: string;
+        CustomerSpecialConditionsDirections?: string;
         EmployeeFullName?: string;
         CustomerFullName?: string;
         EmployeeGender?: Gender;
@@ -84,33 +111,60 @@
             ShipCity = "ShipCity",
             ShipRegion = "ShipRegion",
             ShipPostalCode = "ShipPostalCode",
+            ShipCountry = "ShipCountry",
+            HowMany = "HowMany",
+            ActualTotalHours = "ActualTotalHours",
+            ActualTotalMinutes = "ActualTotalMinutes",
+            ActualTotalMileage = "ActualTotalMileage",
             DestinationAddress = "DestinationAddress",
             DestinationCity = "DestinationCity",
-            DestinationAddress2 = "DestinationAddress2",
-            DestinationCity2 = "DestinationCity2",
+            DestinationZip = "DestinationZip",
+            DestinationApartment = "DestinationApartment",
             ApptTime = "ApptTime",
             AppointmentTime = "AppointmentTime",
             ApptType = "ApptType",
-            ApptTime2 = "ApptTime2",
-            AppointmentTime2 = "AppointmentTime2",
-            ApptType2 = "ApptType2",
-            DestinationZip = "DestinationZip",
-            DestinationZip2 = "DestinationZip2",
-            ShipCountry = "ShipCountry",
             DistanceText = "DistanceText",
             DistanceValue = "DistanceValue",
             DurationText = "DurationText",
             DurationValue = "DurationValue",
+            ActualDuration1 = "ActualDuration1",
+            ActualDurationMins1 = "ActualDurationMins1",
+            DestinationAddress2 = "DestinationAddress2",
+            DestinationCity2 = "DestinationCity2",
+            DestinationZip2 = "DestinationZip2",
+            DestinationApartment2 = "DestinationApartment2",
+            ApptTime2 = "ApptTime2",
+            AppointmentTime2 = "AppointmentTime2",
+            ApptType2 = "ApptType2",
             DistanceText2 = "DistanceText2",
             DistanceValue2 = "DistanceValue2",
             DurationText2 = "DurationText2",
             DurationValue2 = "DurationValue2",
+            ActualDuration2 = "ActualDuration2",
+            ActualDurationMins2 = "ActualDurationMins2",
+            DestinationAddress3 = "DestinationAddress3",
+            DestinationCity3 = "DestinationCity3",
+            DestinationZip3 = "DestinationZip3",
+            DestinationApartment3 = "DestinationApartment3",
+            ApptTime3 = "ApptTime3",
+            AppointmentTime3 = "AppointmentTime3",
+            ApptType3 = "ApptType3",
+            DistanceText3 = "DistanceText3",
+            DistanceValue3 = "DistanceValue3",
+            DurationText3 = "DurationText3",
+            DurationValue3 = "DurationValue3",
+            ActualDuration3 = "ActualDuration3",
+            ActualDurationMins3 = "ActualDurationMins3",
             CustomerCompanyName = "CustomerCompanyName",
             CustomerContactName = "CustomerContactName",
             CustomerCity = "CustomerCity",
             CustomerRegion = "CustomerRegion",
             CustomerCountry = "CustomerCountry",
             CustomerPhone = "CustomerPhone",
+            CustomerTEMP = "CustomerTEMP",
+            CustomerSpecialNeedsList = "CustomerSpecialNeedsList",
+            CustomerSpecialNeedsPlainText = "CustomerSpecialNeedsPlainText",
+            CustomerSpecialConditionsDirections = "CustomerSpecialConditionsDirections",
             EmployeeFullName = "EmployeeFullName",
             CustomerFullName = "CustomerFullName",
             EmployeeGender = "EmployeeGender",

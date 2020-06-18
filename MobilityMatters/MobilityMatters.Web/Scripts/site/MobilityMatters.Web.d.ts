@@ -1181,15 +1181,13 @@ declare namespace MobilityMatters.Northwind {
     interface CustomerForm {
         CustomerID: Serenity.StringEditor;
         CompanyName: Serenity.StringEditor;
-        ContactName: Serenity.StringEditor;
         Program: Serenity.LookupEditor;
         ProgramOption: Serenity.LookupEditor;
         ReferralSource: Serenity.StringEditor;
-        TEMP: Serenity.BooleanEditor;
+        TEMP: Serenity.StringEditor;
         Active: Serenity.BooleanEditor;
-        DateOfLastTrip: Serenity.DateEditor;
+        ContactName: Serenity.StringEditor;
         Phone: Serenity.StringEditor;
-        AltPhone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
         EmergencyName: Serenity.StringEditor;
         EmergencyPhone: Serenity.StringEditor;
@@ -1210,8 +1208,8 @@ declare namespace MobilityMatters.Northwind {
         AgeCalc: Serenity.IntegerEditor;
         PLanguage: Serenity.StringEditor;
         SpecialNeedsList: Serenity.LookupEditor;
-        SpecialNeedsPlainText: Serenity.StringEditor;
-        SpecialConditionsDirections: Serenity.StringEditor;
+        SpecialNeedsPlainText: Serenity.TextAreaEditor;
+        SpecialConditionsDirections: Serenity.TextAreaEditor;
         DNR: Serenity.LookupEditor;
         Radio: Serenity.BooleanEditor;
         EIO: Serenity.BooleanEditor;
@@ -1298,6 +1296,9 @@ declare namespace MobilityMatters.Northwind {
         Program?: string;
         ProgramOption?: string;
         TEMP?: boolean;
+        StartDate?: string;
+        EndDate?: string;
+        WhyEnding?: string;
         EIO?: boolean;
         Smoker?: boolean;
         Active?: boolean;
@@ -1318,6 +1319,8 @@ declare namespace MobilityMatters.Northwind {
         EmergencyRelation?: string;
         AgeCalc?: number;
         DateOfLastTrip?: string;
+        SpecialNeedsPlainText?: string;
+        SpecialConditionsDirections?: string;
     }
     namespace CustomerRow {
         const idProperty = "ID";
@@ -1354,6 +1357,9 @@ declare namespace MobilityMatters.Northwind {
             Program = "Program",
             ProgramOption = "ProgramOption",
             TEMP = "TEMP",
+            StartDate = "StartDate",
+            EndDate = "EndDate",
+            WhyEnding = "WhyEnding",
             EIO = "EIO",
             Smoker = "Smoker",
             Active = "Active",
@@ -1373,7 +1379,9 @@ declare namespace MobilityMatters.Northwind {
             EmergencyRelation2 = "EmergencyRelation2",
             EmergencyRelation = "EmergencyRelation",
             AgeCalc = "AgeCalc",
-            DateOfLastTrip = "DateOfLastTrip"
+            DateOfLastTrip = "DateOfLastTrip",
+            SpecialNeedsPlainText = "SpecialNeedsPlainText",
+            SpecialConditionsDirections = "SpecialConditionsDirections"
         }
     }
 }
@@ -1594,9 +1602,6 @@ declare namespace MobilityMatters.Northwind {
         Title: Serenity.LookupEditor;
         TitleOfCourtesy: Serenity.StringEditor;
         OnVacation: Serenity.BooleanEditor;
-        Inactive: Serenity.BooleanEditor;
-        DateOfLastTrip: Serenity.DateEditor;
-        ReturnDate: Serenity.DateEditor;
         LastName: Serenity.StringEditor;
         FirstName: Serenity.StringEditor;
         HomePhone: Serenity.StringEditor;
@@ -1627,7 +1632,6 @@ declare namespace MobilityMatters.Northwind {
         EndDate: Serenity.DateEditor;
         WhyEnding: Serenity.StringEditor;
         SpecialNeedsList: Serenity.LookupEditor;
-        VolunteerRegion: Serenity.StringEditor;
         CitiesList: Serenity.LookupEditor;
         AvailabilityAMList: Serenity.LookupEditor;
         AvailabilityPMList: Serenity.LookupEditor;
@@ -1662,6 +1666,7 @@ declare namespace MobilityMatters.Northwind {
         Photo?: number[];
         Notes?: string;
         VolunteerRegion?: string;
+        NotesPlainText?: string;
         ReportsTo?: number;
         PhotoPath?: string;
         OnVacation?: boolean;
@@ -1701,7 +1706,6 @@ declare namespace MobilityMatters.Northwind {
         ReportsToExtension?: string;
         ReportsToPhoto?: number[];
         ReportsToNotes?: string;
-        NotesPlainText?: string;
         ReportsTo1?: number;
         ReportsToPhotoPath?: string;
         DateOfLastTrip?: string;
@@ -1737,6 +1741,7 @@ declare namespace MobilityMatters.Northwind {
             Photo = "Photo",
             Notes = "Notes",
             VolunteerRegion = "VolunteerRegion",
+            NotesPlainText = "NotesPlainText",
             ReportsTo = "ReportsTo",
             PhotoPath = "PhotoPath",
             OnVacation = "OnVacation",
@@ -1776,7 +1781,6 @@ declare namespace MobilityMatters.Northwind {
             ReportsToExtension = "ReportsToExtension",
             ReportsToPhoto = "ReportsToPhoto",
             ReportsToNotes = "ReportsToNotes",
-            NotesPlainText = "NotesPlainText",
             ReportsTo1 = "ReportsTo1",
             ReportsToPhotoPath = "ReportsToPhotoPath",
             DateOfLastTrip = "DateOfLastTrip",
@@ -2136,13 +2140,17 @@ declare namespace MobilityMatters.Northwind {
         RequiredDate: Serenity.StringEditor;
         EmployeeID: Serenity.LookupEditor;
         RideCompleted: Serenity.BooleanEditor;
+        HowMany: Helpers.HardcodedValuesEditor;
         Cancelled: Serenity.BooleanEditor;
         CancelReason: Serenity.StringEditor;
+        CustomerSpecialNeedsPlainText: Serenity.TextAreaEditor;
+        CustomerSpecialConditionsDirections: Serenity.TextAreaEditor;
         AppointmentTime: Serenity.StringEditor;
         ShipAddress: Serenity.StringEditor;
         ShipCity: Serenity.StringEditor;
         ShipPostalCode: Serenity.StringEditor;
         DestinationAddress: Serenity.StringEditor;
+        DestinationApartment: Serenity.StringEditor;
         DestinationCity: Serenity.StringEditor;
         DestinationZip: Serenity.StringEditor;
         ApptTime: Serenity.StringEditor;
@@ -2151,12 +2159,24 @@ declare namespace MobilityMatters.Northwind {
         DurationText: Serenity.StringEditor;
         AppointmentTime2: Serenity.StringEditor;
         DestinationAddress2: Serenity.StringEditor;
+        DestinationApartment2: Serenity.StringEditor;
         DestinationCity2: Serenity.StringEditor;
         DestinationZip2: Serenity.StringEditor;
         ApptTime2: Serenity.StringEditor;
         ApptType2: Serenity.StringEditor;
         DistanceText2: Serenity.StringEditor;
         DurationText2: Serenity.StringEditor;
+        AppointmentTime3: Serenity.StringEditor;
+        DestinationAddress3: Serenity.StringEditor;
+        DestinationApartment3: Serenity.StringEditor;
+        DestinationCity3: Serenity.StringEditor;
+        DestinationZip3: Serenity.StringEditor;
+        ApptTime3: Serenity.StringEditor;
+        ApptType3: Serenity.StringEditor;
+        DistanceText3: Serenity.StringEditor;
+        DurationText3: Serenity.StringEditor;
+        ActualTotalHours: Serenity.StringEditor;
+        ActualTotalMileage: Serenity.StringEditor;
     }
     class OrderForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -2187,33 +2207,60 @@ declare namespace MobilityMatters.Northwind {
         ShipCity?: string;
         ShipRegion?: string;
         ShipPostalCode?: string;
+        ShipCountry?: string;
+        HowMany?: number;
+        ActualTotalHours?: string;
+        ActualTotalMinutes?: string;
+        ActualTotalMileage?: string;
         DestinationAddress?: string;
         DestinationCity?: string;
-        DestinationAddress2?: string;
-        DestinationCity2?: string;
+        DestinationZip?: string;
+        DestinationApartment?: string;
         ApptTime?: string;
         AppointmentTime?: string;
         ApptType?: string;
-        ApptTime2?: string;
-        AppointmentTime2?: string;
-        ApptType2?: string;
-        DestinationZip?: string;
-        DestinationZip2?: string;
-        ShipCountry?: string;
         DistanceText?: string;
         DistanceValue?: number;
         DurationText?: string;
         DurationValue?: number;
+        ActualDuration1?: string;
+        ActualDurationMins1?: string;
+        DestinationAddress2?: string;
+        DestinationCity2?: string;
+        DestinationZip2?: string;
+        DestinationApartment2?: string;
+        ApptTime2?: string;
+        AppointmentTime2?: string;
+        ApptType2?: string;
         DistanceText2?: string;
         DistanceValue2?: number;
         DurationText2?: string;
         DurationValue2?: number;
+        ActualDuration2?: string;
+        ActualDurationMins2?: string;
+        DestinationAddress3?: string;
+        DestinationCity3?: string;
+        DestinationZip3?: string;
+        DestinationApartment3?: string;
+        ApptTime3?: string;
+        AppointmentTime3?: string;
+        ApptType3?: string;
+        DistanceText3?: string;
+        DistanceValue3?: number;
+        DurationText3?: string;
+        DurationValue3?: number;
+        ActualDuration3?: string;
+        ActualDurationMins3?: string;
         CustomerCompanyName?: string;
         CustomerContactName?: string;
         CustomerCity?: string;
         CustomerRegion?: string;
         CustomerCountry?: string;
         CustomerPhone?: string;
+        CustomerTEMP?: boolean;
+        CustomerSpecialNeedsList?: number[];
+        CustomerSpecialNeedsPlainText?: string;
+        CustomerSpecialConditionsDirections?: string;
         EmployeeFullName?: string;
         CustomerFullName?: string;
         EmployeeGender?: Gender;
@@ -2250,33 +2297,60 @@ declare namespace MobilityMatters.Northwind {
             ShipCity = "ShipCity",
             ShipRegion = "ShipRegion",
             ShipPostalCode = "ShipPostalCode",
+            ShipCountry = "ShipCountry",
+            HowMany = "HowMany",
+            ActualTotalHours = "ActualTotalHours",
+            ActualTotalMinutes = "ActualTotalMinutes",
+            ActualTotalMileage = "ActualTotalMileage",
             DestinationAddress = "DestinationAddress",
             DestinationCity = "DestinationCity",
-            DestinationAddress2 = "DestinationAddress2",
-            DestinationCity2 = "DestinationCity2",
+            DestinationZip = "DestinationZip",
+            DestinationApartment = "DestinationApartment",
             ApptTime = "ApptTime",
             AppointmentTime = "AppointmentTime",
             ApptType = "ApptType",
-            ApptTime2 = "ApptTime2",
-            AppointmentTime2 = "AppointmentTime2",
-            ApptType2 = "ApptType2",
-            DestinationZip = "DestinationZip",
-            DestinationZip2 = "DestinationZip2",
-            ShipCountry = "ShipCountry",
             DistanceText = "DistanceText",
             DistanceValue = "DistanceValue",
             DurationText = "DurationText",
             DurationValue = "DurationValue",
+            ActualDuration1 = "ActualDuration1",
+            ActualDurationMins1 = "ActualDurationMins1",
+            DestinationAddress2 = "DestinationAddress2",
+            DestinationCity2 = "DestinationCity2",
+            DestinationZip2 = "DestinationZip2",
+            DestinationApartment2 = "DestinationApartment2",
+            ApptTime2 = "ApptTime2",
+            AppointmentTime2 = "AppointmentTime2",
+            ApptType2 = "ApptType2",
             DistanceText2 = "DistanceText2",
             DistanceValue2 = "DistanceValue2",
             DurationText2 = "DurationText2",
             DurationValue2 = "DurationValue2",
+            ActualDuration2 = "ActualDuration2",
+            ActualDurationMins2 = "ActualDurationMins2",
+            DestinationAddress3 = "DestinationAddress3",
+            DestinationCity3 = "DestinationCity3",
+            DestinationZip3 = "DestinationZip3",
+            DestinationApartment3 = "DestinationApartment3",
+            ApptTime3 = "ApptTime3",
+            AppointmentTime3 = "AppointmentTime3",
+            ApptType3 = "ApptType3",
+            DistanceText3 = "DistanceText3",
+            DistanceValue3 = "DistanceValue3",
+            DurationText3 = "DurationText3",
+            DurationValue3 = "DurationValue3",
+            ActualDuration3 = "ActualDuration3",
+            ActualDurationMins3 = "ActualDurationMins3",
             CustomerCompanyName = "CustomerCompanyName",
             CustomerContactName = "CustomerContactName",
             CustomerCity = "CustomerCity",
             CustomerRegion = "CustomerRegion",
             CustomerCountry = "CustomerCountry",
             CustomerPhone = "CustomerPhone",
+            CustomerTEMP = "CustomerTEMP",
+            CustomerSpecialNeedsList = "CustomerSpecialNeedsList",
+            CustomerSpecialNeedsPlainText = "CustomerSpecialNeedsPlainText",
+            CustomerSpecialConditionsDirections = "CustomerSpecialConditionsDirections",
             EmployeeFullName = "EmployeeFullName",
             CustomerFullName = "CustomerFullName",
             EmployeeGender = "EmployeeGender",
@@ -2296,14 +2370,16 @@ declare namespace MobilityMatters.Northwind {
         function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<OrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: OrderListRequest, onSuccess?: (response: Serenity.ListResponse<OrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function GetDistanceMatrix(request: DistanceMatrixRequest, onSuccess?: (response: DistanceMatrixResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function DistanceMatrix(request: DistanceMatrixRequest, onSuccess?: (response: DistanceMatrixResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function GetDistanceMatrix2(request: DistanceMatrixRequest2, onSuccess?: (response: DistanceMatrixResponse2) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
             Create = "Northwind/Order/Create",
             Update = "Northwind/Order/Update",
             Delete = "Northwind/Order/Delete",
             Retrieve = "Northwind/Order/Retrieve",
             List = "Northwind/Order/List",
-            GetDistanceMatrix = "Northwind/Order/GetDistanceMatrix"
+            DistanceMatrix = "Northwind/Order/DistanceMatrix",
+            GetDistanceMatrix2 = "Northwind/Order/GetDistanceMatrix2"
         }
     }
 }

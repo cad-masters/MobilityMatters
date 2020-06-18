@@ -48,8 +48,8 @@ namespace MobilityMatters.Northwind.Endpoints
             var data = List(connection, request).Entities;
             var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.OrderColumns));
             var bytes = new ReportRepository().Render(report);
-            return ExcelContentResult.Create(bytes, "OrderList_" +
-                DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx");
+            return ExcelContentResult.Create(bytes, "RidesList_" +
+                DateTime.Now.ToString("MMddyyyy_HHmmss") + ".xlsx");
         }
 
         public DistanceMatrixResponse DistanceMatrix(IDbConnection connection, DistanceMatrixRequest request)

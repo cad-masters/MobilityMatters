@@ -53,8 +53,8 @@ namespace MobilityMatters.Northwind.Endpoints
             var data = List(connection, request).Entities;
             var report = new DynamicDataReport(data, request.IncludeColumns, typeof(Columns.CustomerColumns));
             var bytes = new ReportRepository().Render(report);
-            return ExcelContentResult.Create(bytes, "CustomerList_" +
-                DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx");
+            return ExcelContentResult.Create(bytes, "ClientList_" +
+                DateTime.Now.ToString("MMddyyyy_HHmmss") + ".xlsx");
         }
     }
 }
