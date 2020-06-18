@@ -9,7 +9,6 @@ namespace MobilityMatters.Northwind.Repositories
     using System.Data;
     using System.IO;
     using System.Net;
-    using static MobilityMatters.Northwind.OrderModel;
     using MyRow = Entities.OrderRow;
 
     public class OrderRepository

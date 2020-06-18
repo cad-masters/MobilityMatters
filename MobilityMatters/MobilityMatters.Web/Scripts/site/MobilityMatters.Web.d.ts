@@ -1409,10 +1409,24 @@ declare namespace MobilityMatters.Northwind {
     }
 }
 declare namespace MobilityMatters.Northwind {
+    interface DistanceMatrixRequest2 extends Serenity.ServiceRequest {
+        Source2?: string;
+        Destination2?: string;
+    }
+}
+declare namespace MobilityMatters.Northwind {
     interface DistanceMatrixResponse extends Serenity.ServiceResponse {
         Status?: string;
         DestinationAddresses?: string[];
         OriginAddresses?: string[];
+        Rows?: Row[];
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface DistanceMatrixResponse2 extends Serenity.ServiceResponse {
+        Status?: string;
+        DestinationAddresses?: string[];
+        Destination2Addresses?: string[];
         Rows?: Row[];
     }
 }

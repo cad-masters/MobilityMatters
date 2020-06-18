@@ -435,6 +435,13 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.ReportsToHomePhone[this] = value; }
         }
 
+        [DisplayName("Volunteer Notes")]
+        public String NotesPlainText
+        {
+            get { return Fields.NotesPlainText[this]; }
+            set { Fields.NotesPlainText[this] = value; }
+        }
+
         [DisplayName("Reports To Extension"), Expression("jReportsTo.[Extension]")]
         public String ReportsToExtension
         {

@@ -8,7 +8,6 @@ namespace MobilityMatters.Northwind.Endpoints
     using System;
     using System.Data;
     using System.Web.Mvc;
-    using static MobilityMatters.Northwind.OrderModel;
     using MyRepository = Repositories.OrderRepository;
     using MyRow = Entities.OrderRow;
 

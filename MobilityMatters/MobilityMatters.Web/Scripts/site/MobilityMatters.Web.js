@@ -371,6 +371,30 @@ var MobilityMatters;
 })(MobilityMatters || (MobilityMatters = {}));
 var MobilityMatters;
 (function (MobilityMatters) {
+    var Helpers;
+    (function (Helpers) {
+        var HardcodedValuesForm = /** @class */ (function (_super) {
+            __extends(HardcodedValuesForm, _super);
+            function HardcodedValuesForm(prefix) {
+                var _this = _super.call(this, prefix) || this;
+                if (!HardcodedValuesForm.init) {
+                    HardcodedValuesForm.init = true;
+                    var s = Serenity;
+                    var w0 = Helpers.HardcodedValuesEditor;
+                    Q.initFormType(HardcodedValuesForm, [
+                        'SomeValue', w0
+                    ]);
+                }
+                return _this;
+            }
+            HardcodedValuesForm.formKey = 'Helpers.HarcodedValues';
+            return HardcodedValuesForm;
+        }(Serenity.PrefixedContext));
+        Helpers.HardcodedValuesForm = HardcodedValuesForm;
+    })(Helpers = MobilityMatters.Helpers || (MobilityMatters.Helpers = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
     var Membership;
     (function (Membership) {
         var ChangePasswordForm = /** @class */ (function (_super) {
@@ -1088,6 +1112,8 @@ var MobilityMatters;
                         'AgeCalc', w6,
                         'PLanguage', w0,
                         'SpecialNeedsList', w1,
+                        'SpecialNeedsPlainText', w0,
+                        'SpecialConditionsDirections', w0,
                         'DNR', w1,
                         'Radio', w2,
                         'EIO', w2,
@@ -1233,6 +1259,7 @@ var MobilityMatters;
                     var w2 = s.BooleanEditor;
                     var w3 = s.DateEditor;
                     var w4 = s.EmailEditor;
+                    var w5 = s.TextAreaEditor;
                     Q.initFormType(EmployeesForm, [
                         'Title', w0,
                         'TitleOfCourtesy', w1,
@@ -1273,7 +1300,8 @@ var MobilityMatters;
                         'VolunteerRegion', w1,
                         'CitiesList', w0,
                         'AvailabilityAMList', w0,
-                        'AvailabilityPMList', w0
+                        'AvailabilityPMList', w0,
+                        'NotesPlainText', w5
                     ]);
                 }
                 return _this;
@@ -3822,6 +3850,77 @@ var MobilityMatters;
 })(MobilityMatters || (MobilityMatters = {}));
 var MobilityMatters;
 (function (MobilityMatters) {
+    var Helpers;
+    (function (Helpers) {
+        var HardcodedValuesDialog = /** @class */ (function (_super) {
+            __extends(HardcodedValuesDialog, _super);
+            function HardcodedValuesDialog() {
+                var _this = _super.call(this) || this;
+                _this.form = new Helpers.HardcodedValuesForm(_this.idPrefix);
+                _this.dialogTitle = "Please select some value";
+                _this.form.SomeValue.changeSelect2(function (e) {
+                    Q.notifySuccess("You selected item with key: " + _this.form.SomeValue.value);
+                });
+                return _this;
+            }
+            HardcodedValuesDialog.prototype.getFormKey = function () { return Helpers.HardcodedValuesForm.formKey; };
+            HardcodedValuesDialog = __decorate([
+                Serenity.Decorators.registerClass()
+            ], HardcodedValuesDialog);
+            return HardcodedValuesDialog;
+        }(Serenity.PropertyDialog));
+        Helpers.HardcodedValuesDialog = HardcodedValuesDialog;
+    })(Helpers = MobilityMatters.Helpers || (MobilityMatters.Helpers = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Helpers;
+    (function (Helpers) {
+        /**
+         * Our select editor with hardcoded values.
+         *
+         * When you define a new editor type, make sure you build
+         * and transform templates for it to be available
+         * in server side forms, e.g. [HardCodedValuesEditor]
+         */
+        var HardcodedValuesEditor = /** @class */ (function (_super) {
+            __extends(HardcodedValuesEditor, _super);
+            function HardcodedValuesEditor(container) {
+                var _this = _super.call(this, container, null) || this;
+                // add option accepts a key (id) value and display text value
+                _this.addOption("1", "1");
+                _this.addOption("2", "2");
+                _this.addOption("3", "3");
+                _this.addOption("4", "4");
+                _this.addOption("5", "5");
+                _this.addOption("6", "6");
+                _this.addOption("7", "7");
+                _this.addOption("8", "8");
+                _this.addOption("9", "9");
+                _this.addOption("10", "10");
+                return _this;
+                // you may also use addItem which accepts a Select2Item parameter
+                /* this.addItem({
+                     id: "key3",
+                     text: "Text 3"
+                 });*/
+                // don't let selecting this one (disabled)
+                /* this.addItem({
+                     id: "key4",
+                     text: "Text 4",
+                     disabled: true
+                 });*/
+            }
+            HardcodedValuesEditor = __decorate([
+                Serenity.Decorators.registerEditor()
+            ], HardcodedValuesEditor);
+            return HardcodedValuesEditor;
+        }(Serenity.Select2Editor));
+        Helpers.HardcodedValuesEditor = HardcodedValuesEditor;
+    })(Helpers = MobilityMatters.Helpers || (MobilityMatters.Helpers = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
     /**
      * This is an editor widget but it only displays a text, not edits it.
      *
@@ -5690,7 +5789,7 @@ var MobilityMatters;
                 if (opt.mailFromTrip) {
                     var body = _this.form.BodyHtml.value;
                     body = body.replace('{RideNumber}', opt.rideNumber.toString()).replace('{AppointmentDate}', opt.appointmentDate).replace('{ClientName}', opt.clientName)
-                        .replace('{PickupAddress}', opt.pickupAddress).replace('{AltPhone}', opt.altPhone).replace('{TelephoneNumber}', opt.telephoneNumber).replace('{PickupTime}', opt.pickupTime).replace('{DeliveryAddress}', opt.deliveryAddress).replace('{ApptTime}', opt.apptLength).replace('{ApptType}', opt.apptType).replace('{AppointmentTime}', opt.appointmentTime).replace('{DeliveryAddress2}', opt.deliveryAddress2).replace('{ApptTime2}', opt.apptLength2).replace('{ApptType2}', opt.apptType2).replace('{AppointmentTime2}', opt.appointmentTime2);
+                        .replace('{PickupAddress}', opt.pickupAddress).replace('{AltPhone}', opt.altPhone).replace('{TelephoneNumber}', opt.telephoneNumber).replace('{PickupTime}', opt.pickupTime).replace('{DeliveryAddress}', opt.deliveryAddress).replace('{ApptTime}', opt.apptLength).replace('{ApptType}', opt.apptType).replace('{AppointmentTime}', opt.appointmentTime).replace('{DeliveryAddress2}', opt.deliveryAddress2).replace('{ApptTime2}', opt.apptLength2).replace('{ApptType2}', opt.apptType2).replace('{AppointmentTime2}', opt.appointmentTime2).replace('{SpecialNeedsTemp}', opt.specialNeedsTemp).replace('{SpecialConditionsDirections}', opt.specialConditionsDirections);
                     _this.form.BodyHtml.value = body;
                 }
                 return _this;
