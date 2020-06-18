@@ -32,7 +32,6 @@
         HireDate: Serenity.DateEditor;
         EndDate: Serenity.DateEditor;
         WhyEnding: Serenity.StringEditor;
-        SpecialNeedsList: Serenity.LookupEditor;
         CitiesList: Serenity.LookupEditor;
         AvailabilityAMList: Serenity.LookupEditor;
         AvailabilityPMList: Serenity.LookupEditor;
@@ -90,7 +89,6 @@
                     'HireDate', w4,
                     'EndDate', w4,
                     'WhyEnding', w1,
-                    'SpecialNeedsList', w0,
                     'CitiesList', w0,
                     'AvailabilityAMList', w0,
                     'AvailabilityPMList', w0,

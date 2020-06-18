@@ -1292,7 +1292,6 @@ var MobilityMatters;
                         'HireDate', w4,
                         'EndDate', w4,
                         'WhyEnding', w1,
-                        'SpecialNeedsList', w0,
                         'CitiesList', w0,
                         'AvailabilityAMList', w0,
                         'AvailabilityPMList', w0,
@@ -3931,6 +3930,46 @@ var MobilityMatters;
             return HardcodedValuesEditor;
         }(Serenity.Select2Editor));
         Helpers.HardcodedValuesEditor = HardcodedValuesEditor;
+    })(Helpers = MobilityMatters.Helpers || (MobilityMatters.Helpers = {}));
+})(MobilityMatters || (MobilityMatters = {}));
+var MobilityMatters;
+(function (MobilityMatters) {
+    var Helpers;
+    (function (Helpers) {
+        /**
+         * Our select editor with hardcoded values.
+         *
+         * When you define a new editor type, make sure you build
+         * and transform templates for it to be available
+         * in server side forms, e.g. [HardCodedValuesEditor]
+         */
+        var HardcodedValuesGenderEditor = /** @class */ (function (_super) {
+            __extends(HardcodedValuesGenderEditor, _super);
+            function HardcodedValuesGenderEditor(container) {
+                var _this = _super.call(this, container, null) || this;
+                // add option accepts a key (id) value and display text value
+                _this.addOption("M", "M");
+                _this.addOption("F", "F");
+                _this.addOption("Other", "Other");
+                return _this;
+                // you may also use addItem which accepts a Select2Item parameter
+                /* this.addItem({
+                     id: "key3",
+                     text: "Text 3"
+                 });*/
+                // don't let selecting this one (disabled)
+                /* this.addItem({
+                     id: "key4",
+                     text: "Text 4",
+                     disabled: true
+                 });*/
+            }
+            HardcodedValuesGenderEditor = __decorate([
+                Serenity.Decorators.registerEditor()
+            ], HardcodedValuesGenderEditor);
+            return HardcodedValuesGenderEditor;
+        }(Serenity.Select2Editor));
+        Helpers.HardcodedValuesGenderEditor = HardcodedValuesGenderEditor;
     })(Helpers = MobilityMatters.Helpers || (MobilityMatters.Helpers = {}));
 })(MobilityMatters || (MobilityMatters = {}));
 var MobilityMatters;

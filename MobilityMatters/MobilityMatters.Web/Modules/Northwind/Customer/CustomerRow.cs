@@ -218,7 +218,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.EmergencyName2[this] = value; }
         }
 
-        [Origin("cd"), LookupEditor(typeof(Lookups.CustomerDetailsGenderLookup))]
+        [Origin("cd"), Helpers.HardcodedValuesGenderEditor]
         public String Gender
         {
             get { return Fields.Gender[this]; }

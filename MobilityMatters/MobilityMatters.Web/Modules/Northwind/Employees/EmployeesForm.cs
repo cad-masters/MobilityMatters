@@ -70,7 +70,7 @@ namespace MobilityMatters.Northwind.Forms
         [HalfWidth]
         public DateTime EndDate { get; set; }
         public String WhyEnding { get; set; }
-        public List<Int32> SpecialNeedsList { get; set; }
+        /*public List<Int32> SpecialNeedsList { get; set; }*/
         public List<Int32> CitiesList { get; set; }
         [HalfWidth]
         public List<Int32> AvailabilityAMList { get; set; }

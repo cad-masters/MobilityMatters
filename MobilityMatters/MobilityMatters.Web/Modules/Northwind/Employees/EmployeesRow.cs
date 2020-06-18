@@ -164,7 +164,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Notes[this] = value; }
         }
 
-        [LookupEditor(typeof(Lookups.EmployeesGenderLookup))]
+        [DisplayName("Gender"), Helpers.HardcodedValuesGenderEditor]
         public String Gender
         {
             get { return Fields.Gender[this]; }

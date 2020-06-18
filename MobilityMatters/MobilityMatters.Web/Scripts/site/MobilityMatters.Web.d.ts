@@ -1631,7 +1631,6 @@ declare namespace MobilityMatters.Northwind {
         HireDate: Serenity.DateEditor;
         EndDate: Serenity.DateEditor;
         WhyEnding: Serenity.StringEditor;
-        SpecialNeedsList: Serenity.LookupEditor;
         CitiesList: Serenity.LookupEditor;
         AvailabilityAMList: Serenity.LookupEditor;
         AvailabilityPMList: Serenity.LookupEditor;
@@ -3312,6 +3311,18 @@ declare namespace MobilityMatters.Helpers {
      * in server side forms, e.g. [HardCodedValuesEditor]
      */
     class HardcodedValuesEditor extends Serenity.Select2Editor<any, any> {
+        constructor(container: JQuery);
+    }
+}
+declare namespace MobilityMatters.Helpers {
+    /**
+     * Our select editor with hardcoded values.
+     *
+     * When you define a new editor type, make sure you build
+     * and transform templates for it to be available
+     * in server side forms, e.g. [HardCodedValuesEditor]
+     */
+    class HardcodedValuesGenderEditor extends Serenity.Select2Editor<any, any> {
         constructor(container: JQuery);
     }
 }

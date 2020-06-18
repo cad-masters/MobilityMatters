@@ -1114,6 +1114,9 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Texts.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Modules\Common\Helpers\HardcodedValuesDialog.ts" />
+    <TypeScriptCompile Include="Modules\Common\Helpers\HardcodedValuesGenderEditor.ts" />
+    <TypeScriptCompile Include="Modules\Common\Helpers\HardcodedValuesEditor.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Customer\InactiveCustomerGrid.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Customer\SpecialNeedsListFormatter.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Employees\InactiveEmployeeGrid.ts" />
@@ -1875,6 +1878,9 @@
     <Compile Include="Imports\ClientTypes\Helpers.HardcodedValuesEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="Imports\ClientTypes\Helpers.HardcodedValuesGenderEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
     <Compile Include="Imports\ClientTypes\Northwind.MailBodyViewerAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
@@ -1903,6 +1909,7 @@
     <Compile Include="Modules\Administration\User\Authentication\IDirectoryService.cs" />
     <Compile Include="Modules\Administration\User\Authentication\ScriptUserDefinition.cs" />
     <Compile Include="Modules\Administration\User\UserColumns.cs" />
+    <Compile Include="Modules\Common\Helpers\HardcodedValuesForm.cs" />
     <Compile Include="Modules\Northwind\CustomerDetails\CustomerDetailsTEMPLookup.cs" />
     <Compile Include="Modules\Northwind\CustomerDetails\CustomerDetailsGenderLookup.cs" />
     <Compile Include="Modules\Northwind\Customer\CustomerReferralSourceLookup.cs" />
