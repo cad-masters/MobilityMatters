@@ -75,6 +75,10 @@ namespace MobilityMatters.Northwind.Forms
         [QuarterWidth]
         public Int32 AgeCalc { get; set; }
         [HalfWidth]
+        public String Race { get; set; }
+        [HalfWidth]
+        public String Income { get; set; }
+        [HalfWidth]
         public String PLanguage { get; set; }
 
         [HalfWidth]

@@ -8,7 +8,7 @@
         export declare function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<OrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function List(request: OrderListRequest, onSuccess?: (response: Serenity.ListResponse<OrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         export declare function DistanceMatrix(request: DistanceMatrixRequest, onSuccess?: (response: DistanceMatrixResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        export declare function GetDistanceMatrix2(request: DistanceMatrixRequest2, onSuccess?: (response: DistanceMatrixResponse2) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        export declare function GetDistanceMatrix(request: DistanceMatrixRequest, onSuccess?: (response: DistanceMatrixResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
 
         export declare const enum Methods {
             Create = "Northwind/Order/Create",
@@ -17,7 +17,7 @@
             Retrieve = "Northwind/Order/Retrieve",
             List = "Northwind/Order/List",
             DistanceMatrix = "Northwind/Order/DistanceMatrix",
-            GetDistanceMatrix2 = "Northwind/Order/GetDistanceMatrix2"
+            GetDistanceMatrix = "Northwind/Order/GetDistanceMatrix"
         }
 
         [
@@ -27,7 +27,7 @@
             'Retrieve', 
             'List', 
             'DistanceMatrix', 
-            'GetDistanceMatrix2'
+            'GetDistanceMatrix'
         ].forEach(x => {
             (<any>OrderService)[x] = function (r, s, o) {
                 return Q.serviceRequest(baseUrl + '/' + x, r, s, o);

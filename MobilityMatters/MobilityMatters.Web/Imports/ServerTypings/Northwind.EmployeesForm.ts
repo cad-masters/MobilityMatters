@@ -12,7 +12,7 @@
         Region: Serenity.StringEditor;
         PostalCode: Serenity.StringEditor;
         BirthDate: Serenity.DateEditor;
-        Gender: Serenity.LookupEditor;
+        Gender: Helpers.HardcodedValuesGenderEditor;
         Smoker: Serenity.BooleanEditor;
         Language: Serenity.StringEditor;
         DriversLicense: Serenity.StringEditor;
@@ -54,7 +54,8 @@
                 var w2 = s.BooleanEditor;
                 var w3 = s.EmailEditor;
                 var w4 = s.DateEditor;
-                var w5 = s.TextAreaEditor;
+                var w5 = Helpers.HardcodedValuesGenderEditor;
+                var w6 = s.TextAreaEditor;
 
                 Q.initFormType(EmployeesForm, [
                     'Title', w0,
@@ -69,7 +70,7 @@
                     'Region', w1,
                     'PostalCode', w1,
                     'BirthDate', w4,
-                    'Gender', w0,
+                    'Gender', w5,
                     'Smoker', w2,
                     'Language', w1,
                     'DriversLicense', w1,
@@ -92,7 +93,7 @@
                     'CitiesList', w0,
                     'AvailabilityAMList', w0,
                     'AvailabilityPMList', w0,
-                    'NotesPlainText', w5
+                    'NotesPlainText', w6
                 ]);
             }
         }

@@ -1203,9 +1203,11 @@ declare namespace MobilityMatters.Northwind {
         Residence: Serenity.LookupEditor;
         LivingWith: Serenity.StringEditor;
         NoteList: NotesEditor;
-        Gender: Serenity.LookupEditor;
+        Gender: Helpers.HardcodedValuesGenderEditor;
         BirthDate: Serenity.DateEditor;
         AgeCalc: Serenity.IntegerEditor;
+        Race: Serenity.StringEditor;
+        Income: Serenity.StringEditor;
         PLanguage: Serenity.StringEditor;
         SpecialNeedsList: Serenity.LookupEditor;
         SpecialNeedsPlainText: Serenity.TextAreaEditor;
@@ -1281,6 +1283,8 @@ declare namespace MobilityMatters.Northwind {
         Address?: string;
         City?: string;
         Region?: string;
+        Race?: string;
+        Income?: string;
         PostalCode?: string;
         DNR?: string;
         Radio?: boolean;
@@ -1342,6 +1346,8 @@ declare namespace MobilityMatters.Northwind {
             Address = "Address",
             City = "City",
             Region = "Region",
+            Race = "Race",
+            Income = "Income",
             PostalCode = "PostalCode",
             DNR = "DNR",
             Radio = "Radio",
@@ -1611,7 +1617,7 @@ declare namespace MobilityMatters.Northwind {
         Region: Serenity.StringEditor;
         PostalCode: Serenity.StringEditor;
         BirthDate: Serenity.DateEditor;
-        Gender: Serenity.LookupEditor;
+        Gender: Helpers.HardcodedValuesGenderEditor;
         Smoker: Serenity.BooleanEditor;
         Language: Serenity.StringEditor;
         DriversLicense: Serenity.StringEditor;
@@ -2370,7 +2376,7 @@ declare namespace MobilityMatters.Northwind {
         function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<OrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function List(request: OrderListRequest, onSuccess?: (response: Serenity.ListResponse<OrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function DistanceMatrix(request: DistanceMatrixRequest, onSuccess?: (response: DistanceMatrixResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
-        function GetDistanceMatrix2(request: DistanceMatrixRequest2, onSuccess?: (response: DistanceMatrixResponse2) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function GetDistanceMatrix(request: DistanceMatrixRequest, onSuccess?: (response: DistanceMatrixResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
             Create = "Northwind/Order/Create",
             Update = "Northwind/Order/Update",
@@ -2378,7 +2384,7 @@ declare namespace MobilityMatters.Northwind {
             Retrieve = "Northwind/Order/Retrieve",
             List = "Northwind/Order/List",
             DistanceMatrix = "Northwind/Order/DistanceMatrix",
-            GetDistanceMatrix2 = "Northwind/Order/GetDistanceMatrix2"
+            GetDistanceMatrix = "Northwind/Order/GetDistanceMatrix"
         }
     }
 }
@@ -3894,6 +3900,23 @@ declare namespace MobilityMatters.Northwind {
         get_isDirty(): boolean;
         set_isDirty(value: any): void;
         onChange: () => void;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    class CancelledOrderGrid extends Serenity.EntityGrid<OrderRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): any;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        private rowSelection;
+        protected shippingStateFilter: Serenity.EnumEditor;
+        constructor(container: JQuery);
+        protected createToolbarExtensions(): void;
+        protected getButtons(): Serenity.ToolButton[];
+        set_shippingState(value: number): void;
+        protected addButtonClick(): void;
+        protected onViewSubmit(): boolean;
     }
 }
 declare namespace MobilityMatters.Northwind {

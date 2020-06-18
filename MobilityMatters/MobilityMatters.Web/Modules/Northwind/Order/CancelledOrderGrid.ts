@@ -4,7 +4,7 @@
 
     @Serenity.Decorators.registerClass()
     @Serenity.Decorators.filterable()
-    export class OrderGrid extends Serenity.EntityGrid<OrderRow, any> {
+    export class CancelledOrderGrid extends Serenity.EntityGrid<OrderRow, any> {
         protected getColumnsKey() { return "Northwind.Order"; }
         protected getDialogType() { return <any>OrderDialog; }
         protected getIdProperty() { return OrderRow.idProperty; }
@@ -42,14 +42,13 @@
             return filters;
         }*/
 
-        protected createQuickFilters() {
-            super.createQuickFilters();
+        //protected createQuickFilters() {
+        //    super.createQuickFilters();
 
-            this.shippingStateFilter = this.findQuickFilter(Serenity.EnumEditor, fld.ShippingState);
-        }
+        //    this.shippingStateFilter = this.findQuickFilter(Serenity.EnumEditor, fld.ShippingState);
+        //}
 
-        protected getButtons()
-        {
+        protected getButtons() {
             var buttons = super.getButtons();
 
             buttons.push(Common.ExcelExportHelper.createToolButton({
@@ -106,32 +105,32 @@
             return columns;
         }*/
 
-        protected onClick(e: JQueryEventObject, row: number, cell: number) {
-            super.onClick(e, row, cell);
+        //protected onClick(e: JQueryEventObject, row: number, cell: number) {
+        //    super.onClick(e, row, cell);
 
-            if (e.isDefaultPrevented())
-                return;
+        //    if (e.isDefaultPrevented())
+        //        return;
 
-            var item = this.itemAt(row);
-            var target = $(e.target);
+        //    var item = this.itemAt(row);
+        //    var target = $(e.target);
 
-            // if user clicks "i" element, e.g. icon
-            if (target.parent().hasClass('inline-action'))
-                target = target.parent();
+        //    // if user clicks "i" element, e.g. icon
+        //    if (target.parent().hasClass('inline-action'))
+        //        target = target.parent();
 
-            if (target.hasClass('inline-action')) {
-                e.preventDefault();
+        //    if (target.hasClass('inline-action')) {
+        //        e.preventDefault();
 
-                if (target.hasClass('print-invoice')) {
-                    MobilityMatters.Common.ReportHelper.execute({
-                        reportKey: 'Northwind.OrderDetail',
-                        params: {
-                            OrderID: item.OrderID
-                        }
-                    });
-                }
-            }
-        }
+        //        if (target.hasClass('print-invoice')) {
+        //            MobilityMatters.Common.ReportHelper.execute({
+        //                reportKey: 'Northwind.OrderDetail',
+        //                params: {
+        //                    OrderID: item.OrderID
+        //                }
+        //            });
+        //        }
+        //    }
+        //}
 
         public set_shippingState(value: number): void {
             this.shippingStateFilter.value = value == null ? '' : value.toString();
@@ -142,6 +141,18 @@
             this.editItem(<OrderRow>{
                 CustomerID: eq ? eq.CustomerID : null
             });
+        }
+
+        protected onViewSubmit() {
+            if (!super.onViewSubmit())
+                return false;
+
+            var request = this.view.params as Serenity.ListRequest;
+            request.EqualityFilter = request.EqualityFilter || {};
+            request.EqualityFilter[OrderRow.Fields.Cancelled] = true;
+
+
+            return true;
         }
     }
 }

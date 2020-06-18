@@ -161,6 +161,20 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.PLanguage[this] = value; }
         }
 
+        [DisplayName("Race"), Size(24)]
+        public String Race
+        {
+            get { return Fields.Race[this]; }
+            set { Fields.Race[this] = value; }
+        }
+
+        [DisplayName("Income Level"), Size(24)]
+        public String Income
+        {
+            get { return Fields.Income[this]; }
+            set { Fields.Income[this] = value; }
+        }
+
         [DisplayName("EIO"), NotNull]
         public Boolean? EIO
         {
@@ -424,6 +438,8 @@ namespace MobilityMatters.Northwind.Entities
             public StringField Address;
             public StringField City;
             public StringField Region;
+            public StringField Race;
+            public StringField Income;
             public StringField PostalCode;
             public StringField DNR;
             public BooleanField Radio;

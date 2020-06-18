@@ -142,6 +142,7 @@ namespace MVC
 
             public static class Order
             {
+                public const string CancelledOrderIndex = "~/Modules/Northwind/Order/CancelledOrderIndex.cshtml";
                 public const string OrderDetailReport = "~/Modules/Northwind/Order/OrderDetailReport.cshtml";
                 public const string OrderIndex = "~/Modules/Northwind/Order/OrderIndex.cshtml";
             }

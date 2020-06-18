@@ -24,9 +24,11 @@
         Residence: Serenity.LookupEditor;
         LivingWith: Serenity.StringEditor;
         NoteList: NotesEditor;
-        Gender: Serenity.LookupEditor;
+        Gender: Helpers.HardcodedValuesGenderEditor;
         BirthDate: Serenity.DateEditor;
         AgeCalc: Serenity.IntegerEditor;
+        Race: Serenity.StringEditor;
+        Income: Serenity.StringEditor;
         PLanguage: Serenity.StringEditor;
         SpecialNeedsList: Serenity.LookupEditor;
         SpecialNeedsPlainText: Serenity.TextAreaEditor;
@@ -58,9 +60,10 @@
                 var w2 = s.BooleanEditor;
                 var w3 = s.EmailEditor;
                 var w4 = NotesEditor;
-                var w5 = s.DateEditor;
-                var w6 = s.IntegerEditor;
-                var w7 = s.TextAreaEditor;
+                var w5 = Helpers.HardcodedValuesGenderEditor;
+                var w6 = s.DateEditor;
+                var w7 = s.IntegerEditor;
+                var w8 = s.TextAreaEditor;
 
                 Q.initFormType(CustomerForm, [
                     'CustomerID', w0,
@@ -87,13 +90,15 @@
                     'Residence', w1,
                     'LivingWith', w0,
                     'NoteList', w4,
-                    'Gender', w1,
-                    'BirthDate', w5,
-                    'AgeCalc', w6,
+                    'Gender', w5,
+                    'BirthDate', w6,
+                    'AgeCalc', w7,
+                    'Race', w0,
+                    'Income', w0,
                     'PLanguage', w0,
                     'SpecialNeedsList', w1,
-                    'SpecialNeedsPlainText', w7,
-                    'SpecialConditionsDirections', w7,
+                    'SpecialNeedsPlainText', w8,
+                    'SpecialConditionsDirections', w8,
                     'DNR', w1,
                     'Radio', w2,
                     'EIO', w2,

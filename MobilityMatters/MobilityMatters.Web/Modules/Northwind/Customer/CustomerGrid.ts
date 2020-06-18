@@ -24,10 +24,10 @@
                 separator: true
             }));
 
-            buttons.push(MobilityMatters.Common.PdfExportHelper.createToolButton({
+            /*buttons.push(MobilityMatters.Common.PdfExportHelper.createToolButton({
                 grid: this,
                 onViewSubmit: () => this.onViewSubmit()
-            }));
+            }));*/
 
             return buttons;
         }

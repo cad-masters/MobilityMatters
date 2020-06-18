@@ -7,6 +7,7 @@ using Northwind = MobilityMatters.Northwind.Pages;
 [assembly: NavigationLink(7100, "Mobility Matters/Inactive Riders", typeof(Northwind.CustomerController), icon: "fa-wheelchair", action: "Inactive")]
 [assembly: NavigationLink(7400, "Mobility Matters/Inactive Volunteers", typeof(Northwind.EmployeesController), icon: "fa-wheelchair", action: "Inactive")]
 [assembly: NavigationLink(7200, "Mobility Matters/Trips", typeof(Northwind.OrderController), icon: "fa-bus")]
+[assembly: NavigationLink(7300, "Mobility Matters/Cancelled Rides", typeof(Northwind.OrderController), icon: "fa-bus", action: "Cancelled")]
 /*[assembly: NavigationLink(7300, "Mobility Matters/Products", typeof(Northwind.ProductController), icon: "fa-cube")]
 [assembly: NavigationLink(7400, "Mobility Matters/Suppliers", typeof(Northwind.SupplierController), icon: "fa-truck")]
 [assembly: NavigationLink(7500, "Mobility Matters/Shippers", typeof(Northwind.ShipperController), icon: "fa-ship")]

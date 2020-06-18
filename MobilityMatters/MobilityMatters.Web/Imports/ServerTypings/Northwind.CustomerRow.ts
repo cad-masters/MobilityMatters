@@ -9,6 +9,8 @@
         Address?: string;
         City?: string;
         Region?: string;
+        Race?: string;
+        Income?: string;
         PostalCode?: string;
         DNR?: string;
         Radio?: boolean;
@@ -75,6 +77,8 @@
             Address = "Address",
             City = "City",
             Region = "Region",
+            Race = "Race",
+            Income = "Income",
             PostalCode = "PostalCode",
             DNR = "DNR",
             Radio = "Radio",

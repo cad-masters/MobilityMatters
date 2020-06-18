@@ -836,6 +836,7 @@
     <Content Include="wkhtmltopdf-license.txt" />
     <Content Include="Modules\Northwind\Customer\InactiveCustomerIndex.cshtml" />
     <Content Include="Modules\Northwind\Employees\InactiveEmployeeIndex.cshtml" />
+    <Content Include="Modules\Northwind\Order\CancelledOrderIndex.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -1036,6 +1037,9 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Administration.PermissionKeys.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Helpers.HardcodedValuesForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Northwind.AvailabilityAmColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
@@ -1123,6 +1127,7 @@
     <TypeScriptCompile Include="Modules\Northwind\Mail\MailBodyViewer.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Mail\MailComposeDialog.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Mail\MailContentEditor.ts" />
+    <TypeScriptCompile Include="Modules\Northwind\Order\CancelledOrderGrid.ts" />
     <TypeScriptCompile Include="node_modules\%40types\jquery\index.d.ts" />
     <TypeScriptCompile Include="node_modules\%40types\jqueryui\index.d.ts" />
     <TypeScriptCompile Include="node_modules\%40types\jquery.blockui\index.d.ts" />

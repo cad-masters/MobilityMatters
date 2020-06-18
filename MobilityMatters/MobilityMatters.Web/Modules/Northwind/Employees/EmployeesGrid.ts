@@ -30,10 +30,10 @@ namespace MobilityMatters.Northwind {
                 separator: true
             }));
 
-            buttons.push(MobilityMatters.Common.PdfExportHelper.createToolButton({
+            /*buttons.push(MobilityMatters.Common.PdfExportHelper.createToolButton({
                 grid: this,
                 onViewSubmit: () => this.onViewSubmit()
-            }));
+            }));*/
 
             buttons.push({
                 title: 'Send Email',
