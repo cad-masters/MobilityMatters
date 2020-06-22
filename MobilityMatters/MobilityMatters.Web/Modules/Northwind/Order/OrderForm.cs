@@ -15,6 +15,7 @@ namespace MobilityMatters.Northwind.Forms
         public Int32? OrderID { get; set; }
         public String CustomerID { get; set; }
         [DefaultValue("now")]
+        [DateFormatter]
         public DateTime OrderDate { get; set; }
         public String RequiredDate { get; set; }
 

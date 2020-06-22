@@ -1180,13 +1180,14 @@ declare namespace MobilityMatters.Northwind {
 declare namespace MobilityMatters.Northwind {
     interface CustomerForm {
         CustomerID: Serenity.StringEditor;
+        ID: Serenity.IntegerEditor;
         CompanyName: Serenity.StringEditor;
+        ContactName: Serenity.StringEditor;
         Program: Serenity.LookupEditor;
         ProgramOption: Serenity.LookupEditor;
         ReferralSource: Serenity.StringEditor;
         TEMP: Serenity.StringEditor;
         Active: Serenity.BooleanEditor;
-        ContactName: Serenity.StringEditor;
         Phone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
         EmergencyName: Serenity.StringEditor;
@@ -3661,6 +3662,8 @@ declare namespace MobilityMatters.Northwind {
 }
 declare namespace MobilityMatters.Northwind {
     class OrderDialog extends Serenity.EntityDialog<OrderRow, any> {
+        [x: string]: any;
+        getCloningEntity: any;
         protected getFormKey(): string;
         protected getIdProperty(): string;
         protected getLocalTextPrefix(): string;

@@ -1074,25 +1074,26 @@ var MobilityMatters;
                     CustomerForm.init = true;
                     var s = Serenity;
                     var w0 = s.StringEditor;
-                    var w1 = s.LookupEditor;
-                    var w2 = s.BooleanEditor;
-                    var w3 = s.EmailEditor;
-                    var w4 = Northwind.NotesEditor;
-                    var w5 = MobilityMatters.Helpers.HardcodedValuesGenderEditor;
-                    var w6 = s.DateEditor;
-                    var w7 = s.IntegerEditor;
+                    var w1 = s.IntegerEditor;
+                    var w2 = s.LookupEditor;
+                    var w3 = s.BooleanEditor;
+                    var w4 = s.EmailEditor;
+                    var w5 = Northwind.NotesEditor;
+                    var w6 = MobilityMatters.Helpers.HardcodedValuesGenderEditor;
+                    var w7 = s.DateEditor;
                     var w8 = s.TextAreaEditor;
                     Q.initFormType(CustomerForm, [
                         'CustomerID', w0,
+                        'ID', w1,
                         'CompanyName', w0,
-                        'Program', w1,
-                        'ProgramOption', w1,
+                        'ContactName', w0,
+                        'Program', w2,
+                        'ProgramOption', w2,
                         'ReferralSource', w0,
                         'TEMP', w0,
-                        'Active', w2,
-                        'ContactName', w0,
+                        'Active', w3,
                         'Phone', w0,
-                        'Email', w3,
+                        'Email', w4,
                         'EmergencyName', w0,
                         'EmergencyPhone', w0,
                         'EmergencyRelation', w0,
@@ -1100,27 +1101,27 @@ var MobilityMatters;
                         'EmergencyPhone2', w0,
                         'EmergencyRelation2', w0,
                         'Address', w0,
-                        'Country', w1,
-                        'City', w1,
+                        'Country', w2,
+                        'City', w2,
                         'Region', w0,
                         'PostalCode', w0,
-                        'Residence', w1,
+                        'Residence', w2,
                         'LivingWith', w0,
-                        'NoteList', w4,
-                        'Gender', w5,
-                        'BirthDate', w6,
-                        'AgeCalc', w7,
+                        'NoteList', w5,
+                        'Gender', w6,
+                        'BirthDate', w7,
+                        'AgeCalc', w1,
                         'Race', w0,
                         'Income', w0,
                         'PLanguage', w0,
-                        'SpecialNeedsList', w1,
+                        'SpecialNeedsList', w2,
                         'SpecialNeedsPlainText', w8,
                         'SpecialConditionsDirections', w8,
-                        'DNR', w1,
-                        'Radio', w2,
-                        'EIO', w2,
+                        'DNR', w2,
+                        'Radio', w3,
+                        'EIO', w3,
                         'PreferredHospital', w0,
-                        'Smoker', w2,
+                        'Smoker', w3,
                         'Medical', w0,
                         'Dental', w0,
                         'Groceries', w0,
@@ -5278,12 +5279,13 @@ var MobilityMatters;
                             volunteers.push(Q.toId(_this.form.EmployeeID.value));
                         }
                         var client = Q.tryFirst(Northwind.CustomerRow.getLookup().items, function (x) { return x.CustomerID == _this.form.CustomerID.value; });
-                        var subject = "Ride Scheduled for " + _this.form.OrderDate.value + " at " + _this.form.RequiredDate.value + " with " + (client ? client.FullName : "");
+                        var apptDate = _this.form.OrderDate.valueAsDate.toString().substring(0, 15);
+                        var subject = "Ride Scheduled for " + apptDate + " at " + _this.form.RequiredDate.value + " with " + (client ? client.FullName : "");
                         new Northwind.MailComposeDialog({
                             mailFromTrip: true,
                             toVoluntueer: volunteers,
                             subject: subject,
-                            appointmentDate: _this.form.OrderDate.value,
+                            appointmentDate: _this.form.OrderDate.valueAsDate,
                             clientName: (client ? client.FullName : ""),
                             rideNumber: _this.form.OrderID.value,
                             telephoneNumber: client.Phone,
@@ -5336,6 +5338,7 @@ var MobilityMatters;
             };
             OrderDialog.prototype.updateInterface = function () {
                 _super.prototype.updateInterface.call(this);
+                this.cloneButton.toggle(this.isEditMode());
                 this.toolbar.findButton('export-pdf-button').toggle(this.isEditMode());
             };
             OrderDialog = __decorate([
@@ -5845,7 +5848,7 @@ var MobilityMatters;
                     _this.form.Attachments.value = opt.attachments;
                 if (opt.mailFromTrip) {
                     var body = _this.form.BodyHtml.value;
-                    body = body.replace('{RideNumber}', opt.rideNumber.toString()).replace('{AppointmentDate}', opt.appointmentDate).replace('{ClientName}', opt.clientName)
+                    body = body.replace('{RideNumber}', opt.rideNumber.toString()).replace('{AppointmentDate}', opt.appointmentDate.toString().substring(0, 15)).replace('{ClientName}', opt.clientName)
                         .replace('{PickupAddress}', opt.pickupAddress).replace('{AltPhone}', opt.altPhone).replace('{TelephoneNumber}', opt.telephoneNumber).replace('{PickupTime}', opt.pickupTime).replace('{DeliveryAddress}', opt.deliveryAddress).replace('{ApptTime}', opt.apptLength).replace('{ApptType}', opt.apptType).replace('{AppointmentTime}', opt.appointmentTime).replace('{DeliveryAddress2}', opt.deliveryAddress2).replace('{ApptTime2}', opt.apptLength2).replace('{ApptType2}', opt.apptType2).replace('{AppointmentTime2}', opt.appointmentTime2).replace('{SpecialNeedsTemp}', opt.specialNeedsTemp).replace('{SpecialConditionsDirections}', opt.specialConditionsDirections);
                     _this.form.BodyHtml.value = body;
                 }

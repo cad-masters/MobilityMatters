@@ -3,6 +3,8 @@
     @Serenity.Decorators.registerClass()
     @Serenity.Decorators.panel()
     export class OrderDialog extends Serenity.EntityDialog<OrderRow, any> {
+        [x: string]: any;
+        getCloningEntity: any;
         protected getFormKey() { return OrderForm.formKey; }
         protected getIdProperty() { return OrderRow.idProperty; }
         protected getLocalTextPrefix() { return OrderRow.localTextPrefix; }
@@ -66,14 +68,14 @@
                     }
 
                     var client = Q.tryFirst(CustomerRow.getLookup().items, x => x.CustomerID == this.form.CustomerID.value);
-
-                    var subject = "Ride Scheduled for " + this.form.OrderDate.value + " at " + this.form.RequiredDate.value + " with " + (client ? client.FullName : "");
+                    var apptDate = this.form.OrderDate.valueAsDate.toString().substring(0,15);
+                    var subject = "Ride Scheduled for " + apptDate + " at " + this.form.RequiredDate.value + " with " + (client ? client.FullName : "");
 
                     new Northwind.MailComposeDialog({
                         mailFromTrip: true,
                         toVoluntueer: volunteers,
                         subject: subject,
-                        appointmentDate: this.form.OrderDate.value,
+                        appointmentDate: this.form.OrderDate.valueAsDate,
                         clientName: (client ? client.FullName : ""),
                         rideNumber: this.form.OrderID.value,
                         telephoneNumber: client.Phone,
@@ -133,6 +135,7 @@
         protected updateInterface() {
             super.updateInterface();
 
+            this.cloneButton.toggle(this.isEditMode());
             this.toolbar.findButton('export-pdf-button').toggle(this.isEditMode());
         }
     }
