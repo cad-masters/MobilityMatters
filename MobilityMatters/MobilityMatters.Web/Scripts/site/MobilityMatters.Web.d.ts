@@ -3635,6 +3635,8 @@ declare namespace MobilityMatters.Northwind {
         private ordersGrid;
         private loadedState;
         constructor();
+        protected afterLoadEntity(): void;
+        private getNextNumber;
         getSaveState(): string;
         loadResponse(data: any): void;
         loadEntity(entity: CustomerRow): void;

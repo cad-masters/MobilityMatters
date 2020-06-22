@@ -5113,6 +5113,11 @@ var MobilityMatters;
                 _this.ordersGrid.openDialogsAsPanel = false;
                 _this.byId('NoteList').closest('.field').hide().end().appendTo(_this.byId('TabNotes'));
                 MobilityMatters.DialogUtils.pendingChangesConfirmation(_this.element, function () { return _this.getSaveState() != _this.loadedState; });
+                _this.form.CustomerID.element.on('keyup', function (e) {
+                    // only auto number when a key between 'A' and 'Z' is pressed
+                    if (e.which >= 65 && e.which <= 90)
+                        _this.getNextNumber();
+                });
                 return _this;
             }
             CustomerDialog.prototype.getFormKey = function () { return Northwind.CustomerForm.formKey; };
@@ -5120,6 +5125,30 @@ var MobilityMatters;
             CustomerDialog.prototype.getLocalTextPrefix = function () { return Northwind.CustomerRow.localTextPrefix; };
             CustomerDialog.prototype.getNameProperty = function () { return Northwind.CustomerRow.nameProperty; };
             CustomerDialog.prototype.getService = function () { return Northwind.CustomerService.baseUrl; };
+            CustomerDialog.prototype.afterLoadEntity = function () {
+                _super.prototype.afterLoadEntity.call(this);
+                // fill next number in new record mode
+                if (this.isNew())
+                    this.getNextNumber();
+            };
+            CustomerDialog.prototype.getNextNumber = function () {
+                var _this = this;
+                var val = Q.trimToNull(this.form.CustomerID.value);
+                // we will only get next number when customer ID is empty or 1 character in length
+                if (!val || val.length <= 1) {
+                    // if no customer ID yet (new record mode probably) use 'C' as a prefix
+                    var prefix = (val || 'C').toUpperCase();
+                    // call our service, see CustomerEndpoint.cs and CustomerRepository.cs
+                    MobilityMatters.Northwind.CustomerService.GetNextNumber({
+                        Prefix: prefix,
+                        Length: 6 // we want service to search for and return serials of 5 in length
+                    }, function (response) {
+                        _this.form.CustomerID.value = response.Serial;
+                        // this is to mark numerical part after prefix
+                        _this.form.CustomerID.element[0].setSelectionRange(prefix.length, response.Serial.length);
+                    });
+                }
+            };
             CustomerDialog.prototype.getSaveState = function () {
                 try {
                     return $.toJSON(this.getSaveEntity());
