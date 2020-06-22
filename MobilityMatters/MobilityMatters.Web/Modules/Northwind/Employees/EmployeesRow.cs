@@ -45,14 +45,14 @@ namespace MobilityMatters.Northwind.Entities
         }
 
 
-        [DisplayName("Status"), Size(7), QuickSearch, LookupEditor(typeof(Lookups.EmployeesStatusLookup), InplaceAdd = true, AutoComplete = true)]
+        [DisplayName("Status"), Size(25), QuickSearch, LookupEditor(typeof(Lookups.EmployeesStatusLookup), InplaceAdd = true, AutoComplete = true)]
         public String Title
         {
             get { return Fields.Title[this]; }
             set { Fields.Title[this] = value; }
         }
 
-        [DisplayName("Status Options"), Size(15)]
+        [DisplayName("Status Options"), Size(50)]
         public String TitleOfCourtesy
         {
             get { return Fields.TitleOfCourtesy[this]; }

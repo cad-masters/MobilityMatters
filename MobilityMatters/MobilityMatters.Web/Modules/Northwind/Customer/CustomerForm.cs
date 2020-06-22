@@ -12,6 +12,7 @@ namespace MobilityMatters.Northwind.Forms
     {
         [Category("General")]
         public String CustomerID { get; set; }
+        public Int32 ID { get; set; }
         public String CompanyName { get; set; }
         [HalfWidth]
         public String Program { get; set; }
