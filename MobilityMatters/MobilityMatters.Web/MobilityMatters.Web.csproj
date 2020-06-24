@@ -1121,7 +1121,6 @@
     <TypeScriptCompile Include="Modules\Common\Helpers\HardcodedValuesDialog.ts" />
     <TypeScriptCompile Include="Modules\Common\Helpers\HardcodedValuesGenderEditor.ts" />
     <TypeScriptCompile Include="Modules\Common\Helpers\HardcodedValuesEditor.ts" />
-    <TypeScriptCompile Include="Modules\Common\Helpers\SerialAutoNumberDialog.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Customer\InactiveCustomerGrid.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Customer\SpecialNeedsListFormatter.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Employees\InactiveEmployeeGrid.ts" />

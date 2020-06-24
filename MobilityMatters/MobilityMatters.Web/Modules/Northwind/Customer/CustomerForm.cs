@@ -12,7 +12,7 @@ namespace MobilityMatters.Northwind.Forms
     {
         [Category("General")]
         public String CustomerID { get; set; }
-        public Int32 ID { get; set; }
+        //public Int32 ID { get; set; }
         [HalfWidth]
         public String CompanyName { get; set; }
         [HalfWidth]
@@ -23,8 +23,8 @@ namespace MobilityMatters.Northwind.Forms
         public String ProgramOption { get; set; }
         [HalfWidth]
         public String ReferralSource { get; set; }
-        [HalfWidth]
-        public String TEMP { get; set; }
+        [HalfWidth, BooleanFormatter]
+        public Boolean TEMP { get; set; }
         [HalfWidth, BooleanFormatter]
         public Boolean Active { get; set; }
 
