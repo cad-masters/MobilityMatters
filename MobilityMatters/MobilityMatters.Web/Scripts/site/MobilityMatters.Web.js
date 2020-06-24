@@ -1074,26 +1074,25 @@ var MobilityMatters;
                     CustomerForm.init = true;
                     var s = Serenity;
                     var w0 = s.StringEditor;
-                    var w1 = s.IntegerEditor;
-                    var w2 = s.LookupEditor;
-                    var w3 = s.BooleanEditor;
-                    var w4 = s.EmailEditor;
-                    var w5 = Northwind.NotesEditor;
-                    var w6 = MobilityMatters.Helpers.HardcodedValuesGenderEditor;
-                    var w7 = s.DateEditor;
+                    var w1 = s.LookupEditor;
+                    var w2 = s.BooleanEditor;
+                    var w3 = s.EmailEditor;
+                    var w4 = Northwind.NotesEditor;
+                    var w5 = MobilityMatters.Helpers.HardcodedValuesGenderEditor;
+                    var w6 = s.DateEditor;
+                    var w7 = s.IntegerEditor;
                     var w8 = s.TextAreaEditor;
                     Q.initFormType(CustomerForm, [
                         'CustomerID', w0,
-                        'ID', w1,
                         'CompanyName', w0,
                         'ContactName', w0,
-                        'Program', w2,
-                        'ProgramOption', w2,
+                        'Program', w1,
+                        'ProgramOption', w1,
                         'ReferralSource', w0,
-                        'TEMP', w0,
-                        'Active', w3,
+                        'TEMP', w2,
+                        'Active', w2,
                         'Phone', w0,
-                        'Email', w4,
+                        'Email', w3,
                         'EmergencyName', w0,
                         'EmergencyPhone', w0,
                         'EmergencyRelation', w0,
@@ -1101,27 +1100,27 @@ var MobilityMatters;
                         'EmergencyPhone2', w0,
                         'EmergencyRelation2', w0,
                         'Address', w0,
-                        'Country', w2,
-                        'City', w2,
+                        'Country', w1,
+                        'City', w1,
                         'Region', w0,
                         'PostalCode', w0,
-                        'Residence', w2,
+                        'Residence', w1,
                         'LivingWith', w0,
-                        'NoteList', w5,
-                        'Gender', w6,
-                        'BirthDate', w7,
-                        'AgeCalc', w1,
+                        'NoteList', w4,
+                        'Gender', w5,
+                        'BirthDate', w6,
+                        'AgeCalc', w7,
                         'Race', w0,
                         'Income', w0,
                         'PLanguage', w0,
-                        'SpecialNeedsList', w2,
+                        'SpecialNeedsList', w1,
                         'SpecialNeedsPlainText', w8,
                         'SpecialConditionsDirections', w8,
-                        'DNR', w2,
-                        'Radio', w3,
-                        'EIO', w3,
+                        'DNR', w1,
+                        'Radio', w2,
+                        'EIO', w2,
                         'PreferredHospital', w0,
-                        'Smoker', w3,
+                        'Smoker', w2,
                         'Medical', w0,
                         'Dental', w0,
                         'Groceries', w0,
@@ -5257,6 +5256,52 @@ var MobilityMatters;
             function OrderDialog() {
                 var _this = _super.call(this) || this;
                 _this.form = new Northwind.OrderForm(_this.idPrefix);
+                _this.customerPropertyGrid = new Serenity.PropertyGrid(_this.byId("CustomerPropertyGrid"), {
+                    idPrefix: _this.idPrefix + "_Customer_",
+                    items: Q.getForm(Northwind.CustomerForm.formKey).filter(function (x) { return x.name != 'CustomerID'; }),
+                    useCategories: true
+                });
+                // this is just a helper to access editors if needed
+                _this.customerForm = new Northwind.CustomerForm(_this.customerPropertyGrid.idPrefix);
+                // initialize validator for customer form
+                _this.customerValidator = _this.byId("CustomerForm").validate(Q.validateOptions({}));
+                var selfChange = 0;
+                // creating another toolbar for customer tab that will only save Customer
+                new Serenity.Toolbar(_this.byId("CustomerToolbar"), {
+                    buttons: [{
+                            cssClass: "apply-changes-button",
+                            title: Q.text("Controls.EntityDialog.SaveButton"),
+                            onClick: function () {
+                                var id = _this.getCustomerID();
+                                if (!id)
+                                    return;
+                                if (!_this.customerValidator.form())
+                                    return;
+                                // prepare an empty entity to serialize customer details into
+                                var c = {};
+                                _this.customerPropertyGrid.save(c);
+                                Northwind.CustomerService.Update({
+                                    EntityId: id,
+                                    Entity: c
+                                }, function (response) {
+                                    // reload customer list just in case
+                                    Q.reloadLookup(Northwind.CustomerRow.lookupKey);
+                                    // set flag that we are triggering customer select change event
+                                    // otherwise active tab will change to first one
+                                    selfChange++;
+                                    try {
+                                        // trigger change so that customer select updates its text
+                                        // in case if Company Name is changed
+                                        _this.form.CustomerID.element.change();
+                                    }
+                                    finally {
+                                        selfChange--;
+                                    }
+                                    Q.notifySuccess("Saved customer details");
+                                });
+                            }
+                        }]
+                });
                 _this.form.CustomerID.change(function (e) {
                     Northwind.CustomerService.List({
                         EqualityFilter: {
@@ -5269,6 +5314,21 @@ var MobilityMatters;
                             _this.form.ShipPostalCode.value = response.Entities[0].PostalCode;
                             _this.CalculateDistanceAndDuration(true);
                         }
+                    });
+                    if (selfChange)
+                        return;
+                    var customerID = _this.getCustomerID();
+                    Serenity.TabsExtensions.setDisabled(_this.tabs, 'Customer', !customerID);
+                    if (!customerID) {
+                        // no customer is selected, just load an empty entity
+                        _this.customerPropertyGrid.load({});
+                        return;
+                    }
+                    // load selected customer into customer form by calling CustomerService
+                    Northwind.CustomerService.Retrieve({
+                        EntityId: customerID
+                    }, function (response) {
+                        _this.customerPropertyGrid.load(response.Entity);
                     });
                 });
                 return _this;
@@ -5333,6 +5393,20 @@ var MobilityMatters;
                     }
                 });
                 return buttons;
+            };
+            OrderDialog.prototype.getCustomerID = function () {
+                var customerID = this.form.CustomerID.value;
+                if (Q.isEmptyOrNull(customerID))
+                    return null;
+                // unfortunately, CustomerID (a string) used in this form and 
+                // the ID (auto increment ID) are different, so we need to 
+                // find numeric ID from customer lookups. 
+                // you'll probably won't need this step.
+                return Q.first(Northwind.CustomerRow.getLookup().items, function (x) { return x.CustomerID == customerID; }).ID;
+            };
+            OrderDialog.prototype.loadEntity = function (entity) {
+                _super.prototype.loadEntity.call(this, entity);
+                Serenity.TabsExtensions.setDisabled(this.tabs, 'Customer', !this.getCustomerID());
             };
             OrderDialog.prototype.CalculateDistanceAndDuration = function (isRiderChanged) {
                 var _this = this;

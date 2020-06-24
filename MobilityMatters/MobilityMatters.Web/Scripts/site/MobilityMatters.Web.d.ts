@@ -1180,13 +1180,12 @@ declare namespace MobilityMatters.Northwind {
 declare namespace MobilityMatters.Northwind {
     interface CustomerForm {
         CustomerID: Serenity.StringEditor;
-        ID: Serenity.IntegerEditor;
         CompanyName: Serenity.StringEditor;
         ContactName: Serenity.StringEditor;
         Program: Serenity.LookupEditor;
         ProgramOption: Serenity.LookupEditor;
         ReferralSource: Serenity.StringEditor;
-        TEMP: Serenity.StringEditor;
+        TEMP: Serenity.BooleanEditor;
         Active: Serenity.BooleanEditor;
         Phone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
@@ -3671,9 +3670,17 @@ declare namespace MobilityMatters.Northwind {
         protected getLocalTextPrefix(): string;
         protected getNameProperty(): string;
         protected getService(): string;
+        private customerPropertyGrid;
+        private customerForm;
+        private customerValidator;
+        private employeesPropertyGrid;
+        private employeesForm;
+        private employeesValidator;
         protected form: OrderForm;
         constructor();
         getToolbarButtons(): Serenity.ToolButton[];
+        getCustomerID(): number;
+        loadEntity(entity: Northwind.OrderRow): void;
         protected CalculateDistanceAndDuration(isRiderChanged: boolean): void;
         protected updateInterface(): void;
     }

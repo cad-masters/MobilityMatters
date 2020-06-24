@@ -579,6 +579,7 @@
     <Content Include="fonts\ionicons.svg" />
     <Content Include="fonts\Simple-Line-Icons.svg" />
     <EmbeddedResource Include="Migrations\Script_MailAndGoogleDurationAndDistance.sql" />
+    <Content Include="Modules\Northwind\Order\Northwind.OrderDialog.Template.html" />
     <Content Include="Readme.CodeGenerator.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
