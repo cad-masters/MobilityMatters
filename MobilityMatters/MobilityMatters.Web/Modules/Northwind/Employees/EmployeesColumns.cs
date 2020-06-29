@@ -18,7 +18,10 @@ namespace MobilityMatters.Northwind.Columns
         [EditLink]
         public String LastName { get; set; }
         public String FirstName { get; set; }
-        
+        [Width(100), QuickFilter]
+        public String COVIDResults { get; set; }
+        public DateTime COVIDTestDate { get; set; }
+
         [Width(60), QuickFilter]
         public String Title { get; set; }
         [Width(90)]

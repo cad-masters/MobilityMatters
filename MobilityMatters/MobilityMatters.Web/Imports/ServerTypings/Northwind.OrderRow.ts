@@ -10,6 +10,7 @@
         Freight?: number;
         ShipName?: string;
         RideCompleted?: boolean;
+        ConfirmRide?: boolean;
         Cancelled?: boolean;
         CancelReason?: string;
         ShipAddress?: string;
@@ -105,6 +106,7 @@
             Freight = "Freight",
             ShipName = "ShipName",
             RideCompleted = "RideCompleted",
+            ConfirmRide = "ConfirmRide",
             Cancelled = "Cancelled",
             CancelReason = "CancelReason",
             ShipAddress = "ShipAddress",

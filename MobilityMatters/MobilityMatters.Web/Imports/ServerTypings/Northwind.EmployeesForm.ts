@@ -7,6 +7,8 @@
         FirstName: Serenity.StringEditor;
         HomePhone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
+        COVIDResults: Helpers.HardcodedValuesCOVIDEditor;
+        COVIDTestDate: Serenity.DateEditor;
         Address: Serenity.StringEditor;
         City: Serenity.StringEditor;
         Region: Serenity.StringEditor;
@@ -53,9 +55,10 @@
                 var w1 = s.StringEditor;
                 var w2 = s.BooleanEditor;
                 var w3 = s.EmailEditor;
-                var w4 = s.DateEditor;
-                var w5 = Helpers.HardcodedValuesGenderEditor;
-                var w6 = s.TextAreaEditor;
+                var w4 = Helpers.HardcodedValuesCOVIDEditor;
+                var w5 = s.DateEditor;
+                var w6 = Helpers.HardcodedValuesGenderEditor;
+                var w7 = s.TextAreaEditor;
 
                 Q.initFormType(EmployeesForm, [
                     'Title', w0,
@@ -65,20 +68,22 @@
                     'FirstName', w1,
                     'HomePhone', w1,
                     'Email', w3,
+                    'COVIDResults', w4,
+                    'COVIDTestDate', w5,
                     'Address', w1,
                     'City', w1,
                     'Region', w1,
                     'PostalCode', w1,
-                    'BirthDate', w4,
-                    'Gender', w5,
+                    'BirthDate', w5,
+                    'Gender', w6,
                     'Smoker', w2,
                     'Language', w1,
                     'DriversLicense', w1,
-                    'DriversLicenseExp', w4,
+                    'DriversLicenseExp', w5,
                     'LicensePlate', w1,
-                    'LicensePlateExp', w4,
+                    'LicensePlateExp', w5,
                     'Insurance', w1,
-                    'InsuranceExp', w4,
+                    'InsuranceExp', w5,
                     'VehicleMake', w1,
                     'VehicleModel', w1,
                     'VehicleMake2', w1,
@@ -86,14 +91,14 @@
                     'DMVClearance', w2,
                     'PoliceClearance', w2,
                     'ReferralSource', w1,
-                    'TrainingDate', w4,
-                    'HireDate', w4,
-                    'EndDate', w4,
+                    'TrainingDate', w5,
+                    'HireDate', w5,
+                    'EndDate', w5,
                     'WhyEnding', w1,
                     'CitiesList', w0,
                     'AvailabilityAMList', w0,
                     'AvailabilityPMList', w0,
-                    'NotesPlainText', w6
+                    'NotesPlainText', w7
                 ]);
             }
         }

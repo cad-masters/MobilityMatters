@@ -32,6 +32,8 @@
         LicensePlateExp?: string;
         Insurance?: string;
         InsuranceExp?: string;
+        COVIDTestDate?: string;
+        COVIDResults?: string;
         VehicleMake?: string;
         VehicleModel?: string;
         VehicleMake2?: string;
@@ -109,6 +111,8 @@
             LicensePlateExp = "LicensePlateExp",
             Insurance = "Insurance",
             InsuranceExp = "InsuranceExp",
+            COVIDTestDate = "COVIDTestDate",
+            COVIDResults = "COVIDResults",
             VehicleMake = "VehicleMake",
             VehicleModel = "VehicleModel",
             VehicleMake2 = "VehicleMake2",

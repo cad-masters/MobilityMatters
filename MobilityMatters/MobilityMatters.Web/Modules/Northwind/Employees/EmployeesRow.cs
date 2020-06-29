@@ -351,6 +351,20 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.PoliceClearance[this] = value; }
         }
 
+        [DisplayName("COVID-19 Test Results"), Size(30), Helpers.HardcodedValuesCOVIDEditor]
+        public String COVIDResults
+        {
+            get { return Fields.COVIDResults[this]; }
+            set { Fields.COVIDResults[this] = value; }
+        }
+
+        [DisplayName("COVID-19 Test Date")]
+        public DateTime? COVIDTestDate
+        {
+            get { return Fields.COVIDTestDate[this]; }
+            set { Fields.COVIDTestDate[this] = value; }
+        }
+
         [DisplayName("Reports To Last Name"), Expression("jReportsTo.[LastName]")]
         public String ReportsToLastName
         {
@@ -535,6 +549,8 @@ namespace MobilityMatters.Northwind.Entities
             public DateTimeField LicensePlateExp;
             public StringField Insurance;
             public DateTimeField InsuranceExp;
+            public DateTimeField COVIDTestDate;
+            public StringField COVIDResults;
 
             public StringField VehicleMake;
             public StringField VehicleModel;

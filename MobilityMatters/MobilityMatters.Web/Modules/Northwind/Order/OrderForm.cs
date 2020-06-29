@@ -20,10 +20,11 @@ namespace MobilityMatters.Northwind.Forms
         public String RequiredDate { get; set; }
 
         public Int32? EmployeeID { get; set; }
-        [BooleanFormatter, BooleanEditor, QuarterWidth]
-        public Boolean RideCompleted { get; set; }
-        [QuarterWidth]
         public Int32? HowMany { get; set; }
+        [BooleanFormatter, BooleanEditor, QuarterWidth]
+        public Boolean ConfirmRide { get; set; }
+        [QuarterWidth]
+        public Boolean RideCompleted { get; set; }
         [BooleanFormatter, BooleanEditor, QuarterWidth]
         public Boolean Cancelled { get; set; }
         [QuarterWidth]

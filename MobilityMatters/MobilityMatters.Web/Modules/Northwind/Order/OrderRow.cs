@@ -109,6 +109,13 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Cancelled[this] = value; }
         }
 
+        [DisplayName("Confirmed"), Size(30)]
+        public Boolean? ConfirmRide
+        {
+            get { return Fields.ConfirmRide[this]; }
+            set { Fields.ConfirmRide[this] = value; }
+        }
+
         [DisplayName("Cancel Reason")]
         public String CancelReason
         {
@@ -609,6 +616,7 @@ namespace MobilityMatters.Northwind.Entities
             public DecimalField Freight;
             public StringField ShipName;
             public BooleanField RideCompleted;
+            public BooleanField ConfirmRide;
             public BooleanField Cancelled;
             public StringField CancelReason;
             public StringField ShipAddress;
