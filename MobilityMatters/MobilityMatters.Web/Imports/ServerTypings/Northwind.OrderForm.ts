@@ -5,8 +5,9 @@
         OrderDate: Serenity.DateEditor;
         RequiredDate: Serenity.StringEditor;
         EmployeeID: Serenity.LookupEditor;
-        RideCompleted: Serenity.BooleanEditor;
         HowMany: Helpers.HardcodedValuesEditor;
+        ConfirmRide: Serenity.BooleanEditor;
+        RideCompleted: Serenity.BooleanEditor;
         Cancelled: Serenity.BooleanEditor;
         CancelReason: Serenity.StringEditor;
         CustomerSpecialNeedsPlainText: Serenity.TextAreaEditor;
@@ -61,8 +62,8 @@
                 var w2 = s.DateEditor;
                 var w3 = s.StringEditor;
                 var w4 = s.LookupEditor;
-                var w5 = s.BooleanEditor;
-                var w6 = Helpers.HardcodedValuesEditor;
+                var w5 = Helpers.HardcodedValuesEditor;
+                var w6 = s.BooleanEditor;
                 var w7 = s.TextAreaEditor;
 
                 Q.initFormType(OrderForm, [
@@ -71,9 +72,10 @@
                     'OrderDate', w2,
                     'RequiredDate', w3,
                     'EmployeeID', w4,
-                    'RideCompleted', w5,
-                    'HowMany', w6,
-                    'Cancelled', w5,
+                    'HowMany', w5,
+                    'ConfirmRide', w6,
+                    'RideCompleted', w6,
+                    'Cancelled', w6,
                     'CancelReason', w3,
                     'CustomerSpecialNeedsPlainText', w7,
                     'CustomerSpecialConditionsDirections', w7,

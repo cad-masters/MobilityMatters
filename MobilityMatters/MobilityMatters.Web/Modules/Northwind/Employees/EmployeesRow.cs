@@ -14,6 +14,7 @@ namespace MobilityMatters.Northwind.Entities
     [ReadPermission("Administration:General")]
     [ModifyPermission("Administration:General")]
     [OuterApply("jLastTrip", "select top 1 * from Orders o where o.EmployeeId = t0.EmployeeId order by o.OrderDate desc")]
+    [LookupScript]
     public sealed class EmployeesRow : Row, IIdRow, INameRow
     {
         [DisplayName("Employee Id"), Size(2), Column("EmployeeID"), Identity]
@@ -351,7 +352,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.PoliceClearance[this] = value; }
         }
 
-        [DisplayName("COVID-19 Test Results"), Size(30), Helpers.HardcodedValuesCOVIDEditor]
+        [DisplayName("COVID-19 Test Results"), Size(30) /*Helpers.HardcodedValuesCOVIDEditor*/]
         public String COVIDResults
         {
             get { return Fields.COVIDResults[this]; }

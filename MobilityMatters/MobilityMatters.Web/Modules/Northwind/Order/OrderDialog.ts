@@ -29,11 +29,19 @@
                 useCategories: true
             });
 
+            this.employeesPropertyGrid = new Serenity.PropertyGrid(this.byId("EmployeesPropertyGrid"), {
+                idPrefix: this.idPrefix + "_Customer_",
+                items: Q.getForm(Northwind.EmployeesForm.formKey).filter(x => x.name != 'EmployeeID'),
+                useCategories: true
+            });
+
             // this is just a helper to access editors if needed
             this.customerForm = new Northwind.CustomerForm((this.customerPropertyGrid as any).idPrefix);
+            this.employeesForm = new Northwind.EmployeesForm((this.employeesPropertyGrid as any).idPrefix);
 
             // initialize validator for customer form
             this.customerValidator = this.byId("CustomerForm").validate(Q.validateOptions({}));
+            this.employeesValidator = this.byId("EmployeesForm").validate(Q.validateOptions({}));
 
             var selfChange = 0;
 
@@ -80,6 +88,48 @@
                 }]
             });
 
+            new Serenity.Toolbar(this.byId("EmployeesToolbar"), {
+                buttons: [{
+                    cssClass: "apply-changes-button",
+                    title: Q.text("Controls.EntityDialog.SaveButton"),
+                    onClick: () => {
+                        var id = this.getEmployeeID();
+                        if (!id)
+                            return;
+
+                        if (!this.employeesValidator.form())
+                            return;
+
+                        // prepare an empty entity to serialize customer details into
+                        var c = <Northwind.EmployeesRow>{};
+                        this.employeesPropertyGrid.save(c);
+
+                        Northwind.EmployeesService.Update({
+                            EntityId: id,
+                            Entity: c
+                        }, response => {
+                            // reload customer list just in case
+                            Q.reloadLookup(Northwind.EmployeesRow.lookupKey);
+
+                            // set flag that we are triggering customer select change event
+                            // otherwise active tab will change to first one
+                            selfChange++;
+                            try {
+                                // trigger change so that customer select updates its text
+                                // in case if Company Name is changed
+                                this.form.EmployeeID.element.change();
+                            }
+                            finally {
+                                selfChange--;
+                            }
+
+                            Q.notifySuccess("Saved Volunteer details");
+                        });
+
+                    }
+                }]
+            });
+
             this.form.CustomerID.change(e => {
                 CustomerService.List({
                     EqualityFilter: <CustomerRow>{
@@ -115,6 +165,29 @@
                 }, response => {
                     this.customerPropertyGrid.load(response.Entity);
                 });
+            });
+
+            this.form.EmployeeID.change(e => {
+                if (selfChange)
+                    return;
+
+                var employeeID = this.getEmployeeID();
+
+                Serenity.TabsExtensions.setDisabled(this.tabs, 'Employees', !employeeID);
+
+                if (!employeeID) {
+                    // no customer is selected, just load an empty entity
+                    this.employeesPropertyGrid.load({});
+                    return;
+                }
+
+                // load selected customer into customer form by calling CustomerService
+                Northwind.EmployeesService.Retrieve({
+                    EntityId: employeeID
+                }, response => {
+                    this.employeesPropertyGrid.load(response.Entity);
+                });
+
             });
         }
 
@@ -195,11 +268,29 @@
                 x => x.CustomerID == customerID).ID;
         }
 
+        getEmployeeID() {
+            var employeeID = this.form.EmployeeID.value;
+            //alert(employeeID);
+            if (Q.isEmptyOrNull(employeeID))
+                return null;
+
+            // unfortunately, CustomerID (a string) used in this form and 
+            // the ID (auto increment ID) are different, so we need to 
+            // find numeric ID from customer lookups. 
+            // you'll probably won't need this step.
+            //return Q.first(Northwind.EmployeesRow.getLookup().items,
+              // x => x.EmployeeID == employeeID).ID;
+            return employeeID;
+        }
+
         loadEntity(entity: Northwind.OrderRow) {
             super.loadEntity(entity);
 
             Serenity.TabsExtensions.setDisabled(this.tabs, 'Customer',
                 !this.getCustomerID());
+
+            Serenity.TabsExtensions.setDisabled(this.tabs, 'Employees',
+                !this.getEmployeeID());
         }
 
         protected CalculateDistanceAndDuration(isRiderChanged: boolean) {

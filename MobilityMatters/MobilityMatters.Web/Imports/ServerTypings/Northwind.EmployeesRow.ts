@@ -73,6 +73,11 @@
         export const idProperty = 'EmployeeId';
         export const nameProperty = 'LastName';
         export const localTextPrefix = 'Northwind.Employees';
+        export const lookupKey = 'Northwind.Employees';
+
+        export function getLookup(): Q.Lookup<EmployeesRow> {
+            return Q.getLookup<EmployeesRow>('Northwind.Employees');
+        }
         export const deletePermission = 'Administration:General';
         export const insertPermission = 'Administration:General';
         export const readPermission = 'Administration:General';
