@@ -30,7 +30,7 @@
             });
 
             this.employeesPropertyGrid = new Serenity.PropertyGrid(this.byId("EmployeesPropertyGrid"), {
-                idPrefix: this.idPrefix + "_Employee_",
+                idPrefix: this.idPrefix + "_Employees_",
                 items: Q.getForm(Northwind.EmployeesForm.formKey).filter(x => x.name != 'EmployeeID'),
                 useCategories: true
             });
@@ -292,8 +292,8 @@
             Serenity.TabsExtensions.setDisabled(this.tabs, 'Customer',
                 !this.getCustomerID());
 
-            Serenity.TabsExtensions.setDisabled(this.tabs, 'Employees',
-                !this.getEmployeeID());
+            /*Serenity.TabsExtensions.setDisabled(this.tabs, 'Employees',
+                !this.getEmployeeID());*/
         }
 
         protected CalculateDistanceAndDuration(isRiderChanged: boolean) {

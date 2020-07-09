@@ -5263,7 +5263,7 @@ var MobilityMatters;
                     useCategories: true
                 });
                 _this.employeesPropertyGrid = new Serenity.PropertyGrid(_this.byId("EmployeesPropertyGrid"), {
-                    idPrefix: _this.idPrefix + "_Employee_",
+                    idPrefix: _this.idPrefix + "_Employees_",
                     items: Q.getForm(Northwind.EmployeesForm.formKey).filter(function (x) { return x.name != 'EmployeeID'; }),
                     useCategories: true
                 });
@@ -5482,7 +5482,8 @@ var MobilityMatters;
             OrderDialog.prototype.loadEntity = function (entity) {
                 _super.prototype.loadEntity.call(this, entity);
                 Serenity.TabsExtensions.setDisabled(this.tabs, 'Customer', !this.getCustomerID());
-                Serenity.TabsExtensions.setDisabled(this.tabs, 'Employees', !this.getEmployeeID());
+                /*Serenity.TabsExtensions.setDisabled(this.tabs, 'Employees',
+                    !this.getEmployeeID());*/
             };
             OrderDialog.prototype.CalculateDistanceAndDuration = function (isRiderChanged) {
                 var _this = this;
