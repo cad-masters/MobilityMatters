@@ -5448,7 +5448,9 @@ var MobilityMatters;
                             apptLength2: _this.form.ApptTime2.value,
                             apptType2: _this.form.ApptType2.value,
                             appointmentTime2: _this.form.AppointmentTime2.value,
-                            altPhone: client.AltPhone
+                            altPhone: client.AltPhone,
+                            specialNeedsTemp: _this.form.CustomerSpecialNeedsPlainText.value,
+                            specialConditionsDirections: _this.form.CustomerSpecialConditionsDirections.value
                         }).dialogOpen();
                     }
                 });

@@ -32,7 +32,6 @@
         PLanguage: Serenity.StringEditor;
         SpecialNeedsList: Serenity.LookupEditor;
         SpecialNeedsPlainText: Serenity.TextAreaEditor;
-        SpecialConditionsDirections: Serenity.TextAreaEditor;
         DNR: Serenity.LookupEditor;
         Radio: Serenity.BooleanEditor;
         EIO: Serenity.BooleanEditor;
@@ -98,7 +97,6 @@
                     'PLanguage', w0,
                     'SpecialNeedsList', w1,
                     'SpecialNeedsPlainText', w8,
-                    'SpecialConditionsDirections', w8,
                     'DNR', w1,
                     'Radio', w2,
                     'EIO', w2,

@@ -247,7 +247,9 @@
                         apptLength2: this.form.ApptTime2.value,
                         apptType2: this.form.ApptType2.value,
                         appointmentTime2: this.form.AppointmentTime2.value,
-                        altPhone: client.AltPhone
+                        altPhone: client.AltPhone,
+                        specialNeedsTemp: this.form.CustomerSpecialNeedsPlainText.value,
+                        specialConditionsDirections: this.form.CustomerSpecialConditionsDirections.value
                     }).dialogOpen();
                 }
             });
