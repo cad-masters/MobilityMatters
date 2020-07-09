@@ -130,7 +130,7 @@
                 }]
             });
 
-            this.form.CustomerID.change(e => {
+            this.form.CustomerID.changeSelect2(e => {
                 CustomerService.List({
                     EqualityFilter: <CustomerRow>{
                         CustomerID: this.form.CustomerID.value
@@ -142,7 +142,7 @@
                             this.form.ShipCity.value = response.Entities[0].City;
                             this.form.ShipPostalCode.value = response.Entities[0].PostalCode;
 
-                            this.CalculateDistanceAndDuration(true);
+                            //this.CalculateDistanceAndDuration(true);
                         }
                     });
 

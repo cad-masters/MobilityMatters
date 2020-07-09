@@ -1180,13 +1180,12 @@ declare namespace MobilityMatters.Northwind {
 declare namespace MobilityMatters.Northwind {
     interface CustomerForm {
         CustomerID: Serenity.StringEditor;
-        ID: Serenity.IntegerEditor;
         CompanyName: Serenity.StringEditor;
         ContactName: Serenity.StringEditor;
         Program: Serenity.LookupEditor;
         ProgramOption: Serenity.LookupEditor;
         ReferralSource: Serenity.StringEditor;
-        TEMP: Serenity.StringEditor;
+        TEMP: Serenity.BooleanEditor;
         Active: Serenity.BooleanEditor;
         Phone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
@@ -1212,7 +1211,6 @@ declare namespace MobilityMatters.Northwind {
         PLanguage: Serenity.StringEditor;
         SpecialNeedsList: Serenity.LookupEditor;
         SpecialNeedsPlainText: Serenity.TextAreaEditor;
-        SpecialConditionsDirections: Serenity.TextAreaEditor;
         DNR: Serenity.LookupEditor;
         Radio: Serenity.BooleanEditor;
         EIO: Serenity.BooleanEditor;
@@ -1613,6 +1611,8 @@ declare namespace MobilityMatters.Northwind {
         FirstName: Serenity.StringEditor;
         HomePhone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
+        COVIDResults: Serenity.StringEditor;
+        COVIDTestDate: Serenity.DateEditor;
         Address: Serenity.StringEditor;
         City: Serenity.StringEditor;
         Region: Serenity.StringEditor;
@@ -1683,6 +1683,8 @@ declare namespace MobilityMatters.Northwind {
         LicensePlateExp?: string;
         Insurance?: string;
         InsuranceExp?: string;
+        COVIDTestDate?: string;
+        COVIDResults?: string;
         VehicleMake?: string;
         VehicleModel?: string;
         VehicleMake2?: string;
@@ -1721,6 +1723,8 @@ declare namespace MobilityMatters.Northwind {
         const idProperty = "EmployeeId";
         const nameProperty = "LastName";
         const localTextPrefix = "Northwind.Employees";
+        const lookupKey = "Northwind.Employees";
+        function getLookup(): Q.Lookup<EmployeesRow>;
         const deletePermission = "Administration:General";
         const insertPermission = "Administration:General";
         const readPermission = "Administration:General";
@@ -1758,6 +1762,8 @@ declare namespace MobilityMatters.Northwind {
             LicensePlateExp = "LicensePlateExp",
             Insurance = "Insurance",
             InsuranceExp = "InsuranceExp",
+            COVIDTestDate = "COVIDTestDate",
+            COVIDResults = "COVIDResults",
             VehicleMake = "VehicleMake",
             VehicleModel = "VehicleModel",
             VehicleMake2 = "VehicleMake2",
@@ -2145,8 +2151,9 @@ declare namespace MobilityMatters.Northwind {
         OrderDate: Serenity.DateEditor;
         RequiredDate: Serenity.StringEditor;
         EmployeeID: Serenity.LookupEditor;
-        RideCompleted: Serenity.BooleanEditor;
         HowMany: Helpers.HardcodedValuesEditor;
+        ConfirmRide: Serenity.BooleanEditor;
+        RideCompleted: Serenity.BooleanEditor;
         Cancelled: Serenity.BooleanEditor;
         CancelReason: Serenity.StringEditor;
         CustomerSpecialNeedsPlainText: Serenity.TextAreaEditor;
@@ -2207,6 +2214,7 @@ declare namespace MobilityMatters.Northwind {
         Freight?: number;
         ShipName?: string;
         RideCompleted?: boolean;
+        ConfirmRide?: boolean;
         Cancelled?: boolean;
         CancelReason?: string;
         ShipAddress?: string;
@@ -2297,6 +2305,7 @@ declare namespace MobilityMatters.Northwind {
             Freight = "Freight",
             ShipName = "ShipName",
             RideCompleted = "RideCompleted",
+            ConfirmRide = "ConfirmRide",
             Cancelled = "Cancelled",
             CancelReason = "CancelReason",
             ShipAddress = "ShipAddress",
@@ -3300,6 +3309,18 @@ declare namespace MobilityMatters.Common {
         protected updateInterface(): void;
         protected saveHandler(options: Serenity.ServiceOptions<Serenity.SaveResponse>, callback: (response: Serenity.SaveResponse) => void): void;
         protected deleteHandler(options: Serenity.ServiceOptions<Serenity.DeleteResponse>, callback: (response: Serenity.DeleteResponse) => void): void;
+    }
+}
+declare namespace MobilityMatters.Helpers {
+    /**
+     * Our select editor with hardcoded values.
+     *
+     * When you define a new editor type, make sure you build
+     * and transform templates for it to be available
+     * in server side forms, e.g. [HardCodedValuesEditor]
+     */
+    class HardcodedValuesCOVIDEditor extends Serenity.Select2Editor<any, any> {
+        constructor(container: JQuery);
     }
 }
 declare namespace MobilityMatters.Helpers {
