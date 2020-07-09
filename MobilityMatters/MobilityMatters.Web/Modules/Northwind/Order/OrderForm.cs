@@ -31,7 +31,7 @@ namespace MobilityMatters.Northwind.Forms
         public String CancelReason { get; set; }
         [HalfWidth]
         public String CustomerSpecialNeedsPlainText { get; set; }
-        [HalfWidth]
+        [HalfWidth, ]
         public String CustomerSpecialConditionsDirections { get; set; }
         /*[Category("Trip Details")]
         [OrderDetailsEditor]

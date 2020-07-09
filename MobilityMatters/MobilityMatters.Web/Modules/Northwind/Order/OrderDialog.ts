@@ -30,7 +30,7 @@
             });
 
             this.employeesPropertyGrid = new Serenity.PropertyGrid(this.byId("EmployeesPropertyGrid"), {
-                idPrefix: this.idPrefix + "_Customer_",
+                idPrefix: this.idPrefix + "_Employee_",
                 items: Q.getForm(Northwind.EmployeesForm.formKey).filter(x => x.name != 'EmployeeID'),
                 useCategories: true
             });
@@ -227,6 +227,7 @@
                     var client = Q.tryFirst(CustomerRow.getLookup().items, x => x.CustomerID == this.form.CustomerID.value);
                     var apptDate = this.form.OrderDate.valueAsDate.toString().substring(0,15);
                     var subject = "Ride Scheduled for " + apptDate + " at " + this.form.RequiredDate.value + " with " + (client ? client.FullName : "");
+                    
 
                     new Northwind.MailComposeDialog({
                         mailFromTrip: true,
@@ -331,6 +332,7 @@
         protected updateInterface() {
             super.updateInterface();
 
+            
             this.cloneButton.toggle(this.isEditMode());
             this.toolbar.findButton('export-pdf-button').toggle(this.isEditMode());
         }

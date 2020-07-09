@@ -523,14 +523,14 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.CustomerRegion[this] = value; }
         }
 
-        [Origin("c"), TextAreaEditor]
+        [Origin("c"), TextAreaEditor, ReadOnly(true)]
         public String CustomerSpecialNeedsPlainText
         {
             get { return Fields.CustomerSpecialNeedsPlainText[this]; }
             set { Fields.CustomerSpecialNeedsPlainText[this] = value; }
         }
 
-        [Origin("c"), TextAreaEditor]
+        [Width(100), TextAreaEditor, DisplayName("Special Conditions & Directions")]
         public String CustomerSpecialConditionsDirections
         {
             get { return Fields.CustomerSpecialConditionsDirections[this]; }

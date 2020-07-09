@@ -5263,7 +5263,7 @@ var MobilityMatters;
                     useCategories: true
                 });
                 _this.employeesPropertyGrid = new Serenity.PropertyGrid(_this.byId("EmployeesPropertyGrid"), {
-                    idPrefix: _this.idPrefix + "_Customer_",
+                    idPrefix: _this.idPrefix + "_Employee_",
                     items: Q.getForm(Northwind.EmployeesForm.formKey).filter(function (x) { return x.name != 'EmployeeID'; }),
                     useCategories: true
                 });
