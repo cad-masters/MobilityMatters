@@ -5585,7 +5585,7 @@ var MobilityMatters;
             __extends(CustomerOrderDialog, _super);
             function CustomerOrderDialog() {
                 var _this = _super.call(this) || this;
-                _this.form.CustomerID.change(function (e) {
+                _this.form.CustomerID.changeSelect2(function (e) {
                     Northwind.CustomerService.List({
                         EqualityFilter: {
                             CustomerID: _this.form.CustomerID.value
@@ -5601,6 +5601,24 @@ var MobilityMatters;
                 });
                 return _this;
             }
+            CustomerOrderDialog.prototype.afterLoadEntity = function () {
+                var _this = this;
+                _super.prototype.afterLoadEntity.call(this);
+                this.form.CustomerID.change(function (e) {
+                    Northwind.CustomerService.List({
+                        EqualityFilter: {
+                            CustomerID: _this.form.CustomerID.value
+                        }
+                    }, function (response) {
+                        if (response.Entities.length) {
+                            _this.form.ShipAddress.value = response.Entities[0].Address;
+                            _this.form.ShipCity.value = response.Entities[0].City;
+                            _this.form.ShipPostalCode.value = response.Entities[0].PostalCode;
+                            //this.CalculateDistanceAndDuration(true);
+                        }
+                    });
+                });
+            };
             CustomerOrderDialog.prototype.updateInterface = function () {
                 _super.prototype.updateInterface.call(this);
                 Serenity.EditorUtils.setReadOnly(this.form.CustomerID, true);

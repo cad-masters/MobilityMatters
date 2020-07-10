@@ -3711,6 +3711,7 @@ declare namespace MobilityMatters.Northwind {
 declare namespace MobilityMatters.Northwind {
     class CustomerOrderDialog extends OrderDialog {
         constructor();
+        protected afterLoadEntity(): void;
         updateInterface(): void;
     }
 }
