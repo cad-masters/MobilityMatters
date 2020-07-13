@@ -23,7 +23,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.OrderID[this] = value; }
         }
 
-        [DisplayName("Rider"), Size(5), NotNull, ForeignKey(typeof(CustomerRow), "CustomerID"), LeftJoin("c"), CustomerEditor]
+        [DisplayName("Rider"), Size(7), NotNull, ForeignKey(typeof(CustomerRow), "CustomerID"), LeftJoin("c"), CustomerEditor]
         [LookupEditor(typeof(CustomerRow)), TextualField("CustomerFullName")]
         public String CustomerID
         {
