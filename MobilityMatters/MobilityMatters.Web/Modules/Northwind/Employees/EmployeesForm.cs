@@ -15,7 +15,10 @@ namespace MobilityMatters.Northwind.Forms
         public String Title { get; set; }
         [HalfWidth]
         public String TitleOfCourtesy { get; set; }
+        [HalfWidth]
         public Boolean OnVacation { get; set; }
+        [HalfWidth]
+        public Boolean Inactive { get; set; }
         [Category("Contact")]
         [HalfWidth]
         public String LastName { get; set; }

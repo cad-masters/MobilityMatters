@@ -1517,6 +1517,7 @@ declare namespace Serenity {
         openDialogAsPanel: boolean;
     }
     interface Select2Item {
+        [x: string]: any;
         id: string;
         text: string;
         source?: any;

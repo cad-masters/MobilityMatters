@@ -1266,6 +1266,7 @@ var MobilityMatters;
                         'Title', w0,
                         'TitleOfCourtesy', w1,
                         'OnVacation', w2,
+                        'Inactive', w2,
                         'LastName', w1,
                         'FirstName', w1,
                         'HomePhone', w1,
@@ -5391,19 +5392,7 @@ var MobilityMatters;
                             }
                         }]
                 });
-                _this.form.CustomerID.changeSelect2(function (e) {
-                    Northwind.CustomerService.List({
-                        EqualityFilter: {
-                            CustomerID: _this.form.CustomerID.value
-                        }
-                    }, function (response) {
-                        if (response.Entities.length) {
-                            _this.form.ShipAddress.value = response.Entities[0].Address;
-                            _this.form.ShipCity.value = response.Entities[0].City;
-                            _this.form.ShipPostalCode.value = response.Entities[0].PostalCode;
-                            //this.CalculateDistanceAndDuration(true);
-                        }
-                    });
+                _this.form.CustomerID.change(function (e) {
                     if (selfChange)
                         return;
                     var customerID = _this.getCustomerID();
@@ -5562,6 +5551,24 @@ var MobilityMatters;
                     }
                 }
             };
+            OrderDialog.prototype.afterLoadEntity = function () {
+                var _this = this;
+                _super.prototype.afterLoadEntity.call(this);
+                this.form.CustomerID.changeSelect2(function (e) {
+                    Northwind.CustomerService.List({
+                        EqualityFilter: {
+                            CustomerID: _this.form.CustomerID.value
+                        }
+                    }, function (response) {
+                        if (response.Entities.length) {
+                            _this.form.ShipAddress.value = response.Entities[0].Address;
+                            _this.form.ShipCity.value = response.Entities[0].City;
+                            _this.form.ShipPostalCode.value = response.Entities[0].PostalCode;
+                            //this.CalculateDistanceAndDuration(true);
+                        }
+                    });
+                });
+            };
             OrderDialog.prototype.updateInterface = function () {
                 _super.prototype.updateInterface.call(this);
                 this.cloneButton.toggle(this.isEditMode());
@@ -5585,7 +5592,7 @@ var MobilityMatters;
             __extends(CustomerOrderDialog, _super);
             function CustomerOrderDialog() {
                 var _this = _super.call(this) || this;
-                _this.form.CustomerID.changeSelect2(function (e) {
+                _this.form.CustomerID.change(function (e) {
                     Northwind.CustomerService.List({
                         EqualityFilter: {
                             CustomerID: _this.form.CustomerID.value
@@ -5601,10 +5608,14 @@ var MobilityMatters;
                 });
                 return _this;
             }
+            CustomerOrderDialog.prototype.updateInterface = function () {
+                _super.prototype.updateInterface.call(this);
+                //Serenity.EditorUtils.setReadOnly(this.form.CustomerID, true);
+            };
             CustomerOrderDialog.prototype.afterLoadEntity = function () {
                 var _this = this;
                 _super.prototype.afterLoadEntity.call(this);
-                this.form.CustomerID.change(function (e) {
+                this.form.CustomerID.changeSelect2(function (e) {
                     Northwind.CustomerService.List({
                         EqualityFilter: {
                             CustomerID: _this.form.CustomerID.value
@@ -5618,10 +5629,6 @@ var MobilityMatters;
                         }
                     });
                 });
-            };
-            CustomerOrderDialog.prototype.updateInterface = function () {
-                _super.prototype.updateInterface.call(this);
-                Serenity.EditorUtils.setReadOnly(this.form.CustomerID, true);
             };
             CustomerOrderDialog = __decorate([
                 Serenity.Decorators.registerClass()

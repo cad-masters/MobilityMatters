@@ -1607,6 +1607,7 @@ declare namespace MobilityMatters.Northwind {
         Title: Serenity.LookupEditor;
         TitleOfCourtesy: Serenity.StringEditor;
         OnVacation: Serenity.BooleanEditor;
+        Inactive: Serenity.BooleanEditor;
         LastName: Serenity.StringEditor;
         FirstName: Serenity.StringEditor;
         HomePhone: Serenity.StringEditor;
@@ -3705,14 +3706,15 @@ declare namespace MobilityMatters.Northwind {
         getEmployeeID(): string;
         loadEntity(entity: Northwind.OrderRow): void;
         protected CalculateDistanceAndDuration(isRiderChanged: boolean): void;
+        protected afterLoadEntity(): void;
         protected updateInterface(): void;
     }
 }
 declare namespace MobilityMatters.Northwind {
     class CustomerOrderDialog extends OrderDialog {
         constructor();
-        protected afterLoadEntity(): void;
         updateInterface(): void;
+        protected afterLoadEntity(): void;
     }
 }
 declare namespace MobilityMatters.Northwind {
