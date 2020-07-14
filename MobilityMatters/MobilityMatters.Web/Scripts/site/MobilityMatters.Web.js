@@ -1706,11 +1706,6 @@ var MobilityMatters;
             OrderRow.idProperty = 'OrderID';
             OrderRow.nameProperty = 'CustomerID';
             OrderRow.localTextPrefix = 'Northwind.Order';
-            OrderRow.lookupKey = 'Northwind.Order';
-            function getLookup() {
-                return Q.getLookup('Northwind.Order');
-            }
-            OrderRow.getLookup = getLookup;
             OrderRow.deletePermission = 'Northwind:General';
             OrderRow.insertPermission = 'Northwind:General';
             OrderRow.readPermission = 'Northwind:General';
@@ -5304,6 +5299,8 @@ var MobilityMatters;
             function OrderDialog() {
                 var _this = _super.call(this) || this;
                 _this.form = new Northwind.OrderForm(_this.idPrefix);
+                Q.reloadLookup(Northwind.CustomerRow.lookupKey);
+                Q.reloadLookup('Northwind.Employees');
                 _this.customerPropertyGrid = new Serenity.PropertyGrid(_this.byId("CustomerPropertyGrid"), {
                     idPrefix: _this.idPrefix + "_Customer_",
                     items: Q.getForm(Northwind.CustomerForm.formKey).filter(function (x) { return x.name != 'CustomerID'; }),
@@ -5393,6 +5390,19 @@ var MobilityMatters;
                         }]
                 });
                 _this.form.CustomerID.change(function (e) {
+                    //CustomerService.List({
+                    //    EqualityFilter: <CustomerRow>{
+                    //        CustomerID: this.form.CustomerID.value
+                    //    }
+                    //},
+                    //    response => {
+                    //        if (response.Entities.length) {
+                    //            this.form.ShipAddress.value = response.Entities[0].Address;
+                    //            this.form.ShipCity.value = response.Entities[0].City;
+                    //            this.form.ShipPostalCode.value = response.Entities[0].PostalCode;
+                    //            //this.CalculateDistanceAndDuration(true);
+                    //        }
+                    //    });
                     if (selfChange)
                         return;
                     var customerID = _this.getCustomerID();
@@ -5516,7 +5526,8 @@ var MobilityMatters;
             };
             OrderDialog.prototype.loadEntity = function (entity) {
                 _super.prototype.loadEntity.call(this, entity);
-                Serenity.TabsExtensions.setDisabled(this.tabs, 'Customer', !this.getCustomerID());
+                /*Serenity.TabsExtensions.setDisabled(this.tabs, 'Customer',
+                    !this.getCustomerID());*/
                 /*Serenity.TabsExtensions.setDisabled(this.tabs, 'Employees',
                     !this.getEmployeeID());*/
             };

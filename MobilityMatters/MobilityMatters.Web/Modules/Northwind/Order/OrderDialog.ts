@@ -23,6 +23,9 @@
         constructor() {
             super();
 
+            Q.reloadLookup(Northwind.CustomerRow.lookupKey);
+            Q.reloadLookup('Northwind.Employees');
+
             this.customerPropertyGrid = new Serenity.PropertyGrid(this.byId("CustomerPropertyGrid"), {
                 idPrefix: this.idPrefix + "_Customer_",
                 items: Q.getForm(Northwind.CustomerForm.formKey).filter(x => x.name != 'CustomerID'),
@@ -132,6 +135,20 @@
 
             this.form.CustomerID.change(e => {
                 
+                //CustomerService.List({
+                //    EqualityFilter: <CustomerRow>{
+                //        CustomerID: this.form.CustomerID.value
+                //    }
+                //},
+                //    response => {
+                //        if (response.Entities.length) {
+                //            this.form.ShipAddress.value = response.Entities[0].Address;
+                //            this.form.ShipCity.value = response.Entities[0].City;
+                //            this.form.ShipPostalCode.value = response.Entities[0].PostalCode;
+
+                //            //this.CalculateDistanceAndDuration(true);
+                //        }
+                //    });
 
                 if (selfChange)
                     return;
@@ -276,8 +293,8 @@
         loadEntity(entity: Northwind.OrderRow) {
             super.loadEntity(entity);
 
-            Serenity.TabsExtensions.setDisabled(this.tabs, 'Customer',
-                !this.getCustomerID());
+            /*Serenity.TabsExtensions.setDisabled(this.tabs, 'Customer',
+                !this.getCustomerID());*/
 
             /*Serenity.TabsExtensions.setDisabled(this.tabs, 'Employees',
                 !this.getEmployeeID());*/

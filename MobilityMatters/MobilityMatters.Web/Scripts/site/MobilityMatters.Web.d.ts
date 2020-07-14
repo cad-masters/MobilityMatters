@@ -2289,8 +2289,6 @@ declare namespace MobilityMatters.Northwind {
         const idProperty = "OrderID";
         const nameProperty = "CustomerID";
         const localTextPrefix = "Northwind.Order";
-        const lookupKey = "Northwind.Order";
-        function getLookup(): Q.Lookup<OrderRow>;
         const deletePermission = "Northwind:General";
         const insertPermission = "Northwind:General";
         const readPermission = "Northwind:General";

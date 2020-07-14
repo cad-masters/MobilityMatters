@@ -30,6 +30,8 @@
                 if (e.which >= 65 && e.which <= 90)
                     this.getNextNumber();
             });
+
+            
         }
 
         protected afterLoadEntity() {

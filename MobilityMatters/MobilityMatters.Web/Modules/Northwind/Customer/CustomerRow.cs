@@ -15,7 +15,7 @@ namespace MobilityMatters.Northwind.Entities
     [DeletePermission(PermissionKeys.Customer.Delete)]
     [LeftJoin("cd", "CustomerDetails", "cd.[ID] = t0.[ID]", RowType = typeof(CustomerDetailsRow), TitlePrefix = "")]
     [UpdatableExtension("cd", typeof(CustomerDetailsRow), CascadeDelete = true)]
-    [LookupScript(typeof(Lookups.CustomerLookup))]
+    [LookupScript(typeof(Lookups.CustomerLookup), Expiration = -1)]
     [OuterApply("jLastTrip", "select top 1 * from Orders o where o.CustomerID = t0.CustomerID order by o.OrderDate desc")]
     public sealed class CustomerRow : Row, IIdRow, INameRow
     {
@@ -26,14 +26,14 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.ID[this] = value; }
         }
 
-        [DisplayName("Rider Id"), Size(6), PrimaryKey, NotNull, QuickSearch, Updatable(false), LookupInclude]
+        [DisplayName("Rider Id"), Size(7), PrimaryKey, NotNull, QuickSearch, Updatable(false), LookupInclude]
         public String CustomerID
         {
             get { return Fields.CustomerID[this]; }
             set { Fields.CustomerID[this] = value; }
         }
 
-        [DisplayName("Last Name"), Size(40), NotNull, QuickSearch, LookupInclude]
+        [DisplayName("Last Name"), Size(40), NotNull, QuickSearch]
         public String CompanyName
         {
             get { return Fields.CompanyName[this]; }
@@ -47,7 +47,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.ContactName[this] = value; }
         }
 
-        [DisplayName("FullName"), QuickSearch]
+        [DisplayName("FullName"), QuickSearch, LookupInclude]
         [Expression("CONCAT(T0.[ContactName], CONCAT(' ', T0.[CompanyName]))")]
         [Expression("(T0.ContacttName || ' ' || T0.CompanyName)", Dialect = "Sqlite")]
         public String FullName

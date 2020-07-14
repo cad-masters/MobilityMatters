@@ -13,7 +13,6 @@ namespace MobilityMatters.Northwind.Entities
     [DisplayName("Trips"), InstanceName("Trip")]
     [ReadPermission(PermissionKeys.General)]
     [ModifyPermission(PermissionKeys.General)]
-    [LookupScript]
     public sealed class OrderRow : Row, IIdRow, INameRow
     {
         [DisplayName("Ride ID"), NotNull, Identity, QuickSearch]
@@ -53,7 +52,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.EmployeeFullName[this] = value; }
         }
 
-        [Origin("c"), DisplayName("Rider")]
+        [Origin("c"), DisplayName("Rider"), LookupInclude]
         public String CustomerFullName
         {
             get { return Fields.CustomerFullName[this]; }
