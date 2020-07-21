@@ -1727,7 +1727,8 @@ var MobilityMatters;
                 'Retrieve',
                 'List',
                 'DistanceMatrix',
-                'GetDistanceMatrix'
+                'GetDistanceMatrix',
+                'GetConfirmUrl'
             ].forEach(function (x) {
                 OrderService[x] = function (r, s, o) {
                     return Q.serviceRequest(OrderService.baseUrl + '/' + x, r, s, o);
@@ -5479,7 +5480,7 @@ var MobilityMatters;
                             mailFromTrip: true,
                             toVoluntueer: volunteers,
                             subject: subject,
-                            appointmentDate: _this.form.OrderDate.valueAsDate,
+                            appointmentDate: _this.form.OrderDate.valueAsDate.toString(),
                             clientName: (client ? client.FullName : ""),
                             rideNumber: _this.form.OrderID.value,
                             telephoneNumber: client.Phone,
@@ -5495,7 +5496,8 @@ var MobilityMatters;
                             appointmentTime2: _this.form.AppointmentTime2.value,
                             altPhone: client.AltPhone,
                             specialNeedsTemp: _this.form.CustomerSpecialNeedsPlainText.value,
-                            specialConditionsDirections: _this.form.CustomerSpecialConditionsDirections.value
+                            specialConditionsDirections: _this.form.CustomerSpecialConditionsDirections.value,
+                            orderId: _this.form.OrderID.value
                         }).dialogOpen();
                     }
                 });
@@ -6125,7 +6127,14 @@ var MobilityMatters;
                     _this.form.Attachments.value = opt.attachments;
                 if (opt.mailFromTrip) {
                     var body = _this.form.BodyHtml.value;
-                    body = body.replace('{RideNumber}', opt.rideNumber.toString()).replace('{AppointmentDate}', opt.appointmentDate.toString().substring(0, 15)).replace('{ClientName}', opt.clientName)
+                    var url = "";
+                    Northwind.OrderService.GetConfirmUrl({
+                        Id: opt.orderId
+                    }, function (response) { return url = response.Url; }, {
+                        async: false
+                    });
+                    var path = "<a href='" + url + "'>Confirm</a>";
+                    body = body.replace('{ConfirmUrl}', path).replace('{RideNumber}', opt.rideNumber.toString()).replace('{AppointmentDate}', opt.appointmentDate.toString().substring(0, 15)).replace('{ClientName}', opt.clientName)
                         .replace('{PickupAddress}', opt.pickupAddress).replace('{AltPhone}', opt.altPhone).replace('{TelephoneNumber}', opt.telephoneNumber).replace('{PickupTime}', opt.pickupTime).replace('{DeliveryAddress}', opt.deliveryAddress).replace('{ApptTime}', opt.apptLength).replace('{ApptType}', opt.apptType).replace('{AppointmentTime}', opt.appointmentTime).replace('{DeliveryAddress2}', opt.deliveryAddress2).replace('{ApptTime2}', opt.apptLength2).replace('{ApptType2}', opt.apptType2).replace('{AppointmentTime2}', opt.appointmentTime2).replace('{SpecialNeedsTemp}', opt.specialNeedsTemp).replace('{SpecialConditionsDirections}', opt.specialConditionsDirections);
                     _this.form.BodyHtml.value = body;
                 }

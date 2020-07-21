@@ -2386,6 +2386,7 @@ declare namespace MobilityMatters.Northwind {
         function List(request: OrderListRequest, onSuccess?: (response: Serenity.ListResponse<OrderRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function DistanceMatrix(request: DistanceMatrixRequest, onSuccess?: (response: DistanceMatrixResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         function GetDistanceMatrix(request: DistanceMatrixRequest, onSuccess?: (response: DistanceMatrixResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function GetConfirmUrl(request: TripConfirmUrlRequest, onSuccess?: (response: TripConfirmUrlResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
         const enum Methods {
             Create = "Northwind/Order/Create",
             Update = "Northwind/Order/Update",
@@ -2393,7 +2394,8 @@ declare namespace MobilityMatters.Northwind {
             Retrieve = "Northwind/Order/Retrieve",
             List = "Northwind/Order/List",
             DistanceMatrix = "Northwind/Order/DistanceMatrix",
-            GetDistanceMatrix = "Northwind/Order/GetDistanceMatrix"
+            GetDistanceMatrix = "Northwind/Order/GetDistanceMatrix",
+            GetConfirmUrl = "Northwind/Order/GetConfirmUrl"
         }
     }
 }
@@ -3000,6 +3002,21 @@ declare namespace MobilityMatters.Northwind {
             Retrieve = "Northwind/Territory/Retrieve",
             List = "Northwind/Territory/List"
         }
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface TripConfirmRequest extends Serenity.ServiceRequest {
+        Token?: string;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface TripConfirmUrlRequest extends Serenity.ServiceRequest {
+        Id?: number;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface TripConfirmUrlResponse extends Serenity.ServiceResponse {
+        Url?: string;
     }
 }
 declare namespace MobilityMatters {
@@ -3847,6 +3864,7 @@ declare namespace MobilityMatters.Northwind {
         appointmentTime2?: string;
         specialNeedsTemp?: string;
         specialConditionsDirections?: string;
+        orderId?: number;
     }
     class MailComposeDialog extends Serenity.PropertyDialog<MailComposeRequest, MailComposeDialogOptions> {
         private form;

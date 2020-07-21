@@ -1,12 +1,14 @@
 ﻿
 namespace MobilityMatters.Northwind.Endpoints
 {
+    using MobilityMatters.Common;
     using Serenity.Data;
     using Serenity.Reporting;
     using Serenity.Services;
     using Serenity.Web;
     using System;
     using System.Data;
+    using System.Web;
     using System.Web.Mvc;
     using MyRepository = Repositories.OrderRepository;
     using MyRow = Entities.OrderRow;
@@ -60,6 +62,13 @@ namespace MobilityMatters.Northwind.Endpoints
         public DistanceMatrixResponse GetDistanceMatrix(IDbConnection connection, DistanceMatrixRequest request)
         {
             return new MyRepository().GetDistanceMatrix(connection, request);
+        }
+        public TripConfirmUrlResponse GetConfirmUrl(TripConfirmUrlRequest request)
+        {
+            var baseUri = System.Web.HttpContext.Current.Request.Url.Scheme + "://" + System.Web.HttpContext.Current.Request.Url.Authority.ToString();
+            var encrypetedId = EncryptionHelper.Encrypt(request.Id.ToString());
+
+            return new TripConfirmUrlResponse { Url = baseUri  + "/Northwind/Order/ConfirmTrip?Token=" + encrypetedId };
         }
     }
 }

@@ -237,7 +237,7 @@
                         mailFromTrip: true,
                         toVoluntueer: volunteers,
                         subject: subject,
-                        appointmentDate: this.form.OrderDate.valueAsDate,
+                        appointmentDate: this.form.OrderDate.valueAsDate.toString(),
                         clientName: (client ? client.FullName : ""),
                         rideNumber: this.form.OrderID.value,
                         telephoneNumber: client.Phone,
@@ -253,7 +253,8 @@
                         appointmentTime2: this.form.AppointmentTime2.value,
                         altPhone: client.AltPhone,
                         specialNeedsTemp: this.form.CustomerSpecialNeedsPlainText.value,
-                        specialConditionsDirections: this.form.CustomerSpecialConditionsDirections.value
+                        specialConditionsDirections: this.form.CustomerSpecialConditionsDirections.value,
+                        orderId: this.form.OrderID.value
                     }).dialogOpen();
                 }
             });

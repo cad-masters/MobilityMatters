@@ -1,0 +1,28 @@
+﻿@model MobilityMatters.Northwind.TripConfirm
+
+@{
+    ViewData["Title"] = "Trip Confirm";
+}
+
+<div class="tripconfirm-page-title">
+    <div class="logo">Trip Confirm</div>
+</div>
+
+<div class="tripconfirm-page-container">
+    <div class="tripconfirm-page-content">
+        <div id="ViewerDiv">
+            @if (Model.Message == "Success")
+            {
+                <div class="alert alert-success">
+                    Confirmed succesfully!
+                </div>
+            }
+            else if (Model.Message == "Error")
+            {
+                <div class="alert alert-error">
+                    Not Confirmed!
+                </div>
+            }
+        </div>
+    </div>
+</div>

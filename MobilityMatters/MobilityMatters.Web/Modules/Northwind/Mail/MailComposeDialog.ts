@@ -25,6 +25,7 @@ namespace MobilityMatters.Northwind {
         appointmentTime2?: string;
         specialNeedsTemp?: string;
         specialConditionsDirections?: string;
+        orderId?: number;
     }
 
     @Serenity.Decorators.registerClass()
@@ -51,7 +52,19 @@ namespace MobilityMatters.Northwind {
 
             if (opt.mailFromTrip) {
                 var body = this.form.BodyHtml.value;
-                body = body.replace('{RideNumber}', opt.rideNumber.toString()).replace('{AppointmentDate}', opt.appointmentDate.toString().substring(0, 15)).replace('{ClientName}', opt.clientName)
+                var url = "";
+
+                OrderService.GetConfirmUrl({
+                    Id: opt.orderId
+                },
+                    response => url = response.Url,
+                    {
+                        async: false
+                    });
+
+                var path = "<a href='" + url + "'>Confirm</a>";
+
+                body = body.replace('{ConfirmUrl}', path).replace('{RideNumber}', opt.rideNumber.toString()).replace('{AppointmentDate}', opt.appointmentDate.toString().substring(0, 15)).replace('{ClientName}', opt.clientName)
                     .replace('{PickupAddress}', opt.pickupAddress).replace('{AltPhone}', opt.altPhone).replace('{TelephoneNumber}', opt.telephoneNumber).replace('{PickupTime}', opt.pickupTime).replace('{DeliveryAddress}', opt.deliveryAddress).replace('{ApptTime}', opt.apptLength).replace('{ApptType}', opt.apptType).replace('{AppointmentTime}', opt.appointmentTime).replace('{DeliveryAddress2}', opt.deliveryAddress2).replace('{ApptTime2}', opt.apptLength2).replace('{ApptType2}', opt.apptType2).replace('{AppointmentTime2}', opt.appointmentTime2).replace('{SpecialNeedsTemp}', opt.specialNeedsTemp).replace('{SpecialConditionsDirections}', opt.specialConditionsDirections);
                 this.form.BodyHtml.value = body;
             }

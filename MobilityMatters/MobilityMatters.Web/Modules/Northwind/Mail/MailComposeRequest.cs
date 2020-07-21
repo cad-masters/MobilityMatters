@@ -16,7 +16,7 @@ namespace MobilityMatters.Northwind
         [DisplayName("Subject"), Required(true), DefaultValue("Mobility Matters |")]
         public string Subject { get; set; }
         [DisplayName("Message"), MailContentEditor(Rows = 10), DefaultValue("<html><body style=\"font-family: Arial, Helvetica, sans-serif; font-size: 14px;\">" +
-            "<b>The following trip has been scheduled:</b><br><br><To confirm your trip, please click the following link:<br><b>Ride Number:</b> {RideNumber}<br><b>Appointment Date:</b> {AppointmentDate}<br><b>Client Name:</b> {ClientName}<br>" +
+            "<b>The following trip has been scheduled:</b><br><br><b>To confirm your trip, please click the following link:</b> {ConfirmUrl}<br><b>Ride Number:</b> {RideNumber}<br><b>Appointment Date:</b> {AppointmentDate}<br><b>Client Name:</b> {ClientName}<br>" +
             "<b>Special Note / Directions:</b> {SpecialConditionsDirections}<br><b>Client's Special Needs Conditions:</b> {SpecialNeedsTemp}<br><hr><br><b>Pick up address:</b> {PickupAddress}<br><b>Telephone Number:</b> {TelephoneNumber}<br><b>Alt Telephone:</b> {AltPhone}" +
             "<hr><b><em>Appointment Details:</b></em><br><b>Pick-up Time:</b> {PickupTime}<br><b>Appointment Type/Details:</b> {ApptType}<br><b>Estimated Length of Appointment:</b> {ApptTime} hour(s)<br>" +
             "<b>Appointment Address</b> {DeliveryAddress}<br><b>Appointment Time:</b> {AppointmentTime}" + "<hr><b><em> Appointment 2 Details:</b></em><br><b>Appointment Type/Details:</b> {ApptType2}<br><b>Estimated Length of Appointment:</b> {ApptTime2}<br>" +
