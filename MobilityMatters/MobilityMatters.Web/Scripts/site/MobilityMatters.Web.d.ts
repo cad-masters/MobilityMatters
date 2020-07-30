@@ -1313,6 +1313,7 @@ declare namespace MobilityMatters.Northwind {
         Representatives?: number[];
         SpecialNeedsList?: number[];
         Email?: string;
+        ActiveStr?: string;
         Gender?: string;
         EmergencyName?: string;
         EmergencyPhone?: string;
@@ -1376,6 +1377,7 @@ declare namespace MobilityMatters.Northwind {
             Representatives = "Representatives",
             SpecialNeedsList = "SpecialNeedsList",
             Email = "Email",
+            ActiveStr = "ActiveStr",
             Gender = "Gender",
             EmergencyName = "EmergencyName",
             EmergencyPhone = "EmergencyPhone",
@@ -1612,6 +1614,8 @@ declare namespace MobilityMatters.Northwind {
         FirstName: Serenity.StringEditor;
         HomePhone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
+        EmergencyName: Serenity.StringEditor;
+        EmergencyPhone: Serenity.StringEditor;
         COVIDResults: Serenity.StringEditor;
         COVIDTestDate: Serenity.DateEditor;
         Address: Serenity.StringEditor;
@@ -1678,6 +1682,7 @@ declare namespace MobilityMatters.Northwind {
         PhotoPath?: string;
         OnVacation?: boolean;
         Inactive?: boolean;
+        InactiveStr?: string;
         DriversLicense?: string;
         DriversLicenseExp?: string;
         LicensePlate?: string;
@@ -1700,6 +1705,8 @@ declare namespace MobilityMatters.Northwind {
         PoliceClearance?: boolean;
         ReferralSource?: string;
         Language?: string;
+        EmergencyName?: string;
+        EmergencyPhone?: string;
         ReportsToLastName?: string;
         ReportsToFirstName?: string;
         ReportsToTitle?: string;
@@ -1757,6 +1764,7 @@ declare namespace MobilityMatters.Northwind {
             PhotoPath = "PhotoPath",
             OnVacation = "OnVacation",
             Inactive = "Inactive",
+            InactiveStr = "InactiveStr",
             DriversLicense = "DriversLicense",
             DriversLicenseExp = "DriversLicenseExp",
             LicensePlate = "LicensePlate",
@@ -1779,6 +1787,8 @@ declare namespace MobilityMatters.Northwind {
             PoliceClearance = "PoliceClearance",
             ReferralSource = "ReferralSource",
             Language = "Language",
+            EmergencyName = "EmergencyName",
+            EmergencyPhone = "EmergencyPhone",
             ReportsToLastName = "ReportsToLastName",
             ReportsToFirstName = "ReportsToFirstName",
             ReportsToTitle = "ReportsToTitle",
@@ -2191,6 +2201,9 @@ declare namespace MobilityMatters.Northwind {
         DurationText3: Serenity.StringEditor;
         ActualTotalHours: Serenity.StringEditor;
         ActualTotalMileage: Serenity.StringEditor;
+        Cost: Serenity.DecimalEditor;
+        Paid: Serenity.BooleanEditor;
+        ReceiptReceived: Serenity.BooleanEditor;
     }
     class OrderForm extends Serenity.PrefixedContext {
         static formKey: string;
@@ -2213,6 +2226,9 @@ declare namespace MobilityMatters.Northwind {
         ShippedDate?: string;
         ShipVia?: number;
         Freight?: number;
+        Cost?: number;
+        ReceiptReceived?: boolean;
+        Paid?: boolean;
         ShipName?: string;
         RideCompleted?: boolean;
         ConfirmRide?: boolean;
@@ -2302,6 +2318,9 @@ declare namespace MobilityMatters.Northwind {
             ShippedDate = "ShippedDate",
             ShipVia = "ShipVia",
             Freight = "Freight",
+            Cost = "Cost",
+            ReceiptReceived = "ReceiptReceived",
+            Paid = "Paid",
             ShipName = "ShipName",
             RideCompleted = "RideCompleted",
             ConfirmRide = "ConfirmRide",
@@ -3971,6 +3990,13 @@ declare namespace MobilityMatters.Northwind {
         set_shippingState(value: number): void;
         protected addButtonClick(): void;
         protected onViewSubmit(): boolean;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    class CurrencyFormatter implements Slick.Formatter {
+        cultureName: string;
+        currencyName: string;
+        format(ctx: Slick.FormatterContext): any;
     }
 }
 declare namespace MobilityMatters.Northwind {

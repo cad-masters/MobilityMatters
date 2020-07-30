@@ -8,6 +8,8 @@
         FirstName: Serenity.StringEditor;
         HomePhone: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
+        EmergencyName: Serenity.StringEditor;
+        EmergencyPhone: Serenity.StringEditor;
         COVIDResults: Serenity.StringEditor;
         COVIDTestDate: Serenity.DateEditor;
         Address: Serenity.StringEditor;
@@ -69,6 +71,8 @@
                     'FirstName', w1,
                     'HomePhone', w1,
                     'Email', w3,
+                    'EmergencyName', w1,
+                    'EmergencyPhone', w1,
                     'COVIDResults', w1,
                     'COVIDTestDate', w4,
                     'Address', w1,

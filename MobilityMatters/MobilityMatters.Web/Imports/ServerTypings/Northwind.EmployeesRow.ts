@@ -26,6 +26,7 @@
         PhotoPath?: string;
         OnVacation?: boolean;
         Inactive?: boolean;
+        InactiveStr?: string;
         DriversLicense?: string;
         DriversLicenseExp?: string;
         LicensePlate?: string;
@@ -48,6 +49,8 @@
         PoliceClearance?: boolean;
         ReferralSource?: string;
         Language?: string;
+        EmergencyName?: string;
+        EmergencyPhone?: string;
         ReportsToLastName?: string;
         ReportsToFirstName?: string;
         ReportsToTitle?: string;
@@ -110,6 +113,7 @@
             PhotoPath = "PhotoPath",
             OnVacation = "OnVacation",
             Inactive = "Inactive",
+            InactiveStr = "InactiveStr",
             DriversLicense = "DriversLicense",
             DriversLicenseExp = "DriversLicenseExp",
             LicensePlate = "LicensePlate",
@@ -132,6 +136,8 @@
             PoliceClearance = "PoliceClearance",
             ReferralSource = "ReferralSource",
             Language = "Language",
+            EmergencyName = "EmergencyName",
+            EmergencyPhone = "EmergencyPhone",
             ReportsToLastName = "ReportsToLastName",
             ReportsToFirstName = "ReportsToFirstName",
             ReportsToTitle = "ReportsToTitle",

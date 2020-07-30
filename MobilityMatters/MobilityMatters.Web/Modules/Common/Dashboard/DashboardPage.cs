@@ -22,6 +22,8 @@ namespace MobilityMatters.Common.Pages
                     var model = new DashboardPageModel();
                     var o = OrderRow.Fields;
                     var r = CustomerRow.Fields;
+                    
+                    var e = EmployeesRow.Fields;
                     using (var connection = SqlConnections.NewFor<OrderRow>())
                     {
                         model.OpenOrders = connection.Count<OrderRow>(o.ShippingState == (int)OrderShippingState.NotShipped);
@@ -32,6 +34,8 @@ namespace MobilityMatters.Common.Pages
                         model.CustomerCount = connection.Count<CustomerRow>();
                         model.ProductCount = connection.Count<ProductRow>();
                         model.EmployeeCount = connection.Count<EmployeeRow>();
+                        model.ActiveEmployeeCount = connection.Count<EmployeesRow>(e.Inactive == 0);
+                        model.ActiveCustomerCount = connection.Count<CustomerRow>(r.Active == 0);
                         model.OrderCount = connection.Count<OrderRow>();
 
                         model.ClientsByCity = ClientsByCity(connection);
@@ -55,13 +59,15 @@ namespace MobilityMatters.Common.Pages
         private List<ClientReportModel> ClientsByCity(System.Data.IDbConnection connection)
         {
             var fld = CustomerRow.Fields;
+            var v = fld.Active.ToString();
             var query = new SqlQuery()
                 .From(fld)
+                .Where(fld.ActiveStr == "False")
                 .Where(fld.City.IsNotNull())
-                .Select(fld.City, nameof(ClientReportModel.Name))
+                .Select(fld.City, nameof(ClientReportModel.Name)).OrderBy()
                 .Select(Sql.Count(), nameof(ClientReportModel.Count))
-                .GroupBy(fld.City)
-                .OrderBy(fld.City);
+                .GroupBy(fld.City);
+                //.OrderBy(fld.City);
 
             return connection.Query<ClientReportModel>(query).ToList();
         }
@@ -71,6 +77,7 @@ namespace MobilityMatters.Common.Pages
             var fld = CustomerRow.Fields;
             var query = new SqlQuery()
                 .From(fld)
+                .Where(fld.ActiveStr == "False")
                 .Where(fld.AgeCalc.IsNotNull())
                 .Select(fld.AgeCalc, nameof(ClientReportModel.Name))
                 .Select(Sql.Count(), nameof(ClientReportModel.Count))
@@ -85,6 +92,7 @@ namespace MobilityMatters.Common.Pages
             var fld = CustomerRow.Fields;
             var query = new SqlQuery()
                 .From(fld)
+                .Where(fld.ActiveStr == "False")
                 .Where(fld.ProgramOption.IsNotNull())
                 .Select(fld.ProgramOption, nameof(ClientReportModel.Name))
                 .Select(Sql.Count(), nameof(ClientReportModel.Count))
@@ -99,6 +107,7 @@ namespace MobilityMatters.Common.Pages
             var fld = CustomerRow.Fields;
             var query = new SqlQuery()
                 .From(fld)
+                .Where(fld.ActiveStr == "False")
                 .Where(fld.Program.IsNotNull())
                 .Select(fld.Program, nameof(ClientReportModel.Name))
                 .Select(Sql.Count(), nameof(ClientReportModel.Count))
@@ -114,6 +123,7 @@ namespace MobilityMatters.Common.Pages
             var fld = CustomerRow.Fields;
             var query = new SqlQuery()
                 .From(fld)
+                .Where(fld.ActiveStr == "False")
                 .Where(fld.ReferralSource.IsNotNull())
                 .Select(fld.ReferralSource, nameof(ClientReportModel.Name))
                 .Select(Sql.Count(), nameof(ClientReportModel.Count))
@@ -128,11 +138,13 @@ namespace MobilityMatters.Common.Pages
             var fld = EmployeesRow.Fields;
             var query = new SqlQuery()
                 .From(fld)
+                .Where(fld.InactiveStr == "False")
                 .Where(fld.ReferralSource.IsNotNull())
                 .Select(fld.ReferralSource, nameof(ClientReportModel.Name))
                 .Select(Sql.Count(), nameof(ClientReportModel.Count))
                 .GroupBy(fld.ReferralSource)
-                .OrderBy(fld.ReferralSource);
+                .OrderBy(fld.ReferralSource)
+                ;
 
             return connection.Query<ClientReportModel>(query).ToList();
         }
@@ -154,6 +166,7 @@ namespace MobilityMatters.Common.Pages
                 .When(fld.AgeCalc > 99).Then("100+"));
 
             query.From(fld)
+            .Where(fld.ActiveStr == "False")
             .Where(fld.AgeCalc.IsNotNull())
             .Select(caseExpression, nameof(ClientReportModel.Name))
             .Select(Sql.Count(), nameof(ClientReportModel.Count))

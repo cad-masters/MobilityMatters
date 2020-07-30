@@ -44,6 +44,9 @@
         DurationText3: Serenity.StringEditor;
         ActualTotalHours: Serenity.StringEditor;
         ActualTotalMileage: Serenity.StringEditor;
+        Cost: Serenity.DecimalEditor;
+        Paid: Serenity.BooleanEditor;
+        ReceiptReceived: Serenity.BooleanEditor;
     }
 
     export class OrderForm extends Serenity.PrefixedContext {
@@ -65,6 +68,7 @@
                 var w5 = Helpers.HardcodedValuesEditor;
                 var w6 = s.BooleanEditor;
                 var w7 = s.TextAreaEditor;
+                var w8 = s.DecimalEditor;
 
                 Q.initFormType(OrderForm, [
                     'OrderID', w0,
@@ -110,7 +114,10 @@
                     'DistanceText3', w3,
                     'DurationText3', w3,
                     'ActualTotalHours', w3,
-                    'ActualTotalMileage', w3
+                    'ActualTotalMileage', w3,
+                    'Cost', w8,
+                    'Paid', w6,
+                    'ReceiptReceived', w6
                 ]);
             }
         }

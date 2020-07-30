@@ -26,8 +26,8 @@ namespace MobilityMatters.Northwind.Columns
         public String Title { get; set; }
         [Width(90)]
         public String TitleOfCourtesy { get; set; }
-        [Width(120)]
-        public DateTime? DateOfLastTrip { get; set; }
+        /*[Width(120)]
+        public DateTime? DateOfLastTrip { get; set; }*/
         public String HomePhone { get; set; }
         public DateTime BirthDate { get; set; }
         /* public DateTime HireDate { get; set; }*/

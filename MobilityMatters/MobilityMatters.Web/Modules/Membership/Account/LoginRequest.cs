@@ -10,7 +10,7 @@ namespace MobilityMatters.Membership
     {
         [Placeholder("default username is 'admin'")]
         public string Username { get; set; }
-        [PasswordEditor, Placeholder("default password for 'admin' is 'serenity'"), Required(true)]
+        [PasswordEditor, Placeholder("password"), Required(true)]
         public string Password { get; set; }
     }
 }

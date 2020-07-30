@@ -232,7 +232,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.EmergencyName2[this] = value; }
         }
 
-        [Origin("cd"), Helpers.HardcodedValuesGenderEditor]
+        [Helpers.HardcodedValuesGenderEditor]
         public String Gender
         {
             get { return Fields.Gender[this]; }
@@ -363,6 +363,13 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Active[this] = value; }
         }
 
+        [DisplayName("Active String")]
+        public String ActiveStr
+        {
+            get { return Fields.ActiveStr[this]; }
+            set { Fields.ActiveStr[this] = value; }
+        }
+
         [NotesEditor, NotMapped]
         public List<NoteRow> NoteList
         {
@@ -471,6 +478,7 @@ namespace MobilityMatters.Northwind.Entities
             /*public DateTimeField LastContactDate;
             public Int32Field LastContactedBy;*/
             public StringField Email;
+            public StringField ActiveStr;
             public StringField Gender;
             public StringField EmergencyName;
             public StringField EmergencyPhone;

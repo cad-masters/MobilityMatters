@@ -40,6 +40,7 @@
         Representatives?: number[];
         SpecialNeedsList?: number[];
         Email?: string;
+        ActiveStr?: string;
         Gender?: string;
         EmergencyName?: string;
         EmergencyPhone?: string;
@@ -108,6 +109,7 @@
             Representatives = "Representatives",
             SpecialNeedsList = "SpecialNeedsList",
             Email = "Email",
+            ActiveStr = "ActiveStr",
             Gender = "Gender",
             EmergencyName = "EmergencyName",
             EmergencyPhone = "EmergencyPhone",

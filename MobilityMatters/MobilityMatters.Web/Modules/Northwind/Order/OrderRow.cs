@@ -13,6 +13,7 @@ namespace MobilityMatters.Northwind.Entities
     [DisplayName("Trips"), InstanceName("Trip")]
     [ReadPermission(PermissionKeys.General)]
     [ModifyPermission(PermissionKeys.General)]
+    [LookupScript]
     public sealed class OrderRow : Row, IIdRow, INameRow
     {
         [DisplayName("Ride ID"), NotNull, Identity, QuickSearch]
@@ -129,7 +130,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.ShippedDate[this] = value; }
         }
 
-        [DisplayName("Completed Trip"), Expression("(CASE WHEN T0.[ShippedDate] < GETDATE() THEN 1 ELSE 0 END)")]
+        [DisplayName("Completed Trip"), Expression("(CASE WHEN T0.[OrderDate] < GETDATE() THEN 1 ELSE 0 END)")]
         public OrderShippingState? ShippingState
         {
             get { return (OrderShippingState?)Fields.ShippingState[this]; }
@@ -148,6 +149,27 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.Freight[this]; }
             set { Fields.Freight[this] = value; }
+        }
+
+        [DisplayName("Grocery Cost"), CurrencyFormatter]
+        public Decimal? Cost
+        {
+            get { return Fields.Cost[this]; }
+            set { Fields.Cost[this] = value; }
+        }
+
+        [DisplayName("Receipt Received"), Size(30)]
+        public Boolean? ReceiptReceived
+        {
+            get { return Fields.ReceiptReceived[this]; }
+            set { Fields.ReceiptReceived[this] = value; }
+        }
+
+        [DisplayName("Paid"), Size(30)]
+        public Boolean? Paid
+        {
+            get { return Fields.Paid[this]; }
+            set { Fields.Paid[this] = value; }
         }
 
         [DisplayName("Ship Name"), Size(40)]
@@ -314,14 +336,14 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.ApptTime[this] = value; }
         }
 
-        [DisplayName("Appointment Time"), Size(10)]
+        [DisplayName("Appointment Time"), Size(10), DateTimeFormatter]
         public String AppointmentTime
         {
             get { return Fields.AppointmentTime[this]; }
             set { Fields.AppointmentTime[this] = value; }
         }
 
-        [DisplayName("Appt. Type"), Size(10)]
+        [DisplayName("Appt. Type"), Size(10), LookupEditor(typeof(Lookups.OrderApptTypeLookup)), QuickFilter]
         public String ApptType
         {
             get { return Fields.ApptType[this]; }
@@ -613,6 +635,9 @@ namespace MobilityMatters.Northwind.Entities
             public DateTimeField ShippedDate;
             public Int32Field ShipVia;
             public DecimalField Freight;
+            public DecimalField Cost;
+            public BooleanField ReceiptReceived;
+            public BooleanField Paid;
             public StringField ShipName;
             public BooleanField RideCompleted;
             public BooleanField ConfirmRide;

@@ -131,5 +131,11 @@ namespace MobilityMatters.Northwind.Forms
         public String ActualTotalHours { get; set; }
         [HalfWidth]
         public String ActualTotalMileage { get; set; }
+        [HalfWidth]
+        public Decimal? Cost { get; set; }
+        [QuarterWidth]
+        public Boolean Paid { get; set; }
+        [QuarterWidth]
+        public Boolean ReceiptReceived { get; set; }
     }
 }

@@ -9,6 +9,9 @@ namespace MobilityMatters.Common
         public int ClosedOrderPercent { get; set; }
         public int CustomerCount { get; set; }
         public int ProductCount { get; set; }
+
+        public int ActiveCustomerCount { get; set; }
+        public int ActiveEmployeeCount { get; set; }
         public int EmployeeCount { get; set; }
         public int OrderCount { get; set; }
         public int ContraCostaRiders { get; set; }

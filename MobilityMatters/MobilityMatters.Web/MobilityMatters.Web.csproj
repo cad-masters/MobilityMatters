@@ -840,6 +840,7 @@
     <Content Include="Modules\Northwind\Order\CancelledOrderIndex.cshtml" />
     <Content Include="Modules\Northwind\Order\TripConfirm.cshtml" />
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -1140,6 +1141,7 @@
     <TypeScriptCompile Include="Modules\Northwind\Mail\MailComposeDialog.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Mail\MailContentEditor.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Order\CancelledOrderGrid.ts" />
+    <TypeScriptCompile Include="Modules\Northwind\Order\CurrencyFormatter.ts" />
     <TypeScriptCompile Include="node_modules\%40types\jquery\index.d.ts" />
     <TypeScriptCompile Include="node_modules\%40types\jqueryui\index.d.ts" />
     <TypeScriptCompile Include="node_modules\%40types\jquery.blockui\index.d.ts" />
@@ -1901,6 +1903,9 @@
     <Compile Include="Imports\ClientTypes\Helpers.HardcodedValuesGenderEditorAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
+    <Compile Include="Imports\ClientTypes\Northwind.CurrencyFormatterAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
     <Compile Include="Imports\ClientTypes\Northwind.MailBodyViewerAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
@@ -2061,6 +2066,7 @@
     <Compile Include="Modules\Northwind\Order\DistanceMatrixResponse.cs" />
     <Compile Include="Modules\Northwind\Order\DistanceMatrixRequest.cs" />
     <Compile Include="Modules\Northwind\Order\DistanceMatrixResponse2.cs" />
+    <Compile Include="Modules\Northwind\Order\OrderApptTypeLookup.cs" />
     <Compile Include="Modules\Northwind\Order\OrderHowManyLookup.cs" />
     <Compile Include="Modules\Northwind\Order\OrderDetailReport.cs" />
     <Compile Include="Modules\Northwind\Order\TripConfirmModel.cs" />

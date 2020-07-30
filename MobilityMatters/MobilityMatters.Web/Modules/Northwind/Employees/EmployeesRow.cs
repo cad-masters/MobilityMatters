@@ -310,6 +310,20 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.VolunteerRegion[this] = value; }
         }
 
+        [DisplayName("Emer. Name")]
+        public String EmergencyName
+        {
+            get { return Fields.EmergencyName[this]; }
+            set { Fields.EmergencyName[this] = value; }
+        }
+
+        [DisplayName("Emer. Phone #")]
+        public String EmergencyPhone
+        {
+            get { return Fields.EmergencyPhone[this]; }
+            set { Fields.EmergencyPhone[this] = value; }
+        }
+
         [DisplayName("Additional Languages"), Size(100)]
         public String Language
         {
@@ -322,6 +336,13 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.Inactive[this]; }
             set { Fields.Inactive[this] = value; }
+        }
+
+        [DisplayName("Inactive Str"), Size(30)]
+        public String InactiveStr
+        {
+            get { return Fields.InactiveStr[this]; }
+            set { Fields.InactiveStr[this] = value; }
         }
 
         [DisplayName("On Vacation"), Size(30)]
@@ -544,6 +565,7 @@ namespace MobilityMatters.Northwind.Entities
             public StringField PhotoPath;
             public BooleanField OnVacation;
             public BooleanField Inactive;
+            public StringField InactiveStr;
             public StringField DriversLicense;
             public DateTimeField DriversLicenseExp;
             public StringField LicensePlate;
@@ -567,6 +589,8 @@ namespace MobilityMatters.Northwind.Entities
             public BooleanField PoliceClearance;
             public StringField ReferralSource;
             public StringField Language;
+            public StringField EmergencyName;
+            public StringField EmergencyPhone;
 
             public StringField ReportsToLastName;
             public StringField ReportsToFirstName;

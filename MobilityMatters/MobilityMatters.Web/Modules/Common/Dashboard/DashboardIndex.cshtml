@@ -52,14 +52,14 @@
             sortable: true
         };
 
-        new Slick.Grid("#clientsByCityGrid", @Html.Raw(Model.ClientsByCity.OrderByDescending(x => x.Count).ToJson()), cCity, options);
-        new Slick.Grid("#clientsByAgeGrid", @Html.Raw(Model.ClientsByAge.OrderByDescending(x => x.Count).ToJson()), cAge, options);
-        new Slick.Grid("#clientsByStatusTypeGrid", @Html.Raw(Model.ClientsByStatusType.OrderByDescending(x => x.Count).ToJson()), cProgramType, options);
+        new Slick.Grid("#clientsByCityGrid", @Html.Raw(Model.ClientsByCity.OrderByDescending(x => x.Name).ToJson()), cCity, options);
+        new Slick.Grid("#clientsByAgeGrid", @Html.Raw(Model.ClientsByAge.OrderByDescending(x => x.Name).ToJson()), cAge, options);
+        new Slick.Grid("#clientsByStatusTypeGrid", @Html.Raw(Model.ClientsByStatusType.OrderByDescending(x => x.Name).ToJson()), cProgramType, options);
 
-        new Slick.Grid("#clientsByStatusOptionGrid", @Html.Raw(Model.ClientsByStatusOption.OrderByDescending(x => x.Count).ToJson()), cProgramOption, options);
+        new Slick.Grid("#clientsByStatusOptionGrid", @Html.Raw(Model.ClientsByStatusOption.OrderByDescending(x => x.Name).ToJson()), cProgramOption, options);
 
-        new Slick.Grid("#clientsByReferralSourceGrid", @Html.Raw(Model.ClientsByReferralSource.OrderByDescending(x => x.Count).ToJson()), cReferralSource, options);
-        new Slick.Grid("#volunteersByReferralSourceGrid", @Html.Raw(Model.VolunteersByReferralSource.OrderByDescending(x => x.Count).ToJson()), vReferralSource, options);
+        new Slick.Grid("#clientsByReferralSourceGrid", @Html.Raw(Model.ClientsByReferralSource.OrderByDescending(x => x.Name).ToJson()), cReferralSource, options);
+        new Slick.Grid("#volunteersByReferralSourceGrid", @Html.Raw(Model.VolunteersByReferralSource.OrderByDescending(x => x.Name).ToJson()), vReferralSource, options);
     });
 </script>
 
@@ -69,8 +69,14 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>@Model.CustomerCount</h3>
-                <p>Total Riders</p>
+                <div class="pull-left">
+                    <h3>@Model.ActiveCustomerCount</h3>
+                    <p>Active Riders</p>
+                </div>
+                <div class="align-right">
+                    <h3>@Model.CustomerCount</h3>
+                    <p>Total Riders</p>
+                </div>
             </div>
             <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -82,8 +88,14 @@
         <!-- small box -->
         <div class="small-box bg-green">
             <div class="inner">
-                <h3>@Model.EmployeeCount</h3>
-                <p>Total Volunteers</p>
+                <div class="pull-left">
+                    <h3>@Model.ActiveEmployeeCount</h3>
+                    <p>Active Volunteers</p>
+                </div>
+                <div class="align-right">
+                    <h3>@Model.EmployeeCount</h3>
+                    <p>Total Volunteers</p>
+                </div>
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -120,7 +132,7 @@
             <div class="icon">
                 <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="~/Northwind/Product" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="~/Northwind/Customers" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div><!-- ./col -->
 </div><!-- /.row -->
@@ -176,21 +188,21 @@
             <div class="box-header">
                 <i class="fa fa-list"></i>
                 <h3 class="box-title">Clients By Program</h3>
-                <div id="clientsByStatusOptionGrid" style="width:450px;height:100px;"></div>
+                <div id="clientsByStatusOptionGrid" style="height:200px;"></div>
             </div>
         </div>
         <div class="box box-primary">
             <div class="box-header">
                 <i class="fa fa-list"></i>
                 <h3 class="box-title">Clients By Status</h3>
-                <div id="clientsByStatusTypeGrid" style="width:450px;height:100px;"></div>
+                <div id="clientsByStatusTypeGrid" style="height:150px;"></div>
             </div>
         </div>
         <div class="box box-primary">
             <div class="box-header">
                 <i class="fa fa-list"></i>
                 <h3 class="box-title">Clients By Age</h3>
-                <div id="clientsByAgeGrid" style="height:200px;"></div>
+                <div id="clientsByAgeGrid" style="height:250px;"></div>
             </div>
         </div>
 

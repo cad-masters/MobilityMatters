@@ -44,6 +44,12 @@ namespace MobilityMatters.Northwind.Columns
         public String ActualTotalHours { get; set; }
         [Width(100)]
         public String ActualTotalMileage { get; set; }
+        [Width(100)]
+        public Decimal Cost { get; set; }
+        [Width(50)]
+        public Boolean Paid { get; set; }
+        [Width(50)]
+        public Boolean ReceiptReceived { get; set; }
 
         [FilterOnly, QuickFilter, Hidden]
         public OrderShippingState ShippingState { get; set; }

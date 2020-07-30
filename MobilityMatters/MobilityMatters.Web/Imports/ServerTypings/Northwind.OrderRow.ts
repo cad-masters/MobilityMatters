@@ -8,6 +8,9 @@
         ShippedDate?: string;
         ShipVia?: number;
         Freight?: number;
+        Cost?: number;
+        ReceiptReceived?: boolean;
+        Paid?: boolean;
         ShipName?: string;
         RideCompleted?: boolean;
         ConfirmRide?: boolean;
@@ -99,6 +102,9 @@
             ShippedDate = "ShippedDate",
             ShipVia = "ShipVia",
             Freight = "Freight",
+            Cost = "Cost",
+            ReceiptReceived = "ReceiptReceived",
+            Paid = "Paid",
             ShipName = "ShipName",
             RideCompleted = "RideCompleted",
             ConfirmRide = "ConfirmRide",
