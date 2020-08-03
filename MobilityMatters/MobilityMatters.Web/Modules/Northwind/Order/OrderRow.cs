@@ -12,7 +12,10 @@ namespace MobilityMatters.Northwind.Entities
     [ConnectionKey("Northwind"), Module("Northwind"), TableName("Orders")]
     [DisplayName("Trips"), InstanceName("Trip")]
     [ReadPermission(PermissionKeys.General)]
-    [ModifyPermission(PermissionKeys.General)]
+    //[ModifyPermission(PermissionKeys.General)]
+    //[ReadPermission(PermissionKeys.Orders.View)]
+    [ModifyPermission(PermissionKeys.Orders.Modify)]
+    //[DeletePermission(PermissionKeys.Orders.Delete)]
     [LookupScript]
     public sealed class OrderRow : Row, IIdRow, INameRow
     {
@@ -93,6 +96,13 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.HowMany[this]; }
             set { Fields.HowMany[this] = value; }
+        }
+
+        [DisplayName("# of Trips"), DefaultValue(1)]
+        public Int32? HowManyInt
+        {
+            get { return Fields.HowManyInt[this]; }
+            set { Fields.HowManyInt[this] = value; }
         }
 
         [DisplayName("Completed"), Size(30)]
@@ -649,6 +659,7 @@ namespace MobilityMatters.Northwind.Entities
             public StringField ShipPostalCode;
             public StringField ShipCountry;
             public Int32Field HowMany;
+            public Int32Field HowManyInt;
             public StringField ActualTotalHours;
             public StringField ActualTotalMinutes;
             public StringField ActualTotalMileage;

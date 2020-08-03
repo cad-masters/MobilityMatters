@@ -1,13 +1,15 @@
-﻿using Serenity.Navigation;
+﻿using MobilityMatters.Administration;
+using Serenity.Navigation;
+using static MobilityMatters.Northwind.PermissionKeys;
 using MyPages = MobilityMatters.Northwind.Pages;
 using Northwind = MobilityMatters.Northwind.Pages;
 
-[assembly: NavigationMenu(7000, "Mobility Matters", icon: "fa-car")]
-[assembly: NavigationLink(7100, "Mobility Matters/Riders", typeof(Northwind.CustomerController), icon: "fa-wheelchair")]
-[assembly: NavigationLink(7100, "Mobility Matters/Inactive Riders", typeof(Northwind.CustomerController), icon: "fa-wheelchair", action: "Inactive")]
-[assembly: NavigationLink(7400, "Mobility Matters/Inactive Volunteers", typeof(Northwind.EmployeesController), icon: "fa-wheelchair", action: "Inactive")]
-[assembly: NavigationLink(7200, "Mobility Matters/Trips", typeof(Northwind.OrderController), icon: "fa-bus")]
-[assembly: NavigationLink(7300, "Mobility Matters/Cancelled Rides", typeof(Northwind.OrderController), icon: "fa-bus", action: "Cancelled")]
+[assembly: NavigationMenu(7000, "Mobility Matters", icon: "fa-car", Permission = PermissionKeys.Security)]
+[assembly: NavigationLink(7100, "Mobility Matters/Riders", typeof(Northwind.CustomerController), icon: "fa-wheelchair", Permission = PermissionKeys.Security)]
+[assembly: NavigationLink(7100, "Mobility Matters/Inactive Riders", typeof(Northwind.CustomerController), icon: "fa-wheelchair", action: "Inactive", Permission = PermissionKeys.Security)]
+[assembly: NavigationLink(7400, "Mobility Matters/Inactive Volunteers", typeof(Northwind.EmployeesController), icon: "fa-wheelchair", action: "Inactive", Permission = PermissionKeys.Security)]
+[assembly: NavigationLink(7200, "Mobility Matters/Trips", typeof(Northwind.OrderController), icon: "fa-bus", Permission = PermissionKeys.Security)]
+[assembly: NavigationLink(7300, "Mobility Matters/Cancelled Rides", typeof(Northwind.OrderController), icon: "fa-bus", action: "Cancelled", Permission = PermissionKeys.Security)]
 /*[assembly: NavigationLink(7300, "Mobility Matters/Products", typeof(Northwind.ProductController), icon: "fa-cube")]
 [assembly: NavigationLink(7400, "Mobility Matters/Suppliers", typeof(Northwind.SupplierController), icon: "fa-truck")]
 [assembly: NavigationLink(7500, "Mobility Matters/Shippers", typeof(Northwind.ShipperController), icon: "fa-ship")]

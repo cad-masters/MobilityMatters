@@ -22,6 +22,7 @@
         ShipPostalCode?: string;
         ShipCountry?: string;
         HowMany?: number;
+        HowManyInt?: number;
         ActualTotalHours?: string;
         ActualTotalMinutes?: string;
         ActualTotalMileage?: string;
@@ -88,10 +89,15 @@
         export const idProperty = 'OrderID';
         export const nameProperty = 'CustomerID';
         export const localTextPrefix = 'Northwind.Order';
-        export const deletePermission = 'Northwind:General';
-        export const insertPermission = 'Northwind:General';
+        export const lookupKey = 'Northwind.Order';
+
+        export function getLookup(): Q.Lookup<OrderRow> {
+            return Q.getLookup<OrderRow>('Northwind.Order');
+        }
+        export const deletePermission = 'Northwind:Orders:Modify';
+        export const insertPermission = 'Northwind:Orders:Modify';
         export const readPermission = 'Northwind:General';
-        export const updatePermission = 'Northwind:General';
+        export const updatePermission = 'Northwind:Orders:Modify';
 
         export declare const enum Fields {
             OrderID = "OrderID",
@@ -116,6 +122,7 @@
             ShipPostalCode = "ShipPostalCode",
             ShipCountry = "ShipCountry",
             HowMany = "HowMany",
+            HowManyInt = "HowManyInt",
             ActualTotalHours = "ActualTotalHours",
             ActualTotalMinutes = "ActualTotalMinutes",
             ActualTotalMileage = "ActualTotalMileage",

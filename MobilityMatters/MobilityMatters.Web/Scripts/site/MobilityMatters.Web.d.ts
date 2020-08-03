@@ -2178,7 +2178,7 @@ declare namespace MobilityMatters.Northwind {
         DestinationCity: Serenity.StringEditor;
         DestinationZip: Serenity.StringEditor;
         ApptTime: Serenity.StringEditor;
-        ApptType: Serenity.StringEditor;
+        ApptType: Serenity.LookupEditor;
         DistanceText: Serenity.StringEditor;
         DurationText: Serenity.StringEditor;
         AppointmentTime2: Serenity.StringEditor;
@@ -2240,6 +2240,7 @@ declare namespace MobilityMatters.Northwind {
         ShipPostalCode?: string;
         ShipCountry?: string;
         HowMany?: number;
+        HowManyInt?: number;
         ActualTotalHours?: string;
         ActualTotalMinutes?: string;
         ActualTotalMileage?: string;
@@ -2305,10 +2306,12 @@ declare namespace MobilityMatters.Northwind {
         const idProperty = "OrderID";
         const nameProperty = "CustomerID";
         const localTextPrefix = "Northwind.Order";
-        const deletePermission = "Northwind:General";
-        const insertPermission = "Northwind:General";
+        const lookupKey = "Northwind.Order";
+        function getLookup(): Q.Lookup<OrderRow>;
+        const deletePermission = "Northwind:Orders:Modify";
+        const insertPermission = "Northwind:Orders:Modify";
         const readPermission = "Northwind:General";
-        const updatePermission = "Northwind:General";
+        const updatePermission = "Northwind:Orders:Modify";
         const enum Fields {
             OrderID = "OrderID",
             CustomerID = "CustomerID",
@@ -2332,6 +2335,7 @@ declare namespace MobilityMatters.Northwind {
             ShipPostalCode = "ShipPostalCode",
             ShipCountry = "ShipCountry",
             HowMany = "HowMany",
+            HowManyInt = "HowManyInt",
             ActualTotalHours = "ActualTotalHours",
             ActualTotalMinutes = "ActualTotalMinutes",
             ActualTotalMileage = "ActualTotalMileage",
@@ -3765,6 +3769,13 @@ declare namespace MobilityMatters.Northwind {
         protected createQuickFilters(): void;
         protected getButtons(): Serenity.ToolButton[];
         protected onClick(e: JQueryEventObject, row: number, cell: number): void;
+        protected getColumns(): Slick.Column[];
+        /**
+         * This method is called for all rows
+         * @param item Data item for current row
+         * @param index Index of the row in grid
+         */
+        protected getItemCssClass(item: Northwind.OrderRow, index: number): string;
         set_shippingState(value: number): void;
         protected addButtonClick(): void;
     }

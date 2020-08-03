@@ -24,6 +24,12 @@ namespace MobilityMatters.Common.Pages
                     var r = CustomerRow.Fields;
                     
                     var e = EmployeesRow.Fields;
+
+                    SqlQuery orderquery = new SqlQuery();
+                    orderquery.Select("SUM(" + OrderRow.Fields.HowMany.Name + ")")
+                        .From(OrderRow.Fields).Where(OrderRow.Fields.HowMany.IsNotNull());
+                    
+
                     using (var connection = SqlConnections.NewFor<OrderRow>())
                     {
                         model.OpenOrders = connection.Count<OrderRow>(o.ShippingState == (int)OrderShippingState.NotShipped);
@@ -36,7 +42,8 @@ namespace MobilityMatters.Common.Pages
                         model.EmployeeCount = connection.Count<EmployeeRow>();
                         model.ActiveEmployeeCount = connection.Count<EmployeesRow>(e.Inactive == 0);
                         model.ActiveCustomerCount = connection.Count<CustomerRow>(r.Active == 0);
-                        model.OrderCount = connection.Count<OrderRow>();
+                        //model.OrderCount = connection.Count<OrderRow>();
+                        model.OrderCount = connection.Query<int>(orderquery).FirstOrDefault();
 
                         model.ClientsByCity = ClientsByCity(connection);
                         model.ClientsByAge = ClientsByAgeRange(connection);

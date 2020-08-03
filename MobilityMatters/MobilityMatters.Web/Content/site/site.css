@@ -7480,6 +7480,10 @@ section.content > .s-DataGrid {
 .s-Northwind-OrderGrid .check-box {
   width: 14px;
 }
+.s-Northwind-OrderGrid .low-price .col-unit-price {
+  background-color: #5cb85c;
+  color: #fff;
+}
 .s-Northwind-EmployeesGrid .check-box {
   width: 14px;
 }

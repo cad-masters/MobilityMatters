@@ -17,7 +17,7 @@ namespace MobilityMatters.Northwind.Columns
         public DateTime? OrderDate { get; set; }
         [Width(60)]
         public Boolean Cancelled { get; set; }
-        [Width(120)]
+        [Width(90)]
         public Boolean ConfirmRide { get; set; }
         [EditLink, Width(150)]
         public String CustomerCompanyName { get; set; }

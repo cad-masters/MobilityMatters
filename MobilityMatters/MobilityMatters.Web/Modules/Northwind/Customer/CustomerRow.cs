@@ -497,4 +497,8 @@ namespace MobilityMatters.Northwind.Entities
 
         }
     }
+
+    internal class HardcodedValuesProgramEditorAttribute : Attribute
+    {
+    }
 }

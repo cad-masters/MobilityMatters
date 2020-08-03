@@ -7,6 +7,12 @@
             export const Modify = "Northwind:Customer:Modify";
             export const View = "Northwind:Customer:View";
         }
+
+        namespace Orders {
+            export const Delete = "Northwind:Orders:Delete";
+            export const Modify = "Northwind:Orders:Modify";
+            export const View = "Northwind:Orders:View";
+        }
     }
 }
 

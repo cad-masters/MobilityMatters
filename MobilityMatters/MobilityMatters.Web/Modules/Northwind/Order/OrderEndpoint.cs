@@ -68,7 +68,7 @@ namespace MobilityMatters.Northwind.Endpoints
             var baseUri = System.Web.HttpContext.Current.Request.Url.Scheme + "://" + System.Web.HttpContext.Current.Request.Url.Authority.ToString();
             var encrypetedId = EncryptionHelper.Encrypt(request.Id.ToString());
 
-            return new TripConfirmUrlResponse { Url = baseUri  + "/Northwind/Order/ConfirmTrip?Token=" + encrypetedId };
+            return new TripConfirmUrlResponse { Url = baseUri  + "/Northwind/Order/ConfirmTrip?Token=" + encrypetedId};
         }
     }
 }

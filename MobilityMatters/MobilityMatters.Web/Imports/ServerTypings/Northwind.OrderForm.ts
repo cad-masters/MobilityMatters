@@ -21,7 +21,7 @@
         DestinationCity: Serenity.StringEditor;
         DestinationZip: Serenity.StringEditor;
         ApptTime: Serenity.StringEditor;
-        ApptType: Serenity.StringEditor;
+        ApptType: Serenity.LookupEditor;
         DistanceText: Serenity.StringEditor;
         DurationText: Serenity.StringEditor;
         AppointmentTime2: Serenity.StringEditor;
@@ -92,7 +92,7 @@
                     'DestinationCity', w3,
                     'DestinationZip', w3,
                     'ApptTime', w3,
-                    'ApptType', w3,
+                    'ApptType', w4,
                     'DistanceText', w3,
                     'DurationText', w3,
                     'AppointmentTime2', w3,

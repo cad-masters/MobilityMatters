@@ -133,6 +133,35 @@
             }
         }
 
+
+        protected getColumns(): Slick.Column[] {
+            var columns = super.getColumns();
+
+
+            // adding a specific css class to UnitPrice column, 
+            // to be able to format cell with a different background
+            Q.first(columns, x => x.field == fld.ConfirmRide).cssClass += " col-unit-price";
+
+            return columns;
+        }
+
+
+        /**
+         * This method is called for all rows
+         * @param item Data item for current row
+         * @param index Index of the row in grid
+         */
+        protected getItemCssClass(item: Northwind.OrderRow, index: number): string {
+            let klass: string = "";
+
+            if (item.ConfirmRide == true)
+                klass += " low-price";
+            else
+                klass
+
+            return Q.trimToNull(klass);
+        }
+
         public set_shippingState(value: number): void {
             this.shippingStateFilter.value = value == null ? '' : value.toString();
         }
