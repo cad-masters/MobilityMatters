@@ -3,6 +3,7 @@
         CustomerID: Serenity.StringEditor;
         CompanyName: Serenity.StringEditor;
         ContactName: Serenity.StringEditor;
+        ProgramList: Serenity.LookupEditor;
         Program: Serenity.LookupEditor;
         ProgramOption: Serenity.LookupEditor;
         ReferralSource: Serenity.StringEditor;
@@ -68,6 +69,7 @@
                     'CustomerID', w0,
                     'CompanyName', w0,
                     'ContactName', w0,
+                    'ProgramList', w1,
                     'Program', w1,
                     'ProgramOption', w1,
                     'ReferralSource', w0,

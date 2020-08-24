@@ -1103,7 +1103,16 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Northwind.MailComposeRequest.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Northwind.MobilityMatters.CustomerListRequest.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Northwind.PermissionKeys.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Northwind.ProgramColumns.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Northwind.ProgramMultipleColumns.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
     <TypeScriptCompile Include="Imports\ServerTypings\Northwind.RiderByCounty.ts">
@@ -1135,6 +1144,7 @@
     <TypeScriptCompile Include="Modules\Common\Helpers\HardcodedValuesGenderEditor.ts" />
     <TypeScriptCompile Include="Modules\Common\Helpers\HardcodedValuesEditor.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Customer\InactiveCustomerGrid.ts" />
+    <TypeScriptCompile Include="Modules\Northwind\Customer\ProgramListFormatter.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Customer\SpecialNeedsListFormatter.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Employees\InactiveEmployeeGrid.ts" />
     <TypeScriptCompile Include="Modules\Northwind\Mail\MailBodyViewer.ts" />
@@ -1877,6 +1887,30 @@
     <TypeScriptCompile Include="Imports\ServerTypings\Northwind.MailAttachmentsForm.ts">
       <DependentUpon>ServerTypings.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Northwind.ProgramRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Northwind.ProgramService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Northwind\Program\ProgramIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Northwind\Program\ProgramDialog.ts" />
+    <TypeScriptCompile Include="Modules\Northwind\Program\ProgramGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Northwind.ProgramForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Northwind.ProgramMultipleRow.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Imports\ServerTypings\Northwind.ProgramMultipleService.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
+    <Content Include="Modules\Northwind\ProgramMultiple\ProgramMultipleIndex.cshtml" />
+    <TypeScriptCompile Include="Modules\Northwind\ProgramMultiple\ProgramMultipleDialog.ts" />
+    <TypeScriptCompile Include="Modules\Northwind\ProgramMultiple\ProgramMultipleGrid.ts" />
+    <TypeScriptCompile Include="Imports\ServerTypings\Northwind.ProgramMultipleForm.ts">
+      <DependentUpon>ServerTypings.tt</DependentUpon>
+    </TypeScriptCompile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
@@ -1910,6 +1944,9 @@
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Imports\ClientTypes\Northwind.MailContentEditorAttribute.cs">
+      <DependentUpon>ClientTypes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Imports\ClientTypes\Northwind.ProgramListFormatterAttribute.cs">
       <DependentUpon>ClientTypes.tt</DependentUpon>
     </Compile>
     <Compile Include="Imports\ClientTypes\Northwind.SpecialNeedsListFormatterAttribute.cs">
@@ -2252,6 +2289,18 @@
     <Compile Include="Modules\Northwind\MailAttachments\MailAttachmentsPage.cs" />
     <Compile Include="Modules\Northwind\MailAttachments\MailAttachmentsColumns.cs" />
     <Compile Include="Modules\Northwind\MailAttachments\MailAttachmentsForm.cs" />
+    <Compile Include="Modules\Northwind\Program\ProgramRow.cs" />
+    <Compile Include="Modules\Northwind\Program\ProgramRepository.cs" />
+    <Compile Include="Modules\Northwind\Program\ProgramEndpoint.cs" />
+    <Compile Include="Modules\Northwind\Program\ProgramPage.cs" />
+    <Compile Include="Modules\Northwind\Program\ProgramColumns.cs" />
+    <Compile Include="Modules\Northwind\Program\ProgramForm.cs" />
+    <Compile Include="Modules\Northwind\ProgramMultiple\ProgramMultipleRow.cs" />
+    <Compile Include="Modules\Northwind\ProgramMultiple\ProgramMultipleRepository.cs" />
+    <Compile Include="Modules\Northwind\ProgramMultiple\ProgramMultipleEndpoint.cs" />
+    <Compile Include="Modules\Northwind\ProgramMultiple\ProgramMultiplePage.cs" />
+    <Compile Include="Modules\Northwind\ProgramMultiple\ProgramMultipleColumns.cs" />
+    <Compile Include="Modules\Northwind\ProgramMultiple\ProgramMultipleForm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

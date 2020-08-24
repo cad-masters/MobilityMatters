@@ -34,6 +34,13 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.CustomerId[this] = value; }
         }
 
+        [DisplayName("Order Id")]
+        public Int32? OrderId
+        {
+            get { return Fields.OrderId[this]; }
+            set { Fields.OrderId[this] = value; }
+        }
+
         /*[DisplayName("Employee Id"), Column("EmployeeID"), NotNull]
         public Int32? EmployeeId
         {
@@ -58,6 +65,7 @@ namespace MobilityMatters.Northwind.Entities
             public Int32Field SpecialNeedsMultipleId;
             public Int32Field SpecialNeedsId;
             public Int32Field CustomerId;
+            public Int32Field OrderId;
             /*public Int32Field EmployeeId;*/
         }
     }

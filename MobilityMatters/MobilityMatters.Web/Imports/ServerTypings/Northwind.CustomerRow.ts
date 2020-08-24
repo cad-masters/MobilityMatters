@@ -39,6 +39,7 @@
         NoteList?: NoteRow[];
         Representatives?: number[];
         SpecialNeedsList?: number[];
+        ProgramList?: number[];
         Email?: string;
         ActiveStr?: string;
         Gender?: string;
@@ -108,6 +109,7 @@
             NoteList = "NoteList",
             Representatives = "Representatives",
             SpecialNeedsList = "SpecialNeedsList",
+            ProgramList = "ProgramList",
             Email = "Email",
             ActiveStr = "ActiveStr",
             Gender = "Gender",

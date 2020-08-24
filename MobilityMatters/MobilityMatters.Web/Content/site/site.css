@@ -7900,3 +7900,15 @@ section.content > .s-DataGrid {
 .s-Northwind-MailAttachmentsDialog .caption {
   width: 150px;
 }
+.s-Northwind-ProgramDialog > .size {
+  width: 650px;
+}
+.s-Northwind-ProgramDialog .caption {
+  width: 150px;
+}
+.s-Northwind-ProgramMultipleDialog > .size {
+  width: 650px;
+}
+.s-Northwind-ProgramMultipleDialog .caption {
+  width: 150px;
+}

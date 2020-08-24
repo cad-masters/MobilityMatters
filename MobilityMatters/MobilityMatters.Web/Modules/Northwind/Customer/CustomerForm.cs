@@ -18,6 +18,8 @@ namespace MobilityMatters.Northwind.Forms
         [HalfWidth]
         public String ContactName { get; set; }
         [HalfWidth]
+        public List<Int32> ProgramList { get; set; }
+        [HalfWidth]
         public String Program { get; set; }
         [HalfWidth]
         public String ProgramOption { get; set; }

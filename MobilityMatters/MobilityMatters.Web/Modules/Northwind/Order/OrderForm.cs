@@ -3,6 +3,7 @@ namespace MobilityMatters.Northwind.Forms
 {
     using Serenity.ComponentModel;
     using System;
+    using System.Collections.Generic;
     using System.ComponentModel;
 
     [FormScript("Northwind.Order")]
@@ -31,7 +32,9 @@ namespace MobilityMatters.Northwind.Forms
         public String CancelReason { get; set; }
         [HalfWidth]
         public String CustomerSpecialNeedsPlainText { get; set; }
-        [HalfWidth, ]
+        //[HalfWidth]
+        //public List<Entities.CustomerRow> CustomerSpecialNeedsList { get; set; }
+        [HalfWidth]
         public String CustomerSpecialConditionsDirections { get; set; }
         /*[Category("Trip Details")]
         [OrderDetailsEditor]

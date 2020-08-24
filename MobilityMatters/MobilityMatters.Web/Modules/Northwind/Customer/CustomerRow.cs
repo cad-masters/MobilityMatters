@@ -13,8 +13,8 @@ namespace MobilityMatters.Northwind.Entities
     [ReadPermission(PermissionKeys.Customer.View)]
     [ModifyPermission(PermissionKeys.Customer.Modify)]
     [DeletePermission(PermissionKeys.Customer.Delete)]
-    [LeftJoin("cd", "CustomerDetails", "cd.[ID] = t0.[ID]", RowType = typeof(CustomerDetailsRow), TitlePrefix = "")]
-    [UpdatableExtension("cd", typeof(CustomerDetailsRow), CascadeDelete = true)]
+    /*[LeftJoin("cd", "CustomerDetails", "cd.[ID] = t0.[ID]", RowType = typeof(CustomerDetailsRow), TitlePrefix = "")]
+    [UpdatableExtension("cd", typeof(CustomerDetailsRow), CascadeDelete = true)]*/
     [LookupScript(typeof(Lookups.CustomerLookup), Expiration = -1)]
     [OuterApply("jLastTrip", "select top 1 * from Orders o where o.CustomerID = t0.CustomerID order by o.OrderDate desc")]
     public sealed class CustomerRow : Row, IIdRow, INameRow
@@ -377,7 +377,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.NoteList[this] = value; }
         }
 
-        [Width(100), TextAreaEditor, DisplayName("Rider Special Needs")]
+        [Width(100), TextAreaEditor, DisplayName("Rider Special Needs (type here for email)")]
         public String SpecialNeedsPlainText
         {
             get { return Fields.SpecialNeedsPlainText[this]; }
@@ -400,7 +400,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Representatives[this] = value; }
         }
 
-        [DisplayName("Old Special Needs")]
+        [DisplayName("Add Special Needs Here (for filtering)"), SpecialNeedsListFormatter]
         [LookupEditor(typeof(SpecialNeedsRow), Multiple = true), NotMapped]
         [LinkingSetRelation(typeof(SpecialNeedsMultipleRow), "CustomerId", "SpecialNeedsId")]
         [MinSelectLevel(SelectLevel.Details)]
@@ -408,6 +408,16 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.SpecialNeedsList[this]; }
             set { Fields.SpecialNeedsList[this] = value; }
+        }
+
+        [DisplayName("Program(Add Here)")]
+        [LookupEditor(typeof(ProgramRow), Multiple = true), NotMapped]
+        [LinkingSetRelation(typeof(ProgramMultipleRow), "CustomerId", "ProgramId")]
+        [MinSelectLevel(SelectLevel.Details)]
+        public List<Int32> ProgramList
+        {
+            get { return Fields.ProgramList[this]; }
+            set { Fields.ProgramList[this] = value; }
         }
 
         [DisplayName("Date of Last Trip"), ReadOnly(true), Expression("jLastTrip.[OrderDate]")]
@@ -475,6 +485,7 @@ namespace MobilityMatters.Northwind.Entities
             public RowListField<NoteRow> NoteList;
             public ListField<Int32> Representatives;
             public ListField<Int32> SpecialNeedsList;
+            public ListField<Int32> ProgramList;
             /*public DateTimeField LastContactDate;
             public Int32Field LastContactedBy;*/
             public StringField Email;

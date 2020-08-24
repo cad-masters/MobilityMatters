@@ -1,6 +1,7 @@
 ﻿
 namespace MobilityMatters.Northwind.Entities
 {
+    using MobilityMatters.Helpers;
     using Serenity.ComponentModel;
     using Serenity.Data;
     using Serenity.Data.Mapping;
@@ -137,14 +138,14 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.Country[this] = value; }
         }
 
-        [DisplayName("Phone #"), Size(24)]
+        [DisplayName("Home Phone #"), Size(24)]
         public String HomePhone
         {
             get { return Fields.HomePhone[this]; }
             set { Fields.HomePhone[this] = value; }
         }
 
-        [DisplayName("Extension"), Size(4)]
+        [DisplayName("Cell Phone #")]
         public String Extension
         {
             get { return Fields.Extension[this]; }
@@ -373,7 +374,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.PoliceClearance[this] = value; }
         }
 
-        [DisplayName("COVID-19 Test Results"), Size(30) /*Helpers.HardcodedValuesCOVIDEditor*/]
+        [DisplayName("COVID-19 Test Results"), Size(30), HardcodedValuesCOVIDEditor]
         public String COVIDResults
         {
             get { return Fields.COVIDResults[this]; }

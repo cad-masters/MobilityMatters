@@ -158,6 +158,16 @@ namespace MVC
                 public const string ProductIndex = "~/Modules/Northwind/Product/ProductIndex.cshtml";
             }
 
+            public static class Program
+            {
+                public const string ProgramIndex = "~/Modules/Northwind/Program/ProgramIndex.cshtml";
+            }
+
+            public static class ProgramMultiple
+            {
+                public const string ProgramMultipleIndex = "~/Modules/Northwind/ProgramMultiple/ProgramMultipleIndex.cshtml";
+            }
+
             public static class Region
             {
                 public const string RegionIndex = "~/Modules/Northwind/Region/RegionIndex.cshtml";

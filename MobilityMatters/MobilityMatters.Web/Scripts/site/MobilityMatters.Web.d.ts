@@ -1182,6 +1182,7 @@ declare namespace MobilityMatters.Northwind {
         CustomerID: Serenity.StringEditor;
         CompanyName: Serenity.StringEditor;
         ContactName: Serenity.StringEditor;
+        ProgramList: Serenity.LookupEditor;
         Program: Serenity.LookupEditor;
         ProgramOption: Serenity.LookupEditor;
         ReferralSource: Serenity.StringEditor;
@@ -1312,6 +1313,7 @@ declare namespace MobilityMatters.Northwind {
         NoteList?: NoteRow[];
         Representatives?: number[];
         SpecialNeedsList?: number[];
+        ProgramList?: number[];
         Email?: string;
         ActiveStr?: string;
         Gender?: string;
@@ -1376,6 +1378,7 @@ declare namespace MobilityMatters.Northwind {
             NoteList = "NoteList",
             Representatives = "Representatives",
             SpecialNeedsList = "SpecialNeedsList",
+            ProgramList = "ProgramList",
             Email = "Email",
             ActiveStr = "ActiveStr",
             Gender = "Gender",
@@ -2046,6 +2049,11 @@ declare namespace MobilityMatters.Northwind {
         }
     }
 }
+declare namespace Northwind.MobilityMatters {
+    interface CustomerListRequest extends Serenity.ListRequest {
+        Programs?: number[];
+    }
+}
 declare namespace MobilityMatters.Northwind {
     interface NoteRow {
         NoteId?: number;
@@ -2618,6 +2626,106 @@ declare namespace MobilityMatters.Northwind {
             Delete = "Northwind/Product/Delete",
             Retrieve = "Northwind/Product/Retrieve",
             List = "Northwind/Product/List"
+        }
+    }
+}
+declare namespace MobilityMatters.Northwind {
+}
+declare namespace MobilityMatters.Northwind {
+    interface ProgramForm {
+        Name: Serenity.StringEditor;
+    }
+    class ProgramForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace MobilityMatters.Northwind {
+}
+declare namespace MobilityMatters.Northwind {
+    interface ProgramMultipleForm {
+        ProgramId: Serenity.IntegerEditor;
+        CustomerId: Serenity.IntegerEditor;
+    }
+    class ProgramMultipleForm extends Serenity.PrefixedContext {
+        static formKey: string;
+        private static init;
+        constructor(prefix: string);
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface ProgramMultipleRow {
+        ProgramMultipleId?: number;
+        ProgramId?: number;
+        CustomerId?: number;
+    }
+    namespace ProgramMultipleRow {
+        const idProperty = "ProgramMultipleId";
+        const localTextPrefix = "Northwind.ProgramMultiple";
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            ProgramMultipleId = "ProgramMultipleId",
+            ProgramId = "ProgramId",
+            CustomerId = "CustomerId"
+        }
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    namespace ProgramMultipleService {
+        const baseUrl = "Northwind/ProgramMultiple";
+        function Create(request: Serenity.SaveRequest<ProgramMultipleRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ProgramMultipleRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ProgramMultipleRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ProgramMultipleRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Northwind/ProgramMultiple/Create",
+            Update = "Northwind/ProgramMultiple/Update",
+            Delete = "Northwind/ProgramMultiple/Delete",
+            Retrieve = "Northwind/ProgramMultiple/Retrieve",
+            List = "Northwind/ProgramMultiple/List"
+        }
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    interface ProgramRow {
+        ProgramId?: number;
+        Name?: string;
+    }
+    namespace ProgramRow {
+        const idProperty = "ProgramId";
+        const nameProperty = "Name";
+        const localTextPrefix = "Northwind.Program";
+        const lookupKey = "Northwind.Program";
+        function getLookup(): Q.Lookup<ProgramRow>;
+        const deletePermission = "Administration:General";
+        const insertPermission = "Administration:General";
+        const readPermission = "Administration:General";
+        const updatePermission = "Administration:General";
+        const enum Fields {
+            ProgramId = "ProgramId",
+            Name = "Name"
+        }
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    namespace ProgramService {
+        const baseUrl = "Northwind/Program";
+        function Create(request: Serenity.SaveRequest<ProgramRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Update(request: Serenity.SaveRequest<ProgramRow>, onSuccess?: (response: Serenity.SaveResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Delete(request: Serenity.DeleteRequest, onSuccess?: (response: Serenity.DeleteResponse) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function Retrieve(request: Serenity.RetrieveRequest, onSuccess?: (response: Serenity.RetrieveResponse<ProgramRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        function List(request: Serenity.ListRequest, onSuccess?: (response: Serenity.ListResponse<ProgramRow>) => void, opt?: Q.ServiceOptions<any>): JQueryXHR;
+        const enum Methods {
+            Create = "Northwind/Program/Create",
+            Update = "Northwind/Program/Update",
+            Delete = "Northwind/Program/Delete",
+            Retrieve = "Northwind/Program/Retrieve",
+            List = "Northwind/Program/List"
         }
     }
 }
@@ -3810,6 +3918,11 @@ declare namespace MobilityMatters.Northwind {
     }
 }
 declare namespace MobilityMatters.Northwind {
+    class ProgramListFormatter implements Slick.Formatter {
+        format(ctx: Slick.FormatterContext): string;
+    }
+}
+declare namespace MobilityMatters.Northwind {
     class SpecialNeedsListFormatter implements Slick.Formatter {
         format(ctx: Slick.FormatterContext): string;
     }
@@ -4070,6 +4183,45 @@ declare namespace MobilityMatters.Northwind {
         private setSaveButtonState;
         private saveClick;
         protected getQuickFilters(): Serenity.QuickFilter<Serenity.Widget<any>, any>[];
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    class ProgramDialog extends Serenity.EntityDialog<ProgramRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getNameProperty(): string;
+        protected getService(): string;
+        protected form: ProgramForm;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    class ProgramGrid extends Serenity.EntityGrid<ProgramRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ProgramDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    class ProgramMultipleDialog extends Serenity.EntityDialog<ProgramMultipleRow, any> {
+        protected getFormKey(): string;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        protected form: ProgramMultipleForm;
+    }
+}
+declare namespace MobilityMatters.Northwind {
+    class ProgramMultipleGrid extends Serenity.EntityGrid<ProgramMultipleRow, any> {
+        protected getColumnsKey(): string;
+        protected getDialogType(): typeof ProgramMultipleDialog;
+        protected getIdProperty(): string;
+        protected getLocalTextPrefix(): string;
+        protected getService(): string;
+        constructor(container: JQuery);
     }
 }
 declare namespace MobilityMatters.Northwind {

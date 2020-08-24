@@ -24,7 +24,10 @@ namespace MobilityMatters.Northwind.Forms
         public String LastName { get; set; }
         [HalfWidth]
         public String FirstName { get; set; }
+        [HalfWidth]
         public String HomePhone { get; set; }
+        [HalfWidth]
+        public String Extension { get; set; }
         public String Email { get; set; }
         [Category("Emergency Contact")]
         [HalfWidth]
