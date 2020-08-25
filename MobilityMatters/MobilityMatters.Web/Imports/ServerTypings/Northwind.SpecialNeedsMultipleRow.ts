@@ -3,6 +3,7 @@
         SpecialNeedsMultipleId?: number;
         SpecialNeedsId?: number;
         CustomerId?: number;
+        OrderId?: number;
     }
 
     export namespace SpecialNeedsMultipleRow {
@@ -16,7 +17,8 @@
         export declare const enum Fields {
             SpecialNeedsMultipleId = "SpecialNeedsMultipleId",
             SpecialNeedsId = "SpecialNeedsId",
-            CustomerId = "CustomerId"
+            CustomerId = "CustomerId",
+            OrderId = "OrderId"
         }
     }
 }

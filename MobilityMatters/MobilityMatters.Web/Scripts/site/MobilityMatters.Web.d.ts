@@ -1217,6 +1217,7 @@ declare namespace MobilityMatters.Northwind {
         EIO: Serenity.BooleanEditor;
         PreferredHospital: Serenity.StringEditor;
         Smoker: Serenity.BooleanEditor;
+        NotesPlainText: Serenity.TextAreaEditor;
         Medical: Serenity.StringEditor;
         Dental: Serenity.StringEditor;
         Groceries: Serenity.StringEditor;
@@ -1326,6 +1327,7 @@ declare namespace MobilityMatters.Northwind {
         AgeCalc?: number;
         DateOfLastTrip?: string;
         SpecialNeedsPlainText?: string;
+        NotesPlainText?: string;
         SpecialConditionsDirections?: string;
     }
     namespace CustomerRow {
@@ -1391,6 +1393,7 @@ declare namespace MobilityMatters.Northwind {
             AgeCalc = "AgeCalc",
             DateOfLastTrip = "DateOfLastTrip",
             SpecialNeedsPlainText = "SpecialNeedsPlainText",
+            NotesPlainText = "NotesPlainText",
             SpecialConditionsDirections = "SpecialConditionsDirections"
         }
     }
@@ -1616,10 +1619,11 @@ declare namespace MobilityMatters.Northwind {
         LastName: Serenity.StringEditor;
         FirstName: Serenity.StringEditor;
         HomePhone: Serenity.StringEditor;
+        Extension: Serenity.StringEditor;
         Email: Serenity.EmailEditor;
         EmergencyName: Serenity.StringEditor;
         EmergencyPhone: Serenity.StringEditor;
-        COVIDResults: Serenity.StringEditor;
+        COVIDResults: Helpers.HardcodedValuesCOVIDEditor;
         COVIDTestDate: Serenity.DateEditor;
         Address: Serenity.StringEditor;
         City: Serenity.StringEditor;
@@ -2047,11 +2051,6 @@ declare namespace MobilityMatters.Northwind {
             List = "Northwind/Mail/List",
             Compose = "Northwind/Mail/Compose"
         }
-    }
-}
-declare namespace Northwind.MobilityMatters {
-    interface CustomerListRequest extends Serenity.ListRequest {
-        Programs?: number[];
     }
 }
 declare namespace MobilityMatters.Northwind {
@@ -2894,6 +2893,7 @@ declare namespace MobilityMatters.Northwind {
         SpecialNeedsMultipleId?: number;
         SpecialNeedsId?: number;
         CustomerId?: number;
+        OrderId?: number;
     }
     namespace SpecialNeedsMultipleRow {
         const idProperty = "SpecialNeedsMultipleId";
@@ -2905,7 +2905,8 @@ declare namespace MobilityMatters.Northwind {
         const enum Fields {
             SpecialNeedsMultipleId = "SpecialNeedsMultipleId",
             SpecialNeedsId = "SpecialNeedsId",
-            CustomerId = "CustomerId"
+            CustomerId = "CustomerId",
+            OrderId = "OrderId"
         }
     }
 }

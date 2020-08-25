@@ -43,7 +43,7 @@ namespace MobilityMatters.Common.Pages
                         model.ActiveEmployeeCount = connection.Count<EmployeesRow>(e.Inactive == 0);
                         model.ActiveCustomerCount = connection.Count<CustomerRow>(r.Active == 0);
                         //model.OrderCount = connection.Count<OrderRow>();
-                        //model.OrderCount = connection.Query<int>(orderquery).FirstOrDefault();
+                        model.OrderCount = connection.Query<int>(orderquery).FirstOrDefault();
 
                         model.ClientsByCity = ClientsByCity(connection);
                         model.ClientsByAge = ClientsByAgeRange(connection);

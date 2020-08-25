@@ -106,6 +106,8 @@ namespace MobilityMatters.Northwind.Forms
         [HalfWidth, BooleanFormatter]
         public Boolean Smoker { get; set; }
 
+        public String NotesPlainText { get; set; }
+
         [Category("Transportation")]
         [HalfWidth]
         public String Medical { get; set; }

@@ -38,6 +38,7 @@
         EIO: Serenity.BooleanEditor;
         PreferredHospital: Serenity.StringEditor;
         Smoker: Serenity.BooleanEditor;
+        NotesPlainText: Serenity.TextAreaEditor;
         Medical: Serenity.StringEditor;
         Dental: Serenity.StringEditor;
         Groceries: Serenity.StringEditor;
@@ -104,6 +105,7 @@
                     'EIO', w2,
                     'PreferredHospital', w0,
                     'Smoker', w2,
+                    'NotesPlainText', w8,
                     'Medical', w0,
                     'Dental', w0,
                     'Groceries', w0,

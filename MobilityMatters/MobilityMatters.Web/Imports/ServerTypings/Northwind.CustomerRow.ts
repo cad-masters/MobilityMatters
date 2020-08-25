@@ -52,6 +52,7 @@
         AgeCalc?: number;
         DateOfLastTrip?: string;
         SpecialNeedsPlainText?: string;
+        NotesPlainText?: string;
         SpecialConditionsDirections?: string;
     }
 
@@ -122,6 +123,7 @@
             AgeCalc = "AgeCalc",
             DateOfLastTrip = "DateOfLastTrip",
             SpecialNeedsPlainText = "SpecialNeedsPlainText",
+            NotesPlainText = "NotesPlainText",
             SpecialConditionsDirections = "SpecialConditionsDirections"
         }
     }

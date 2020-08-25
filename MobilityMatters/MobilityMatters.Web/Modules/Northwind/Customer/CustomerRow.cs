@@ -377,6 +377,13 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.NoteList[this] = value; }
         }
 
+        [Width(100), TextAreaEditor, DisplayName("Notes")]
+        public String NotesPlainText
+        {
+            get { return Fields.NotesPlainText[this]; }
+            set { Fields.NotesPlainText[this] = value; }
+        }
+
         [Width(100), TextAreaEditor, DisplayName("Rider Special Needs (type here for email)")]
         public String SpecialNeedsPlainText
         {
@@ -504,6 +511,7 @@ namespace MobilityMatters.Northwind.Entities
 
 
             public StringField SpecialNeedsPlainText;
+            public StringField NotesPlainText;
             public StringField SpecialConditionsDirections;
 
         }

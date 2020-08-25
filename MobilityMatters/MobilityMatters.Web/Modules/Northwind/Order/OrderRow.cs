@@ -353,7 +353,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.AppointmentTime[this] = value; }
         }
 
-        [DisplayName("Appt. Type"), Size(10), LookupEditor(typeof(Lookups.OrderApptTypeLookup)), QuickFilter]
+        [DisplayName("Appt. Type"), Size(100), LookupEditor(typeof(Lookups.OrderApptTypeLookup)), QuickFilter]
         public String ApptType
         {
             get { return Fields.ApptType[this]; }
@@ -496,14 +496,14 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.AppointmentTime2[this] = value; }
         }
 
-        [DisplayName("Appt. Type"), Size(10)]
+        [DisplayName("Appt. Type"), Size(100)]
         public String ApptType2
         {
             get { return Fields.ApptType2[this]; }
             set { Fields.ApptType2[this] = value; }
         }
 
-        [DisplayName("Appt. Type"), Size(10)]
+        [DisplayName("Appt. Type"), Size(100)]
         public String ApptType3
         {
             get { return Fields.ApptType3[this]; }
