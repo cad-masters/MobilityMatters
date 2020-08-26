@@ -2166,6 +2166,7 @@ declare namespace MobilityMatters.Northwind {
     interface OrderForm {
         OrderID: Serenity.IntegerEditor;
         CustomerID: CustomerEditor;
+        CustomerProgram: Serenity.StringEditor;
         OrderDate: Serenity.DateEditor;
         RequiredDate: Serenity.StringEditor;
         EmployeeID: Serenity.LookupEditor;
@@ -2173,7 +2174,7 @@ declare namespace MobilityMatters.Northwind {
         ConfirmRide: Serenity.BooleanEditor;
         RideCompleted: Serenity.BooleanEditor;
         Cancelled: Serenity.BooleanEditor;
-        CancelReason: Serenity.StringEditor;
+        CancelReason: Serenity.TextAreaEditor;
         CustomerSpecialNeedsPlainText: Serenity.TextAreaEditor;
         CustomerSpecialConditionsDirections: Serenity.TextAreaEditor;
         AppointmentTime: Serenity.StringEditor;
@@ -2296,6 +2297,7 @@ declare namespace MobilityMatters.Northwind {
         CustomerRegion?: string;
         CustomerCountry?: string;
         CustomerPhone?: string;
+        CustomerProgram?: string;
         CustomerTEMP?: boolean;
         CustomerSpecialNeedsList?: number[];
         CustomerSpecialNeedsPlainText?: string;
@@ -2391,6 +2393,7 @@ declare namespace MobilityMatters.Northwind {
             CustomerRegion = "CustomerRegion",
             CustomerCountry = "CustomerCountry",
             CustomerPhone = "CustomerPhone",
+            CustomerProgram = "CustomerProgram",
             CustomerTEMP = "CustomerTEMP",
             CustomerSpecialNeedsList = "CustomerSpecialNeedsList",
             CustomerSpecialNeedsPlainText = "CustomerSpecialNeedsPlainText",

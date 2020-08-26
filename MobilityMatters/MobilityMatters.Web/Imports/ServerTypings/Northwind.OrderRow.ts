@@ -71,6 +71,7 @@
         CustomerRegion?: string;
         CustomerCountry?: string;
         CustomerPhone?: string;
+        CustomerProgram?: string;
         CustomerTEMP?: boolean;
         CustomerSpecialNeedsList?: number[];
         CustomerSpecialNeedsPlainText?: string;
@@ -171,6 +172,7 @@
             CustomerRegion = "CustomerRegion",
             CustomerCountry = "CustomerCountry",
             CustomerPhone = "CustomerPhone",
+            CustomerProgram = "CustomerProgram",
             CustomerTEMP = "CustomerTEMP",
             CustomerSpecialNeedsList = "CustomerSpecialNeedsList",
             CustomerSpecialNeedsPlainText = "CustomerSpecialNeedsPlainText",

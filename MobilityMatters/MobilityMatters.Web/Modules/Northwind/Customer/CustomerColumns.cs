@@ -41,7 +41,7 @@ namespace MobilityMatters.Northwind.Columns
         public String City { get; set; }
         [Width(50)]
         public String Region { get; set; }
-        [Width(130), FilterOnly, LookupEditor(typeof(Lookups.CustomerDetailsTEMPLookup)), QuickFilter(CssClass = "hidden-xs")]
+        [Width(130), LookupEditor(typeof(Lookups.CustomerDetailsTEMPLookup)), QuickFilter(CssClass = "hidden-xs")]
         public String PostalCode { get; set; }
         [Width(65), SpecialNeedsListFormatter, QuickFilter]
         public List<Int32> SpecialNeedsList { get; set; }

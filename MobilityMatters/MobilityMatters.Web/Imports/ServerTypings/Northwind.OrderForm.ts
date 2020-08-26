@@ -2,6 +2,7 @@
     export interface OrderForm {
         OrderID: Serenity.IntegerEditor;
         CustomerID: CustomerEditor;
+        CustomerProgram: Serenity.StringEditor;
         OrderDate: Serenity.DateEditor;
         RequiredDate: Serenity.StringEditor;
         EmployeeID: Serenity.LookupEditor;
@@ -9,7 +10,7 @@
         ConfirmRide: Serenity.BooleanEditor;
         RideCompleted: Serenity.BooleanEditor;
         Cancelled: Serenity.BooleanEditor;
-        CancelReason: Serenity.StringEditor;
+        CancelReason: Serenity.TextAreaEditor;
         CustomerSpecialNeedsPlainText: Serenity.TextAreaEditor;
         CustomerSpecialConditionsDirections: Serenity.TextAreaEditor;
         AppointmentTime: Serenity.StringEditor;
@@ -62,8 +63,8 @@
                 var s = Serenity;
                 var w0 = s.IntegerEditor;
                 var w1 = CustomerEditor;
-                var w2 = s.DateEditor;
-                var w3 = s.StringEditor;
+                var w2 = s.StringEditor;
+                var w3 = s.DateEditor;
                 var w4 = s.LookupEditor;
                 var w5 = Helpers.HardcodedValuesEditor;
                 var w6 = s.BooleanEditor;
@@ -73,48 +74,49 @@
                 Q.initFormType(OrderForm, [
                     'OrderID', w0,
                     'CustomerID', w1,
-                    'OrderDate', w2,
-                    'RequiredDate', w3,
+                    'CustomerProgram', w2,
+                    'OrderDate', w3,
+                    'RequiredDate', w2,
                     'EmployeeID', w4,
                     'HowMany', w5,
                     'ConfirmRide', w6,
                     'RideCompleted', w6,
                     'Cancelled', w6,
-                    'CancelReason', w3,
+                    'CancelReason', w7,
                     'CustomerSpecialNeedsPlainText', w7,
                     'CustomerSpecialConditionsDirections', w7,
-                    'AppointmentTime', w3,
-                    'ShipAddress', w3,
-                    'ShipCity', w3,
-                    'ShipPostalCode', w3,
-                    'DestinationAddress', w3,
-                    'DestinationApartment', w3,
-                    'DestinationCity', w3,
-                    'DestinationZip', w3,
-                    'ApptTime', w3,
+                    'AppointmentTime', w2,
+                    'ShipAddress', w2,
+                    'ShipCity', w2,
+                    'ShipPostalCode', w2,
+                    'DestinationAddress', w2,
+                    'DestinationApartment', w2,
+                    'DestinationCity', w2,
+                    'DestinationZip', w2,
+                    'ApptTime', w2,
                     'ApptType', w4,
-                    'DistanceText', w3,
-                    'DurationText', w3,
-                    'AppointmentTime2', w3,
-                    'DestinationAddress2', w3,
-                    'DestinationApartment2', w3,
-                    'DestinationCity2', w3,
-                    'DestinationZip2', w3,
-                    'ApptTime2', w3,
-                    'ApptType2', w3,
-                    'DistanceText2', w3,
-                    'DurationText2', w3,
-                    'AppointmentTime3', w3,
-                    'DestinationAddress3', w3,
-                    'DestinationApartment3', w3,
-                    'DestinationCity3', w3,
-                    'DestinationZip3', w3,
-                    'ApptTime3', w3,
-                    'ApptType3', w3,
-                    'DistanceText3', w3,
-                    'DurationText3', w3,
-                    'ActualTotalHours', w3,
-                    'ActualTotalMileage', w3,
+                    'DistanceText', w2,
+                    'DurationText', w2,
+                    'AppointmentTime2', w2,
+                    'DestinationAddress2', w2,
+                    'DestinationApartment2', w2,
+                    'DestinationCity2', w2,
+                    'DestinationZip2', w2,
+                    'ApptTime2', w2,
+                    'ApptType2', w2,
+                    'DistanceText2', w2,
+                    'DurationText2', w2,
+                    'AppointmentTime3', w2,
+                    'DestinationAddress3', w2,
+                    'DestinationApartment3', w2,
+                    'DestinationCity3', w2,
+                    'DestinationZip3', w2,
+                    'ApptTime3', w2,
+                    'ApptType3', w2,
+                    'DistanceText3', w2,
+                    'DurationText3', w2,
+                    'ActualTotalHours', w2,
+                    'ActualTotalMileage', w2,
                     'Cost', w8,
                     'Paid', w6,
                     'ReceiptReceived', w6

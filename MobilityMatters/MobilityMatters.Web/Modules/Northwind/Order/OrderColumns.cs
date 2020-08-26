@@ -22,6 +22,7 @@ namespace MobilityMatters.Northwind.Columns
         [EditLink, Width(150)]
         public String CustomerCompanyName { get; set; }
         public String CustomerContactName { get; set; }
+        public String CustomerProgram { get; set; }
         public String CustomerPhone { get; set; }
         [Width(60)]
         public Boolean CustomerTEMP { get; set; }

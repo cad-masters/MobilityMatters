@@ -14,6 +14,7 @@ namespace MobilityMatters.Common
         public int ActiveEmployeeCount { get; set; }
         public int EmployeeCount { get; set; }
         public int OrderCount { get; set; }
+        public int CancelledOrderCount { get; set; }
         public int ContraCostaRiders { get; set; }
         public int AlamedaRiders { get; set; }
         public List<ClientReportModel> ClientsByCity { get; set; }

@@ -8,6 +8,7 @@ namespace MobilityMatters.Northwind.Entities
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Linq;
 
     [ConnectionKey("Northwind"), Module("Northwind"), TableName("Orders")]
     [DisplayName("Trips"), InstanceName("Trip")]
@@ -39,6 +40,13 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.CustomerCompanyName[this]; }
             set { Fields.CustomerCompanyName[this] = value; }
+        }
+
+        [Origin("c"), DisplayName("Rider Status"), ReadOnly(true), LookupInclude]
+        public String CustomerProgram
+        {
+            get { return Fields.CustomerProgram[this]; }
+            set { Fields.CustomerProgram[this] = value; }
         }
 
         [DisplayName("Volunteer"), ForeignKey(typeof(EmployeeRow)), LeftJoin("e")]
@@ -126,7 +134,7 @@ namespace MobilityMatters.Northwind.Entities
             set { Fields.ConfirmRide[this] = value; }
         }
 
-        [DisplayName("Cancel Reason")]
+        [DisplayName("Cancel Reason"), TextAreaEditor]
         public String CancelReason
         {
             get { return Fields.CancelReason[this]; }
@@ -229,6 +237,13 @@ namespace MobilityMatters.Northwind.Entities
         {
             get { return Fields.DestinationCity[this]; }
             set { Fields.DestinationCity[this] = value; }
+        }
+
+        [DisplayName("CancelledStr"), Size(15)]
+        public String CancelledStr
+        {
+            get { return Fields.CancelledStr[this]; }
+            set { Fields.CancelledStr[this] = value; }
         }
 
 
@@ -719,6 +734,7 @@ namespace MobilityMatters.Northwind.Entities
             public StringField CustomerRegion;
             public StringField CustomerCountry;
             public StringField CustomerPhone;
+            public StringField CustomerProgram;
             public BooleanField CustomerTEMP;
             public ListField<Int32> CustomerSpecialNeedsList;
             public StringField CustomerSpecialNeedsPlainText;
@@ -731,6 +747,7 @@ namespace MobilityMatters.Northwind.Entities
 
             public StringField ShipViaCompanyName;
             public StringField ShipViaPhone;
+            public StringField CancelledStr;
 
             public Int32Field ShippingState;
             public RowListField<OrderDetailRow> DetailList;

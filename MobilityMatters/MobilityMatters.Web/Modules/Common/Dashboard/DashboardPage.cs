@@ -28,7 +28,11 @@ namespace MobilityMatters.Common.Pages
                     SqlQuery orderquery = new SqlQuery();
                     orderquery.Select("SUM(" + OrderRow.Fields.HowMany.Name + ")")
                         .From(OrderRow.Fields).Where(OrderRow.Fields.HowMany.IsNotNull());
-                    
+
+                    SqlQuery cancelledorderquery = new SqlQuery();
+                    cancelledorderquery.Select("SUM(" + OrderRow.Fields.HowManyInt.Name + ")")
+                        .From(OrderRow.Fields).Where(OrderRow.Fields.Cancelled == 1);
+
 
                     using (var connection = SqlConnections.NewFor<OrderRow>())
                     {
@@ -43,7 +47,9 @@ namespace MobilityMatters.Common.Pages
                         model.ActiveEmployeeCount = connection.Count<EmployeesRow>(e.Inactive == 0);
                         model.ActiveCustomerCount = connection.Count<CustomerRow>(r.Active == 0);
                         //model.OrderCount = connection.Count<OrderRow>();
-                        model.OrderCount = connection.Query<int>(orderquery).FirstOrDefault();
+                        model.OrderCount = connection.Query<int>(orderquery).FirstOrDefault()- connection.Query<int>(cancelledorderquery).FirstOrDefault()/*- connection.Count<OrderRow>(o.Cancelled == 1)*/;
+                        model.CancelledOrderCount = connection.Query<int>(cancelledorderquery).FirstOrDefault();
+                        
 
                         model.ClientsByCity = ClientsByCity(connection);
                         model.ClientsByAge = ClientsByAgeRange(connection);

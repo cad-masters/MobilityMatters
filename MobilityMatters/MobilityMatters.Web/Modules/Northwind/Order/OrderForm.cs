@@ -14,7 +14,10 @@ namespace MobilityMatters.Northwind.Forms
         [Category("Trip Info")]
         [Hidden]
         public Int32? OrderID { get; set; }
+        [HalfWidth]
         public String CustomerID { get; set; }
+        [HalfWidth]
+        public String CustomerProgram { get; set; }
         [DefaultValue("now")]
         [DateFormatter]
         public DateTime OrderDate { get; set; }
